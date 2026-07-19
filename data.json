@@ -1,0 +1,3182 @@
+{
+ "meta": {
+  "updated": "2026-07-19",
+  "fx": {
+   "USD": 85.12,
+   "GBP": 116.92,
+   "CAD": 59.49,
+   "AUD": 55.16,
+   "NZD": 50.0
+  }
+ },
+ "config": {
+  "buyThreshold": 0.25,
+  "maybeThreshold": 0.1,
+  "forexPct": 0.03,
+  "overheadPct": 0.1,
+  "delivery": 0,
+  "bgiDefaultDiscount": 0.1
+ },
+ "games": [
+  {
+   "name": "7 Wonders: Architects – Medals",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Adulthood",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Agent Avenue",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Akropolis",
+   "type": "Boardgame",
+   "bgoId": "18XRhCd2-R",
+   "indiaUrl": "https://www.boardgamesindia.com/akropolis-gigamic",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Avant Carde",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Backstories: Alone under the Ice",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Betrayal at House on the Hill: 3rd Edition",
+   "type": "Boardgame",
+   "bgoId": "xpbQrCbx0n",
+   "indiaUrl": "https://www.boardgamesindia.com/on-demand/betrayal-at-house-on-the-hill-3rd-edition-avalon-hill",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Between Two Castles Essential Edition",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Bites",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Burgle Bros 2: The Casino Capers",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Caesar!: Seize Rome in 20 minutes",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Caper: Europe",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Capital Lux 2: Generations",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Captain Flip",
+   "type": "Boardgame",
+   "bgoId": "rN_LDV4ctI",
+   "indiaUrl": "https://www.boardgamesindia.com/captain-flip",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Cartographers",
+   "type": "Boardgame",
+   "bgoId": "cM4QCD3zYX",
+   "indiaUrl": "https://www.boardgamesindia.com/cartographers-thunderworks-games",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": {
+    "price": 2800,
+    "source": "Board Games India",
+    "stock": ""
+   }
+  },
+  {
+   "name": "Cascadia",
+   "type": "Boardgame",
+   "bgoId": "12975B7EQh",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": {
+    "price": 3300,
+    "source": "Board Games India",
+    "stock": "In stock"
+   }
+  },
+  {
+   "name": "Chit Chat",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Clank!: Catacombs",
+   "type": "Boardgame",
+   "bgoId": "riDpYrS7rp",
+   "indiaUrl": "https://www.boardgamesindia.com/clank-catacombs-dire-wolf",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": {
+    "price": 6500,
+    "source": "Board Games India",
+    "stock": "Pre-order"
+   }
+  },
+  {
+   "name": "Colt Express: Couriers & Armored Train",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Dabba Walla",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Décorum",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Decrypto: Expansion #01 – Laserdrive",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Detective Club",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Dorfromantik: The Board Game",
+   "type": "Boardgame",
+   "bgoId": "ZMnXUYGRJV",
+   "indiaUrl": "https://www.boardgamesindia.com/dorfromantik-the-board-game-pegasus-spiele",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": {
+    "price": 4000,
+    "source": "Board Games India",
+    "stock": ""
+   }
+  },
+  {
+   "name": "Draftosaurus",
+   "type": "Boardgame",
+   "bgoId": "1fceNlC8dC",
+   "indiaUrl": "https://www.boardgamesindia.com/draftosaurus",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Dying Message",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Faraway: People From Below",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Final Girl: Frightmare on Maple Lane",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Fireball Island: Race to Adventure",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Forest Shuffle",
+   "type": "Boardgame",
+   "bgoId": "eJORAg6hls",
+   "indiaUrl": "https://www.boardgamesindia.com/forest-shuffle",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": {
+    "price": 3000,
+    "source": "Board Games India",
+    "stock": ""
+   }
+  },
+  {
+   "name": "Foundations of Metropolis",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Fugitive (Second Edition)",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Hamster roll",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Harmonies",
+   "type": "Boardgame",
+   "bgoId": "46AnulxktA",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": {
+    "price": 3800,
+    "source": "Board Games India",
+    "stock": "Pre-order"
+   }
+  },
+  {
+   "name": "Heat: Heavy Rain",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Heat: Tunnel Vision",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "High Society",
+   "type": "Boardgame",
+   "bgoId": "q2p8_Jtk8p",
+   "indiaUrl": "https://www.boardgamesindia.com/high-society",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": {
+    "price": 2199,
+    "source": "Board Games India",
+    "stock": "Pre-order"
+   }
+  },
+  {
+   "name": "HITSTER",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Hive",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Horrified",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "I C E: Second Edition",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Insider Black",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Jamaica",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Junk Art",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Kabuto Sumo",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Kariba",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "King of 12",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "L.L.A.M.A.",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Landmarks",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Lightning Train",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Lost Cities: The Board Game",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Machi Koro 2",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "MicroMacro: Crime City – All In",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "MicroMacro: Crime City – Bonus Box",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "MicroMacro: Crime City – Full House",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "MicroMacro: Crime City – Showdown",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Moon Colony Bloodbath",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Moonrollers",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Muffin Time: Pie Flavour Pack",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Muffin Time: Rainbow Pack",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Nidavellir: Thingvellir",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Parks (Second Edition)",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Patchwork: Automa",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Pirates of Maracaibo",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Planet Unknown",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Point City",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Project L: Ambassador Pack",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Project L: Finesse",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Project L: Finesse Ambassador Pack",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Quacks",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Quest",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Ra",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Railroad Ink: Deep Blue Edition",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Railroad Tiles",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Red Carpet",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Sagrada",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Santorini",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Schotten Totten",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Sea Salt & Paper",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Sky Team: Turbulence",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "So Clover!",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Sobek: 2 Players",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Spicy",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Steampunk Rally Fusion",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Stockpile",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Strike",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Subjective",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Suburbia",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Takenoko",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "TEAM3 GREEN",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "TEAM3 PINK",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Terraforming Mars: Ares Expedition",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "That's Not a Hat: Pop Culture",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "The Castles of Burgundy",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "The LOOP: Fur Brigade",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "The LOOP: The Revenge of Fauxzilla",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "The Office: Paper Paranoia",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "The Shipwreck Arcana",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Thunder Road: Vendetta",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Trial by Trolley: Derailed Edition",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Trial by Trolley: Kickstarter Expansion",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Trial by Trolley: R-Rated Modifier Expansion",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Trial by Trolley: R-Rated Track Expansion",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Trial By Trolley: Vacation Expansion",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Unstable Unicorns: Dragons Expansion Pack",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Unstable Unicorns: NSFW Pack",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Unstable Unicorns: Rainbow Apocalypse Expansion Pack",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Unstable Unicorns: Unicorns of Legend Expansion Pack",
+   "type": "Expansion",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Unstoppable",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Western Legends",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Wingspan",
+   "type": "Boardgame",
+   "bgoId": "1cF2LLZC_o",
+   "indiaUrl": "https://www.boardgamesindia.com/wingspan-with-swift-start-pack",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": 55.0,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": "In stock",
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": {
+    "price": 5500,
+    "source": "Board Games India",
+    "stock": "In stock"
+   }
+  },
+  {
+   "name": "Wingspan Asia",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Staccs",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "This bed is mine",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Wroth",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Magical athlete",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Viticulture",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Hot streak",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Bang! The Dice Game",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Jibber jabble",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Pinched",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Solstis",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Skull King",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Fliptoons",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "A carnivore did it",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Ruins",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Petiquette",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Popcorn",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Durian",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Radlands",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Bank Heist",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Pool party",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Collect",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "K3",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Catan",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  },
+  {
+   "name": "Legacy of Yu",
+   "type": "Boardgame",
+   "bgoId": "",
+   "indiaUrl": "",
+   "discount": null,
+   "status": "Not Started",
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "stock": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": null
+   },
+   "india": null
+  }
+ ]
+}

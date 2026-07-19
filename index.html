@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Board Game Price Tracker</title>
+<style>
+:root{
+  --bg:#0f1221; --panel:#181c2f; --panel2:#20263f; --line:#2c3350; --text:#e8ebf5;
+  --muted:#9aa3c0; --accent:#ff5722; --buy:#1f9d55; --maybe:#c9a227; --dont:#c0392b; --blue:#3d7bfd;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);font-size:15px}
+header{position:sticky;top:0;z-index:10;background:var(--panel);border-bottom:1px solid var(--line);padding:10px 14px}
+.hrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+h1{font-size:17px;margin:0;font-weight:700}
+.meta{color:var(--muted);font-size:12px}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:5px;background:var(--muted)}
+.dot.ok{background:var(--buy)} .dot.warn{background:var(--maybe)} .dot.err{background:var(--dont)}
+nav{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+nav button{background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:7px 12px;font-size:14px;cursor:pointer}
+nav button.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+main{padding:12px 14px 60px;max-width:1100px;margin:0 auto}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+input,select,textarea{background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:14px;font-family:inherit}
+input[type=text],input[type=search]{min-width:150px}
+label.chk{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:13px}
+button.act{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:8px 12px;cursor:pointer;font-size:14px}
+button.ghost{background:transparent;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:8px 12px;cursor:pointer}
+button.danger{background:var(--dont)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:9px 8px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{color:var(--muted);font-weight:600;cursor:pointer;user-select:none}
+td.num,th.num{text-align:right}
+tr.game{cursor:pointer}
+tr.game:hover{background:var(--panel)}
+.verdict{font-weight:700;padding:3px 8px;border-radius:6px;font-size:12px;display:inline-block}
+.v-Buy{background:rgba(31,157,85,.18);color:#4fd18a}
+.v-Maybe{background:rgba(201,162,39,.18);color:#e6c14b}
+.v-Dont{background:rgba(192,57,43,.18);color:#f0857a}
+.v-No{background:rgba(154,163,192,.15);color:var(--muted)}
+.expand{background:var(--panel);border:1px solid var(--line)}
+.expand td{white-space:normal}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.fld label{display:block;color:var(--muted);font-size:12px;margin-bottom:3px}
+.fld input,.fld select,.fld textarea{width:100%}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
+.card h3{margin:0 0 10px;font-size:15px}
+.muted{color:var(--muted)} .small{font-size:12px}
+.pill{font-size:11px;padding:2px 7px;border-radius:20px;background:var(--panel2);color:var(--muted);border:1px solid var(--line)}
+.right{margin-left:auto}
+.hide{display:none}
+.warn-box{background:rgba(201,162,39,.12);border:1px solid var(--maybe);border-radius:8px;padding:10px;color:#e6c14b;font-size:13px;margin-bottom:12px}
+@media(max-width:640px){
+  th.opt,td.opt{display:none}
+  h1{font-size:15px}
+  main{padding:10px 10px 60px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="hrow">
+    <h1>Board Game Price Tracker</h1>
+    <span class="meta" id="updated"></span>
+    <span class="right meta"><span class="dot" id="syncDot"></span><span id="syncTxt">local only</span></span>
+  </div>
+  <nav id="nav">
+    <button data-v="india" class="active">India view</button>
+    <button data-v="travel">Travel view</button>
+    <button data-v="games">Games</button>
+    <button data-v="settings">Settings</button>
+  </nav>
+</header>
+<main id="app"></main>
+
+<script>
+"use strict";
+const LS_STATE='bgpt_state', LS_TOKEN='bgpt_token';
+const COUNTRIES=['USA','UK','Canada','Australia','NZ'];
+const CUR={USA:'USD',UK:'GBP',Canada:'CAD',Australia:'AUD',NZ:'NZD'};
+let DATA=null, STATE=null, VIEW='india', sortKey='benefitPct', sortDir=-1, travelCountry='USA';
+let saveTimer=null;
+let uiSearch='',uiStatus='All',uiOnlyPriced=false,uiHideDropped=true;
+
+function blankState(){return {overrides:{}, config:{}, added:[], quickAdd:'', sync:{owner:'',repo:'',branch:'main',path:'state.json'}};}
+function loadState(){ try{return Object.assign(blankState(), JSON.parse(localStorage.getItem(LS_STATE)||'{}'));}catch(e){return blankState();} }
+function persistLocal(){ localStorage.setItem(LS_STATE, JSON.stringify(STATE)); }
+function token(){ return localStorage.getItem(LS_TOKEN)||''; }
+function setToken(t){ t?localStorage.setItem(LS_TOKEN,t):localStorage.removeItem(LS_TOKEN); }
+
+function cfg(k){ return (k in STATE.config)? STATE.config[k] : DATA.config[k]; }
+function fx(c){ return (STATE.config.fx&&STATE.config.fx[c]!=null)?STATE.config.fx[c]:DATA.meta.fx[c]; }
+function allGames(){ return DATA.games.concat(STATE.added||[]); }
+function ov(name){ return STATE.overrides[name]||{}; }
+function inr(n){ if(n==null||n==='') return ''; return '₹'+Math.round(n).toLocaleString('en-IN'); }
+function pct(n){ if(n==null||n==='') return ''; return (n*100).toFixed(1)+'%'; }
+function val(id){return document.getElementById(id).value.trim();}
+function escapeHtml(s){return (s==null?'':String(s)).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function escapeAttr(s){return escapeHtml(s);}
+
+function compute(g){
+  const o=ov(g.name);
+  const status=o.status||g.status||'Not Started';
+  const cintl={}; let cheapest=null, cheapestCountry=null;
+  COUNTRIES.forEach(c=>{
+    const p=g.prices?g.prices[c]:null;
+    if(p!=null&&p!==''&&p>0){ const v=p*fx(CUR[c]); cintl[c]=v; if(cheapest==null||v<cheapest){cheapest=v;cheapestCountry=c;} }
+    else cintl[c]=null;
+  });
+  const forex=(o.forexPct!=null?o.forexPct:cfg('forexPct'));
+  const overhead=(o.overheadPct!=null?o.overheadPct:cfg('overheadPct'));
+  const delivery=(o.delivery!=null?o.delivery:cfg('delivery'));
+  const landed = cheapest!=null? cheapest*(1+forex)*(1+overhead)+delivery : null;
+  let disc = (o.discount!=null?o.discount : (g.discount!=null?g.discount : null));
+  const src = g.india&&g.india.source? g.india.source : '';
+  if(disc==null) disc = /board games india/i.test(src)? cfg('bgiDefaultDiscount') : 0;
+  const iprice = g.india&&g.india.price? g.india.price : null;
+  const inet = iprice!=null? iprice*(1-disc) : null;
+  let benefit=null, benefitPct=null, verdict='No Data';
+  if(inet!=null && landed!=null){
+    benefit=inet-landed; benefitPct=benefit/inet;
+    verdict = benefitPct>=cfg('buyThreshold')?'Buy':(benefitPct>=cfg('maybeThreshold')?'Maybe':"Don't Buy");
+  }
+  return {g,status,cintl,cheapest,cheapestCountry,forex,overhead,delivery,landed,disc,iprice,inet,
+          istock:g.india?g.india.stock:'', isrc:src, benefit,benefitPct,verdict};
+}
+function vclass(v){ return v==='Buy'?'v-Buy':v==='Maybe'?'v-Maybe':v==="Don't Buy"?'v-Dont':'v-No'; }
+
+const app=document.getElementById('app');
+function render(){
+  document.getElementById('updated').textContent = DATA?('data updated '+DATA.meta.updated):'';
+  document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('active',b.dataset.v===VIEW));
+  if(VIEW==='india') renderIndia();
+  else if(VIEW==='travel') renderTravel();
+  else if(VIEW==='games') renderGames();
+  else renderSettings();
+  updateSyncBadge();
+}
+function tableControls(){
+  return '<div class="controls">'
+    +'<input type="search" id="q" placeholder="Search games..." value="'+escapeAttr(uiSearch)+'"/>'
+    +'<select id="statusFilter">'+['All','Not Started','Priced','Purchased','Dropped'].map(s=>'<option '+(uiStatus===s?'selected':'')+'>'+s+'</option>').join('')+'</select>'
+    +'<label class="chk"><input type="checkbox" id="onlyPriced" '+(uiOnlyPriced?'checked':'')+'/> Only priced</label>'
+    +'<label class="chk"><input type="checkbox" id="hideDrop" '+(uiHideDropped?'checked':'')+'/> Hide purchased/dropped</label>'
+    +'</div>';
+}
+function filterRows(rows){
+  return rows.filter(r=>{
+    if(uiSearch && !r.g.name.toLowerCase().includes(uiSearch.toLowerCase())) return false;
+    if(uiStatus!=='All' && r.status!==uiStatus) return false;
+    if(uiOnlyPriced && r.iprice==null && r.cheapest==null) return false;
+    if(uiHideDropped && (r.status==='Purchased'||r.status==='Dropped')) return false;
+    return true;
+  });
+}
+function sortRows(rows){
+  rows.sort((a,b)=>{
+    let x=a[sortKey], y=b[sortKey];
+    if(sortKey==='name'){x=a.g.name;y=b.g.name;}
+    if(x==null)x=-1e15; if(y==null)y=-1e15;
+    if(typeof x==='string') return sortDir*x.localeCompare(y);
+    return sortDir*(x-y);
+  });
+  return rows;
+}
+function renderIndia(){
+  const rows=sortRows(filterRows(allGames().map(compute)));
+  const head=[['name','Game',''],['inet','India (net)','num'],['landed','Import landed','num'],
+    ['cheapestCountry','Best','opt'],['benefit','Benefit','num opt'],['benefitPct','Benefit %','num'],['verdict','Verdict','']];
+  let html=tableControls();
+  html+='<div class="small muted" style="margin-bottom:6px">'+rows.length+' games - tap a row to edit its discount, charges, status</div>';
+  html+='<table><thead><tr>'+head.map(h=>'<th class="'+h[2]+'" data-k="'+h[0]+'">'+h[1]+(sortKey===h[0]?(sortDir<0?' ▾':' ▴'):'')+'</th>').join('')+'</tr></thead><tbody>';
+  rows.forEach(r=>{
+    html+='<tr class="game" data-name="'+escapeAttr(r.g.name)+'">'
+      +'<td>'+escapeHtml(r.g.name)+' '+(r.status!=='Not Started'?'<span class="pill">'+r.status+'</span>':'')+'</td>'
+      +'<td class="num">'+inr(r.inet)+(r.disc?'<div class="small muted">'+pct(r.disc)+' off</div>':'')+'</td>'
+      +'<td class="num">'+inr(r.landed)+(r.cheapestCountry?'<div class="small muted opt">'+r.cheapestCountry+'</div>':'')+'</td>'
+      +'<td class="opt">'+(r.cheapestCountry||'')+'</td>'
+      +'<td class="num opt">'+inr(r.benefit)+'</td>'
+      +'<td class="num">'+pct(r.benefitPct)+'</td>'
+      +'<td><span class="verdict '+vclass(r.verdict)+'">'+r.verdict+'</span></td></tr>';
+  });
+  html+='</tbody></table>';
+  app.innerHTML=html;
+  wireControls();
+  app.querySelectorAll('th[data-k]').forEach(th=>th.onclick=()=>{const k=th.dataset.k; if(sortKey===k)sortDir*=-1; else{sortKey=k;sortDir=(k==='name')?1:-1;} render();});
+  app.querySelectorAll('tr.game').forEach(tr=>tr.onclick=()=>toggleEdit(tr,tr.dataset.name));
+}
+function toggleEdit(tr,name){
+  const nx=tr.nextElementSibling;
+  if(nx&&nx.classList.contains('expand')){nx.remove();return;}
+  const g=allGames().find(x=>x.name===name); const o=ov(name); const r=compute(g);
+  const row=document.createElement('tr'); row.className='expand';
+  const autoTxt=/board games india/i.test(r.isrc)?(cfg('bgiDefaultDiscount')*100+'% BGI'):'0%';
+  row.innerHTML='<td colspan="7"><div class="grid">'
+    +'<div class="fld"><label>India discount % (blank = auto '+autoTxt+')</label><input type="number" step="1" id="e_disc" placeholder="auto" value="'+(o.discount!=null?o.discount*100:'')+'"/></div>'
+    +'<div class="fld"><label>Forex % (default '+cfg('forexPct')*100+')</label><input type="number" step="0.5" id="e_forex" value="'+(o.forexPct!=null?o.forexPct*100:'')+'" placeholder="'+cfg('forexPct')*100+'"/></div>'
+    +'<div class="fld"><label>Overhead % (default '+cfg('overheadPct')*100+')</label><input type="number" step="1" id="e_over" value="'+(o.overheadPct!=null?o.overheadPct*100:'')+'" placeholder="'+cfg('overheadPct')*100+'"/></div>'
+    +'<div class="fld"><label>Delivery (default '+cfg('delivery')+')</label><input type="number" step="50" id="e_del" value="'+(o.delivery!=null?o.delivery:'')+'" placeholder="'+cfg('delivery')+'"/></div>'
+    +'<div class="fld"><label>Status</label><select id="e_status">'+['Not Started','Priced','Purchased','Dropped'].map(s=>'<option '+(r.status===s?'selected':'')+'>'+s+'</option>').join('')+'</select></div>'
+    +'<div class="fld" style="grid-column:1/-1"><label>Notes</label><textarea id="e_notes" rows="2">'+escapeHtml(o.notes||'')+'</textarea></div>'
+    +'</div>'
+    +'<div class="small muted" style="margin-top:8px">India listed '+inr(r.iprice)+' '+(r.isrc?'- '+escapeHtml(r.isrc):'')+' '+(r.istock?'- '+escapeHtml(r.istock):'')+' | Cheapest intl '+inr(r.cheapest)+' '+(r.cheapestCountry||'')+' -> landed '+inr(r.landed)+'</div>'
+    +'<div style="margin-top:8px"><button class="act" id="e_save">Save</button> <button class="ghost" id="e_clear">Clear overrides</button></div></td>';
+  tr.after(row);
+  const num=id=>{const v=row.querySelector(id).value; return v===''?null:parseFloat(v);};
+  row.querySelector('#e_save').onclick=()=>{
+    const no={}; const d=num('#e_disc'); if(d!=null)no.discount=d/100;
+    const f=num('#e_forex'); if(f!=null)no.forexPct=f/100;
+    const ovr=num('#e_over'); if(ovr!=null)no.overheadPct=ovr/100;
+    const dl=num('#e_del'); if(dl!=null)no.delivery=dl;
+    no.status=row.querySelector('#e_status').value;
+    const nt=row.querySelector('#e_notes').value.trim(); if(nt)no.notes=nt;
+    STATE.overrides[name]=no; changed(); render();
+  };
+  row.querySelector('#e_clear').onclick=()=>{ delete STATE.overrides[name]; changed(); render(); };
+}
+function renderTravel(){
+  let rows=allGames().map(compute).map(r=>{
+    const price=r.cintl[travelCountry];
+    const benefit=(price!=null&&r.inet!=null)?r.inet-price:null;
+    const bp=(benefit!=null&&r.inet)?benefit/r.inet:null;
+    const verdict=(bp==null)?'No Data':(bp>=cfg('buyThreshold')?'Buy':(bp>=cfg('maybeThreshold')?'Maybe':"Don't Buy"));
+    return {name:r.g.name,status:r.status,price,inet:r.inet,benefit,bp,verdict};
+  });
+  rows=rows.filter(r=>{ if(uiHideDropped&&(r.status==='Purchased'||r.status==='Dropped'))return false;
+    if(uiSearch&&!r.name.toLowerCase().includes(uiSearch.toLowerCase()))return false; return true;});
+  rows.sort((a,b)=>((b.bp==null?-1e9:b.bp)-(a.bp==null?-1e9:a.bp)));
+  let html='<div class="controls"><label class="chk">Travelling to '
+    +'<select id="tc">'+COUNTRIES.map(c=>'<option '+(c===travelCountry?'selected':'')+'>'+c+'</option>').join('')+'</select></label>'
+    +'<input type="search" id="q" placeholder="Search..." value="'+escapeAttr(uiSearch)+'"/>'
+    +'<span class="pill">in-store price, before import charges</span></div>';
+  html+='<table><thead><tr><th>Game</th><th class="num">Price there</th><th class="num">India (net)</th><th class="num opt">Benefit</th><th class="num">Benefit %</th><th>Verdict</th></tr></thead><tbody>';
+  rows.forEach(r=>{ html+='<tr><td>'+escapeHtml(r.name)+'</td><td class="num">'+inr(r.price)+'</td><td class="num">'+inr(r.inet)+'</td><td class="num opt">'+inr(r.benefit)+'</td><td class="num">'+pct(r.bp)+'</td><td><span class="verdict '+vclass(r.verdict)+'">'+r.verdict+'</span></td></tr>';});
+  html+='</tbody></table>';
+  app.innerHTML=html;
+  app.querySelector('#tc').onchange=e=>{travelCountry=e.target.value;render();};
+  const q=app.querySelector('#q'); q.oninput=e=>{uiSearch=e.target.value; renderTravel();};
+}
+function renderGames(){
+  let html='<div class="card"><h3>Quick Add <span class="small muted">- jot rough names; sort later</span></h3>'
+    +'<textarea id="qa" rows="3" style="width:100%" placeholder="one game per line...">'+escapeHtml(STATE.quickAdd||'')+'</textarea>'
+    +'<div style="margin-top:8px"><button class="act" id="qaSave">Save notes</button> <button class="ghost" id="qaPromote">Add each line as a game</button></div></div>';
+  html+='<div class="card"><h3>Add a game</h3><div class="grid">'
+    +'<div class="fld"><label>Name</label><input id="ng_name"/></div>'
+    +'<div class="fld"><label>Type</label><select id="ng_type"><option>Boardgame</option><option>Expansion</option></select></div>'
+    +'<div class="fld"><label>India price (optional)</label><input type="number" id="ng_price"/></div>'
+    +'<div class="fld"><label>India source</label><input id="ng_src" placeholder="Board Games India"/></div>'
+    +'</div><div style="margin-top:8px"><button class="act" id="ng_add">Add game</button></div></div>';
+  const rows=allGames();
+  html+='<div class="small muted" style="margin:4px 2px">'+rows.length+' games in list</div>';
+  html+='<table><thead><tr><th>Game</th><th class="opt">Type</th><th class="opt">BGO ID</th><th>Status</th><th class="num">India</th></tr></thead><tbody>';
+  rows.forEach(g=>{const o=ov(g.name);const st=o.status||g.status||'Not Started';
+    html+='<tr><td>'+escapeHtml(g.name)+'</td><td class="opt small muted">'+(g.type||'')+'</td><td class="opt small muted">'+(g.bgoId||'')+'</td><td>'+st+'</td><td class="num">'+(g.india&&g.india.price?inr(g.india.price):'')+'</td></tr>';});
+  html+='</tbody></table>';
+  app.innerHTML=html;
+  app.querySelector('#qaSave').onclick=()=>{STATE.quickAdd=app.querySelector('#qa').value;changed();};
+  app.querySelector('#qaPromote').onclick=()=>{
+    (app.querySelector('#qa').value||'').split('\n').map(s=>s.trim()).filter(Boolean).forEach(n=>{
+      if(!allGames().some(g=>g.name.toLowerCase()===n.toLowerCase()))
+        STATE.added.push({name:n,type:'Boardgame',bgoId:'',india:null,prices:{},stock:{},status:'Not Started'});});
+    STATE.quickAdd=''; changed(); render();
+  };
+  app.querySelector('#ng_add').onclick=()=>{
+    const n=app.querySelector('#ng_name').value.trim(); if(!n)return;
+    const price=parseFloat(app.querySelector('#ng_price').value); const src=app.querySelector('#ng_src').value.trim();
+    STATE.added.push({name:n,type:app.querySelector('#ng_type').value,bgoId:'',
+      india: isNaN(price)?null:{price,source:src||'',stock:''}, prices:{},stock:{},status:'Not Started'});
+    changed(); render();
+  };
+}
+function renderSettings(){
+  const s=STATE.sync;
+  let html='<div class="card"><h3>Conversion rates (INR per unit)</h3><div class="grid">'
+    +['USD','GBP','CAD','AUD','NZD'].map(c=>'<div class="fld"><label>'+c+'</label><input type="number" step="0.01" data-fx="'+c+'" value="'+fx(c)+'"/></div>').join('')
+    +'</div><div class="small muted" style="margin-top:6px">Agent refreshes these each run.</div></div>';
+  html+='<div class="card"><h3>Thresholds &amp; charges</h3><div class="grid">'
+    +'<div class="fld"><label>Buy if Benefit % &ge;</label><input type="number" data-cfg="buyThreshold" value="'+cfg('buyThreshold')*100+'"/></div>'
+    +'<div class="fld"><label>Maybe if Benefit % &ge;</label><input type="number" data-cfg="maybeThreshold" value="'+cfg('maybeThreshold')*100+'"/></div>'
+    +'<div class="fld"><label>Forex %</label><input type="number" data-cfg="forexPct" value="'+cfg('forexPct')*100+'"/></div>'
+    +'<div class="fld"><label>Overhead %</label><input type="number" data-cfg="overheadPct" value="'+cfg('overheadPct')*100+'"/></div>'
+    +'<div class="fld"><label>Default delivery</label><input type="number" data-cfg="delivery" value="'+cfg('delivery')+'"/></div>'
+    +'<div class="fld"><label>Board Games India default discount %</label><input type="number" data-cfg="bgiDefaultDiscount" value="'+cfg('bgiDefaultDiscount')*100+'"/></div>'
+    +'</div><div style="margin-top:8px"><button class="act" id="cfgSave">Save settings</button></div></div>';
+  html+='<div class="card"><h3>Cross-device sync (GitHub repo)</h3>'
+    +'<div class="small muted" style="margin-bottom:8px">Settings sync through a state.json committed to your repo. The token is stored only on THIS device, never committed. Treat it like a password.</div>'
+    +'<div class="grid">'
+    +'<div class="fld"><label>Owner</label><input id="sy_owner" value="'+escapeAttr(s.owner||'')+'"/></div>'
+    +'<div class="fld"><label>Repo</label><input id="sy_repo" value="'+escapeAttr(s.repo||'')+'"/></div>'
+    +'<div class="fld"><label>Branch</label><input id="sy_branch" value="'+escapeAttr(s.branch||'main')+'"/></div>'
+    +'<div class="fld"><label>State path</label><input id="sy_path" value="'+escapeAttr(s.path||'state.json')+'"/></div>'
+    +'<div class="fld" style="grid-column:1/-1"><label>GitHub token (fine-grained, this repo, Contents: read/write)</label><input id="sy_token" type="password" value="'+escapeAttr(token())+'" placeholder="stays on this device"/></div>'
+    +'</div><div style="margin-top:8px"><button class="act" id="syncSave">Save &amp; push</button> <button class="ghost" id="syncPull">Pull from repo</button> <span class="small muted" id="syncMsg"></span></div></div>';
+  html+='<div class="card"><h3>Backup / reset</h3>'
+    +'<button class="ghost" id="exp">Export settings</button> <button class="ghost" id="imp">Import settings</button>'
+    +'<input type="file" id="impFile" class="hide" accept="application/json"/>'
+    +'<button class="danger act" id="reset" style="margin-left:6px">Reset all my edits</button>'
+    +'<div class="small muted" style="margin-top:6px">Reset clears your overrides, added games, quick-add and setting tweaks (not the scraped prices).</div></div>';
+  app.innerHTML=html;
+  app.querySelectorAll('[data-fx]').forEach(i=>i.onchange=()=>{STATE.config.fx=STATE.config.fx||{};STATE.config.fx[i.dataset.fx]=parseFloat(i.value);changed();});
+  app.querySelector('#cfgSave').onclick=()=>{
+    app.querySelectorAll('[data-cfg]').forEach(i=>{let v=parseFloat(i.value);const k=i.dataset.cfg; STATE.config[k]=(k==='delivery')?v:v/100;});
+    changed(); render();
+  };
+  app.querySelector('#syncSave').onclick=()=>{
+    STATE.sync={owner:val('sy_owner'),repo:val('sy_repo'),branch:val('sy_branch')||'main',path:val('sy_path')||'state.json'};
+    setToken(val('sy_token')); persistLocal(); pushState(true);
+  };
+  app.querySelector('#syncPull').onclick=()=>{ STATE.sync={owner:val('sy_owner'),repo:val('sy_repo'),branch:val('sy_branch')||'main',path:val('sy_path')||'state.json'}; setToken(val('sy_token')); persistLocal(); pullState(true); };
+  app.querySelector('#exp').onclick=exportState;
+  app.querySelector('#imp').onclick=()=>app.querySelector('#impFile').click();
+  app.querySelector('#impFile').onchange=importState;
+  app.querySelector('#reset').onclick=()=>{ if(confirm('Reset all your edits? Scraped prices stay.')){STATE=blankState();persistLocal();render();} };
+}
+
+function changed(){ persistLocal(); scheduleSync(); }
+function scheduleSync(){ if(!syncReady())return; clearTimeout(saveTimer); saveTimer=setTimeout(()=>pushState(false),1500); setSync('warn','saving...'); }
+function syncReady(){ return STATE.sync&&STATE.sync.owner&&STATE.sync.repo&&token(); }
+function ghHeaders(){ return {'Authorization':'token '+token(),'Accept':'application/vnd.github+json'}; }
+function ghUrl(){ const s=STATE.sync; return 'https://api.github.com/repos/'+s.owner+'/'+s.repo+'/contents/'+s.path; }
+function syncBody(){ const c=JSON.parse(JSON.stringify(STATE)); delete c.sync; return c; }
+async function pushState(manual){
+  if(!syncReady()){ if(manual)setSyncMsg('Fill owner, repo and token first.'); return; }
+  try{
+    let sha=null;
+    const g=await fetch(ghUrl()+'?ref='+STATE.sync.branch,{headers:ghHeaders()});
+    if(g.ok){ sha=(await g.json()).sha; }
+    const content=btoa(unescape(encodeURIComponent(JSON.stringify(syncBody(),null,1))));
+    const body={message:'Update tracker settings', content, branch:STATE.sync.branch};
+    if(sha)body.sha=sha;
+    const r=await fetch(ghUrl(),{method:'PUT',headers:ghHeaders(),body:JSON.stringify(body)});
+    if(r.ok){ setSync('ok','synced'); setSyncMsg('Pushed'); } else { setSync('err','sync error'); setSyncMsg('Push failed: '+r.status); }
+  }catch(e){ setSync('err','offline'); setSyncMsg('Push error'); }
+}
+async function pullState(manual){
+  if(!syncReady()){ if(manual)setSyncMsg('Fill owner, repo and token first.'); return; }
+  try{
+    const r=await fetch(ghUrl()+'?ref='+STATE.sync.branch,{headers:ghHeaders()});
+    if(!r.ok){ if(r.status!==404){setSyncMsg('Pull failed: '+r.status); setSync('err','sync error');} return; }
+    const j=await r.json(); const obj=JSON.parse(decodeURIComponent(escape(atob(j.content))));
+    const sync=STATE.sync; STATE=Object.assign(blankState(),obj); STATE.sync=sync; persistLocal();
+    setSync('ok','synced'); setSyncMsg('Pulled'); if(document.getElementById('nav').style.visibility!=='hidden')render();
+  }catch(e){ setSyncMsg('Pull error'); setSync('err','offline'); }
+}
+function setSync(cls,txt){ const d=document.getElementById('syncDot'),t=document.getElementById('syncTxt'); if(d)d.className='dot '+(cls||''); if(t)t.textContent=txt; }
+function setSyncMsg(m){ const el=document.getElementById('syncMsg'); if(el)el.textContent=m; }
+function updateSyncBadge(){ if(syncReady()) setSync('ok','sync on'); else setSync('','local only'); }
+function exportState(){ const c=syncBody(); const b=new Blob([JSON.stringify(c,null,2)],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='bgpt-settings.json'; a.click(); }
+function importState(e){ const f=e.target.files[0]; if(!f)return; const rd=new FileReader();
+  rd.onload=()=>{ try{ const o=JSON.parse(rd.result); const sync=STATE.sync; STATE=Object.assign(blankState(),o); STATE.sync=sync; persistLocal(); render(); }catch(err){ alert('Bad file'); } }; rd.readAsText(f); }
+function wireControls(){
+  const q=app.querySelector('#q'); if(q)q.oninput=e=>{uiSearch=e.target.value;renderIndia();};
+  const sf=app.querySelector('#statusFilter'); if(sf)sf.onchange=e=>{uiStatus=e.target.value;renderIndia();};
+  const op=app.querySelector('#onlyPriced'); if(op)op.onchange=e=>{uiOnlyPriced=e.target.checked;renderIndia();};
+  const hd=app.querySelector('#hideDrop'); if(hd)hd.onchange=e=>{uiHideDropped=e.target.checked;renderIndia();};
+}
+document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{VIEW=b.dataset.v;render();});
+
+async function validateAccess(owner,repo,tok){
+  if(!owner||!repo||!tok) return false;
+  try{ const r=await fetch('https://api.github.com/repos/'+owner+'/'+repo,{headers:{'Authorization':'token '+tok,'Accept':'application/vnd.github+json'}}); return r.ok; }
+  catch(e){ return false; }
+}
+function enterApp(){ document.getElementById('nav').style.visibility='visible'; VIEW='india'; render(); }
+function showGate(msg){
+  document.getElementById('nav').style.visibility='hidden';
+  const s=STATE.sync||{};
+  app.innerHTML='<div class="card" style="max-width:460px;margin:26px auto">'
+    +'<h3>Connect this device</h3>'
+    +'<div class="small muted" style="margin-bottom:10px">The app checks for a working GitHub token before opening. It is stored only on this device and never committed.</div>'
+    +(msg?'<div class="warn-box">'+escapeHtml(msg)+'</div>':'')
+    +'<div class="fld" style="margin-bottom:8px"><label>Owner (user/org)</label><input id="g_owner" value="'+escapeAttr(s.owner||'')+'"/></div>'
+    +'<div class="fld" style="margin-bottom:8px"><label>Repo</label><input id="g_repo" value="'+escapeAttr(s.repo||'')+'"/></div>'
+    +'<div class="fld" style="margin-bottom:8px"><label>Branch</label><input id="g_branch" value="'+escapeAttr(s.branch||'main')+'"/></div>'
+    +'<div class="fld" style="margin-bottom:10px"><label>GitHub token (fine-grained, this repo, Contents: read/write)</label><input id="g_token" type="password" value="'+escapeAttr(token())+'" placeholder="stays on this device"/></div>'
+    +'<button class="act" id="g_go">Connect &amp; open</button> <a href="#" id="g_skip" class="small muted" style="margin-left:12px">open local-only</a>'
+    +'</div>';
+  document.getElementById('g_go').onclick=async()=>{
+    const owner=val('g_owner'),repo=val('g_repo'),branch=val('g_branch')||'main',tok=val('g_token');
+    document.getElementById('g_go').textContent='Checking...';
+    const ok=await validateAccess(owner,repo,tok);
+    if(!ok){ showGate('That token + repo did not validate. Check the repo name and that the token has Contents access to it.'); return; }
+    STATE.sync={owner,repo,branch,path:(s.path||'state.json')}; setToken(tok); persistLocal();
+    await pullState(false); enterApp();
+  };
+  document.getElementById('g_skip').onclick=e=>{e.preventDefault(); enterApp();};
+}
+
+(async function(){
+  STATE=loadState();
+  try{ const r=await fetch('data.json',{cache:'no-store'}); DATA=await r.json(); }
+  catch(e){ DATA={meta:{updated:'-',fx:{USD:85,GBP:117,CAD:59,AUD:55,NZD:50}},config:{buyThreshold:.25,maybeThreshold:.1,forexPct:.03,overheadPct:.1,delivery:0,bgiDefaultDiscount:.1},games:[]}; }
+  const s=STATE.sync||{};
+  if(s.owner&&s.repo&&token()){
+    const ok=await validateAccess(s.owner,s.repo,token());
+    if(ok){ await pullState(false); enterApp(); return; }
+    showGate('Saved token no longer works - please reconnect.'); return;
+  }
+  showGate('');
+})();
+</script>
+</body>
+</html>
