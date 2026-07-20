@@ -41,27 +41,8 @@
    ]
   }
  },
- "added": [
-  {
-   "name": "dnup",
-   "type": "Boardgame",
-   "bgoId": "",
-   "india": null,
-   "prices": {},
-   "stock": {},
-   "status": "Not Started"
-  }
- ],
- "stores": [
-  {
-   "name": "",
-   "country": "USA",
-   "discount": "",
-   "shipping": "0",
-   "overhead": 10,
-   "items": []
-  }
- ],
+ "added": [],
+ "stores": [],
  "quickAdd": "",
  "config": {}
 }
