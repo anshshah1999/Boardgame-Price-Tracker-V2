@@ -52,6 +52,16 @@
    "status": "Not Started"
   }
  ],
+ "stores": [
+  {
+   "name": "",
+   "country": "USA",
+   "discount": "",
+   "shipping": "",
+   "overhead": 10,
+   "items": []
+  }
+ ],
  "quickAdd": "",
  "config": {}
 }
