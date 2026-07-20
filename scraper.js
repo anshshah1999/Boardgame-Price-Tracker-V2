@@ -70,10 +70,11 @@ function parseBGO(html){
   if (all.length)     return { price: Math.min(...all),     stock:'Out of stock' };
   return { price:null, stock:null };
 }
-async function scrapeBGO(bgoId){
+async function scrapeBGO(bgoId, slug){
   const out = { prices:{}, stock:{} };
+  const sl = slug || 'x';
   for (const [country, loc] of Object.entries(LOCALE)){
-    const html = await get('https://www.boardgameoracle.com'+loc+'/boardgame/price/'+bgoId+'/x');
+    const html = await get('https://www.boardgameoracle.com'+loc+'/boardgame/price/'+bgoId+'/'+sl);
     const { price, stock } = parseBGO(html);
     out.prices[country] = price; out.stock[country] = stock;
     await sleep(1000);
@@ -125,7 +126,8 @@ async function fetchFX(existing){
       if (id){ g.bgoId = id; idsResolved++; newIds.push(g.name+' -> '+id); await sleep(800); }
     }
     if (g.bgoId){
-      const r = await scrapeBGO(g.bgoId);
+      const slug = (g.name||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+      const r = await scrapeBGO(g.bgoId, slug);
       g.prices = r.prices; g.stock = r.stock;
       if (Object.values(r.prices).some(v => v!=null)) intlPriced++;
     } else { stillNoId++; }

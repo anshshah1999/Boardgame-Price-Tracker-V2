@@ -28,27 +28,21 @@ button.danger{background:var(--dont);color:#fff;border:none}
 table{width:100%;border-collapse:collapse;font-size:13.5px}
 th,td{padding:9px 8px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
 td.num,th.num{text-align:right}
-tr.game{cursor:pointer}
-tr.game:hover{background:var(--panel)}
+tr.game{cursor:pointer}tr.game:hover{background:var(--panel)}
+tr.tot td{border-top:2px solid var(--line);font-weight:500;background:var(--panel2)}
 .verdict{font-weight:500;padding:3px 8px;border-radius:6px;font-size:12px;display:inline-block}
-.v-Buy{background:rgba(31,157,85,.18);color:#4fd18a}
-.v-Maybe{background:rgba(201,162,39,.18);color:#e6c14b}
-.v-Dont{background:rgba(192,57,43,.18);color:#f0857a}
-.v-No{background:rgba(154,163,192,.15);color:var(--muted)}
-.expand{background:var(--panel);border:1px solid var(--line)}
-.expand td{white-space:normal}
+.v-Buy{background:rgba(31,157,85,.18);color:#4fd18a}.v-Maybe{background:rgba(201,162,39,.18);color:#e6c14b}
+.v-Dont{background:rgba(192,57,43,.18);color:#f0857a}.v-No{background:rgba(154,163,192,.15);color:var(--muted)}
+.expand{background:var(--panel);border:1px solid var(--line)}.expand td{white-space:normal}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
-.fld label{display:block;color:var(--muted);font-size:12px;margin-bottom:3px}
-.fld input,.fld select,.fld textarea{width:100%}
+.fld label{display:block;color:var(--muted);font-size:12px;margin-bottom:3px}.fld input,.fld select{width:100%}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
 .card h3{margin:0 0 10px;font-size:15px;font-weight:500}
 .muted{color:var(--muted)}.small{font-size:12px}
 .pill{font-size:11px;padding:2px 7px;border-radius:20px;background:var(--panel2);color:var(--muted);border:1px solid var(--line)}
 .right{margin-left:auto}.hide{display:none}
 .warn-box{background:rgba(201,162,39,.12);border:1px solid var(--maybe);border-radius:8px;padding:10px;color:#e6c14b;font-size:13px;margin-bottom:12px}
-.store{border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:10px;background:var(--panel)}
-.store .out{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;font-size:13px}
-.store .out b{font-weight:500}
+.tbl-wrap{overflow-x:auto}
 @media(max-width:640px){th.opt,td.opt{display:none}main{padding:10px 10px 60px}}
 </style>
 </head>
@@ -61,7 +55,8 @@ tr.game:hover{background:var(--panel)}
   </div>
   <nav id="nav">
     <button data-v="india" class="active">India view</button>
-    <button data-v="compare">Compare stores</button>
+    <button data-v="country">Country view</button>
+    <button data-v="analysis">Analysis</button>
     <button data-v="games">Games</button>
     <button data-v="settings">Settings</button>
   </nav>
@@ -72,11 +67,10 @@ tr.game:hover{background:var(--panel)}
 var LS_STATE='bgpt_state', LS_TOKEN='bgpt_token';
 var COUNTRIES=['USA','UK','Canada','Australia','NZ'];
 var CUR={USA:'USD',UK:'GBP',Canada:'CAD',Australia:'AUD',NZ:'NZD'};
-var CURLIST=['USD','GBP','CAD','AUD','NZD','INR'];
-var DATA=null, STATE=null, VIEW='india', sortAsc=true, saveTimer=null;
-var uiSearch='', uiHideDropped=true, compareGame='';
+var DATA=null, STATE=null, VIEW='india', saveTimer=null;
+var uiSearch='', uiHideDropped=true, country='USA';
 
-function blankState(){return {overrides:{}, added:[], quickAdd:'', sync:{owner:'',repo:'',branch:'main',path:'state.json'}};}
+function blankState(){return {overrides:{}, added:[], stores:[], quickAdd:'', sync:{owner:'',repo:'',branch:'main',path:'state.json'}};}
 function loadState(){try{return Object.assign(blankState(),JSON.parse(localStorage.getItem(LS_STATE)||'{}'));}catch(e){return blankState();}}
 function persistLocal(){localStorage.setItem(LS_STATE,JSON.stringify(STATE));}
 function token(){return localStorage.getItem(LS_TOKEN)||'';}
@@ -84,180 +78,164 @@ function setToken(t){if(t)localStorage.setItem(LS_TOKEN,t);else localStorage.rem
 function cfg(k){return (STATE.config&&k in STATE.config)?STATE.config[k]:DATA.config[k];}
 function fxRate(c){if(c==='INR')return 1;return (STATE.config&&STATE.config.fx&&STATE.config.fx[c]!=null)?STATE.config.fx[c]:DATA.meta.fx[c];}
 function allGames(){return DATA.games.concat(STATE.added||[]);}
+function gameByName(n){return allGames().filter(function(x){return x.name===n;})[0];}
 function ov(name){return STATE.overrides[name]||{};}
 function inr(n){if(n==null||n==='')return '';return '₹'+Math.round(n).toLocaleString('en-IN');}
 function pct(n){if(n==null||n==='')return '';return (n*100).toFixed(1)+'%';}
 function val(id){var e=document.getElementById(id);return e?e.value.trim():'';}
 function esc(s){return (s==null?'':String(s)).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 function norm(s){return (s||'').toLowerCase().replace(/[^a-z0-9]/g,'');}
+function num(v){var n=parseFloat(v);return isFinite(n)?n:null;}
 function verdictFromLoss(loss){if(loss==null)return 'No Data';if(loss<=cfg('buyWithin'))return 'Buy';if(loss<=cfg('maybeWithin'))return 'Maybe';return "Don't Buy";}
 function vclass(v){return v==='Buy'?'v-Buy':v==='Maybe'?'v-Maybe':v==="Don't Buy"?'v-Dont':'v-No';}
 
 function chargesFor(name){var o=ov(name);return {forex:o.forexPct!=null?o.forexPct:cfg('forexPct'),overhead:o.overheadPct!=null?o.overheadPct:cfg('overheadPct'),delivery:o.delivery!=null?o.delivery:cfg('delivery')};}
 function indiaNet(g){var o=ov(g.name);var disc=(o.discount!=null?o.discount:(g.discount!=null?g.discount:null));var src=g.india&&g.india.source?g.india.source:'';if(disc==null)disc=/board games india/i.test(src)?cfg('bgiDefaultDiscount'):0;var ip=g.india&&g.india.price?g.india.price:null;return {net:ip!=null?ip*(1-disc):null,disc:disc,listed:ip,src:src,stock:g.india?g.india.stock:''};}
-
+function landedCountry(g,c){var p=g.prices?g.prices[c]:null;if(p==null||p<=0)return null;var ch=chargesFor(g.name);return p*fxRate(CUR[c])*(1+ch.forex)*(1+ch.overhead)+ch.delivery;}
 function computeIndia(g){
-  var ch=chargesFor(g.name);
-  var best=null,bestC=null;
-  COUNTRIES.forEach(function(c){var p=g.prices?g.prices[c]:null;if(p!=null&&p>0){var landed=p*fxRate(CUR[c])*(1+ch.forex)*(1+ch.overhead)+ch.delivery;if(best==null||landed<best){best=landed;bestC=c;}}});
-  var iv=indiaNet(g);
-  var options=[];if(iv.net!=null)options.push(iv.net);if(best!=null)options.push(best);
-  var cheapest=options.length?Math.min.apply(null,options):null;
+  var best=null,bestC=null;COUNTRIES.forEach(function(c){var l=landedCountry(g,c);if(l!=null&&(best==null||l<best)){best=l;bestC=c;}});
+  var iv=indiaNet(g);var opts=[];if(iv.net!=null)opts.push(iv.net);if(best!=null)opts.push(best);
+  var cheapest=opts.length?Math.min.apply(null,opts):null;
   var indiaLoss=(iv.net!=null&&cheapest!=null&&cheapest>0)?(iv.net-cheapest)/cheapest:null;
-  var status=ov(g.name).status||g.status||'Not Started';
-  return {g:g,status:status,net:iv.net,listed:iv.listed,disc:iv.disc,bestImport:best,bestC:bestC,cheapest:cheapest,indiaLoss:indiaLoss,verdict:verdictFromLoss(indiaLoss),stock:iv.stock};
+  return {g:g,status:ov(g.name).status||g.status||'Not Started',net:iv.net,listed:iv.listed,disc:iv.disc,bestImport:best,bestC:bestC,cheapest:cheapest,indiaLoss:indiaLoss,verdict:verdictFromLoss(indiaLoss),stock:iv.stock};
 }
 
 var app=document.getElementById('app');
 function render(){
   document.getElementById('updated').textContent=DATA?('data updated '+DATA.meta.updated):'';
-  var btns=document.querySelectorAll('#nav button');for(var i=0;i<btns.length;i++)btns[i].className=(btns[i].getAttribute('data-v')===VIEW?'active':'');
-  if(VIEW==='india')renderIndia();else if(VIEW==='compare')renderCompare();else if(VIEW==='games')renderGames();else renderSettings();
+  var b=document.querySelectorAll('#nav button');for(var i=0;i<b.length;i++)b[i].className=(b[i].getAttribute('data-v')===VIEW?'active':'');
+  if(VIEW==='india')renderIndia();else if(VIEW==='country')renderCountry();else if(VIEW==='analysis')renderAnalysis();else if(VIEW==='games')renderGames();else renderSettings();
   updateBadge();
 }
 
 function renderIndia(){
   var rows=allGames().map(computeIndia).filter(function(r){
     if(uiHideDropped&&(r.status==='Purchased'||r.status==='Dropped'))return false;
-    if(uiSearch&&r.g.name.toLowerCase().indexOf(uiSearch.toLowerCase())<0)return false;
-    return true;
-  });
-  rows.sort(function(a,b){var x=a.indiaLoss==null?9e9:a.indiaLoss,y=b.indiaLoss==null?9e9:b.indiaLoss;return (sortAsc?1:-1)*(x-y);});
-  var h='<div class="controls"><input type="search" id="q" placeholder="Search games…" value="'+esc(uiSearch)+'"/>'
+    if(uiSearch&&r.g.name.toLowerCase().indexOf(uiSearch.toLowerCase())<0)return false;return true;});
+  rows.sort(function(a,b){var x=a.indiaLoss==null?9e9:a.indiaLoss,y=b.indiaLoss==null?9e9:b.indiaLoss;return x-y;});
+  var h='<div class="controls"><input type="search" id="q" placeholder="Search…" value="'+esc(uiSearch)+'"/>'
     +'<label class="chk"><input type="checkbox" id="hd" '+(uiHideDropped?'checked':'')+'/> Hide purchased/dropped</label>'
-    +'<span class="pill">Buy = within '+(cfg("buyWithin")*100)+'% of cheapest · Maybe ≤ '+(cfg("maybeWithin")*100)+'%</span></div>';
-  h+='<div class="small muted" style="margin-bottom:6px">'+rows.length+' games · tap a row to edit discount, charges, status, notes</div>';
-  h+='<table><thead><tr><th>Game</th><th class="num">India (net)</th><th class="num">Best import</th><th class="opt">Best from</th><th class="num">India vs cheapest</th><th>Buy in India?</th></tr></thead><tbody>';
-  rows.forEach(function(r){
-    h+='<tr class="game" data-n="'+esc(r.g.name)+'"><td>'+esc(r.g.name)+' '+(r.status!=='Not Started'?'<span class="pill">'+r.status+'</span>':'')+'</td>'
-      +'<td class="num">'+inr(r.net)+(r.disc?'<div class="small muted">'+pct(r.disc)+' off</div>':'')+'</td>'
-      +'<td class="num">'+inr(r.bestImport)+'</td><td class="opt">'+(r.bestC||'')+'</td>'
-      +'<td class="num">'+(r.indiaLoss==null?'':(r.indiaLoss>0?'+':'')+pct(r.indiaLoss))+'</td>'
-      +'<td><span class="verdict '+vclass(r.verdict)+'">'+r.verdict+'</span></td></tr>';
-  });
-  h+='</tbody></table>';
+    +'<span class="pill">Buy = within '+(cfg("buyWithin")*100)+'% of cheapest</span></div>';
+  h+='<div class="small muted" style="margin-bottom:6px">'+rows.length+' games · tap a row to edit</div>';
+  h+='<div class="tbl-wrap"><table><thead><tr><th>Game</th><th class="num">India (net)</th><th class="num">Best import</th><th class="opt">From</th><th class="num">India vs cheapest</th><th>Buy in India?</th></tr></thead><tbody>';
+  rows.forEach(function(r){h+='<tr class="game" data-n="'+esc(r.g.name)+'"><td>'+esc(r.g.name)+' '+(r.status!=='Not Started'?'<span class="pill">'+r.status+'</span>':'')
+    +'</td><td class="num">'+inr(r.net)+(r.disc?'<div class="small muted">'+pct(r.disc)+' off</div>':'')+'</td><td class="num">'+inr(r.bestImport)+'</td><td class="opt">'+(r.bestC||'')
+    +'</td><td class="num">'+(r.indiaLoss==null?'':(r.indiaLoss>0?'+':'')+pct(r.indiaLoss))+'</td><td><span class="verdict '+vclass(r.verdict)+'">'+r.verdict+'</span></td></tr>';});
+  h+='</tbody></table></div>';
   app.innerHTML=h;
-  var q=document.getElementById('q');q.oninput=function(e){uiSearch=e.target.value;renderIndia();};
+  document.getElementById('q').oninput=function(e){uiSearch=e.target.value;renderIndia();};
   document.getElementById('hd').onchange=function(e){uiHideDropped=e.target.checked;renderIndia();};
   var gr=app.querySelectorAll('tr.game');for(var i=0;i<gr.length;i++)gr[i].onclick=function(){editRow(this,this.getAttribute('data-n'));};
 }
 function editRow(tr,name){
   var nx=tr.nextElementSibling;if(nx&&nx.className.indexOf('expand')>=0){nx.parentNode.removeChild(nx);return;}
-  var g=allGames().filter(function(x){return x.name===name;})[0];var o=ov(name);var r=computeIndia(g);
-  var autoTxt=/board games india/i.test(r.stock?'':'')?'':'';
-  var row=document.createElement('tr');row.className='expand';
+  var o=ov(name);var r=computeIndia(gameByName(name));var row=document.createElement('tr');row.className='expand';
   row.innerHTML='<td colspan="6"><div class="grid">'
-    +fld('India discount % (blank = auto)','ed_disc',o.discount!=null?o.discount*100:'','number','auto')
-    +fld('Forex % (default '+cfg('forexPct')*100+')','ed_forex',o.forexPct!=null?o.forexPct*100:'','number',cfg('forexPct')*100)
-    +fld('Overhead % (default '+cfg('overheadPct')*100+')','ed_over',o.overheadPct!=null?o.overheadPct*100:'','number',cfg('overheadPct')*100)
-    +fld('Delivery (default '+cfg('delivery')+')','ed_del',o.delivery!=null?o.delivery:'','number',cfg('delivery'))
+    +fld('India discount % (blank=auto)','ed_disc',o.discount!=null?o.discount*100:'','number','auto')
+    +fld('Forex % (def '+cfg('forexPct')*100+')','ed_forex',o.forexPct!=null?o.forexPct*100:'','number',cfg('forexPct')*100)
+    +fld('Overhead % (def '+cfg('overheadPct')*100+')','ed_over',o.overheadPct!=null?o.overheadPct*100:'','number',cfg('overheadPct')*100)
+    +fld('Delivery (def '+cfg('delivery')+')','ed_del',o.delivery!=null?o.delivery:'','number',cfg('delivery'))
     +'<div class="fld"><label>Status</label><select id="ed_status">'+['Not Started','Priced','Purchased','Dropped'].map(function(s){return '<option '+(r.status===s?'selected':'')+'>'+s+'</option>';}).join('')+'</select></div>'
-    +'<div class="fld" style="grid-column:1/-1"><label>Notes (saved to your synced state)</label><textarea id="ed_notes" rows="2">'+esc(o.notes||'')+'</textarea></div></div>'
+    +'<div class="fld" style="grid-column:1/-1"><label>Notes</label><textarea id="ed_notes" rows="2">'+esc(o.notes||'')+'</textarea></div></div>'
     +'<div class="small muted" style="margin-top:8px">India listed '+inr(r.listed)+' '+(r.stock?'· '+esc(r.stock):'')+' · net '+inr(r.net)+' | Best import '+inr(r.bestImport)+' '+(r.bestC||'')+'</div>'
-    +'<div style="margin-top:8px"><button class="act" id="ed_save">Save</button> <button class="ghost" id="ed_clear">Clear overrides</button> <button class="ghost" id="ed_cmp">Compare stores →</button></div></td>';
+    +'<div style="margin-top:8px"><button class="act" id="ed_save">Save</button> <button class="ghost" id="ed_clear">Clear</button></div></td>';
   if(tr.nextSibling)tr.parentNode.insertBefore(row,tr.nextSibling);else tr.parentNode.appendChild(row);
-  var num=function(id){var v=document.getElementById(id).value;return v===''?null:parseFloat(v);};
-  document.getElementById('ed_save').onclick=function(){
-    var no=Object.assign({},o);var d=num('ed_disc');no.discount=(d!=null?d/100:undefined);
-    var f=num('ed_forex');no.forexPct=(f!=null?f/100:undefined);var ovr=num('ed_over');no.overheadPct=(ovr!=null?ovr/100:undefined);
-    var dl=num('ed_del');no.delivery=(dl!=null?dl:undefined);no.status=document.getElementById('ed_status').value;
-    var nt=document.getElementById('ed_notes').value.trim();no.notes=nt||undefined;
-    STATE.overrides[name]=clean(no);changed();render();
-  };
+  document.getElementById('ed_save').onclick=function(){var no=Object.assign({},o);var d=num(val('ed_disc'));no.discount=(d!=null?d/100:undefined);var f=num(val('ed_forex'));no.forexPct=(f!=null?f/100:undefined);var ovr=num(val('ed_over'));no.overheadPct=(ovr!=null?ovr/100:undefined);var dl=num(val('ed_del'));no.delivery=(dl!=null?dl:undefined);no.status=val('ed_status');var nt=val('ed_notes');no.notes=nt||undefined;STATE.overrides[name]=clean(no);changed();render();};
   document.getElementById('ed_clear').onclick=function(){delete STATE.overrides[name];changed();render();};
-  document.getElementById('ed_cmp').onclick=function(){compareGame=name;VIEW='compare';render();};
 }
 function clean(o){var r={};for(var k in o)if(o[k]!==undefined&&o[k]!=='')r[k]=o[k];return r;}
 function fld(label,id,value,type,ph){return '<div class="fld"><label>'+label+'</label><input type="'+(type||'text')+'" id="'+id+'" value="'+esc(value)+'" placeholder="'+esc(ph||'')+'"/></div>';}
 
-function storeFinal(s){var fx=fxRate(s.currency||'USD');var billing=(parseFloat(s.price)||0)*(1-(parseFloat(s.discount)||0)/100);var ship=(parseFloat(s.shipping)||0);var overhead=(parseFloat(s.overhead)||0)/100;return (billing*fx+ship*fx)*(1+overhead);}
-function renderCompare(){
-  var games=allGames();
-  if(!compareGame&&games.length)compareGame=games[0].name;
-  var g=games.filter(function(x){return x.name===compareGame;})[0];
-  var h='<div class="controls"><label class="chk">Game <select id="cg" style="min-width:220px">'
-    +games.map(function(x){return '<option '+(x.name===compareGame?'selected':'')+'>'+esc(x.name)+'</option>';}).join('')+'</select></label></div>';
-  if(g){
-    var iv=indiaNet(g);
-    var stores=(ov(g.name).stores||[]).slice();
-    var finals=stores.map(storeFinal);
-    var cheapest=finals.length?Math.min.apply(null,finals.filter(function(v){return v>0;})):null;
-    h+='<div class="card"><h3>'+esc(g.name)+'</h3><div class="small muted">India net '+inr(iv.net)+(iv.listed?' (listed '+inr(iv.listed)+', '+pct(iv.disc)+' off)':'')+' · cheapest store '+(cheapest!=null?inr(cheapest):'—')+'</div></div>';
-    stores.forEach(function(s,idx){
-      var fc=storeFinal(s);
-      var loss=(cheapest!=null&&cheapest>0)?(fc-cheapest)/cheapest:null;
-      var benefit=(iv.net!=null)?iv.net-fc:null;
-      var benefitPct=(iv.net!=null&&iv.net>0)?benefit/iv.net:null;
-      var verd=verdictFromLoss(loss);
-      h+='<div class="store"><div class="grid">'
-        +'<div class="fld"><label>Store / site</label><input data-i="'+idx+'" data-k="name" value="'+esc(s.name||'')+'" placeholder="Amazon US"/></div>'
-        +'<div class="fld"><label>Currency</label><select data-i="'+idx+'" data-k="currency">'+CURLIST.map(function(c){return '<option '+((s.currency||'USD')===c?'selected':'')+'>'+c+'</option>';}).join('')+'</select></div>'
-        +'<div class="fld"><label>Website price</label><input type="number" data-i="'+idx+'" data-k="price" value="'+esc(s.price!=null?s.price:'')+'"/></div>'
-        +'<div class="fld"><label>Discount %</label><input type="number" data-i="'+idx+'" data-k="discount" value="'+esc(s.discount!=null?s.discount:'')+'"/></div>'
-        +'<div class="fld"><label>Shipping (local)</label><input type="number" data-i="'+idx+'" data-k="shipping" value="'+esc(s.shipping!=null?s.shipping:'')+'"/></div>'
-        +'<div class="fld"><label>Overhead %</label><input type="number" data-i="'+idx+'" data-k="overhead" value="'+esc(s.overhead!=null?s.overhead:'')+'"/></div>'
-        +'</div><div class="out"><span>Final cost <b>'+inr(fc)+'</b></span><span class="muted">vs India '+(benefit!=null?(benefit>=0?'save ':'lose ')+inr(Math.abs(benefit))+' ('+pct(benefitPct)+')':'—')+'</span>'
-        +'<span class="muted">vs cheapest '+(loss!=null?(loss>0?'+':'')+pct(loss):'—')+'</span>'
-        +'<span class="verdict '+vclass(verd)+'">'+verd+'</span>'
-        +'<button class="ghost right" data-del="'+idx+'">Remove</button></div></div>';
-    });
-    h+='<div style="margin-top:8px"><button class="act" id="addStore">+ Add store</button></div>';
-    h+='<div class="small muted" style="margin-top:8px">Final cost = (price×(1−discount) + shipping) × conversion × (1+overhead). Verdict compares each store to the cheapest store above.</div>';
-  }
+function renderCountry(){
+  var rows=allGames().map(function(g){
+    var iv=indiaNet(g);var there=landedCountry(g,country);
+    var ci=computeIndia(g);var cheapest=ci.cheapest;
+    var loss=(there!=null&&cheapest!=null&&cheapest>0)?(there-cheapest)/cheapest:null;
+    return {name:g.name,status:ov(g.name).status||g.status||'Not Started',there:there,india:iv.net,best:ci.bestImport,bestC:ci.bestC,loss:loss,verdict:verdictFromLoss(loss)};
+  }).filter(function(r){if(uiHideDropped&&(r.status==='Purchased'||r.status==='Dropped'))return false;if(uiSearch&&r.name.toLowerCase().indexOf(uiSearch.toLowerCase())<0)return false;return r.there!=null;});
+  rows.sort(function(a,b){var x=a.loss==null?9e9:a.loss,y=b.loss==null?9e9:b.loss;return x-y;});
+  var h='<div class="controls"><label class="chk">Country <select id="cc">'+COUNTRIES.map(function(c){return '<option '+(c===country?'selected':'')+'>'+c+'</option>';}).join('')+'</select></label>'
+    +'<input type="search" id="q" placeholder="Search…" value="'+esc(uiSearch)+'"/>'
+    +'<span class="pill">landed price incl. forex/overhead</span></div>';
+  h+='<div class="small muted" style="margin-bottom:6px">'+rows.length+' games available in '+country+'</div>';
+  h+='<div class="tbl-wrap"><table><thead><tr><th>Game</th><th class="num">Price in '+country+'</th><th class="num">India (net)</th><th class="opt num">Cheapest</th><th class="opt">Best</th><th class="num">vs cheapest</th><th>Verdict</th></tr></thead><tbody>';
+  rows.forEach(function(r){h+='<tr><td>'+esc(r.name)+'</td><td class="num">'+inr(r.there)+'</td><td class="num">'+inr(r.india)+'</td><td class="opt num">'+inr(r.best)+'</td><td class="opt">'+(r.bestC||'')+'</td><td class="num">'+(r.loss==null?'':(r.loss>0?'+':'')+pct(r.loss))+'</td><td><span class="verdict '+vclass(r.verdict)+'">'+r.verdict+'</span></td></tr>';});
+  h+='</tbody></table></div>';
   app.innerHTML=h;
-  document.getElementById('cg').onchange=function(e){compareGame=e.target.value;render();};
-  var addB=document.getElementById('addStore');
-  if(addB)addB.onclick=function(){var o=Object.assign({},ov(g.name));o.stores=(o.stores||[]).concat([{name:'',currency:'USD',price:'',discount:'',shipping:'',overhead:''}]);STATE.overrides[g.name]=o;changed();render();};
-  var inputs=app.querySelectorAll('[data-k]');
-  for(var i=0;i<inputs.length;i++){inputs[i].onchange=function(){
-    var idx=parseInt(this.getAttribute('data-i')),k=this.getAttribute('data-k');
-    var o=Object.assign({},ov(g.name));o.stores=(o.stores||[]).slice();o.stores[idx]=Object.assign({},o.stores[idx]);o.stores[idx][k]=this.value;
-    STATE.overrides[g.name]=o;changed();render();
-  };}
-  var dels=app.querySelectorAll('[data-del]');
-  for(var j=0;j<dels.length;j++)dels[j].onclick=function(){var idx=parseInt(this.getAttribute('data-del'));var o=Object.assign({},ov(g.name));o.stores=(o.stores||[]).slice();o.stores.splice(idx,1);STATE.overrides[g.name]=o;changed();render();};
+  document.getElementById('cc').onchange=function(e){country=e.target.value;renderCountry();};
+  document.getElementById('q').oninput=function(e){uiSearch=e.target.value;renderCountry();};
+}
+
+function storeCalc(store){
+  var fx=fxRate(CUR[store.country||'USA']);var disc=(num(store.discount)||0)/100;var oh=(num(store.overhead)||0)/100;var ship=(num(store.shipping)||0);
+  var items=(store.items||[]).map(function(it){
+    var price=num(it.price);var g=gameByName(it.game);var iv=g?indiaNet(g):{net:null};
+    var billing=price!=null?price*(1-disc):null;
+    var finalINR=billing!=null?billing*fx*(1+oh):null;
+    var benefit=(iv.net!=null&&finalINR!=null)?iv.net-finalINR:null;
+    return {game:it.game,price:price,finalINR:finalINR,india:iv.net,benefit:benefit};
+  });
+  var totFinal=items.reduce(function(s,x){return s+(x.finalINR||0);},0)+ship*fx*(1+oh);
+  var totIndia=items.reduce(function(s,x){return s+(x.india||0);},0);
+  var benefit=totIndia-totFinal;var benefitPct=totIndia>0?benefit/totIndia:null;
+  return {fx:fx,items:items,shipINR:ship*fx*(1+oh),totFinal:totFinal,totIndia:totIndia,benefit:benefit,benefitPct:benefitPct};
+}
+function renderAnalysis(){
+  var stores=STATE.stores||[];
+  var h='<div class="controls"><button class="act" id="addStore">+ Add store</button><span class="pill">each store = one basket / order</span></div>';
+  if(stores.length>1){
+    h+='<div class="card"><h3>Basket comparison</h3><div class="tbl-wrap"><table><thead><tr><th>Store</th><th class="opt">Country</th><th class="num">Games</th><th class="num">Total cost</th><th class="num">Total India</th><th class="num">Benefit</th><th class="num">Benefit %</th></tr></thead><tbody>';
+    stores.forEach(function(st){var c=storeCalc(st);h+='<tr><td>'+esc(st.name||'(unnamed)')+'</td><td class="opt">'+(st.country||'')+'</td><td class="num">'+(st.items||[]).length+'</td><td class="num">'+inr(c.totFinal)+'</td><td class="num">'+inr(c.totIndia)+'</td><td class="num">'+inr(c.benefit)+'</td><td class="num">'+pct(c.benefitPct)+'</td></tr>';});
+    h+='</tbody></table></div></div>';
+  }
+  if(!stores.length)h+='<div class="small muted">No stores yet. Add a store, pick its country and charges, then add the games you plan to buy there.</div>';
+  stores.forEach(function(st,si){
+    var c=storeCalc(st);
+    h+='<div class="card"><div class="grid">'
+      +'<div class="fld"><label>Store / site</label><input data-s="'+si+'" data-k="name" value="'+esc(st.name||'')+'" placeholder="Amazon US"/></div>'
+      +'<div class="fld"><label>Country</label><select data-s="'+si+'" data-k="country">'+COUNTRIES.map(function(cc){return '<option '+((st.country||'USA')===cc?'selected':'')+'>'+cc+'</option>';}).join('')+'</select></div>'
+      +'<div class="fld"><label>Discount %</label><input type="number" data-s="'+si+'" data-k="discount" value="'+esc(st.discount!=null?st.discount:'')+'"/></div>'
+      +'<div class="fld"><label>Shipping (local)</label><input type="number" data-s="'+si+'" data-k="shipping" value="'+esc(st.shipping!=null?st.shipping:'')+'"/></div>'
+      +'<div class="fld"><label>Overhead %</label><input type="number" data-s="'+si+'" data-k="overhead" value="'+esc(st.overhead!=null?st.overhead:'')+'"/></div>'
+      +'</div>';
+    h+='<div class="tbl-wrap" style="margin-top:10px"><table><thead><tr><th>Game</th><th class="num">Price ('+CUR[st.country||'USA']+')</th><th class="num">Final (INR)</th><th class="num opt">India</th><th class="num">Benefit</th><th></th></tr></thead><tbody>';
+    c.items.forEach(function(it,ii){h+='<tr><td>'+esc(it.game)+'</td>'
+      +'<td class="num"><input type="number" data-s="'+si+'" data-it="'+ii+'" data-k="price" value="'+esc(it.price!=null?it.price:'')+'" style="width:90px;text-align:right"/></td>'
+      +'<td class="num">'+inr(it.finalINR)+'</td><td class="num opt">'+inr(it.india)+'</td><td class="num">'+inr(it.benefit)+'</td>'
+      +'<td><button class="ghost" data-rmit="'+ii+'" data-s="'+si+'">×</button></td></tr>';});
+    h+='<tr class="tot"><td>Total ('+c.items.length+' games'+(st.shipping?' + shipping '+inr(c.shipINR):'')+')</td><td></td><td class="num">'+inr(c.totFinal)+'</td><td class="num opt">'+inr(c.totIndia)+'</td><td class="num">'+inr(c.benefit)+' ('+pct(c.benefitPct)+')</td><td></td></tr>';
+    h+='</tbody></table></div>';
+    h+='<div style="margin-top:8px"><select data-addsel="'+si+'"><option value="">+ add a game…</option>'
+      +allGames().map(function(g){return '<option>'+esc(g.name)+'</option>';}).join('')+'</select> <button class="danger" data-rmstore="'+si+'" style="padding:7px 11px;float:right">Remove store</button></div></div>';
+  });
+  app.innerHTML=h;
+  var add=document.getElementById('addStore');if(add)add.onclick=function(){STATE.stores=(STATE.stores||[]).concat([{name:'',country:'USA',discount:'',shipping:'',overhead:cfg('overheadPct')*100,items:[]}]);changed();render();};
+  var f=app.querySelectorAll('[data-k]');for(var i=0;i<f.length;i++)f[i].onchange=function(){var si=+this.getAttribute('data-s'),it=this.getAttribute('data-it'),k=this.getAttribute('data-k');var st=STATE.stores[si];if(it!=null){st.items[+it]=Object.assign({},st.items[+it]);st.items[+it][k]=this.value;}else{st[k]=this.value;}changed();render();};
+  var sel=app.querySelectorAll('[data-addsel]');for(var j=0;j<sel.length;j++)sel[j].onchange=function(){var si=+this.getAttribute('data-addsel');var name=this.value;if(!name)return;var st=STATE.stores[si];var g=gameByName(name);var auto=g&&g.prices?g.prices[st.country]:null;st.items=(st.items||[]).concat([{game:name,price:auto!=null?auto:''}]);changed();render();};
+  var ri=app.querySelectorAll('[data-rmit]');for(var k=0;k<ri.length;k++)ri[k].onclick=function(){var si=+this.getAttribute('data-s'),ii=+this.getAttribute('data-rmit');STATE.stores[si].items.splice(ii,1);changed();render();};
+  var rs=app.querySelectorAll('[data-rmstore]');for(var m=0;m<rs.length;m++)rs[m].onclick=function(){STATE.stores.splice(+this.getAttribute('data-rmstore'),1);changed();render();};
 }
 
 function renderGames(){
-  var h='<div class="card"><h3>Quick add <span class="small muted">— jot rough names, one per line</span></h3>'
-    +'<textarea id="qa" rows="3" style="width:100%" placeholder="e.g. radlands\nlegacy of yu">'+esc(STATE.quickAdd||'')+'</textarea>'
-    +'<div style="margin-top:8px"><button class="act" id="qaAdd">Add lines as games</button> <button class="ghost" id="qaSave">Save draft</button></div>'
-    +'<div class="small muted" style="margin-top:6px">Each line is matched against your list; unknown names are added as new (editable below).</div></div>';
+  var h='<div class="card"><h3>Quick add <span class="small muted">— rough names, one per line</span></h3>'
+    +'<textarea id="qa" rows="3" style="width:100%" placeholder="e.g. radlands">'+esc(STATE.quickAdd||'')+'</textarea>'
+    +'<div style="margin-top:8px"><button class="act" id="qaAdd">Add as games</button> <button class="ghost" id="qaSave">Save draft</button></div></div>';
   var rows=allGames();
-  h+='<div class="small muted" style="margin:4px 2px">'+rows.length+' games</div>';
-  h+='<table><thead><tr><th>Game</th><th class="opt">Type</th><th>Status</th><th class="num">India</th><th></th></tr></thead><tbody>';
-  rows.forEach(function(g,i){
-    var o=ov(g.name);var st=o.status||g.status||'Not Started';var added=STATE.added.indexOf(g)>=0;
-    h+='<tr><td>'+(added?'<input data-add="'+STATE.added.indexOf(g)+'" value="'+esc(g.name)+'" style="min-width:180px"/>':esc(g.name))+'</td>'
-      +'<td class="opt small muted">'+(g.type||'')+'</td><td>'+st+'</td><td class="num">'+(g.india&&g.india.price?inr(g.india.price):'')+'</td>'
-      +'<td>'+(added?'<button class="ghost" data-rm="'+STATE.added.indexOf(g)+'">del</button>':'')+'</td></tr>';
-  });
-  h+='</tbody></table>';
+  h+='<div class="small muted" style="margin:4px 2px">'+rows.length+' games</div><div class="tbl-wrap"><table><thead><tr><th>Game</th><th class="opt">Type</th><th>Status</th><th class="num">India</th><th></th></tr></thead><tbody>';
+  rows.forEach(function(g){var o=ov(g.name);var st=o.status||g.status||'Not Started';var ai=STATE.added.indexOf(g);var added=ai>=0;
+    h+='<tr><td>'+(added?'<input data-add="'+ai+'" value="'+esc(g.name)+'" style="min-width:170px"/>':esc(g.name))+'</td><td class="opt small muted">'+(g.type||'')+'</td><td>'+st+'</td><td class="num">'+(g.india&&g.india.price?inr(g.india.price):'')+'</td><td>'+(added?'<button class="ghost" data-rm="'+ai+'">del</button>':'')+'</td></tr>';});
+  h+='</tbody></table></div>';
   app.innerHTML=h;
-  document.getElementById('qaSave').onclick=function(){STATE.quickAdd=document.getElementById('qa').value;changed();};
-  document.getElementById('qaAdd').onclick=function(){
-    var lines=(document.getElementById('qa').value||'').split('\n').map(function(s){return s.trim();}).filter(Boolean);
-    var known={};allGames().forEach(function(g){known[norm(g.name)]=true;});
-    var addedN=0,matched=0;
-    lines.forEach(function(n){var k=norm(n);if(known[k]){matched++;return;}
-      var hit=allGames().filter(function(g){return norm(g.name).indexOf(k)>=0||k.indexOf(norm(g.name))>=0;})[0];
-      if(hit){matched++;return;}
-      STATE.added.push({name:n,type:'Boardgame',bgoId:'',india:null,prices:{},stock:{},status:'Not Started'});known[k]=true;addedN++;
-    });
-    STATE.quickAdd='';changed();render();
-    alert('Added '+addedN+' new, '+matched+' already in list. Edit any name inline below.');
-  };
-  var edits=app.querySelectorAll('[data-add]');
-  for(var i=0;i<edits.length;i++)edits[i].onchange=function(){var idx=parseInt(this.getAttribute('data-add'));STATE.added[idx].name=this.value.trim();changed();};
-  var rms=app.querySelectorAll('[data-rm]');
-  for(var j=0;j<rms.length;j++)rms[j].onclick=function(){var idx=parseInt(this.getAttribute('data-rm'));STATE.added.splice(idx,1);changed();render();};
+  document.getElementById('qaSave').onclick=function(){STATE.quickAdd=val('qa');changed();};
+  document.getElementById('qaAdd').onclick=function(){var lines=(val('qa')||'').split('\n').map(function(s){return s.trim();}).filter(Boolean);var known={};allGames().forEach(function(g){known[norm(g.name)]=true;});var a=0,mm=0;lines.forEach(function(n){var k=norm(n);if(known[k]){mm++;return;}var hit=allGames().filter(function(g){return norm(g.name).indexOf(k)>=0||k.indexOf(norm(g.name))>=0;})[0];if(hit){mm++;return;}STATE.added.push({name:n,type:'Boardgame',bgoId:'',india:null,prices:{},stock:{},status:'Not Started'});known[k]=true;a++;});STATE.quickAdd='';changed();render();alert('Added '+a+' new, '+mm+' already in list.');};
+  var ed=app.querySelectorAll('[data-add]');for(var i=0;i<ed.length;i++)ed[i].onchange=function(){STATE.added[+this.getAttribute('data-add')].name=this.value.trim();changed();};
+  var rm=app.querySelectorAll('[data-rm]');for(var j=0;j<rm.length;j++)rm[j].onclick=function(){STATE.added.splice(+this.getAttribute('data-rm'),1);changed();render();};
 }
 
 function renderSettings(){
   var s=STATE.sync||{};
   var h='<div class="card"><h3>Conversion rates (INR per unit)</h3><div class="grid">'
-    +['USD','GBP','CAD','AUD','NZD'].map(function(c){return '<div class="fld"><label>'+c+'</label><input type="number" step="0.01" data-fx="'+c+'" value="'+fxRate(c)+'"/></div>';}).join('')
-    +'</div><div class="small muted" style="margin-top:6px">Refreshed by the scraper each run.</div></div>';
+    +['USD','GBP','CAD','AUD','NZD'].map(function(c){return '<div class="fld"><label>'+c+'</label><input type="number" step="0.01" data-fx="'+c+'" value="'+fxRate(c)+'"/></div>';}).join('')+'</div></div>';
   h+='<div class="card"><h3>Thresholds &amp; default charges</h3><div class="grid">'
     +'<div class="fld"><label>Buy if within % of cheapest</label><input type="number" data-cfg="buyWithin" value="'+cfg('buyWithin')*100+'"/></div>'
     +'<div class="fld"><label>Maybe if within % of cheapest</label><input type="number" data-cfg="maybeWithin" value="'+cfg('maybeWithin')*100+'"/></div>'
@@ -266,21 +244,18 @@ function renderSettings(){
     +'<div class="fld"><label>Default delivery</label><input type="number" data-cfg="delivery" value="'+cfg('delivery')+'"/></div>'
     +'<div class="fld"><label>Board Games India default discount %</label><input type="number" data-cfg="bgiDefaultDiscount" value="'+cfg('bgiDefaultDiscount')*100+'"/></div>'
     +'</div><div style="margin-top:8px"><button class="act" id="cfgSave">Save</button></div></div>';
-  h+='<div class="card"><h3>Cross-device sync (GitHub)</h3><div class="small muted" style="margin-bottom:8px">Your notes, added games, overrides and store lists live in <code>state.json</code> in your repo. Token stays on this device only.</div><div class="grid">'
-    +'<div class="fld"><label>Owner</label><input id="sy_owner" value="'+esc(s.owner||'')+'"/></div>'
-    +'<div class="fld"><label>Repo</label><input id="sy_repo" value="'+esc(s.repo||'')+'"/></div>'
+  h+='<div class="card"><h3>Cross-device sync (GitHub)</h3><div class="small muted" style="margin-bottom:8px">Notes, added games, overrides and store baskets live in state.json in your repo. Token stays on this device.</div><div class="grid">'
+    +'<div class="fld"><label>Owner</label><input id="sy_owner" value="'+esc(s.owner||'')+'"/></div><div class="fld"><label>Repo</label><input id="sy_repo" value="'+esc(s.repo||'')+'"/></div>'
     +'<div class="fld"><label>Branch</label><input id="sy_branch" value="'+esc(s.branch||'main')+'"/></div>'
-    +'<div class="fld" style="grid-column:1/-1"><label>GitHub token (fine-grained, this repo, Contents: read/write)</label><input id="sy_token" type="password" value="'+esc(token())+'"/></div>'
-    +'</div><div style="margin-top:8px"><button class="act" id="syncSave">Save &amp; push</button> <button class="ghost" id="syncPull">Pull</button> <span class="small muted" id="syncMsg"></span></div></div>';
+    +'<div class="fld" style="grid-column:1/-1"><label>GitHub token (Contents: read/write)</label><input id="sy_token" type="password" value="'+esc(token())+'"/></div></div>'
+    +'<div style="margin-top:8px"><button class="act" id="syncSave">Save &amp; push</button> <button class="ghost" id="syncPull">Pull</button> <span class="small muted" id="syncMsg"></span></div></div>';
   h+='<div class="card"><h3>Backup / reset</h3><button class="ghost" id="exp">Export</button> <button class="ghost" id="imp">Import</button><input type="file" id="impF" class="hide" accept="application/json"/> <button class="danger" id="reset" style="padding:8px 12px">Reset my edits</button></div>';
   app.innerHTML=h;
   var fxs=app.querySelectorAll('[data-fx]');for(var i=0;i<fxs.length;i++)fxs[i].onchange=function(){STATE.config=STATE.config||{};STATE.config.fx=STATE.config.fx||{};STATE.config.fx[this.getAttribute('data-fx')]=parseFloat(this.value);changed();};
   document.getElementById('cfgSave').onclick=function(){STATE.config=STATE.config||{};var cs=app.querySelectorAll('[data-cfg]');for(var i=0;i<cs.length;i++){var k=cs[i].getAttribute('data-cfg');var v=parseFloat(cs[i].value);STATE.config[k]=(k==='delivery')?v:v/100;}changed();render();};
   document.getElementById('syncSave').onclick=function(){STATE.sync={owner:val('sy_owner'),repo:val('sy_repo'),branch:val('sy_branch')||'main',path:'state.json'};setToken(val('sy_token'));persistLocal();pushState(true);};
   document.getElementById('syncPull').onclick=function(){STATE.sync={owner:val('sy_owner'),repo:val('sy_repo'),branch:val('sy_branch')||'main',path:'state.json'};setToken(val('sy_token'));persistLocal();pullState(true);};
-  document.getElementById('exp').onclick=exportState;
-  document.getElementById('imp').onclick=function(){document.getElementById('impF').click();};
-  document.getElementById('impF').onchange=importState;
+  document.getElementById('exp').onclick=exportState;document.getElementById('imp').onclick=function(){document.getElementById('impF').click();};document.getElementById('impF').onchange=importState;
   document.getElementById('reset').onclick=function(){if(confirm('Reset all your edits? Scraped prices stay.')){STATE=blankState();persistLocal();render();}};
 }
 
@@ -290,15 +265,9 @@ function ghH(){return {'Authorization':'token '+token(),'Accept':'application/vn
 function ghUrl(){var s=STATE.sync;return 'https://api.github.com/repos/'+s.owner+'/'+s.repo+'/contents/'+s.path;}
 function syncBody(){var c=JSON.parse(JSON.stringify(STATE));delete c.sync;return c;}
 function pushState(manual){if(!syncReady()){if(manual)setMsg('Fill owner, repo and token first.');return;}
-  fetch(ghUrl()+'?ref='+STATE.sync.branch,{headers:ghH()}).then(function(r){return r.ok?r.json():null;}).then(function(j){
-    var content=btoa(unescape(encodeURIComponent(JSON.stringify(syncBody(),null,1))));
-    var body={message:'Update tracker settings',content:content,branch:STATE.sync.branch};if(j&&j.sha)body.sha=j.sha;
-    return fetch(ghUrl(),{method:'PUT',headers:ghH(),body:JSON.stringify(body)});
-  }).then(function(r){if(r&&r.ok){setSync('ok','synced');setMsg('Pushed');}else{setSync('err','sync error');setMsg('Push failed');}}).catch(function(){setSync('err','offline');setMsg('Push error');});}
+  fetch(ghUrl()+'?ref='+STATE.sync.branch,{headers:ghH()}).then(function(r){return r.ok?r.json():null;}).then(function(j){var content=btoa(unescape(encodeURIComponent(JSON.stringify(syncBody(),null,1))));var body={message:'Update tracker settings',content:content,branch:STATE.sync.branch};if(j&&j.sha)body.sha=j.sha;return fetch(ghUrl(),{method:'PUT',headers:ghH(),body:JSON.stringify(body)});}).then(function(r){if(r&&r.ok){setSync('ok','synced');setMsg('Pushed');}else{setSync('err','sync error');setMsg('Push failed');}}).catch(function(){setSync('err','offline');setMsg('Push error');});}
 function pullState(manual){if(!syncReady()){if(manual)setMsg('Fill owner, repo and token first.');return;}
-  fetch(ghUrl()+'?ref='+STATE.sync.branch,{headers:ghH()}).then(function(r){if(!r.ok)throw r.status;return r.json();}).then(function(j){
-    var obj=JSON.parse(decodeURIComponent(escape(atob(j.content))));var sync=STATE.sync;STATE=Object.assign(blankState(),obj);STATE.sync=sync;persistLocal();setSync('ok','synced');setMsg('Pulled');if(document.getElementById('nav').style.visibility!=='hidden')render();
-  }).catch(function(e){if(e!==404){setMsg('Pull failed');setSync('err','sync error');}});}
+  fetch(ghUrl()+'?ref='+STATE.sync.branch,{headers:ghH()}).then(function(r){if(!r.ok)throw r.status;return r.json();}).then(function(j){var obj=JSON.parse(decodeURIComponent(escape(atob(j.content))));var sync=STATE.sync;STATE=Object.assign(blankState(),obj);STATE.sync=sync;persistLocal();setSync('ok','synced');setMsg('Pulled');if(document.getElementById('nav').style.visibility!=='hidden')render();}).catch(function(e){if(e!==404){setMsg('Pull failed');setSync('err','sync error');}});}
 function setSync(c,t){var d=document.getElementById('syncDot'),x=document.getElementById('syncTxt');if(d)d.className='dot '+(c||'');if(x)x.textContent=t;}
 function setMsg(m){var e=document.getElementById('syncMsg');if(e)e.textContent=m;}
 function updateBadge(){if(syncReady())setSync('ok','sync on');else setSync('','local only');}
@@ -312,13 +281,12 @@ function validateAccess(owner,repo,tok){if(!owner||!repo||!tok)return Promise.re
 function enterApp(){document.getElementById('nav').style.visibility='visible';VIEW='india';render();}
 function showGate(msg){
   document.getElementById('nav').style.visibility='hidden';var s0=STATE.sync||{};var du=repoFromUrl();var s={owner:s0.owner||du.owner,repo:s0.repo||du.repo,branch:s0.branch||du.branch};
-  app.innerHTML='<div class="card" style="max-width:460px;margin:26px auto"><h3>Connect this device</h3><div class="small muted" style="margin-bottom:10px">Owner and repo are detected from the site URL. You only need a token to sync your notes across devices — or click open local-only to skip it (viewing prices needs no token).</div>'
+  app.innerHTML='<div class="card" style="max-width:460px;margin:26px auto"><h3>Connect this device</h3><div class="small muted" style="margin-bottom:10px">Owner and repo are detected from the site URL. You only need a token to sync notes across devices — or click open local-only to skip it (viewing needs no token).</div>'
     +(msg?'<div class="warn-box">'+esc(msg)+'</div>':'')
     +fld('Owner','g_owner',s.owner||'')+fld('Repo','g_repo',s.repo||'')+fld('Branch','g_branch',s.branch||'main')
     +'<div class="fld" style="margin-top:8px"><label>GitHub token</label><input id="g_token" type="password" value="'+esc(token())+'"/></div>'
     +'<div style="margin-top:10px"><button class="act" id="g_go">Connect &amp; open</button> <a href="#" id="g_skip" class="small muted" style="margin-left:12px">open local-only</a></div></div>';
-  document.getElementById('g_go').onclick=function(){var owner=val('g_owner'),repo=val('g_repo'),branch=val('g_branch')||'main',tok=val('g_token');document.getElementById('g_go').textContent='Checking…';
-    validateAccess(owner,repo,tok).then(function(ok){if(!ok){showGate('That token + repo did not validate.');return;}STATE.sync={owner:owner,repo:repo,branch:branch,path:'state.json'};setToken(tok);persistLocal();pullState(false);enterApp();});};
+  document.getElementById('g_go').onclick=function(){var owner=val('g_owner'),repo=val('g_repo'),branch=val('g_branch')||'main',tok=val('g_token');document.getElementById('g_go').textContent='Checking…';validateAccess(owner,repo,tok).then(function(ok){if(!ok){showGate('That token + repo did not validate.');return;}STATE.sync={owner:owner,repo:repo,branch:branch,path:'state.json'};setToken(tok);persistLocal();pullState(false);enterApp();});};
   document.getElementById('g_skip').onclick=function(e){e.preventDefault();enterApp();};
 }
 (function(){
