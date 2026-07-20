@@ -307,11 +307,12 @@ function importState(e){var f=e.target.files[0];if(!f)return;var rd=new FileRead
 
 var navBtns=document.querySelectorAll('#nav button');for(var b=0;b<navBtns.length;b++)navBtns[b].onclick=function(){VIEW=this.getAttribute('data-v');render();};
 
+function repoFromUrl(){try{var h=location.hostname;var owner=(h.indexOf('.github.io')>=0)?h.split('.')[0]:'';var seg=location.pathname.split('/').filter(Boolean);var repo=seg.length?seg[0]:'';return {owner:owner,repo:repo,branch:'main'};}catch(e){return {owner:'',repo:'',branch:'main'};}}
 function validateAccess(owner,repo,tok){if(!owner||!repo||!tok)return Promise.resolve(false);return fetch('https://api.github.com/repos/'+owner+'/'+repo,{headers:{'Authorization':'token '+tok,'Accept':'application/vnd.github+json'}}).then(function(r){return r.ok;}).catch(function(){return false;});}
 function enterApp(){document.getElementById('nav').style.visibility='visible';VIEW='india';render();}
 function showGate(msg){
-  document.getElementById('nav').style.visibility='hidden';var s=STATE.sync||{};
-  app.innerHTML='<div class="card" style="max-width:460px;margin:26px auto"><h3>Connect this device</h3><div class="small muted" style="margin-bottom:10px">The app checks for a working GitHub token before opening. It is stored only on this device.</div>'
+  document.getElementById('nav').style.visibility='hidden';var s0=STATE.sync||{};var du=repoFromUrl();var s={owner:s0.owner||du.owner,repo:s0.repo||du.repo,branch:s0.branch||du.branch};
+  app.innerHTML='<div class="card" style="max-width:460px;margin:26px auto"><h3>Connect this device</h3><div class="small muted" style="margin-bottom:10px">Owner and repo are detected from the site URL. You only need a token to sync your notes across devices — or click open local-only to skip it (viewing prices needs no token).</div>'
     +(msg?'<div class="warn-box">'+esc(msg)+'</div>':'')
     +fld('Owner','g_owner',s.owner||'')+fld('Repo','g_repo',s.repo||'')+fld('Branch','g_branch',s.branch||'main')
     +'<div class="fld" style="margin-top:8px"><label>GitHub token</label><input id="g_token" type="password" value="'+esc(token())+'"/></div>'
