@@ -10,8 +10,8 @@
   }
  },
  "config": {
-  "buyThreshold": 0.25,
-  "maybeThreshold": 0.1,
+  "buyWithin": 0.1,
+  "maybeWithin": 0.25,
   "forexPct": 0.03,
   "overheadPct": 0.1,
   "delivery": 0,
@@ -371,7 +371,7 @@
    "name": "Cascadia",
    "type": "Boardgame",
    "bgoId": "12975B7EQh",
-   "indiaUrl": "",
+   "indiaUrl": "https://www.boardgamesindia.com/cascadia-retail-edition-flatout-games",
    "discount": null,
    "status": "Not Started",
    "prices": {
@@ -391,7 +391,7 @@
    "india": {
     "price": 3300,
     "source": "Board Games India",
-    "stock": "In stock"
+    "stock": ""
    }
   },
   {
@@ -801,7 +801,7 @@
    "name": "Harmonies",
    "type": "Boardgame",
    "bgoId": "46AnulxktA",
-   "indiaUrl": "",
+   "indiaUrl": "https://www.boardgamesindia.com/harmonies",
    "discount": null,
    "status": "Not Started",
    "prices": {
