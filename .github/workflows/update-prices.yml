@@ -1,16 +1,18 @@
-# Optional: fully-automated biweekly price refresh.
 # Put this file at .github/workflows/update-prices.yml in your repo.
-# It runs the scraper on a schedule and commits the refreshed data.json.
-# (This is the CI option — it makes the whole list update without you or the agent.)
+# Runs the scraper on a schedule and commits the refreshed data.json.
 
 name: Update board game prices
 on:
   schedule:
-    - cron: '0 3 1,15 * *'   # 03:00 UTC on the 1st and 15th of each month
-  workflow_dispatch: {}        # also allow manual "Run workflow"
+    - cron: '0 3 1,15 * *'   # 03:00 UTC on the 1st and 15th
+  workflow_dispatch: {}        # manual "Run workflow" button
 
 permissions:
   contents: write
+
+concurrency:
+  group: update-prices
+  cancel-in-progress: false
 
 jobs:
   update:
@@ -19,7 +21,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
       - name: Scrape prices
         run: node scraper.js
       - name: Commit if changed
@@ -27,5 +29,10 @@ jobs:
           git config user.name "price-bot"
           git config user.email "bot@users.noreply.github.com"
           git add data.json
-          git diff --staged --quiet || git commit -m "Refresh prices $(date -u +%F)"
-          git push
+          if git diff --staged --quiet; then
+            echo "No price changes."
+          else
+            git commit -m "Refresh prices $(date -u +%F)"
+            git pull --rebase --autostash origin ${{ github.ref_name }}
+            git push
+          fi
