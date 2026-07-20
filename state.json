@@ -57,7 +57,7 @@
    "name": "",
    "country": "USA",
    "discount": "",
-   "shipping": "",
+   "shipping": "0",
    "overhead": 10,
    "items": []
   }
