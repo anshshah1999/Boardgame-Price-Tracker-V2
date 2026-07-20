@@ -42,7 +42,17 @@
   }
  },
  "added": [],
- "stores": [],
+ "stores": [
+  {
+   "name": "",
+   "country": "USA",
+   "discount": "",
+   "shipping": "",
+   "shipMode": "local",
+   "overhead": 10,
+   "items": []
+  }
+ ],
  "quickAdd": "",
  "config": {}
 }
