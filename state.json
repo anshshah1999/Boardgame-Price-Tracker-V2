@@ -1,0 +1,29 @@
+{
+ "overrides": {
+  "Adulthood": {
+   "stores": [
+    {
+     "name": "",
+     "currency": "USD",
+     "price": "",
+     "discount": "",
+     "shipping": "",
+     "overhead": ""
+    }
+   ]
+  }
+ },
+ "added": [
+  {
+   "name": "dnup",
+   "type": "Boardgame",
+   "bgoId": "",
+   "india": null,
+   "prices": {},
+   "stock": {},
+   "status": "Not Started"
+  }
+ ],
+ "quickAdd": "",
+ "config": {}
+}
