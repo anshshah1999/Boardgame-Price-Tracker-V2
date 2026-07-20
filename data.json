@@ -1,12 +1,12 @@
 {
  "meta": {
-  "updated": "2026-07-19",
+  "updated": "2026-07-20",
   "fx": {
-   "USD": 85.12,
-   "GBP": 116.92,
-   "CAD": 59.49,
-   "AUD": 55.16,
-   "NZD": 50.0
+   "USD": 96.43,
+   "GBP": 129.87,
+   "CAD": 68.73,
+   "AUD": 67.57,
+   "NZD": 56.47
   }
  },
  "config": {
@@ -21,7 +21,7 @@
   {
    "name": "7 Wonders: Architects – Medals",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "aSZ_dqxVMB",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -44,7 +44,7 @@
   {
    "name": "Adulthood",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "VhusYdGcvM",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -67,7 +67,7 @@
   {
    "name": "Agent Avenue",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "wBRRNgnGmH",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -113,7 +113,7 @@
   {
    "name": "Avant Carde",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "3a1vTFjOBP",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -136,7 +136,7 @@
   {
    "name": "Backstories: Alone under the Ice",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "F3aqY4L33D",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -182,7 +182,7 @@
   {
    "name": "Between Two Castles Essential Edition",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "y7iGBdn-Ii",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -205,7 +205,7 @@
   {
    "name": "Bites",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "pZP0fG-0lz",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -228,7 +228,7 @@
   {
    "name": "Burgle Bros 2: The Casino Capers",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "nbQEbvWkTy",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -251,7 +251,7 @@
   {
    "name": "Caesar!: Seize Rome in 20 minutes",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "GYII4RVfZb",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -274,7 +274,7 @@
   {
    "name": "Caper: Europe",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "UbaMKhiLmk",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -297,7 +297,7 @@
   {
    "name": "Capital Lux 2: Generations",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "xM7wkfU6Us",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -391,13 +391,13 @@
    "india": {
     "price": 3300,
     "source": "Board Games India",
-    "stock": ""
+    "stock": "In stock"
    }
   },
   {
    "name": "Chit Chat",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "-3AFvRFHBr",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -447,7 +447,7 @@
   {
    "name": "Colt Express: Couriers & Armored Train",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "TxiXaMhQQ5",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -470,7 +470,7 @@
   {
    "name": "Dabba Walla",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "Y-JRgoah_t",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -493,7 +493,7 @@
   {
    "name": "Décorum",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "bVpuXqrPqp",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -516,7 +516,7 @@
   {
    "name": "Decrypto: Expansion #01 – Laserdrive",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "gv4cb-vT20",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -539,7 +539,7 @@
   {
    "name": "Detective Club",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "nXRwUjoIza",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -612,7 +612,7 @@
   {
    "name": "Dying Message",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "GQFKAzsekJ",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -635,7 +635,7 @@
   {
    "name": "Faraway: People From Below",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "yTlhANq11R",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -658,7 +658,7 @@
   {
    "name": "Final Girl: Frightmare on Maple Lane",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "M4zlQnkXA0",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -681,7 +681,7 @@
   {
    "name": "Fireball Island: Race to Adventure",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "Oe64uTQ1Sf",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -731,7 +731,7 @@
   {
    "name": "Foundations of Metropolis",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "6NQptWjOyw",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -754,7 +754,7 @@
   {
    "name": "Fugitive (Second Edition)",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "FJaY49WWt8",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -777,7 +777,7 @@
   {
    "name": "Hamster roll",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "KJoCBILA6M",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -821,13 +821,13 @@
    "india": {
     "price": 3800,
     "source": "Board Games India",
-    "stock": "Pre-order"
+    "stock": "In stock"
    }
   },
   {
    "name": "Heat: Heavy Rain",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "8Dp1ru1HKU",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -850,7 +850,7 @@
   {
    "name": "Heat: Tunnel Vision",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "umdb8GC1kw",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -900,7 +900,7 @@
   {
    "name": "HITSTER",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "U6MaWmKnTQ",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -923,7 +923,7 @@
   {
    "name": "Hive",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "aAss5Dqr0N",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -946,7 +946,7 @@
   {
    "name": "Horrified",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "7jJoa7DmUY",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -969,7 +969,7 @@
   {
    "name": "I C E: Second Edition",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "r1S2gAP8lc",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -992,7 +992,7 @@
   {
    "name": "Insider Black",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "HDZs2wRXcD",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1015,7 +1015,7 @@
   {
    "name": "Jamaica",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "bnvj13nU00",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1038,7 +1038,7 @@
   {
    "name": "Junk Art",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "Rym1_pFaGi",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1061,7 +1061,7 @@
   {
    "name": "Kabuto Sumo",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "iwtYx8_nB7",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1084,7 +1084,7 @@
   {
    "name": "Kariba",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "oKlmWbaP3X",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1107,7 +1107,7 @@
   {
    "name": "King of 12",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "S23hLcaYIy",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1130,7 +1130,7 @@
   {
    "name": "L.L.A.M.A.",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "Kk9gzvsyuV",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1153,7 +1153,7 @@
   {
    "name": "Landmarks",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "_G3h_8pnYa",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1176,7 +1176,7 @@
   {
    "name": "Lightning Train",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "89DOY2jcx6",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1199,7 +1199,7 @@
   {
    "name": "Lost Cities: The Board Game",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "GAekRFN9sG",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1222,7 +1222,7 @@
   {
    "name": "Machi Koro 2",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "kPUcQKbX5-",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1245,7 +1245,7 @@
   {
    "name": "MicroMacro: Crime City – All In",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "7ozXTDruBu",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1268,7 +1268,7 @@
   {
    "name": "MicroMacro: Crime City – Bonus Box",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "JUFrYwEjOV",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1291,7 +1291,7 @@
   {
    "name": "MicroMacro: Crime City – Full House",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "xoC2flPYiv",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1314,7 +1314,7 @@
   {
    "name": "MicroMacro: Crime City – Showdown",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "qacsfwiNez",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1337,7 +1337,7 @@
   {
    "name": "Moon Colony Bloodbath",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "aXr_Y0bTIh",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1360,7 +1360,7 @@
   {
    "name": "Moonrollers",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "Kvt2a5YkYe",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1383,7 +1383,7 @@
   {
    "name": "Muffin Time: Pie Flavour Pack",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "XR74vm95Z0",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1406,7 +1406,7 @@
   {
    "name": "Muffin Time: Rainbow Pack",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "xzjAbjTZsV",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1429,7 +1429,7 @@
   {
    "name": "Nidavellir: Thingvellir",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "yCgBYEpo2M",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1452,7 +1452,7 @@
   {
    "name": "Parks (Second Edition)",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "x6KKLTxyag",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1475,7 +1475,7 @@
   {
    "name": "Patchwork: Automa",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "S8E-AHa5bs",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1498,7 +1498,7 @@
   {
    "name": "Pirates of Maracaibo",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "9Wp7HZmBw1",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1521,7 +1521,7 @@
   {
    "name": "Planet Unknown",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "671dyiG6Dw",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1544,7 +1544,7 @@
   {
    "name": "Point City",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "kgox9xGtaa",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1567,7 +1567,7 @@
   {
    "name": "Project L: Ambassador Pack",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "lee7ScvCA8",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1590,7 +1590,7 @@
   {
    "name": "Project L: Finesse",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "5CLo4CbUVE",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1613,7 +1613,7 @@
   {
    "name": "Project L: Finesse Ambassador Pack",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "mt8LqFekUq",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1636,7 +1636,7 @@
   {
    "name": "Quacks",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "bD0EsHvlcZ",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1659,7 +1659,7 @@
   {
    "name": "Quest",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "_OrAkB0VOY",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1682,7 +1682,7 @@
   {
    "name": "Ra",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "ztzt3fy553",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1705,7 +1705,7 @@
   {
    "name": "Railroad Ink: Deep Blue Edition",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "2ukSnJ39H9",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1728,7 +1728,7 @@
   {
    "name": "Railroad Tiles",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "s1AVOspq25",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1751,7 +1751,7 @@
   {
    "name": "Red Carpet",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "BFfYlvWS7B",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1774,7 +1774,7 @@
   {
    "name": "Sagrada",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "ivLKpH2qMz",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1797,7 +1797,7 @@
   {
    "name": "Santorini",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "5_TQJXBwtr",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1820,7 +1820,7 @@
   {
    "name": "Schotten Totten",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "AqCS_RGHZK",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1843,7 +1843,7 @@
   {
    "name": "Sea Salt & Paper",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "zNv72j3A63",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1866,7 +1866,7 @@
   {
    "name": "Sky Team: Turbulence",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "hPvxv_z-xi",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1889,7 +1889,7 @@
   {
    "name": "So Clover!",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "CwEdM88bNs",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1912,7 +1912,7 @@
   {
    "name": "Sobek: 2 Players",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "12vLrbi1bt",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1935,7 +1935,7 @@
   {
    "name": "Spicy",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "vCmcAk7DaT",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1958,7 +1958,7 @@
   {
    "name": "Steampunk Rally Fusion",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "EhRJfXsJ-X",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -1981,7 +1981,7 @@
   {
    "name": "Stockpile",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "TN1kSZMy7h",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2004,7 +2004,7 @@
   {
    "name": "Strike",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "KjDIQclVIn",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2027,7 +2027,7 @@
   {
    "name": "Subjective",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "kpwx56MSUl",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2050,7 +2050,7 @@
   {
    "name": "Suburbia",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "3rID_z0BVG",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2073,7 +2073,7 @@
   {
    "name": "Takenoko",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "UfustagRW2",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2096,7 +2096,7 @@
   {
    "name": "TEAM3 GREEN",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "lAzkD15FfY",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2119,7 +2119,7 @@
   {
    "name": "TEAM3 PINK",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "Hrum0uJlnj",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2142,7 +2142,7 @@
   {
    "name": "Terraforming Mars: Ares Expedition",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "8u88FlblU7",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2165,7 +2165,7 @@
   {
    "name": "That's Not a Hat: Pop Culture",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "VRY69G3nCF",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2188,7 +2188,7 @@
   {
    "name": "The Castles of Burgundy",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "X0x0v2_TzQ",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2211,7 +2211,7 @@
   {
    "name": "The LOOP: Fur Brigade",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "edv2UMAKvU",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2234,7 +2234,7 @@
   {
    "name": "The LOOP: The Revenge of Fauxzilla",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "ZKnU2XWIWv",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2257,7 +2257,7 @@
   {
    "name": "The Office: Paper Paranoia",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "KdaasWEzJu",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2280,7 +2280,7 @@
   {
    "name": "The Shipwreck Arcana",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "7l51E2FScr",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2303,7 +2303,7 @@
   {
    "name": "Thunder Road: Vendetta",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "2rfvo_VuSG",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2326,7 +2326,7 @@
   {
    "name": "Trial by Trolley: Derailed Edition",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "7eitnp0UdM",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2349,7 +2349,7 @@
   {
    "name": "Trial by Trolley: Kickstarter Expansion",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "JZ2eTvnCxp",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2372,7 +2372,7 @@
   {
    "name": "Trial by Trolley: R-Rated Modifier Expansion",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "TEnTcmm1i9",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2395,7 +2395,7 @@
   {
    "name": "Trial by Trolley: R-Rated Track Expansion",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "B5jEifX75k",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2418,7 +2418,7 @@
   {
    "name": "Trial By Trolley: Vacation Expansion",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "aGxtTX51wj",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2441,7 +2441,7 @@
   {
    "name": "Unstable Unicorns: Dragons Expansion Pack",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "S9IeODA7ad",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2464,7 +2464,7 @@
   {
    "name": "Unstable Unicorns: NSFW Pack",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "eDxco3NhB0",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2487,7 +2487,7 @@
   {
    "name": "Unstable Unicorns: Rainbow Apocalypse Expansion Pack",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "yr_EYtPFMb",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2510,7 +2510,7 @@
   {
    "name": "Unstable Unicorns: Unicorns of Legend Expansion Pack",
    "type": "Expansion",
-   "bgoId": "",
+   "bgoId": "QkItIkQWst",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2533,7 +2533,7 @@
   {
    "name": "Unstoppable",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "7wWaP8A8TF",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2556,7 +2556,7 @@
   {
    "name": "Western Legends",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "8xCkyLhdEr",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2584,14 +2584,14 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 55.0,
+    "USA": null,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": "In stock",
+    "USA": null,
     "UK": null,
     "Canada": null,
     "Australia": null,
@@ -2606,7 +2606,7 @@
   {
    "name": "Wingspan Asia",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "ijObtUSyVq",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2675,7 +2675,7 @@
   {
    "name": "Wroth",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "smRN03CKdQ",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2698,7 +2698,7 @@
   {
    "name": "Magical athlete",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "zk2NFLfgzB",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2721,7 +2721,7 @@
   {
    "name": "Viticulture",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "XZMHLFoIoR",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2744,7 +2744,7 @@
   {
    "name": "Hot streak",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "8QsoE29eTQ",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2767,7 +2767,7 @@
   {
    "name": "Bang! The Dice Game",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "R-pmk1K5GM",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2790,7 +2790,7 @@
   {
    "name": "Jibber jabble",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "GgHoKI07lj",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2813,7 +2813,7 @@
   {
    "name": "Pinched",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "cWqQCJmOjh",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2836,7 +2836,7 @@
   {
    "name": "Solstis",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "3eEAif5GCH",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2859,7 +2859,7 @@
   {
    "name": "Skull King",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "nWQ3P8Ufah",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2882,7 +2882,7 @@
   {
    "name": "Fliptoons",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "rxRjQF8i3D",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2905,7 +2905,7 @@
   {
    "name": "A carnivore did it",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "pWoZk0MByb",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2928,7 +2928,7 @@
   {
    "name": "Ruins",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "IFiJrANmW5",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2951,7 +2951,7 @@
   {
    "name": "Petiquette",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "47FSVFT3HA",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2974,7 +2974,7 @@
   {
    "name": "Popcorn",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "JAZXxHb1mI",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -2997,7 +2997,7 @@
   {
    "name": "Durian",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "o2dheOH4DS",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -3020,7 +3020,7 @@
   {
    "name": "Radlands",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "OKtz5PXOuM",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -3066,7 +3066,7 @@
   {
    "name": "Pool party",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "SUfRKlT___",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -3089,7 +3089,7 @@
   {
    "name": "Collect",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "40AH8ardB7",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -3112,7 +3112,7 @@
   {
    "name": "K3",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "IKK5nG55w6",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -3135,7 +3135,7 @@
   {
    "name": "Catan",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "04ACtDMij8",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
@@ -3158,7 +3158,7 @@
   {
    "name": "Legacy of Yu",
    "type": "Boardgame",
-   "bgoId": "",
+   "bgoId": "vmH2xJcMgd",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
