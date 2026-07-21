@@ -7,7 +7,7 @@ var flt={search:'',priceCap:'',lossCap:'',hideDropped:true};
 var country='USA';
 var sortState={india:{k:'verdictLoss',d:1},country:{k:'loss',d:1}};
 
-function blankState(){return {overrides:{}, added:[], stores:[], quickAdd:'', sync:{owner:'',repo:'',branch:'main',path:'state.json'}};}
+function blankState(){return {overrides:{}, added:[], stores:[], quickAdd:'', quickNotes:'', sync:{owner:'',repo:'',branch:'main',path:'state.json'}};}
 function loadState(){try{return Object.assign(blankState(),JSON.parse(localStorage.getItem(LS_STATE)||'{}'));}catch(e){return blankState();}}
 function persistLocal(){localStorage.setItem(LS_STATE,JSON.stringify(STATE));}
 function token(){return localStorage.getItem(LS_TOKEN)||'';}
@@ -183,15 +183,22 @@ function renderAnalysis(){
 }
 
 function renderGames(){
-  var h='<div class="card"><h3>Quick add <span class="small muted">— rough names, one per line</span></h3><textarea id="qa" rows="3" style="width:100%" placeholder="e.g. radlands">'+esc(STATE.quickAdd||'')+'</textarea><div style="margin-top:8px"><button class="act" id="qaAdd">Add as games</button> <button class="ghost" id="qaSave">Save draft</button></div></div>';
+  var h='<div class="card"><h3>Quick notes <span class="small muted">— jot anything; does not touch the list</span></h3><textarea id="qn" rows="4" style="width:100%" placeholder="that cat trick-taking game… / check BGG hotness / ask friend about Ark Nova">'+esc(STATE.quickNotes||'')+'</textarea><div style="margin-top:8px"><button class="act" id="qnSave">Save notes</button></div></div>';
+  h+='<div class="card"><h3>Quick add <span class="small muted">— rough names, one per line (adds to the list)</span></h3><textarea id="qa" rows="3" style="width:100%" placeholder="e.g. radlands">'+esc(STATE.quickAdd||'')+'</textarea><div style="margin-top:8px"><button class="act" id="qaAdd">Add as games</button> <button class="ghost" id="qaSave">Save draft</button></div></div>';
   var rows=allGames();
   h+='<div class="small muted" style="margin:4px 2px">'+rows.length+' games</div><div class="tbl-wrap"><table><thead><tr><th>Game</th><th class="opt">Type</th><th>Status</th><th class="num">India</th><th></th></tr></thead><tbody>';
   rows.forEach(function(g){var o=ov(g.name);var st=o.status||g.status||'Not Started';var ai=STATE.added.indexOf(g);var added=ai>=0;var renamed=(o.name&&o.name!==g.name);h+='<tr><td><input data-gname="'+esc(g.name)+'"'+(added?' data-added="'+ai+'"':'')+' value="'+esc(displayName(g))+'" style="min-width:170px"/>'+(renamed?'<div class="small muted">was: '+esc(g.name)+'</div>':'')+'</td><td class="opt small muted">'+(g.type||'')+'</td><td>'+st+'</td><td class="num">'+(g.india&&g.india.price?inr(g.india.price):'')+'</td><td>'+(added?'<button class="ghost" data-rm="'+ai+'">del</button>':'')+'</td></tr>';});
   h+='</tbody></table></div>';
   app.innerHTML=h;
+  document.getElementById('qnSave').onclick=function(){STATE.quickNotes=val('qn');changed();};
   document.getElementById('qaSave').onclick=function(){STATE.quickAdd=val('qa');changed();};
   document.getElementById('qaAdd').onclick=function(){var lines=(val('qa')||'').split('\n').map(function(s){return s.trim();}).filter(Boolean);var known={};allGames().forEach(function(g){known[norm(g.name)]=true;});var a=0,mm=0;lines.forEach(function(n){var k=norm(n);if(known[k]){mm++;return;}var hit=allGames().filter(function(g){return norm(g.name).indexOf(k)>=0||k.indexOf(norm(g.name))>=0;})[0];if(hit){mm++;return;}STATE.added.push({name:n,type:'Boardgame',bgoId:'',india:null,prices:{},stock:{},status:'Not Started'});known[k]=true;a++;});STATE.quickAdd='';changed();render();alert('Added '+a+' new, '+mm+' already in list.');};
-  var ed=app.querySelectorAll('[data-gname]');for(var i=0;i<ed.length;i++)ed[i].onchange=function(){var orig=this.getAttribute('data-gname');var ai2=this.getAttribute('data-added');var nv=this.value.trim();if(ai2!=null){if(nv)STATE.added[+ai2].name=nv;}else{STATE.overrides[orig]=STATE.overrides[orig]||{};if(nv&&nv!==orig)STATE.overrides[orig].name=nv;else delete STATE.overrides[orig].name;}changed();};
+  var ed=app.querySelectorAll('[data-gname]');for(var i=0;i<ed.length;i++)ed[i].onchange=function(){
+    var orig=this.getAttribute('data-gname');var ai2=this.getAttribute('data-added');var nv=this.value.trim();
+    if(ai2!=null){if(nv)STATE.added[+ai2].name=nv;}else{STATE.overrides[orig]=STATE.overrides[orig]||{};if(nv&&nv!==orig)STATE.overrides[orig].name=nv;else delete STATE.overrides[orig].name;}
+    var link=prompt('Optional — paste the Board Game Oracle link for this game to set its scrape ID (leave blank to skip):','');
+    if(link){var m=link.match(/\/boardgame\/price\/([A-Za-z0-9_-]{6,})/);if(m){if(ai2!=null){STATE.added[+ai2].bgoId=m[1];}else{STATE.overrides[orig]=STATE.overrides[orig]||{};STATE.overrides[orig].bgoId=m[1];}alert('Set BGO ID: '+m[1]);}else{alert('Could not find an ID in that link — expected .../boardgame/price/<ID>/...');}}
+    changed();render();};
   var rm=app.querySelectorAll('[data-rm]');for(var j=0;j<rm.length;j++)rm[j].onclick=function(){STATE.added.splice(+this.getAttribute('data-rm'),1);changed();render();};
 }
 function renderSettings(){
@@ -241,9 +248,21 @@ function showGate(msg){
   document.getElementById('g_go').onclick=function(){var owner=val('g_owner'),repo=val('g_repo'),branch=val('g_branch')||'main',tok=val('g_token');document.getElementById('g_go').textContent='Checking…';validateAccess(owner,repo,tok).then(function(ok){if(!ok){showGate('That token + repo did not validate.');return;}STATE.sync={owner:owner,repo:repo,branch:branch,path:'state.json'};setToken(tok);persistLocal();enterApp();pullState(false);});};
   document.getElementById('g_skip').onclick=function(e){e.preventDefault();enterApp();};
 }
+function runWorkflow(){
+  if(!syncReady()){alert('Set up GitHub sync in Settings first (owner, repo and token).');return;}
+  var s=STATE.sync;
+  fetch('https://api.github.com/repos/'+s.owner+'/'+s.repo+'/actions/workflows/update-prices.yml/dispatches',{method:'POST',headers:ghH(),body:JSON.stringify({ref:s.branch})}).then(function(r){
+    if(r.status===204){setMsg('Update started');alert('Price update started in GitHub Actions (~2 min). Refresh the page in a few minutes to see new prices.');}
+    else if(r.status===403){alert('Token lacks permission — give it Actions: Read and write (in addition to Contents).');}
+    else if(r.status===404){alert('Workflow not found — make sure .github/workflows/update-prices.yml is in the repo.');}
+    else{alert('Could not start workflow (HTTP '+r.status+').');}
+  }).catch(function(){alert('Network error starting the workflow.');});
+}
 function start(){
   app=document.getElementById('app');
   STATE=loadState();
+  var sb=document.getElementById('saveBtn');if(sb)sb.onclick=function(){pushState(true);};
+  var rb=document.getElementById('runBtn');if(rb)rb.onclick=runWorkflow;
   var navBtns=document.querySelectorAll('#nav button');for(var bb=0;bb<navBtns.length;bb++)navBtns[bb].onclick=function(){VIEW=this.getAttribute('data-v');render();};
   fetch('data.json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){DATA=d;boot();}).catch(function(){DATA={meta:{updated:'-',fx:{USD:85,GBP:117,CAD:59,AUD:55,NZD:50}},config:{buyWithin:.1,maybeWithin:.25,forexPct:.03,overheadPct:.1,delivery:0,bgiDefaultDiscount:.1},games:[]};boot();});
   function boot(){var s=STATE.sync||{};if(s.owner&&s.repo&&token()){enterApp();pullState(false);}else showGate('');}

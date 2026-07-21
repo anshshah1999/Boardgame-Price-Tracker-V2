@@ -11,7 +11,11 @@
   <div class="hrow">
     <h1>Board Game Price Tracker</h1>
     <span class="meta" id="updated"></span>
-    <span class="right meta"><span class="dot" id="syncDot"></span><span id="syncTxt">local only</span></span>
+    <span class="right" style="display:flex;gap:6px;align-items:center">
+      <button id="saveBtn" class="ghost">Save</button>
+      <button id="runBtn" class="ghost">Run update</button>
+      <span class="meta"><span class="dot" id="syncDot"></span><span id="syncTxt">local only</span></span>
+    </span>
   </div>
   <nav id="nav">
     <button data-v="india" class="active">India view</button>
