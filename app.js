@@ -6,6 +6,7 @@ var DATA=null, STATE=null, VIEW='india', saveTimer=null;
 var flt={search:'',priceCap:'',lossCap:'',hideDropped:true};
 var country='USA';
 var sortState={india:{k:'verdictLoss',d:1},country:{k:'loss',d:1}};
+var lastFocus=null;
 
 function blankState(){return {overrides:{}, added:[], stores:[], quickAdd:'', quickNotes:'', sync:{owner:'',repo:'',branch:'main',path:'state.json'}};}
 function loadState(){try{return Object.assign(blankState(),JSON.parse(localStorage.getItem(LS_STATE)||'{}'));}catch(e){return blankState();}}
@@ -28,6 +29,7 @@ function norm(s){return (s||'').toLowerCase().replace(/[^a-z0-9]/g,'');}
 function num(v){var n=parseFloat(v);return isFinite(n)?n:null;}
 function verdictFromLoss(l){if(l==null)return 'No Data';if(l<=cfg('buyWithin'))return 'Buy';if(l<=cfg('maybeWithin'))return 'Maybe';return "Don't Buy";}
 function vclass(v){return v==='Buy'?'v-Buy':v==='Maybe'?'v-Maybe':v==="Don't Buy"?'v-Dont':'v-No';}
+function ordinal(r){if(r==null)return '';return r===1?'Cheapest':r===2?'2nd cheapest':r===3?'3rd cheapest':r+'th cheapest';}
 function sgn(amount,base,posGood){if(amount==null||!isFinite(amount))return '';var good=amount===0?null:(posGood?amount>0:amount<0);var col=good===null?'':(good?'pos':'neg');var p=(base&&base!=0)?(amount/base*100):null;return '<span class="'+col+'">'+(amount>0?'+':amount<0?'−':'')+inr(Math.abs(amount))+(p!=null?' <span class="small">('+Math.abs(p).toFixed(1)+'%)</span>':'')+'</span>';}
 
 function indiaNet(g){var o=ov(g.name);var disc=(o.discount!=null?o.discount:(g.discount!=null?g.discount:null));var src=g.india&&g.india.source?g.india.source:'';if(disc==null)disc=/board games india/i.test(src)?cfg('bgiDefaultDiscount'):0;var ip=g.india&&g.india.price?g.india.price:null;return {net:ip!=null?ip*(1-disc):null,disc:disc,listed:ip,src:src,stock:(g.india&&g.india.stock)||''};}
@@ -46,7 +48,9 @@ function computeCountry(g,c){
   var iv=indiaNet(g);var priceLocal=g.prices?g.prices[c]:null;var priceINR=rawINR(g,c);var cc=cheapestCountry(g);
   var loss=(priceINR!=null&&cc.inr!=null&&cc.inr>0)?(priceINR-cc.inr)/cc.inr:null;
   var vsIndia=(iv.net!=null&&priceINR!=null)?iv.net-priceINR:null;
-  return {name:g.name,disp:displayName(g),status:ov(g.name).status||g.status||'Not Started',local:priceLocal,priceINR:priceINR,india:iv.net,bestC:cc.c,bestINR:cc.inr,loss:loss,verdict:verdictFromLoss(loss),vsIndia:vsIndia,vsIndiaPct:(vsIndia!=null&&iv.net)?vsIndia/iv.net:null,avail:(g.stock&&g.stock[c])||''};
+  var vals=COUNTRIES.map(function(cc2){return rawINR(g,cc2);}).filter(function(v){return v!=null;}).sort(function(a,b){return a-b;});
+  var rank=(priceINR!=null)?(vals.indexOf(priceINR)+1):null;
+  return {name:g.name,disp:displayName(g),status:ov(g.name).status||g.status||'Not Started',local:priceLocal,priceINR:priceINR,india:iv.net,bestC:cc.c,bestINR:cc.inr,loss:loss,verdict:verdictFromLoss(loss),vsIndia:vsIndia,vsIndiaPct:(vsIndia!=null&&iv.net)?vsIndia/iv.net:null,avail:(g.stock&&g.stock[c])||'',rank:rank,rankN:(rank==null?99:rank)};
 }
 
 var app;
@@ -63,10 +67,11 @@ function filterBar(extra){
     +'<label class="chk"><input type="checkbox" id="hd" '+(flt.hideDropped?'checked':'')+'/> Hide purch./dropped</label></div>';
 }
 function wireFilters(rerender){
-  document.getElementById('q').oninput=function(e){flt.search=e.target.value;rerender();};
-  document.getElementById('pcap').oninput=function(e){flt.priceCap=e.target.value;rerender();};
-  document.getElementById('lcap').oninput=function(e){flt.lossCap=e.target.value;rerender();};
-  document.getElementById('hd').onchange=function(e){flt.hideDropped=e.target.checked;rerender();};
+  document.getElementById('q').oninput=function(e){lastFocus={id:'q',pos:e.target.selectionStart};flt.search=e.target.value;rerender();};
+  document.getElementById('pcap').oninput=function(e){lastFocus={id:'pcap',pos:null};flt.priceCap=e.target.value;rerender();};
+  document.getElementById('lcap').oninput=function(e){lastFocus={id:'lcap',pos:null};flt.lossCap=e.target.value;rerender();};
+  document.getElementById('hd').onchange=function(e){lastFocus=null;flt.hideDropped=e.target.checked;rerender();};
+  if(lastFocus){var el=document.getElementById(lastFocus.id);if(el){el.focus();if(lastFocus.pos!=null){try{el.setSelectionRange(lastFocus.pos,lastFocus.pos);}catch(e){}}}}
 }
 function passFilters(r,price,lossPct){
   if(flt.hideDropped&&(r.status==='Purchased'||r.status==='Dropped'))return false;
@@ -75,7 +80,7 @@ function passFilters(r,price,lossPct){
   var lc=num(flt.lossCap);if(lc!=null&&lossPct!=null&&(lossPct*100)>lc)return false;
   return true;
 }
-function sortRows(rows,st){var k=st.k,d=st.d;rows.sort(function(a,b){var x=a[k],y=b[k];if(k==='name'){return d*String(x).localeCompare(String(y));}if(x==null)x=9e15;if(y==null)y=9e15;return d*(x-y);});return rows;}
+function sortRows(rows,st){var k=st.k,d=st.d;rows.sort(function(a,b){var x=a[k],y=b[k];if(typeof x==='string'||typeof y==='string'){return d*String(x==null?'':x).localeCompare(String(y==null?'':y));}if(x==null)x=9e15;if(y==null)y=9e15;return d*(x-y);});return rows;}
 function hdr(view,cols){var st=sortState[view];return '<tr>'+cols.map(function(c){var arrow=(st.k===c[0])?(st.d<0?' ▾':' ▴'):'';return '<th class="sk '+(c[2]||'')+'" data-sk="'+c[0]+'">'+c[1]+arrow+'</th>';}).join('')+'</tr>';}
 function wireHdr(view,rerender){var ths=app.querySelectorAll('th[data-sk]');for(var i=0;i<ths.length;i++)ths[i].onclick=function(){var k=this.getAttribute('data-sk');var st=sortState[view];if(st.k===k)st.d*=-1;else{st.k=k;st.d=1;}rerender();};}
 
@@ -111,11 +116,11 @@ function fld(label,id,value,type,ph){return '<div class="fld"><label>'+label+'</
 function renderCountry(){
   var rows=allGames().map(function(g){return computeCountry(g,country);}).filter(function(r){return r.priceINR!=null&&passFilters(r,r.priceINR,r.loss);});
   sortRows(rows,sortState.country);
-  var cols=[['name','Game',''],['local','Price ('+CUR[country]+')','num'],['priceINR','Price (INR)','num'],['india','India (net)','num opt'],['bestC','Best','opt'],['bestINR','Best (INR)','num opt'],['vsIndia','vs India','num'],['loss','vs cheapest','num'],['verdict','Verdict','']];
+  var cols=[['name','Game',''],['local','Price ('+CUR[country]+')','num'],['priceINR','Price (INR)','num'],['rankN','Rank here',''],['india','India (net)','num opt'],['bestC','Best','opt'],['bestINR','Best (INR)','num opt'],['vsIndia','vs India','num'],['loss','vs cheapest','num'],['verdict','Verdict','']];
   var extra='<label class="chk">Country <select id="cc">'+COUNTRIES.map(function(c){return '<option '+(c===country?'selected':'')+'>'+c+'</option>';}).join('')+'</select></label>';
   var h=filterBar(extra)+'<div class="small muted" style="margin-bottom:6px">'+rows.length+' games available in '+country+'</div>';
   h+='<div class="tbl-wrap"><table><thead>'+hdr('country',cols)+'</thead><tbody>';
-  rows.forEach(function(r){h+='<tr><td>'+esc(r.disp||r.name)+'</td><td class="num">'+loc(r.local)+'</td><td class="num">'+inr(r.priceINR)+oos(r.avail)+'</td><td class="num opt">'+inr(r.india)
+  rows.forEach(function(r){h+='<tr><td>'+esc(r.disp||r.name)+'</td><td class="num">'+loc(r.local)+'</td><td class="num">'+inr(r.priceINR)+oos(r.avail)+'</td><td>'+ordinal(r.rank)+'</td><td class="num opt">'+inr(r.india)
     +'</td><td class="opt">'+(r.bestC||'')+'</td><td class="num opt">'+inr(r.bestINR)+'</td><td class="num">'+sgn(r.vsIndia,r.india,true)+'</td><td class="num">'+sgn(r.loss!=null?r.loss*(r.bestINR||0):null,r.bestINR,false)+'</td><td><span class="verdict '+vclass(r.verdict)+'">'+r.verdict+'</span></td></tr>';});
   h+='</tbody></table></div>';
   app.innerHTML=h;
@@ -184,15 +189,14 @@ function renderAnalysis(){
 
 function renderGames(){
   var h='<div class="card"><h3>Quick notes <span class="small muted">— jot anything; does not touch the list</span></h3><textarea id="qn" rows="4" style="width:100%" placeholder="that cat trick-taking game… / check BGG hotness / ask friend about Ark Nova">'+esc(STATE.quickNotes||'')+'</textarea><div style="margin-top:8px"><button class="act" id="qnSave">Save notes</button></div></div>';
-  h+='<div class="card"><h3>Quick add <span class="small muted">— rough names, one per line (adds to the list)</span></h3><textarea id="qa" rows="3" style="width:100%" placeholder="e.g. radlands">'+esc(STATE.quickAdd||'')+'</textarea><div style="margin-top:8px"><button class="act" id="qaAdd">Add as games</button> <button class="ghost" id="qaSave">Save draft</button></div></div>';
+  h+='<div class="card"><h3>Add a game</h3><div class="grid"><div class="fld"><label>Game name</label><input id="ng_name" placeholder="Ark Nova"/></div><div class="fld" style="grid-column:1/-1"><label>Board Game Oracle link or ID (optional)</label><input id="ng_bgo" placeholder="paste the .../boardgame/price/... link, or the ID"/></div></div><div style="margin-top:8px"><button class="act" id="ng_add">Add game</button></div></div>';
   var rows=allGames();
-  h+='<div class="small muted" style="margin:4px 2px">'+rows.length+' games</div><div class="tbl-wrap"><table><thead><tr><th>Game</th><th class="opt">Type</th><th>Status</th><th class="num">India</th><th></th></tr></thead><tbody>';
-  rows.forEach(function(g){var o=ov(g.name);var st=o.status||g.status||'Not Started';var ai=STATE.added.indexOf(g);var added=ai>=0;var renamed=(o.name&&o.name!==g.name);h+='<tr><td><input data-gname="'+esc(g.name)+'"'+(added?' data-added="'+ai+'"':'')+' value="'+esc(displayName(g))+'" style="min-width:170px"/>'+(renamed?'<div class="small muted">was: '+esc(g.name)+'</div>':'')+'</td><td class="opt small muted">'+(g.type||'')+'</td><td>'+st+'</td><td class="num">'+(g.india&&g.india.price?inr(g.india.price):'')+'</td><td>'+(added?'<button class="ghost" data-rm="'+ai+'">del</button>':'')+'</td></tr>';});
+  h+='<div class="small muted" style="margin:4px 2px">'+rows.length+' games</div><div class="tbl-wrap"><table><thead><tr><th>Game</th><th class="opt">Type</th><th class="opt">BGO ID</th><th>Status</th><th class="num">India price</th><th></th></tr></thead><tbody>';
+  rows.forEach(function(g){var o=ov(g.name);var st=o.status||g.status||'Not Started';var ai=STATE.added.indexOf(g);var added=ai>=0;var renamed=(o.name&&o.name!==g.name);var gid=(o.bgoId||g.bgoId)||'';h+='<tr><td><input data-gname="'+esc(g.name)+'"'+(added?' data-added="'+ai+'"':'')+' value="'+esc(displayName(g))+'" style="min-width:170px"/>'+(renamed?'<div class="small muted">was: '+esc(g.name)+'</div>':'')+'</td><td class="opt small muted">'+(g.type||'')+'</td><td class="opt small muted">'+esc(gid)+'</td><td>'+st+'</td><td class="num">'+(g.india&&g.india.price?inr(g.india.price):'')+'</td><td>'+(added?'<button class="ghost" data-rm="'+ai+'">del</button>':'')+'</td></tr>';});
   h+='</tbody></table></div>';
   app.innerHTML=h;
   document.getElementById('qnSave').onclick=function(){STATE.quickNotes=val('qn');changed();};
-  document.getElementById('qaSave').onclick=function(){STATE.quickAdd=val('qa');changed();};
-  document.getElementById('qaAdd').onclick=function(){var lines=(val('qa')||'').split('\n').map(function(s){return s.trim();}).filter(Boolean);var known={};allGames().forEach(function(g){known[norm(g.name)]=true;});var a=0,mm=0;lines.forEach(function(n){var k=norm(n);if(known[k]){mm++;return;}var hit=allGames().filter(function(g){return norm(g.name).indexOf(k)>=0||k.indexOf(norm(g.name))>=0;})[0];if(hit){mm++;return;}STATE.added.push({name:n,type:'Boardgame',bgoId:'',india:null,prices:{},stock:{},status:'Not Started'});known[k]=true;a++;});STATE.quickAdd='';changed();render();alert('Added '+a+' new, '+mm+' already in list.');};
+  document.getElementById('ng_add').onclick=function(){var nm=val('ng_name');if(!nm){alert('Enter a game name.');return;}var raw=val('ng_bgo');var id='';if(raw){var m=raw.match(/\/boardgame\/price\/([A-Za-z0-9_-]{6,})/);id=m?m[1]:raw;}STATE.added.push({name:nm,type:'Boardgame',bgoId:id,india:null,prices:{},stock:{},status:'Not Started'});changed();render();};
   var ed=app.querySelectorAll('[data-gname]');for(var i=0;i<ed.length;i++)ed[i].onchange=function(){
     var orig=this.getAttribute('data-gname');var ai2=this.getAttribute('data-added');var nv=this.value.trim();
     if(ai2!=null){if(nv)STATE.added[+ai2].name=nv;}else{STATE.overrides[orig]=STATE.overrides[orig]||{};if(nv&&nv!==orig)STATE.overrides[orig].name=nv;else delete STATE.overrides[orig].name;}

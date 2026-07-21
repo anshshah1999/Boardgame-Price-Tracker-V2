@@ -8,6 +8,7 @@
 const fs = require('fs');
 const PATH = process.env.DATA_PATH || './data.json';
 const LOCALE = { USA:'', UK:'/en-GB', Canada:'/en-CA', Australia:'/en-AU', NZ:'/en-NZ' };
+const CURCODE = { USA:'USD', UK:'GBP', Canada:'CAD', Australia:'AUD', NZ:'NZD' };
 const UA = { 'User-Agent':'Mozilla/5.0 (compatible; bgpt-scraper/2.0)' };
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
@@ -35,16 +36,19 @@ function nextData(html){
   try { return JSON.parse(m[1]); } catch(e){ return null; }
 }
 // Offers are BGO's trpc "items" (~10 levels deep): {price, currency, availability:'in_stock'|'out_of_stock', merchant}
-function findOffers(root){
+function findOffers(root, cur){
   const out = [];
   (function walk(n){
     if (!n || typeof n!=='object') return;
     if (Array.isArray(n)){ n.forEach(walk); return; }
     if (typeof n.price==='number' && n.price>0 && ('availability' in n || 'merchant' in n)){
-      let price = n.price;
-      if (price>3000 && Number.isInteger(price)) price = price/100; // cents guard
-      const av = String(n.availability||'').toLowerCase();
-      out.push({ price:price, inStock: av.indexOf('in_stock')>=0 && av.indexOf('out')<0 });
+      // Only accept offers actually priced in this country's currency (BGO embeds US offers on every locale page).
+      if (!cur || String(n.currency||'').toUpperCase()===cur){
+        let price = n.price;
+        if (price>3000 && Number.isInteger(price)) price = price/100; // cents guard
+        const av = String(n.availability||'').toLowerCase();
+        out.push({ price:price, inStock: av.indexOf('in_stock')>=0 && av.indexOf('out')<0 });
+      }
     }
     Object.keys(n).forEach(function(k){ walk(n[k]); });
   })(root);
@@ -60,18 +64,16 @@ function findLowest(root){
   })(root);
   return best;
 }
-function parseBGO(html){
+function parseBGO(html, cur){
   if (!html) return { price:null, stock:null };
   const nd = nextData(html);
   if (nd){
-    const offers = findOffers(nd);
+    const offers = findOffers(nd, cur);
     if (offers.length){
       const inS = offers.filter(function(o){return o.inStock;}).map(function(o){return o.price;});
       if (inS.length) return { price: Math.min.apply(null,inS), stock:'In stock' };
       return { price: Math.min.apply(null,offers.map(function(o){return o.price;})), stock:'Out of stock' };
     }
-    const low = findLowest(nd);
-    if (low!=null) return { price: low, stock:'' };
   }
   // Fallback: currency-prefixed numbers within the prices section (lenient)
   const a = html.search(/All prices in/i);
@@ -90,7 +92,7 @@ async function scrapeBGO(bgoId, slug){
   const sl = slug || 'x';
   for (const [country, locp] of Object.entries(LOCALE)){
     const html = await get('https://www.boardgameoracle.com'+locp+'/boardgame/price/'+bgoId+'/'+sl);
-    const r = parseBGO(html);
+    const r = parseBGO(html, CURCODE[country]);
     out.prices[country] = r.price; out.stock[country] = r.stock;
     await sleep(1000);
   }
