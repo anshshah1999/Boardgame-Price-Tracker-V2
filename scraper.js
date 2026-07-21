@@ -159,12 +159,12 @@ async function fetchFX(existing){
     if (g.bgoId){
       const slug = (g.name||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
       const r = await scrapeBGO(g.bgoId, slug);
-      const prevP = g.prices || {}, prevS = g.stock || {};
+      const prevP = g.prices || {};
       const np = {}, ns = {};
       for (const c of Object.keys(LOCALE)){
-        if (r.prices[c] != null){ np[c] = r.prices[c]; ns[c] = r.stock[c] || 'In stock'; }
-        else if (prevP[c] != null){ np[c] = prevP[c]; ns[c] = 'Out of stock'; }   // keep last-known price, flag OOS
-        else { np[c] = null; ns[c] = r.stock[c] || ''; }
+        if (r.prices[c] != null){ np[c] = r.prices[c]; ns[c] = r.stock[c] || 'In stock'; }   // tier 1/2: in-stock, else out-of-stock offer (both come from parseBGO)
+        else if (prevP[c] != null){ np[c] = prevP[c]; ns[c] = 'Out of stock'; }               // tier 3: no listing now -> keep last-known, flag out of stock
+        else { np[c] = null; ns[c] = ''; }
       }
       g.prices = np; g.stock = ns;
       if (Object.values(np).some(function(v){return v!=null;})) intlPriced++;
