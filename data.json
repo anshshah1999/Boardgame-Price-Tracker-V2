@@ -1,6 +1,6 @@
 {
  "meta": {
-  "updated": "2026-07-21",
+  "updated": "2026-07-22",
   "fx": {
    "USD": 96.25,
    "GBP": 129.03,
@@ -26,18 +26,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 19.19,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -49,18 +49,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 27.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -72,18 +72,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 18.39,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -95,23 +95,24 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 25.49,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": {
     "price": 3000,
     "source": "Board Games India",
-    "stock": "oos"
+    "stock": "Out of stock",
+    "discount": 0.1
    }
   },
   {
@@ -122,18 +123,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 14.47,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -145,18 +146,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 13.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -168,23 +169,24 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 46.97,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": {
     "price": 9999,
     "source": "Board Games India",
-    "stock": "oos"
+    "stock": "Out of stock",
+    "discount": 0.1
    }
   },
   {
@@ -195,18 +197,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 40,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -218,18 +220,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 22.95,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -248,11 +250,11 @@
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -264,18 +266,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 24.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -287,18 +289,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 34.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -310,18 +312,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 28,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "Out of stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -333,18 +335,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 19.96,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "Out of stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -356,23 +358,24 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 19.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": {
-    "price": 2800,
-    "source": "Board Games India",
-    "stock": "oos"
+    "price": 2099,
+    "source": "Boardway",
+    "stock": "Out of stock",
+    "discount": 0
    }
   },
   {
@@ -383,23 +386,24 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 31.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": {
     "price": 3300,
     "source": "Board Games India",
-    "stock": "In stock"
+    "stock": "In stock",
+    "discount": 0
    }
   },
   {
@@ -410,18 +414,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 17.59,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -433,23 +437,24 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 59.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": {
     "price": 6500,
     "source": "Board Games India",
-    "stock": "oos"
+    "stock": "Out of stock",
+    "discount": 0.1
    }
   },
   {
@@ -460,18 +465,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 25.83,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -483,18 +488,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 31.97,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -506,18 +511,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 28.97,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -529,18 +534,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 11.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "Out of stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -552,18 +557,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 28.97,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "Out of stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -575,23 +580,24 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 31.47,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": {
     "price": 4000,
     "source": "Board Games India",
-    "stock": "oos"
+    "stock": "Out of stock",
+    "discount": 0.1
    }
   },
   {
@@ -602,23 +608,24 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 17.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "Out of stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": {
     "price": 2499,
     "source": "Board Games India",
-    "stock": "oos"
+    "stock": "Out of stock",
+    "discount": 0.1
    }
   },
   {
@@ -629,18 +636,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 22.47,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -652,18 +659,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 6.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -675,18 +682,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 19.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -705,11 +712,11 @@
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -721,23 +728,24 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 23.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": {
-    "price": 3000,
-    "source": "Board Games India",
-    "stock": "oos"
+    "price": 2899,
+    "source": "Boardway",
+    "stock": "Out of stock",
+    "discount": 0
    }
   },
   {
@@ -748,18 +756,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 32.33,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -771,18 +779,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 25.82,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -794,18 +802,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 35.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -817,23 +825,24 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 31.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": {
     "price": 3800,
     "source": "Board Games India",
-    "stock": "In stock"
+    "stock": "In stock",
+    "discount": 0
    }
   },
   {
@@ -844,18 +853,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 26.89,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -867,18 +876,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 30.39,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -890,23 +899,24 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 19.47,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "Out of stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": {
-    "price": 2199,
-    "source": "Board Games India",
-    "stock": "oos"
+    "price": 2100,
+    "source": "Board Games Bazaar",
+    "stock": "Out of stock",
+    "discount": 0
    }
   },
   {
@@ -917,18 +927,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 19.82,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -940,18 +950,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 33.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -963,18 +973,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 35.69,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -993,11 +1003,11 @@
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1009,18 +1019,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 16.79,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "Out of stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1032,20 +1042,25 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 29.96,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
-   "india": null
+   "india": {
+    "price": 4099,
+    "source": "Boardway",
+    "stock": "Out of stock",
+    "discount": 0
+   }
   },
   {
    "name": "Junk Art",
@@ -1055,18 +1070,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 37.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "Out of stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1078,18 +1093,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 30.49,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1101,18 +1116,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 11.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1124,18 +1139,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 15.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1147,20 +1162,25 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 7.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
-   "india": null
+   "india": {
+    "price": 899,
+    "source": "Boardway",
+    "stock": "Out of stock",
+    "discount": 0
+   }
   },
   {
    "name": "Landmarks",
@@ -1170,20 +1190,25 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 19.96,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
-   "india": null
+   "india": {
+    "price": 2399,
+    "source": "Boardway",
+    "stock": "Out of stock",
+    "discount": 0
+   }
   },
   {
    "name": "Lightning Train",
@@ -1193,18 +1218,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 54.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1216,18 +1241,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 28.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "Out of stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1239,18 +1264,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 21.65,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1262,18 +1287,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 23.49,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1285,18 +1310,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 10.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1308,18 +1333,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 34.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1331,18 +1356,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 19.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1354,18 +1379,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 35.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1377,18 +1402,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 29.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1407,11 +1432,11 @@
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1430,11 +1455,11 @@
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1446,18 +1471,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 17.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1469,18 +1494,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 59.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1499,11 +1524,11 @@
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1515,18 +1540,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 39.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1538,18 +1563,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 50.12,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1561,18 +1586,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 19.89,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1591,11 +1616,11 @@
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1607,18 +1632,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 13.59,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1637,11 +1662,11 @@
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1653,20 +1678,25 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 35.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
-   "india": null
+   "india": {
+    "price": 4799,
+    "source": "Boardway",
+    "stock": "Out of stock",
+    "discount": 0
+   }
   },
   {
    "name": "Quest",
@@ -1683,13 +1713,18 @@
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
-   "india": null
+   "india": {
+    "price": 2999,
+    "source": "Tabletop Universe",
+    "stock": "Out of stock",
+    "discount": 0
+   }
   },
   {
    "name": "Ra",
@@ -1699,20 +1734,25 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 109.97,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
-   "india": null
+   "india": {
+    "price": 299,
+    "source": "Board Games Bazaar",
+    "stock": "In stock",
+    "discount": 0
+   }
   },
   {
    "name": "Railroad Ink: Deep Blue Edition",
@@ -1722,18 +1762,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 15.96,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1745,18 +1785,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 31.94,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1768,18 +1808,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 25.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1791,20 +1831,25 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 31.96,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
-   "india": null
+   "india": {
+    "price": 3199,
+    "source": "Boardway",
+    "stock": "Out of stock",
+    "discount": 0
+   }
   },
   {
    "name": "Santorini",
@@ -1814,20 +1859,25 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 49.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
-   "india": null
+   "india": {
+    "price": 2499,
+    "source": "Boardway",
+    "stock": "Out of stock",
+    "discount": 0
+   }
   },
   {
    "name": "Schotten Totten",
@@ -1837,20 +1887,25 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 11.49,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
-   "india": null
+   "india": {
+    "price": 1080,
+    "source": "Board Games Bazaar",
+    "stock": "Out of stock",
+    "discount": 0
+   }
   },
   {
    "name": "Sea Salt & Paper",
@@ -1860,18 +1915,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 14.39,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1883,18 +1938,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 12.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1906,20 +1961,25 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 22.39,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
-   "india": null
+   "india": {
+    "price": 1999,
+    "source": "Boardway",
+    "stock": "Out of stock",
+    "discount": 0
+   }
   },
   {
    "name": "Sobek: 2 Players",
@@ -1929,18 +1989,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 22.46,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1952,20 +2012,25 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 15.95,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
-   "india": null
+   "india": {
+    "price": 630,
+    "source": "Board Games Bazaar",
+    "stock": "Out of stock",
+    "discount": 0
+   }
   },
   {
    "name": "Steampunk Rally Fusion",
@@ -1975,18 +2040,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 39.97,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -1998,18 +2063,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 44.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "Out of stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2021,18 +2086,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 19.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2044,18 +2109,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 19.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2067,20 +2132,25 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 50.47,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
-   "india": null
+   "india": {
+    "price": 5299,
+    "source": "Tabletop Universe",
+    "stock": "In stock",
+    "discount": 0
+   }
   },
   {
    "name": "Takenoko",
@@ -2090,20 +2160,25 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 43.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
-   "india": null
+   "india": {
+    "price": 4699,
+    "source": "Boardway",
+    "stock": "Out of stock",
+    "discount": 0
+   }
   },
   {
    "name": "TEAM3 GREEN",
@@ -2113,18 +2188,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 14.97,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "Out of stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2136,18 +2211,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 16.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "Out of stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2159,20 +2234,25 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 28.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
-   "india": null
+   "india": {
+    "price": 4299,
+    "source": "Boardway",
+    "stock": "Out of stock",
+    "discount": 0
+   }
   },
   {
    "name": "That's Not a Hat: Pop Culture",
@@ -2182,18 +2262,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 9.97,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2205,20 +2285,25 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 26.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "Out of stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
-   "india": null
+   "india": {
+    "price": 17500,
+    "source": "Boardway",
+    "stock": "Out of stock",
+    "discount": 0
+   }
   },
   {
    "name": "The LOOP: Fur Brigade",
@@ -2228,18 +2313,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 14.97,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "Out of stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2251,18 +2336,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 18.97,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "Out of stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2274,18 +2359,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 28.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2297,18 +2382,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 27.95,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2320,24 +2405,24 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 44.97,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
   {
    "name": "Trial by Trolley: Derailed Edition",
-   "type": "Expansion",
+   "type": "Boardgame",
    "bgoId": "7eitnp0UdM",
    "indiaUrl": "",
    "discount": null,
@@ -2350,11 +2435,11 @@
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2373,11 +2458,11 @@
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2389,18 +2474,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 11.47,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2412,18 +2497,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 11.47,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2442,11 +2527,11 @@
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2458,18 +2543,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 12.63,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2481,18 +2566,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 24.96,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2504,18 +2589,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 12.63,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2527,18 +2612,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 12.63,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2550,18 +2635,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 59.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2573,18 +2658,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 58.73,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2596,23 +2681,24 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 55,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": {
-    "price": 5500,
-    "source": "Board Games India",
-    "stock": "In stock"
+    "price": 3999,
+    "source": "Tabletop Universe",
+    "stock": "In stock",
+    "discount": 0
    }
   },
   {
@@ -2623,20 +2709,25 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 36,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
-   "india": null
+   "india": {
+    "price": 4799,
+    "source": "Tabletop Universe",
+    "stock": "Out of stock",
+    "discount": 0
+   }
   },
   {
    "name": "Staccs",
@@ -2692,18 +2783,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 64.95,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2715,18 +2806,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 26.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2745,13 +2836,18 @@
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
-   "india": null
+   "india": {
+    "price": 3250,
+    "source": "Board Games Bazaar",
+    "stock": "Out of stock",
+    "discount": 0
+   }
   },
   {
    "name": "Hot streak",
@@ -2761,18 +2857,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 44.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2784,20 +2880,25 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 14.39,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
-   "india": null
+   "india": {
+    "price": 1799,
+    "source": "Boardway",
+    "stock": "Out of stock",
+    "discount": 0
+   }
   },
   {
    "name": "Jibber jabble",
@@ -2814,11 +2915,11 @@
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2830,18 +2931,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 28,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2853,18 +2954,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 14.45,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2876,18 +2977,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 15.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2899,18 +3000,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 14.97,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2922,18 +3023,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 14.44,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "Out of stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2945,20 +3046,25 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 15.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
-   "india": null
+   "india": {
+    "price": 4999,
+    "source": "Boardway",
+    "stock": "Out of stock",
+    "discount": 0
+   }
   },
   {
    "name": "Petiquette",
@@ -2968,18 +3074,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 16.79,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -2998,11 +3104,11 @@
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -3014,20 +3120,25 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 16.97,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
-   "india": null
+   "india": {
+    "price": 800,
+    "source": "Board Games Bazaar",
+    "stock": "In stock",
+    "discount": 0
+   }
   },
   {
    "name": "Radlands",
@@ -3037,20 +3148,25 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 24.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
-   "india": null
+   "india": {
+    "price": 2299,
+    "source": "Boardway",
+    "stock": "Out of stock",
+    "discount": 0
+   }
   },
   {
    "name": "Bank Heist",
@@ -3083,18 +3199,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 15.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -3113,11 +3229,11 @@
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -3129,18 +3245,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 21.95,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   },
@@ -3152,20 +3268,25 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 39.47,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
-   "india": null
+   "india": {
+    "price": 599,
+    "source": "Board Games Bazaar",
+    "stock": "In stock",
+    "discount": 0
+   }
   },
   {
    "name": "Legacy of Yu",
@@ -3175,18 +3296,18 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": null,
+    "USA": 59.99,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": null
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": ""
    },
    "india": null
   }
