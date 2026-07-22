@@ -38,4 +38,7 @@ tr.tot td{border-top:2px solid var(--line);font-weight:500;background:var(--pane
 .right{margin-left:auto}.hide{display:none}
 .warn-box{background:rgba(201,162,39,.12);border:1px solid var(--maybe);border-radius:8px;padding:10px;color:#e6c14b;font-size:13px;margin-bottom:12px}
 .tbl-wrap{overflow-x:auto}
+.tbl-wrap table td:first-child,.tbl-wrap table th:first-child{position:sticky;left:0;z-index:2;background:var(--bg);box-shadow:1px 0 0 var(--line)}
+.tbl-wrap table thead th:first-child{z-index:3;background:var(--panel)}
+.tbl-wrap table tr.tot td:first-child{background:var(--panel2)}
 @media(max-width:640px){th.opt,td.opt{display:none}main{padding:10px 8px 60px}}

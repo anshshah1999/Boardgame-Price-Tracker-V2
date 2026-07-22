@@ -87,11 +87,24 @@ function parseBGO(html, cur){
   }
   return { price:null, stock:null };
 }
+// The primary game carries type 'boardgame'|'boardgameexpansion' with a detail/price_stats block (its expansions don't).
+function findGameType(root){
+  let res=null;
+  (function walk(n){
+    if (res || !n || typeof n!=='object') return;
+    if (!Array.isArray(n) && typeof n.type==='string' && (n.type==='boardgame'||n.type==='boardgameexpansion') && ('detail' in n || 'price_stats' in n)){
+      res = n.type==='boardgameexpansion' ? 'Expansion' : 'Boardgame'; return;
+    }
+    if (Array.isArray(n)) n.forEach(walk); else Object.keys(n).forEach(function(k){ walk(n[k]); });
+  })(root);
+  return res;
+}
 async function scrapeBGO(bgoId, slug){
-  const out = { prices:{}, stock:{} };
+  const out = { prices:{}, stock:{}, type:null };
   const sl = slug || 'x';
   for (const [country, locp] of Object.entries(LOCALE)){
     const html = await get('https://www.boardgameoracle.com'+locp+'/boardgame/price/'+bgoId+'/'+sl);
+    if (country==='USA' && html){ const nd = nextData(html); if (nd) out.type = findGameType(nd); }
     const r = parseBGO(html, CURCODE[country]);
     out.prices[country] = r.price; out.stock[country] = r.stock;
     await sleep(1000);
@@ -126,8 +139,63 @@ async function scrapeIndia(url){
   if (price==null){ const t = meta(html,'og:title') || ''; const r = t.match(/₹\s*([0-9][0-9,]*(?:\.[0-9]+)?)/); if (r) price = firstNum(r[1]); }
   if (price==null || !isFinite(price) || price<=0) return null;
   const avail = (meta(html,'og:availability') || meta(html,'product:availability') || '').toLowerCase();
-  const stock = /instock|in stock/.test(avail) ? 'In stock' : (avail || '');
-  return { price: price, source:'Board Games India', stock: stock };
+  const stock = /instock|in stock/.test(avail) ? 'In stock' : (/out|oos|unavail|pre-?order|sold/.test(avail) ? 'Out of stock' : (avail || ''));
+  const orig = firstNum(meta(html,'product:original_price:amount'));
+  const discounted = (orig!=null && price!=null && orig>price);   // the listed price is already below MRP
+  return { price: price, source:'Board Games India', stock: stock, discounted: discounted };
+}
+
+// Shopify storefronts that expose a clean search-suggest JSON endpoint.
+const INDIA_SHOPIFY = [
+  { name:'Boardway', base:'https://boardway.in' },
+  { name:'Board Games Bazaar', base:'https://boardgamesbazaar.com' },
+  { name:'Tabletop Universe', base:'https://www.tabletopuniverse.com' }
+];
+function nrm(s){ return (s||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim(); }
+// Pick the product whose title best matches the game name; avoid expansions/extras.
+function bestMatch(products, name){
+  const t = nrm(name); let best=null, bestScore=0.5;
+  for (const p of products){
+    const ti = nrm(p.title||''); if (!ti) continue;
+    let s;
+    if (ti===t) s=100; else if (ti.indexOf(t)===0) s=80; else if (ti.indexOf(t)>=0) s=60; else continue;
+    if (/expansion|promo|sleeve|upgrade|insert|organi[sz]er|playmat|neoprene|nesting|accessor/.test(ti) && !/expansion|promo|pack/.test(t)) s-=60;
+    s -= Math.max(0, ti.length - t.length)*0.3;
+    if (s>bestScore){ bestScore=s; best=p; }
+  }
+  return best;
+}
+async function searchShopify(base, name){
+  const html = await get(base+'/search/suggest.json?q='+encodeURIComponent(name)+'&resources[type]=product&resources[limit]=10');
+  if (!html) return null;
+  let j; try { j = JSON.parse(html); } catch(e){ return null; }
+  const products = (((j.resources||{}).results||{}).products) || [];
+  const p = bestMatch(products, name);
+  if (!p) return null;
+  const price = parseFloat(String(p.price).replace(/[^0-9.]/g,''));
+  if (!isFinite(price) || price<=0) return null;
+  const cmp = parseFloat(String(p.compare_at_price_min || p.compare_at_price || '').replace(/[^0-9.]/g,''));
+  const discounted = isFinite(cmp) && cmp>price;
+  return { price:price, inStock: p.available===true, discounted: discounted };
+}
+// Cheapest India price across Board Games India + the Shopify sites (in-stock preferred).
+async function scrapeIndiaAll(g){
+  const offers = [];
+  if (g.indiaUrl){ const b = await scrapeIndia(g.indiaUrl); if (b) offers.push({ site:'Board Games India', price:b.price, inStock:/in stock/i.test(b.stock), discounted:b.discounted }); }
+  for (const s of INDIA_SHOPIFY){
+    const r = await searchShopify(s.base, g.name);
+    if (r) offers.push({ site:s.name, price:r.price, inStock:r.inStock, discounted:r.discounted });
+    await sleep(400);
+  }
+  if (!offers.length) return null;
+  const inS = offers.filter(function(o){return o.inStock;});
+  const pool = inS.length ? inS : offers;
+  pool.sort(function(a,b){ return a.price-b.price; });
+  const win = pool[0];
+  // Discount to apply on top of the fetched price: BGI runs a standing ~10% UNLESS the price is already a sale price.
+  // Other sites' prices (and already-discounted BGI prices) are final -> 0, so we never double-discount.
+  const discount = (/board games india/i.test(win.site) && !win.discounted) ? 0.10 : 0;
+  return { price: win.price, source: win.site, stock: inS.length ? 'In stock' : 'Out of stock', discount: discount };
 }
 
 // ---- FX to INR ----
@@ -146,13 +214,13 @@ async function fetchFX(existing){
   data.meta.fx = await fetchFX(data.meta.fx);
   data.meta.updated = new Date().toISOString().slice(0,10);
 
-  // Apply per-game bgoId overrides set in the app (state.json in the repo, if present)
-  let ovMap = {};
-  try { const st = JSON.parse(fs.readFileSync('./state.json','utf8')); ovMap = (st && st.overrides) || {}; console.log('Loaded state.json overrides.'); } catch(e){}
+  // Apply per-game overrides + deletions set in the app (state.json in the repo, if present)
+  let ovMap = {}, removedSet = new Set();
+  try { const st = JSON.parse(fs.readFileSync('./state.json','utf8')); ovMap = (st && st.overrides) || {}; (st.removed||[]).forEach(function(n){ removedSet.add(n); }); console.log('Loaded state.json overrides.'); } catch(e){}
+  if (removedSet.size){ data.games = data.games.filter(function(g){ return !removedSet.has(g.name); }); }
 
   let processed=0, intlPriced=0, indiaPriced=0, idsResolved=0, stillNoId=0;
   for (const g of data.games){
-    if (g.status==='Purchased' || g.status==='Dropped') continue;
     const ovr = ovMap[g.name]; if (ovr && ovr.bgoId) g.bgoId = ovr.bgoId;   // app-supplied ID wins
     // Auto-resolve is OFF by default (slow + risky). Set RESOLVE_IDS=1 to enable.
     if (!g.bgoId && process.env.RESOLVE_IDS==='1'){ const id = await resolveBgoId(g.name); if (id){ g.bgoId=id; idsResolved++; await sleep(700); } }
@@ -167,12 +235,13 @@ async function fetchFX(existing){
         else { np[c] = null; ns[c] = ''; }
       }
       g.prices = np; g.stock = ns;
+      if (r.type) g.type = r.type;   // auto-detect Boardgame vs Expansion
       if (Object.values(np).some(function(v){return v!=null;})) intlPriced++;
     } else { stillNoId++; }
-    if (g.indiaUrl){
-      const ind = await scrapeIndia(g.indiaUrl);
+    {
+      const ind = await scrapeIndiaAll(g);   // cheapest across Board Games India + Shopify sites
       if (ind){ g.india = ind; indiaPriced++; }
-      else if (g.india && g.india.price){ g.india.stock = 'Out of stock'; }        // keep last-known India price, flag OOS
+      else if (g.india && g.india.price){ g.india.stock = 'Out of stock'; }        // tier 3: keep last-known India price, flag OOS
     }
     processed++;
     if (processed % 10 === 0) console.log('  ...'+processed+'/'+data.games.length);

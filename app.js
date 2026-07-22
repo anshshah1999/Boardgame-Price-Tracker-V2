@@ -3,19 +3,19 @@ var LS_STATE='bgpt_state', LS_TOKEN='bgpt_token';
 var COUNTRIES=['USA','UK','Canada','Australia','NZ'];
 var CUR={USA:'USD',UK:'GBP',Canada:'CAD',Australia:'AUD',NZ:'NZD'};
 var DATA=null, STATE=null, VIEW='india', saveTimer=null;
-var flt={search:'',priceCap:'',lossCap:'',hideDropped:true};
+var flt={search:'',priceCap:'',lossCap:'',type:'All'};
 var country='USA';
 var sortState={india:{k:'verdictLoss',d:1},country:{k:'loss',d:1}};
 var lastFocus=null;
 
-function blankState(){return {overrides:{}, added:[], stores:[], quickAdd:'', quickNotes:'', sync:{owner:'',repo:'',branch:'main',path:'state.json'}};}
+function blankState(){return {overrides:{}, added:[], stores:[], removed:[], quickAdd:'', quickNotes:'', sync:{owner:'',repo:'',branch:'main',path:'state.json'}};}
 function loadState(){try{return Object.assign(blankState(),JSON.parse(localStorage.getItem(LS_STATE)||'{}'));}catch(e){return blankState();}}
 function persistLocal(){localStorage.setItem(LS_STATE,JSON.stringify(STATE));}
 function token(){return localStorage.getItem(LS_TOKEN)||'';}
 function setToken(t){if(t)localStorage.setItem(LS_TOKEN,t);else localStorage.removeItem(LS_TOKEN);}
 function cfg(k){return (STATE.config&&k in STATE.config)?STATE.config[k]:DATA.config[k];}
 function fxRate(c){if(c==='INR')return 1;return (STATE.config&&STATE.config.fx&&STATE.config.fx[c]!=null)?STATE.config.fx[c]:DATA.meta.fx[c];}
-function allGames(){return DATA.games.concat(STATE.added||[]);}
+function allGames(){var rem=STATE.removed||[];return DATA.games.concat(STATE.added||[]).filter(function(g){return rem.indexOf(g.name)<0;});}
 function gameByName(n){return allGames().filter(function(x){return x.name===n;})[0];}
 function ov(name){return STATE.overrides[name]||{};}
 function displayName(g){var o=STATE.overrides[g.name];return (o&&o.name)?o.name:g.name;}
@@ -32,7 +32,7 @@ function vclass(v){return v==='Buy'?'v-Buy':v==='Maybe'?'v-Maybe':v==="Don't Buy
 function ordinal(r){if(r==null)return '';return r===1?'Cheapest':r===2?'2nd cheapest':r===3?'3rd cheapest':r+'th cheapest';}
 function sgn(amount,base,posGood){if(amount==null||!isFinite(amount))return '';var good=amount===0?null:(posGood?amount>0:amount<0);var col=good===null?'':(good?'pos':'neg');var p=(base&&base!=0)?(amount/base*100):null;return '<span class="'+col+'">'+(amount>0?'+':amount<0?'−':'')+inr(Math.abs(amount))+(p!=null?' <span class="small">('+Math.abs(p).toFixed(1)+'%)</span>':'')+'</span>';}
 
-function indiaNet(g){var o=ov(g.name);var disc=(o.discount!=null?o.discount:(g.discount!=null?g.discount:null));var src=g.india&&g.india.source?g.india.source:'';if(disc==null)disc=/board games india/i.test(src)?cfg('bgiDefaultDiscount'):0;var ip=g.india&&g.india.price?g.india.price:null;return {net:ip!=null?ip*(1-disc):null,disc:disc,listed:ip,src:src,stock:(g.india&&g.india.stock)||''};}
+function indiaNet(g){var o=ov(g.name);var src=g.india&&g.india.source?g.india.source:'';var disc=(o.discount!=null?o.discount:(g.india&&g.india.discount!=null?g.india.discount:(g.discount!=null?g.discount:null)));if(disc==null)disc=/board games india/i.test(src)?cfg('bgiDefaultDiscount'):0;var ip=g.india&&g.india.price?g.india.price:null;return {net:ip!=null?ip*(1-disc):null,disc:disc,listed:ip,src:src,stock:(g.india&&g.india.stock)||''};}
 function rawINR(g,c){var p=g.prices?g.prices[c]:null;return (p!=null&&p>0)?p*fxRate(CUR[c]):null;}
 function cheapestCountry(g){var best=null,bc=null;COUNTRIES.forEach(function(c){var v=rawINR(g,c);if(v!=null&&(best==null||v<best)){best=v;bc=c;}});return {inr:best,c:bc};}
 
@@ -42,7 +42,7 @@ function computeIndia(g){
   var cheapest=opts.length?Math.min.apply(null,opts):null;
   var vloss=(iv.net!=null&&cheapest!=null&&cheapest>0)?(iv.net-cheapest)/cheapest:null;
   var save=(iv.net!=null&&cc.inr!=null)?iv.net-cc.inr:null;
-  return {name:g.name,disp:displayName(g),status:ov(g.name).status||g.status||'Not Started',net:iv.net,disc:iv.disc,listed:iv.listed,avail:iv.stock,bestC:cc.c,bestINR:cc.inr,bestStock:(cc.c&&g.stock)?(g.stock[cc.c]||''):'',importSave:save,importPct:(save!=null&&iv.net)?save/iv.net:null,verdictLoss:vloss,verdict:verdictFromLoss(vloss)};
+  return {name:g.name,disp:displayName(g),type:g.type||'',net:iv.net,disc:iv.disc,listed:iv.listed,avail:iv.stock,bestC:cc.c,bestINR:cc.inr,bestStock:(cc.c&&g.stock)?(g.stock[cc.c]||''):'',importSave:save,importPct:(save!=null&&iv.net)?save/iv.net:null,verdictLoss:vloss,verdict:verdictFromLoss(vloss)};
 }
 function computeCountry(g,c){
   var iv=indiaNet(g);var priceLocal=g.prices?g.prices[c]:null;var priceINR=rawINR(g,c);var cc=cheapestCountry(g);
@@ -50,7 +50,7 @@ function computeCountry(g,c){
   var vsIndia=(iv.net!=null&&priceINR!=null)?iv.net-priceINR:null;
   var vals=COUNTRIES.map(function(cc2){return rawINR(g,cc2);}).filter(function(v){return v!=null;}).sort(function(a,b){return a-b;});
   var rank=(priceINR!=null)?(vals.indexOf(priceINR)+1):null;
-  return {name:g.name,disp:displayName(g),status:ov(g.name).status||g.status||'Not Started',local:priceLocal,priceINR:priceINR,india:iv.net,bestC:cc.c,bestINR:cc.inr,loss:loss,verdict:verdictFromLoss(loss),vsIndia:vsIndia,vsIndiaPct:(vsIndia!=null&&iv.net)?vsIndia/iv.net:null,avail:(g.stock&&g.stock[c])||'',rank:rank,rankN:(rank==null?99:rank)};
+  return {name:g.name,disp:displayName(g),type:g.type||'',local:priceLocal,priceINR:priceINR,india:iv.net,bestC:cc.c,bestINR:cc.inr,loss:loss,verdict:verdictFromLoss(loss),vsIndia:vsIndia,vsIndiaPct:(vsIndia!=null&&iv.net)?vsIndia/iv.net:null,avail:(g.stock&&g.stock[c])||'',rank:rank,rankN:(rank==null?99:rank)};
 }
 
 var app;
@@ -64,17 +64,17 @@ function filterBar(extra){
   return '<div class="controls">'+(extra||'')+'<input type="search" id="q" placeholder="Search…" value="'+esc(flt.search)+'"/>'
     +'<input type="number" class="cap" id="pcap" placeholder="Price cap ₹" value="'+esc(flt.priceCap)+'"/>'
     +'<input type="number" class="cap" id="lcap" placeholder="Loss cap %" value="'+esc(flt.lossCap)+'"/>'
-    +'<label class="chk"><input type="checkbox" id="hd" '+(flt.hideDropped?'checked':'')+'/> Hide purch./dropped</label></div>';
+    +'<select id="tf">'+['All','Boardgame','Expansion'].map(function(t){return '<option '+(flt.type===t?'selected':'')+'>'+t+'</option>';}).join('')+'</select></div>';
 }
 function wireFilters(rerender){
   document.getElementById('q').oninput=function(e){lastFocus={id:'q',pos:e.target.selectionStart};flt.search=e.target.value;rerender();};
   document.getElementById('pcap').oninput=function(e){lastFocus={id:'pcap',pos:null};flt.priceCap=e.target.value;rerender();};
   document.getElementById('lcap').oninput=function(e){lastFocus={id:'lcap',pos:null};flt.lossCap=e.target.value;rerender();};
-  document.getElementById('hd').onchange=function(e){lastFocus=null;flt.hideDropped=e.target.checked;rerender();};
+  document.getElementById('tf').onchange=function(e){lastFocus=null;flt.type=e.target.value;rerender();};
   if(lastFocus){var el=document.getElementById(lastFocus.id);if(el){el.focus();if(lastFocus.pos!=null){try{el.setSelectionRange(lastFocus.pos,lastFocus.pos);}catch(e){}}}}
 }
 function passFilters(r,price,lossPct){
-  if(flt.hideDropped&&(r.status==='Purchased'||r.status==='Dropped'))return false;
+  if(flt.type!=='All'&&r.type!==flt.type)return false;
   if(flt.search&&(r.disp||r.name).toLowerCase().indexOf(flt.search.toLowerCase())<0)return false;
   var pc=num(flt.priceCap);if(pc!=null&&price!=null&&price>pc)return false;
   var lc=num(flt.lossCap);if(lc!=null&&lossPct!=null&&(lossPct*100)>lc)return false;
@@ -90,7 +90,7 @@ function renderIndia(){
   var cols=[['name','Game',''],['net','India (net)','num'],['bestC','Best country','opt'],['bestINR','Best price','num'],['importSave','Import saves','num'],['verdictLoss','India vs cheapest','num'],['verdict','Buy in India?','']];
   var h=filterBar('')+'<div class="small muted" style="margin-bottom:6px">'+rows.length+' games · tap a row to edit</div>';
   h+='<div class="tbl-wrap"><table><thead>'+hdr('india',cols)+'</thead><tbody>';
-  rows.forEach(function(r){h+='<tr class="game" data-n="'+esc(r.name)+'"><td>'+esc(r.disp||r.name)+' '+(r.status!=='Not Started'?'<span class="pill">'+r.status+'</span>':'')
+  rows.forEach(function(r){h+='<tr class="game" data-n="'+esc(r.name)+'"><td>'+esc(r.disp||r.name)
     +'</td><td class="num">'+inr(r.net)+(r.disc?'<div class="small muted">'+pct(r.disc)+' off</div>':'')+'</td><td class="opt">'+(r.bestC||'')+'</td><td class="num">'+inr(r.bestINR)+oos(r.bestStock)
     +'</td><td class="num">'+sgn(r.importSave,r.net,true)+'</td><td class="num">'+(r.verdictLoss==null?'':sgn(r.verdictLoss*(r.net||0),r.net,false))+'</td><td><span class="verdict '+vclass(r.verdict)+'">'+r.verdict+'</span></td></tr>';});
   h+='</tbody></table></div>';
@@ -102,12 +102,11 @@ function editRow(tr,name){
   var o=ov(name);var r=computeIndia(gameByName(name));var row=document.createElement('tr');row.className='expand';
   row.innerHTML='<td colspan="7"><div class="grid">'
     +fld('India discount % (blank=auto)','ed_disc',o.discount!=null?o.discount*100:'','number','auto')
-    +'<div class="fld"><label>Status</label><select id="ed_status">'+['Not Started','Priced','Purchased','Dropped'].map(function(s){return '<option '+(r.status===s?'selected':'')+'>'+s+'</option>';}).join('')+'</select></div>'
     +'<div class="fld" style="grid-column:1/-1"><label>Notes</label><textarea id="ed_notes" rows="2">'+esc(o.notes||'')+'</textarea></div></div>'
     +'<div class="small muted" style="margin-top:8px">India listed '+inr(r.listed)+' '+(r.avail?'· '+esc(r.avail):'')+' · net '+inr(r.net)+' | Best '+inr(r.bestINR)+' '+(r.bestC||'')+'</div>'
     +'<div style="margin-top:8px"><button class="act" id="ed_save">Save</button> <button class="ghost" id="ed_clear">Clear</button></div></td>';
   if(tr.nextSibling)tr.parentNode.insertBefore(row,tr.nextSibling);else tr.parentNode.appendChild(row);
-  document.getElementById('ed_save').onclick=function(){var no=Object.assign({},o);var d=num(val('ed_disc'));no.discount=(d!=null?d/100:undefined);no.status=val('ed_status');var nt=val('ed_notes');no.notes=nt||undefined;STATE.overrides[name]=clean(no);changed();render();};
+  document.getElementById('ed_save').onclick=function(){var no=Object.assign({},o);var d=num(val('ed_disc'));no.discount=(d!=null?d/100:undefined);var nt=val('ed_notes');no.notes=nt||undefined;STATE.overrides[name]=clean(no);changed();render();};
   document.getElementById('ed_clear').onclick=function(){delete STATE.overrides[name];changed();render();};
 }
 function clean(o){var r={};for(var k in o)if(o[k]!==undefined&&o[k]!=='')r[k]=o[k];return r;}
@@ -191,8 +190,8 @@ function renderGames(){
   var h='<div class="card"><h3>Quick notes <span class="small muted">— jot anything; does not touch the list</span></h3><textarea id="qn" rows="4" style="width:100%" placeholder="that cat trick-taking game… / check BGG hotness / ask friend about Ark Nova">'+esc(STATE.quickNotes||'')+'</textarea><div style="margin-top:8px"><button class="act" id="qnSave">Save notes</button></div></div>';
   h+='<div class="card"><h3>Add a game</h3><div class="grid"><div class="fld"><label>Game name</label><input id="ng_name" placeholder="Ark Nova"/></div><div class="fld" style="grid-column:1/-1"><label>Board Game Oracle link or ID (optional)</label><input id="ng_bgo" placeholder="paste the .../boardgame/price/... link, or the ID"/></div></div><div style="margin-top:8px"><button class="act" id="ng_add">Add game</button></div></div>';
   var rows=allGames();
-  h+='<div class="small muted" style="margin:4px 2px">'+rows.length+' games</div><div class="tbl-wrap"><table><thead><tr><th>Game</th><th class="opt">Type</th><th class="opt">BGO ID</th><th>Status</th><th class="num">India price</th><th></th></tr></thead><tbody>';
-  rows.forEach(function(g){var o=ov(g.name);var st=o.status||g.status||'Not Started';var ai=STATE.added.indexOf(g);var added=ai>=0;var renamed=(o.name&&o.name!==g.name);var gid=(o.bgoId||g.bgoId)||'';h+='<tr><td><input data-gname="'+esc(g.name)+'"'+(added?' data-added="'+ai+'"':'')+' value="'+esc(displayName(g))+'" style="min-width:170px"/>'+(renamed?'<div class="small muted">was: '+esc(g.name)+'</div>':'')+'</td><td class="opt small muted">'+(g.type||'')+'</td><td class="opt small muted">'+esc(gid)+'</td><td>'+st+'</td><td class="num">'+(g.india&&g.india.price?inr(g.india.price):'')+'</td><td>'+(added?'<button class="ghost" data-rm="'+ai+'">del</button>':'')+'</td></tr>';});
+  h+='<div class="small muted" style="margin:4px 2px">'+rows.length+' games</div><div class="tbl-wrap"><table><thead><tr><th>Game</th><th>Type</th><th class="opt">BGO ID</th><th></th></tr></thead><tbody>';
+  rows.forEach(function(g){var o=ov(g.name);var ai=STATE.added.indexOf(g);var added=ai>=0;var renamed=(o.name&&o.name!==g.name);var gid=(o.bgoId||g.bgoId)||'';h+='<tr><td><input data-gname="'+esc(g.name)+'"'+(added?' data-added="'+ai+'"':'')+' value="'+esc(displayName(g))+'" style="min-width:150px"/>'+(renamed?'<div class="small muted">was: '+esc(g.name)+'</div>':'')+'</td><td class="small muted">'+(g.type||'')+'</td><td class="opt small muted">'+esc(gid)+'</td><td><button class="ghost" data-del="'+esc(g.name)+'"'+(added?' data-added="'+ai+'"':'')+'>delete</button></td></tr>';});
   h+='</tbody></table></div>';
   app.innerHTML=h;
   document.getElementById('qnSave').onclick=function(){STATE.quickNotes=val('qn');changed();};
@@ -203,7 +202,7 @@ function renderGames(){
     var link=prompt('Optional — paste the Board Game Oracle link for this game to set its scrape ID (leave blank to skip):','');
     if(link){var m=link.match(/\/boardgame\/price\/([A-Za-z0-9_-]{6,})/);if(m){if(ai2!=null){STATE.added[+ai2].bgoId=m[1];}else{STATE.overrides[orig]=STATE.overrides[orig]||{};STATE.overrides[orig].bgoId=m[1];}alert('Set BGO ID: '+m[1]);}else{alert('Could not find an ID in that link — expected .../boardgame/price/<ID>/...');}}
     changed();render();};
-  var rm=app.querySelectorAll('[data-rm]');for(var j=0;j<rm.length;j++)rm[j].onclick=function(){STATE.added.splice(+this.getAttribute('data-rm'),1);changed();render();};
+  var rm=app.querySelectorAll('[data-del]');for(var j=0;j<rm.length;j++)rm[j].onclick=function(){var nm=this.getAttribute('data-del');var ai3=this.getAttribute('data-added');if(!confirm('Delete "'+nm+'" from the list?'))return;if(ai3!=null){STATE.added.splice(+ai3,1);}else{STATE.removed=STATE.removed||[];if(STATE.removed.indexOf(nm)<0)STATE.removed.push(nm);}changed();render();};
 }
 function renderSettings(){
   var s=STATE.sync||{};
