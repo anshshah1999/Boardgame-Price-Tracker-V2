@@ -190,12 +190,13 @@ function gamesMenu(tr,name){
   var nx=tr.nextElementSibling;if(nx&&nx.className.indexOf('gmx')>=0){nx.parentNode.removeChild(nx);return;}
   var g=gameByName(name);var o=ov(name);var ai=STATE.added.indexOf(g);var added=ai>=0;
   var id=(o.bgoId||g.bgoId)||'';var iurl=(o.indiaUrl||g.indiaUrl)||'';
+  var isrcUrl=(g.india&&g.india.url)||'';var isrcName=(g.india&&g.india.source)||'India';var ilink=isrcUrl||iurl;
   var bgoLink=id?'https://www.boardgameoracle.com/boardgame/price/'+id+'/x':'';
   var row=document.createElement('tr');row.className='gmx expand';
   row.innerHTML='<td colspan="3"><div class="small muted" style="margin-bottom:8px">'
     +(bgoLink?'<a href="'+esc(bgoLink)+'" target="_blank" rel="noopener">Open on Board Game Oracle ↗</a>':'<span>No BGO link yet</span>')
     +' &nbsp;·&nbsp; '
-    +(iurl?'<a href="'+esc(iurl)+'" target="_blank" rel="noopener">Open India page ↗</a>':'<span>No India link yet</span>')
+    +(ilink?'<a href="'+esc(ilink)+'" target="_blank" rel="noopener">Open '+esc(isrcName)+' page ↗</a>':'<span>No India link yet</span>')
     +'</div><div class="grid">'
     +'<div class="fld" style="grid-column:1/-1"><label>Board Game Oracle link or ID</label><input id="gm_bgo" value="'+esc(id)+'" placeholder="paste the BGO link or ID"/></div>'
     +'<div class="fld" style="grid-column:1/-1"><label>India product page URL</label><input id="gm_india" value="'+esc(iurl)+'" placeholder="paste the India product page URL"/></div>'

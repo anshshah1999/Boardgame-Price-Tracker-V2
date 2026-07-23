@@ -194,15 +194,16 @@ async function searchShopify(base, name){
   if (!isFinite(price) || price<=0) return null;
   const cmp = parseFloat(String(p.compare_at_price_min || p.compare_at_price || '').replace(/[^0-9.]/g,''));
   const discounted = isFinite(cmp) && cmp>price;
-  return { price:price, inStock: p.available===true, discounted: discounted };
+  const purl = p.url ? base+String(p.url).split('?')[0] : (p.handle ? base+'/products/'+p.handle : '');
+  return { price:price, inStock: p.available===true, discounted: discounted, url: purl };
 }
 // Cheapest India price across Board Games India + the Shopify sites (in-stock preferred).
 async function scrapeIndiaAll(g){
   const offers = [];
-  if (g.indiaUrl){ const b = await scrapeIndia(g.indiaUrl); if (b) offers.push({ site:'Board Games India', price:b.price, inStock:/in stock/i.test(b.stock), discounted:b.discounted }); }
+  if (g.indiaUrl){ const b = await scrapeIndia(g.indiaUrl); if (b) offers.push({ site:'Board Games India', price:b.price, inStock:/in stock/i.test(b.stock), discounted:b.discounted, url:g.indiaUrl }); }
   for (const s of INDIA_SHOPIFY){
     const r = await searchShopify(s.base, g.name);
-    if (r) offers.push({ site:s.name, price:r.price, inStock:r.inStock, discounted:r.discounted });
+    if (r) offers.push({ site:s.name, price:r.price, inStock:r.inStock, discounted:r.discounted, url:r.url });
     await sleep(400);
   }
   if (!offers.length) return null;
@@ -213,7 +214,7 @@ async function scrapeIndiaAll(g){
   // Discount to apply on top of the fetched price: BGI runs a standing ~10% UNLESS the price is already a sale price.
   // Other sites' prices (and already-discounted BGI prices) are final -> 0, so we never double-discount.
   const discount = (/board games india/i.test(win.site) && !win.discounted) ? 0.10 : 0;
-  return { price: win.price, source: win.site, stock: inS.length ? 'In stock' : 'Out of stock', discount: discount };
+  return { price: win.price, source: win.site, stock: inS.length ? 'In stock' : 'Out of stock', discount: discount, url: win.url||'' };
 }
 
 // ---- FX to INR ----
