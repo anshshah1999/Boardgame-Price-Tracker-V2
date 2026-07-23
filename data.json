@@ -171,7 +171,7 @@
    "prices": {
     "USA": 46.97,
     "UK": 37.47,
-    "Canada": 62.94,
+    "Canada": 59.99,
     "Australia": 70,
     "NZ": 95
    },
@@ -388,7 +388,7 @@
    "prices": {
     "USA": 31.99,
     "UK": 29.09,
-    "Canada": 39.99,
+    "Canada": 39.95,
     "Australia": 55.99,
     "NZ": 79.2055543
    },
@@ -580,7 +580,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 31.47,
+    "USA": 31.99,
     "UK": 27.19,
     "Canada": 41.94,
     "Australia": 42.54,
@@ -901,7 +901,7 @@
    "prices": {
     "USA": 19.47,
     "UK": 13.99,
-    "Canada": 32.95,
+    "Canada": 20.99,
     "Australia": 29.99,
     "NZ": null
    },
@@ -1750,7 +1750,7 @@
    "india": {
     "price": 299,
     "source": "Board Games Bazaar",
-    "stock": "Out of stock",
+    "stock": "In stock",
     "discount": 0
    }
   },
@@ -1845,8 +1845,8 @@
     "NZ": "In stock"
    },
    "india": {
-    "price": 4299,
-    "source": "Tabletop Universe",
+    "price": 3199,
+    "source": "Boardway",
     "stock": "Out of stock",
     "discount": 0
    }
@@ -2497,7 +2497,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 11.47,
+    "USA": 11.99,
     "UK": 9.99,
     "Canada": 15.95,
     "Australia": 23.99,
