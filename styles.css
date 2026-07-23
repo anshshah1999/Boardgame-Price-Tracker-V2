@@ -41,4 +41,9 @@ tr.tot td{border-top:2px solid var(--line);font-weight:500;background:var(--pane
 .tbl-wrap table td:first-child,.tbl-wrap table th:first-child{position:sticky;left:0;z-index:2;background:var(--bg);box-shadow:1px 0 0 var(--line)}
 .tbl-wrap table thead th:first-child{z-index:3;background:var(--panel)}
 .tbl-wrap table tr.tot td:first-child{background:var(--panel2)}
-@media(max-width:640px){th.opt,td.opt{display:none}main{padding:10px 8px 60px}}
+@media(max-width:640px){
+  th.opt,td.opt{display:none}
+  main{padding:10px 8px 60px}
+  .tbl-wrap table td:first-child,.tbl-wrap table th:first-child{max-width:42vw;white-space:normal;word-break:break-word}
+  .tbl-wrap table td:first-child input{max-width:38vw;min-width:0 !important}
+}
