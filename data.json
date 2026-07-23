@@ -742,10 +742,10 @@
     "NZ": "In stock"
    },
    "india": {
-    "price": 3000,
-    "source": "Board Games India",
+    "price": 2899,
+    "source": "Boardway",
     "stock": "Out of stock",
-    "discount": 0.1
+    "discount": 0
    }
   },
   {
@@ -1750,7 +1750,7 @@
    "india": {
     "price": 299,
     "source": "Board Games Bazaar",
-    "stock": "In stock",
+    "stock": "Out of stock",
     "discount": 0
    }
   },
@@ -1845,8 +1845,8 @@
     "NZ": "In stock"
    },
    "india": {
-    "price": 3199,
-    "source": "Boardway",
+    "price": 4299,
+    "source": "Tabletop Universe",
     "stock": "Out of stock",
     "discount": 0
    }
