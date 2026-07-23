@@ -239,7 +239,7 @@ async function fetchFX(existing){
 
   let processed=0, intlPriced=0, indiaPriced=0, idsResolved=0, stillNoId=0;
   for (const g of data.games){
-    const ovr = ovMap[g.name]; if (ovr && ovr.bgoId) g.bgoId = ovr.bgoId;   // app-supplied ID wins
+    const ovr = ovMap[g.name]; if (ovr && ovr.bgoId) g.bgoId = ovr.bgoId; if (ovr && ovr.indiaUrl) g.indiaUrl = ovr.indiaUrl;   // app-supplied ID / India URL win
     // Auto-resolve is OFF by default (slow + risky). Set RESOLVE_IDS=1 to enable.
     if (!g.bgoId && process.env.RESOLVE_IDS==='1'){ const id = await resolveBgoId(g.name); if (id){ g.bgoId=id; idsResolved++; await sleep(700); } }
     if (g.bgoId){

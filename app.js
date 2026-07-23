@@ -186,12 +186,36 @@ function renderAnalysis(){
   var rs=app.querySelectorAll('[data-rmstore]');for(var m=0;m<rs.length;m++)rs[m].onclick=function(){STATE.stores.splice(+this.getAttribute('data-rmstore'),1);changed();render();};
 }
 
+function gamesMenu(tr,name){
+  var nx=tr.nextElementSibling;if(nx&&nx.className.indexOf('gmx')>=0){nx.parentNode.removeChild(nx);return;}
+  var g=gameByName(name);var o=ov(name);var ai=STATE.added.indexOf(g);var added=ai>=0;
+  var id=(o.bgoId||g.bgoId)||'';var iurl=(o.indiaUrl||g.indiaUrl)||'';
+  var bgoLink=id?'https://www.boardgameoracle.com/boardgame/price/'+id+'/x':'';
+  var row=document.createElement('tr');row.className='gmx expand';
+  row.innerHTML='<td colspan="3"><div class="small muted" style="margin-bottom:8px">'
+    +(bgoLink?'<a href="'+esc(bgoLink)+'" target="_blank" rel="noopener">Open on Board Game Oracle ↗</a>':'<span>No BGO link yet</span>')
+    +' &nbsp;·&nbsp; '
+    +(iurl?'<a href="'+esc(iurl)+'" target="_blank" rel="noopener">Open India page ↗</a>':'<span>No India link yet</span>')
+    +'</div><div class="grid">'
+    +'<div class="fld" style="grid-column:1/-1"><label>Board Game Oracle link or ID</label><input id="gm_bgo" value="'+esc(id)+'" placeholder="paste the BGO link or ID"/></div>'
+    +'<div class="fld" style="grid-column:1/-1"><label>India product page URL</label><input id="gm_india" value="'+esc(iurl)+'" placeholder="paste the India product page URL"/></div>'
+    +'</div><div style="margin-top:8px"><button class="act" id="gm_save">Save</button> <button class="danger" id="gm_del" style="padding:8px 12px">Delete game</button></div></td>';
+  if(tr.nextSibling)tr.parentNode.insertBefore(row,tr.nextSibling);else tr.parentNode.appendChild(row);
+  document.getElementById('gm_save').onclick=function(){
+    var braw=val('gm_bgo');var bid='';if(braw){var m=braw.match(/\/boardgame\/price\/([A-Za-z0-9_-]{6,})/);bid=m?m[1]:braw;}
+    var iu=val('gm_india');
+    if(added){STATE.added[ai].bgoId=bid||'';STATE.added[ai].indiaUrl=iu||'';}
+    else{STATE.overrides[name]=STATE.overrides[name]||{};if(bid)STATE.overrides[name].bgoId=bid;else delete STATE.overrides[name].bgoId;if(iu)STATE.overrides[name].indiaUrl=iu;else delete STATE.overrides[name].indiaUrl;}
+    changed();render();
+  };
+  document.getElementById('gm_del').onclick=function(){if(!confirm('Delete "'+name+'"?'))return;if(added){STATE.added.splice(ai,1);}else{STATE.removed=STATE.removed||[];if(STATE.removed.indexOf(name)<0)STATE.removed.push(name);}changed();render();};
+}
 function renderGames(){
   var h='<div class="card"><h3>Quick notes <span class="small muted">— jot anything; does not touch the list</span></h3><textarea id="qn" rows="4" style="width:100%" placeholder="that cat trick-taking game… / check BGG hotness / ask friend about Ark Nova">'+esc(STATE.quickNotes||'')+'</textarea><div style="margin-top:8px"><button class="act" id="qnSave">Save notes</button></div></div>';
   h+='<div class="card"><h3>Add a game</h3><div class="grid"><div class="fld"><label>Game name</label><input id="ng_name" placeholder="Ark Nova"/></div><div class="fld" style="grid-column:1/-1"><label>Board Game Oracle link or ID (optional)</label><input id="ng_bgo" placeholder="paste the .../boardgame/price/... link, or the ID"/></div></div><div style="margin-top:8px"><button class="act" id="ng_add">Add game</button></div></div>';
   var rows=allGames();
-  h+='<div class="small muted" style="margin:4px 2px">'+rows.length+' games</div><div class="tbl-wrap"><table><thead><tr><th>Game</th><th>Type</th><th class="opt">BGO ID</th><th></th></tr></thead><tbody>';
-  rows.forEach(function(g){var o=ov(g.name);var ai=STATE.added.indexOf(g);var added=ai>=0;var renamed=(o.name&&o.name!==g.name);var gid=(o.bgoId||g.bgoId)||'';h+='<tr><td><input data-gname="'+esc(g.name)+'"'+(added?' data-added="'+ai+'"':'')+' value="'+esc(displayName(g))+'" style="min-width:150px"/>'+(renamed?'<div class="small muted">was: '+esc(g.name)+'</div>':'')+'</td><td class="small muted">'+(g.type||'')+'</td><td class="opt small muted">'+esc(gid)+'</td><td><button class="ghost" data-del="'+esc(g.name)+'"'+(added?' data-added="'+ai+'"':'')+'>delete</button></td></tr>';});
+  h+='<div class="small muted" style="margin:4px 2px">'+rows.length+' games</div><div class="tbl-wrap"><table><thead><tr><th>Game</th><th>Type</th><th></th></tr></thead><tbody>';
+  rows.forEach(function(g){var o=ov(g.name);var ai=STATE.added.indexOf(g);var added=ai>=0;var renamed=(o.name&&o.name!==g.name);h+='<tr><td><input data-gname="'+esc(g.name)+'"'+(added?' data-added="'+ai+'"':'')+' value="'+esc(displayName(g))+'" style="min-width:150px"/>'+(renamed?'<div class="small muted">was: '+esc(g.name)+'</div>':'')+'</td><td class="small muted">'+(g.type||'')+'</td><td><button class="ghost" data-menu="'+esc(g.name)+'">Options ▾</button></td></tr>';});
   h+='</tbody></table></div>';
   app.innerHTML=h;
   document.getElementById('qnSave').onclick=function(){STATE.quickNotes=val('qn');changed();};
@@ -199,10 +223,8 @@ function renderGames(){
   var ed=app.querySelectorAll('[data-gname]');for(var i=0;i<ed.length;i++)ed[i].onchange=function(){
     var orig=this.getAttribute('data-gname');var ai2=this.getAttribute('data-added');var nv=this.value.trim();
     if(ai2!=null){if(nv)STATE.added[+ai2].name=nv;}else{STATE.overrides[orig]=STATE.overrides[orig]||{};if(nv&&nv!==orig)STATE.overrides[orig].name=nv;else delete STATE.overrides[orig].name;}
-    var link=prompt('Optional — paste the Board Game Oracle link for this game to set its scrape ID (leave blank to skip):','');
-    if(link){var m=link.match(/\/boardgame\/price\/([A-Za-z0-9_-]{6,})/);if(m){if(ai2!=null){STATE.added[+ai2].bgoId=m[1];}else{STATE.overrides[orig]=STATE.overrides[orig]||{};STATE.overrides[orig].bgoId=m[1];}alert('Set BGO ID: '+m[1]);}else{alert('Could not find an ID in that link — expected .../boardgame/price/<ID>/...');}}
     changed();render();};
-  var rm=app.querySelectorAll('[data-del]');for(var j=0;j<rm.length;j++)rm[j].onclick=function(){var nm=this.getAttribute('data-del');var ai3=this.getAttribute('data-added');if(!confirm('Delete "'+nm+'" from the list?'))return;if(ai3!=null){STATE.added.splice(+ai3,1);}else{STATE.removed=STATE.removed||[];if(STATE.removed.indexOf(nm)<0)STATE.removed.push(nm);}changed();render();};
+  var mn=app.querySelectorAll('[data-menu]');for(var j=0;j<mn.length;j++)mn[j].onclick=function(){gamesMenu(this.parentNode.parentNode,this.getAttribute('data-menu'));};
 }
 function renderSettings(){
   var s=STATE.sync||{};
