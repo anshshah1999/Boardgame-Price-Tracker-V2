@@ -99,14 +99,32 @@ function findGameType(root){
   })(root);
   return res;
 }
+// One locale page: currency-matched offers (in/out stock, mainly USA) + the site's own price_stats.lowest_price (already in that locale's currency).
+function parseLocale(html, cur){
+  if (!html) return { price:null, stock:null, stat:null, nd:null };
+  const nd = nextData(html);
+  if (!nd) return { price:null, stock:null, stat:null, nd:null };
+  const offers = findOffers(nd, cur);
+  let price=null, stock=null;
+  if (offers.length){
+    const inS = offers.filter(function(o){return o.inStock;}).map(function(o){return o.price;});
+    if (inS.length){ price=Math.min.apply(null,inS); stock='In stock'; }
+    else { price=Math.min.apply(null,offers.map(function(o){return o.price;})); stock='Out of stock'; }
+  }
+  return { price:price, stock:stock, stat:findLowest(nd), nd:nd };
+}
 async function scrapeBGO(bgoId, slug){
   const out = { prices:{}, stock:{}, type:null };
   const sl = slug || 'x';
-  for (const [country, locp] of Object.entries(LOCALE)){
+  let usStat = null;
+  for (const [country, locp] of Object.entries(LOCALE)){   // USA is first
     const html = await get('https://www.boardgameoracle.com'+locp+'/boardgame/price/'+bgoId+'/'+sl);
-    if (country==='USA' && html){ const nd = nextData(html); if (nd) out.type = findGameType(nd); }
-    const r = parseBGO(html, CURCODE[country]);
-    out.prices[country] = r.price; out.stock[country] = r.stock;
+    const r = parseLocale(html, CURCODE[country]);
+    if (country==='USA'){ if (r.nd) out.type = findGameType(r.nd); usStat = r.stat; }
+    let price=null, stock=null;
+    if (r.price!=null){ price=r.price; stock=r.stock; }                                         // real currency-matched offers (mainly USA)
+    else if (r.stat!=null && (country==='USA' || r.stat!==usStat)){ price=r.stat; stock=''; }   // BGO's local lowest; skip when it just echoes the US number
+    out.prices[country]=price; out.stock[country]=stock;
     await sleep(1000);
   }
   return out;
