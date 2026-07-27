@@ -186,46 +186,55 @@ function renderAnalysis(){
   var rs=app.querySelectorAll('[data-rmstore]');for(var m=0;m<rs.length;m++)rs[m].onclick=function(){STATE.stores.splice(+this.getAttribute('data-rmstore'),1);changed();render();};
 }
 
-function gamesMenu(tr,name){
+function indiaSourcesFor(g){
+  var o=ov(g.name);var iov=(o.india)||{};var rem=iov.remove||[];var ver=iov.verify||[];var add=iov.add||[];
+  var base=(g.indiaSources||[]).filter(function(s){return rem.indexOf(s.url)<0;}).map(function(s){return {site:s.site,url:s.url,price:s.price,stock:s.stock,verified:(!!s.verified)||ver.indexOf(s.url)>=0};});
+  var extra=add.filter(function(a){return rem.indexOf(a.url)<0 && !base.some(function(s){return s.url===a.url;});}).map(function(a){return {site:a.site||'Custom',url:a.url,price:null,stock:'',verified:true,pending:true};});
+  return base.concat(extra);
+}
+function gameDetail(tr,name){
   var nx=tr.nextElementSibling;if(nx&&nx.className.indexOf('gmx')>=0){nx.parentNode.removeChild(nx);return;}
-  var g=gameByName(name);var o=ov(name);var ai=STATE.added.indexOf(g);var added=ai>=0;
-  var id=(o.bgoId||g.bgoId)||'';var iurl=(o.indiaUrl||g.indiaUrl)||'';
-  var isrcUrl=(g.india&&g.india.url)||'';var isrcName=(g.india&&g.india.source)||'India';var ilink=isrcUrl||iurl;
-  var bgoLink=id?'https://www.boardgameoracle.com/boardgame/price/'+id+'/x':'';
-  var row=document.createElement('tr');row.className='gmx expand';
-  row.innerHTML='<td colspan="3"><div class="small muted" style="margin-bottom:8px">'
-    +(bgoLink?'<a href="'+esc(bgoLink)+'" target="_blank" rel="noopener">Open on Board Game Oracle ↗</a>':'<span>No BGO link yet</span>')
-    +' &nbsp;·&nbsp; '
-    +(ilink?'<a href="'+esc(ilink)+'" target="_blank" rel="noopener">Open '+esc(isrcName)+' page ↗</a>':'<span>No India link yet</span>')
-    +'</div><div class="grid">'
-    +'<div class="fld" style="grid-column:1/-1"><label>Board Game Oracle link or ID</label><input id="gm_bgo" value="'+esc(id)+'" placeholder="paste the BGO link or ID"/></div>'
-    +'<div class="fld" style="grid-column:1/-1"><label>India product page URL</label><input id="gm_india" value="'+esc(iurl)+'" placeholder="paste the India product page URL"/></div>'
-    +'</div><div style="margin-top:8px"><button class="act" id="gm_save">Save</button> <button class="danger" id="gm_del" style="padding:8px 12px">Delete game</button></div></td>';
+  var g=gameByName(name);if(!g)return;var o=ov(name);var ai=STATE.added.indexOf(g);var added=ai>=0;
+  var id=(o.bgoId||g.bgoId)||'';
+  var LP={USA:'',UK:'/en-GB',Canada:'/en-CA',Australia:'/en-AU',NZ:'/en-NZ'};
+  var h='<div class="card" style="margin:6px 0">';
+  h+='<div class="fld"><label>Game name</label><input id="gd_name" value="'+esc(displayName(g))+'"/></div>';
+  h+='<h3 style="margin:12px 0 6px;font-size:14px">International — Board Game Oracle</h3>';
+  h+='<div class="fld"><label>BGO link or ID</label><input id="gd_bgo" value="'+esc(id)+'" placeholder="paste BGO link or ID"/></div>';
+  h+='<div class="tbl-wrap" style="margin-top:6px"><table><thead><tr><th>Country</th><th class="num">Price</th><th class="num">INR</th><th>Stock</th><th></th></tr></thead><tbody>';
+  COUNTRIES.forEach(function(c){var lp=g.prices?g.prices[c]:null;var ir=rawINR(g,c);var stk=(g.stock&&g.stock[c])||'';var lk=id?'https://www.boardgameoracle.com'+LP[c]+'/boardgame/price/'+id+'/x':'';
+    h+='<tr><td>'+c+'</td><td class="num">'+(lp!=null?loc(lp)+' '+CUR[c]:'—')+'</td><td class="num">'+(ir!=null?inr(ir):'—')+'</td><td class="small muted">'+esc(stk)+'</td><td>'+(lk?'<a href="'+esc(lk)+'" target="_blank" rel="noopener">open ↗</a>':'')+'</td></tr>';});
+  h+='</tbody></table></div>';
+  var sources=indiaSourcesFor(g);
+  h+='<h3 style="margin:14px 0 6px;font-size:14px">India</h3><div class="tbl-wrap"><table><thead><tr><th>Site</th><th class="num">Price</th><th>Stock</th><th>Status</th><th></th><th></th></tr></thead><tbody>';
+  sources.forEach(function(s){var badge=s.pending?'<span class="pill">pending run</span>':(s.verified?'<span class="pill" style="color:var(--pos);border-color:var(--pos)">confirmed</span>':'<span class="pill" style="color:var(--maybe);border-color:var(--maybe)">⚠ check</span>');
+    h+='<tr><td>'+esc(s.site)+'</td><td class="num">'+(s.price!=null?inr(s.price):'—')+'</td><td class="small muted">'+esc(s.stock||'')+'</td><td>'+badge+'</td><td>'+(s.url?'<a href="'+esc(s.url)+'" target="_blank" rel="noopener">open ↗</a>':'')+'</td><td>'+((!s.verified&&!s.pending)?'<button class="ghost" data-verify="'+esc(s.url)+'">✓</button> ':'')+'<button class="ghost" data-remove="'+esc(s.url)+'">✕</button></td></tr>';});
+  if(!sources.length)h+='<tr><td colspan="6" class="small muted">No India links yet.</td></tr>';
+  h+='</tbody></table></div>';
+  h+='<div class="grid" style="margin-top:8px"><div class="fld"><label>Add India link (URL)</label><input id="gd_addurl" placeholder="paste an India product page URL"/></div><div class="fld"><label>Site name</label><input id="gd_addsite" placeholder="e.g. Gameistry"/></div></div><div style="margin-top:6px"><button class="ghost" id="gd_add">Add link</button></div>';
+  h+='<div style="margin-top:12px"><button class="act" id="gd_save">Save</button> <button class="danger" id="gd_del" style="padding:8px 12px">Delete game</button></div>';
+  h+='<div class="small muted" style="margin-top:6px">Verify / remove / add links and BGO ID / name edits take effect on the next price run.</div></div>';
+  var row=document.createElement('tr');row.className='gmx';row.innerHTML='<td colspan="2" style="padding:0 4px">'+h+'</td>';
   if(tr.nextSibling)tr.parentNode.insertBefore(row,tr.nextSibling);else tr.parentNode.appendChild(row);
-  document.getElementById('gm_save').onclick=function(){
-    var braw=val('gm_bgo');var bid='';if(braw){var m=braw.match(/\/boardgame\/price\/([A-Za-z0-9_-]{6,})/);bid=m?m[1]:braw;}
-    var iu=val('gm_india');
-    if(added){STATE.added[ai].bgoId=bid||'';STATE.added[ai].indiaUrl=iu||'';}
-    else{STATE.overrides[name]=STATE.overrides[name]||{};if(bid)STATE.overrides[name].bgoId=bid;else delete STATE.overrides[name].bgoId;if(iu)STATE.overrides[name].indiaUrl=iu;else delete STATE.overrides[name].indiaUrl;}
-    changed();render();
-  };
-  document.getElementById('gm_del').onclick=function(){if(!confirm('Delete "'+name+'"?'))return;if(added){STATE.added.splice(ai,1);}else{STATE.removed=STATE.removed||[];if(STATE.removed.indexOf(name)<0)STATE.removed.push(name);}changed();render();};
+  function iset(fn){STATE.overrides[name]=STATE.overrides[name]||{};STATE.overrides[name].india=STATE.overrides[name].india||{};fn(STATE.overrides[name].india);}
+  function refresh(){changed();row.parentNode.removeChild(row);gameDetail(tr,name);}
+  var vb=row.querySelectorAll('[data-verify]');for(var i=0;i<vb.length;i++)vb[i].onclick=function(){var u=this.getAttribute('data-verify');iset(function(iv){iv.verify=iv.verify||[];if(iv.verify.indexOf(u)<0)iv.verify.push(u);});refresh();};
+  var rb=row.querySelectorAll('[data-remove]');for(var k=0;k<rb.length;k++)rb[k].onclick=function(){var u=this.getAttribute('data-remove');iset(function(iv){iv.remove=iv.remove||[];if(iv.remove.indexOf(u)<0)iv.remove.push(u);});refresh();};
+  row.querySelector('#gd_add').onclick=function(){var u=val('gd_addurl');if(!u){alert('Paste a URL.');return;}iset(function(iv){iv.add=iv.add||[];iv.add.push({site:val('gd_addsite')||'Custom',url:u});});refresh();};
+  row.querySelector('#gd_save').onclick=function(){var nn=val('gd_name');if(added){if(nn)STATE.added[ai].name=nn;}else{STATE.overrides[name]=STATE.overrides[name]||{};if(nn&&nn!==name)STATE.overrides[name].name=nn;else delete STATE.overrides[name].name;}var braw=val('gd_bgo');var bid='';if(braw){var m=braw.match(/\/boardgame\/price\/([A-Za-z0-9_-]{6,})/);bid=m?m[1]:braw;}if(added){STATE.added[ai].bgoId=bid||'';}else{STATE.overrides[name]=STATE.overrides[name]||{};if(bid)STATE.overrides[name].bgoId=bid;else delete STATE.overrides[name].bgoId;}changed();render();};
+  row.querySelector('#gd_del').onclick=function(){if(!confirm('Delete "'+name+'"?'))return;if(added){STATE.added.splice(ai,1);}else{STATE.removed=STATE.removed||[];if(STATE.removed.indexOf(name)<0)STATE.removed.push(name);}changed();render();};
 }
 function renderGames(){
   var h='<div class="card"><h3>Quick notes <span class="small muted">— jot anything; does not touch the list</span></h3><textarea id="qn" rows="4" style="width:100%" placeholder="that cat trick-taking game… / check BGG hotness / ask friend about Ark Nova">'+esc(STATE.quickNotes||'')+'</textarea><div style="margin-top:8px"><button class="act" id="qnSave">Save notes</button></div></div>';
   h+='<div class="card"><h3>Add a game</h3><div class="grid"><div class="fld"><label>Game name</label><input id="ng_name" placeholder="Ark Nova"/></div><div class="fld" style="grid-column:1/-1"><label>Board Game Oracle link or ID (optional)</label><input id="ng_bgo" placeholder="paste the .../boardgame/price/... link, or the ID"/></div></div><div style="margin-top:8px"><button class="act" id="ng_add">Add game</button></div></div>';
   var rows=allGames();
-  h+='<div class="small muted" style="margin:4px 2px">'+rows.length+' games</div><div class="tbl-wrap"><table><thead><tr><th>Game</th><th>Type</th><th></th></tr></thead><tbody>';
-  rows.forEach(function(g){var o=ov(g.name);var ai=STATE.added.indexOf(g);var added=ai>=0;var renamed=(o.name&&o.name!==g.name);h+='<tr><td><input data-gname="'+esc(g.name)+'"'+(added?' data-added="'+ai+'"':'')+' value="'+esc(displayName(g))+'" style="min-width:150px"/>'+(renamed?'<div class="small muted">was: '+esc(g.name)+'</div>':'')+'</td><td class="small muted">'+(g.type||'')+'</td><td><button class="ghost" data-menu="'+esc(g.name)+'">Options ▾</button></td></tr>';});
+  h+='<div class="small muted" style="margin:4px 2px">'+rows.length+' games · tap a row to open its links &amp; prices</div><div class="tbl-wrap"><table><thead><tr><th>Game</th><th>Type</th></tr></thead><tbody>';
+  rows.forEach(function(g){var renamed=(ov(g.name).name&&ov(g.name).name!==g.name);h+='<tr class="game" data-n="'+esc(g.name)+'"><td>'+esc(displayName(g))+(renamed?'<div class="small muted">was: '+esc(g.name)+'</div>':'')+'</td><td class="small muted">'+(g.type||'')+'</td></tr>';});
   h+='</tbody></table></div>';
   app.innerHTML=h;
   document.getElementById('qnSave').onclick=function(){STATE.quickNotes=val('qn');changed();};
   document.getElementById('ng_add').onclick=function(){var nm=val('ng_name');if(!nm){alert('Enter a game name.');return;}var raw=val('ng_bgo');var id='';if(raw){var m=raw.match(/\/boardgame\/price\/([A-Za-z0-9_-]{6,})/);id=m?m[1]:raw;}STATE.added.push({name:nm,type:'Boardgame',bgoId:id,india:null,prices:{},stock:{},status:'Not Started'});changed();render();};
-  var ed=app.querySelectorAll('[data-gname]');for(var i=0;i<ed.length;i++)ed[i].onchange=function(){
-    var orig=this.getAttribute('data-gname');var ai2=this.getAttribute('data-added');var nv=this.value.trim();
-    if(ai2!=null){if(nv)STATE.added[+ai2].name=nv;}else{STATE.overrides[orig]=STATE.overrides[orig]||{};if(nv&&nv!==orig)STATE.overrides[orig].name=nv;else delete STATE.overrides[orig].name;}
-    changed();render();};
-  var mn=app.querySelectorAll('[data-menu]');for(var j=0;j<mn.length;j++)mn[j].onclick=function(){gamesMenu(this.parentNode.parentNode,this.getAttribute('data-menu'));};
+  var gr=app.querySelectorAll('tr.game');for(var i=0;i<gr.length;i++)gr[i].onclick=function(){gameDetail(this,this.getAttribute('data-n'));};
 }
 function renderSettings(){
   var s=STATE.sync||{};

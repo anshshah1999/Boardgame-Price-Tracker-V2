@@ -197,24 +197,33 @@ async function searchShopify(base, name){
   const purl = p.url ? base+String(p.url).split('?')[0] : (p.handle ? base+'/products/'+p.handle : '');
   return { price:price, inStock: p.available===true, discounted: discounted, url: purl };
 }
-// Cheapest India price across Board Games India + the Shopify sites (in-stock preferred).
-async function scrapeIndiaAll(g){
-  const offers = [];
-  if (g.indiaUrl){ const b = await scrapeIndia(g.indiaUrl); if (b) offers.push({ site:'Board Games India', price:b.price, inStock:/in stock/i.test(b.stock), discounted:b.discounted, url:g.indiaUrl }); }
+// Every India source for a game: {site,url,price,stock,discounted,verified}. `verified` is preserved across runs by URL.
+async function scrapeIndiaSources(g, prev){
+  const prevVer = {}; (prev||[]).forEach(function(s){ if (s.url) prevVer[s.url]=!!s.verified; });
+  const sources = [];
+  if (g.indiaUrl){ const b = await scrapeIndia(g.indiaUrl); if (b) sources.push({ site:'Board Games India', url:g.indiaUrl, price:b.price, stock:b.stock||'', discounted:b.discounted, verified: (g.indiaUrl in prevVer)?prevVer[g.indiaUrl]:true }); }
   for (const s of INDIA_SHOPIFY){
     const r = await searchShopify(s.base, g.name);
-    if (r) offers.push({ site:s.name, price:r.price, inStock:r.inStock, discounted:r.discounted, url:r.url });
+    if (r){ sources.push({ site:s.name, url:r.url, price:r.price, stock:r.inStock?'In stock':'Out of stock', discounted:r.discounted, verified: (r.url in prevVer)?prevVer[r.url]:false }); }
     await sleep(400);
   }
-  if (!offers.length) return null;
-  const inS = offers.filter(function(o){return o.inStock;});
-  const pool = inS.length ? inS : offers;
-  pool.sort(function(a,b){ return a.price-b.price; });
+  return sources;
+}
+// Fetch a single arbitrary India product URL (meta tags first, then the Shopify /products/handle.js JSON).
+async function scrapeAnyIndia(url){
+  const b = await scrapeIndia(url); if (b) return { price:b.price, stock:b.stock||'', discounted:b.discounted };
+  const j = await get(url.split('?')[0].replace(/\/$/,'')+'.js');
+  try { const p = JSON.parse(j); return { price:p.price/100, stock:p.available?'In stock':'Out of stock', discounted:(p.compare_at_price||0)>p.price }; } catch(e){}
+  return null;
+}
+// The India price used in analysis: cheapest in-stock across all sources (else cheapest overall).
+function chooseIndia(sources){
+  if (!sources || !sources.length) return null;
+  const inS = sources.filter(function(s){ return /in stock/i.test(s.stock); });
+  const pool = (inS.length ? inS : sources).slice().sort(function(a,b){ return a.price-b.price; });
   const win = pool[0];
-  // Discount to apply on top of the fetched price: BGI runs a standing ~10% UNLESS the price is already a sale price.
-  // Other sites' prices (and already-discounted BGI prices) are final -> 0, so we never double-discount.
   const discount = (/board games india/i.test(win.site) && !win.discounted) ? 0.10 : 0;
-  return { price: win.price, source: win.site, stock: inS.length ? 'In stock' : 'Out of stock', discount: discount, url: win.url||'' };
+  return { price: win.price, source: win.site, url: win.url||'', stock: inS.length ? 'In stock' : 'Out of stock', discount: discount, verified: !!win.verified };
 }
 
 // ---- FX to INR ----
@@ -258,8 +267,14 @@ async function fetchFX(existing){
       if (Object.values(np).some(function(v){return v!=null;})) intlPriced++;
     } else { stillNoId++; }
     {
-      const ind = await scrapeIndiaAll(g);   // cheapest across Board Games India + Shopify sites
-      if (ind){ g.india = ind; indiaPriced++; }
+      let sources = await scrapeIndiaSources(g, g.indiaSources);
+      const iov = (ovr && ovr.india) || {};                                        // user's India edits from the app
+      if (iov.remove){ sources = sources.filter(function(s){ return iov.remove.indexOf(s.url)<0; }); }
+      if (iov.verify){ sources.forEach(function(s){ if (iov.verify.indexOf(s.url)>=0) s.verified=true; }); }
+      if (iov.add){ for (const a of iov.add){ if (sources.some(function(s){return s.url===a.url;})) continue; const r=await scrapeAnyIndia(a.url); if (r) sources.push({ site:a.site||'Custom', url:a.url, price:r.price, stock:r.stock, discounted:r.discounted, verified:true }); } }
+      g.indiaSources = sources;
+      const chosen = chooseIndia(sources);
+      if (chosen){ g.india = chosen; indiaPriced++; }
       else if (g.india && g.india.price){ g.india.stock = 'Out of stock'; }        // tier 3: keep last-known India price, flag OOS
     }
     processed++;
