@@ -57,6 +57,13 @@
      "https://boardway.in/products/bang-the-dice-game"
     ]
    }
+  },
+  "Cartographers": {
+   "india": {
+    "verify": [
+     "https://boardway.in/products/cartographers"
+    ]
+   }
   }
  },
  "added": [],
