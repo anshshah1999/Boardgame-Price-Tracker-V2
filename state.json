@@ -229,7 +229,8 @@
   "Ruins": {
    "india": {
     "remove": [
-     "https://boardway.in/products/lost-ruins-of-arnak"
+     "https://boardway.in/products/lost-ruins-of-arnak",
+     "https://www.boardgamesindia.com/lost-ruins-of-arnak-czech-games-edition"
     ]
    },
    "bgoId": "IFiJrANmW5"
@@ -237,7 +238,8 @@
   "Radlands": {
    "india": {
     "verify": [
-     "https://boardway.in/products/radlands"
+     "https://boardway.in/products/radlands",
+     "https://www.boardgamesindia.com/radlands-retail-edition-roxley-games"
     ]
    },
    "bgoId": "OKtz5PXOuM"
@@ -247,6 +249,9 @@
     "remove": [
      "https://boardway.in/products/bargain-quest",
      "https://www.tabletopuniverse.com/products/the-crew-quest-for-planet-nine"
+    ],
+    "verify": [
+     "https://www.boardgamesindia.com/quest"
     ]
    },
    "bgoId": "_OrAkB0VOY"
@@ -414,6 +419,27 @@
    "india": {
     "verify": [
      "https://www.boardgamesindia.com/sea-salt-paper-bombyx"
+    ]
+   }
+  },
+  "Red Carpet": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/red-carpet"
+    ]
+   }
+  },
+  "Railroad Tiles": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/railroad-tiles"
+    ]
+   }
+  },
+  "Railroad Ink: Deep Blue Edition": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/railroad-ink-deep-blue-edition-horrible-guild"
     ]
    }
   }
