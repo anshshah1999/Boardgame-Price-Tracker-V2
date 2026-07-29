@@ -345,6 +345,28 @@
    },
    "name": "Sobek: 2 Players",
    "bgoId": "12vLrbi1bt"
+  },
+  "Stockpile": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/stockpile"
+    ]
+   }
+  },
+  "Solstis": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/solstis"
+    ]
+   }
+  },
+  "Sobek: 2 Players": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/sobek-2-players-blackrock-games"
+    ]
+   },
+   "bgoId": "12vLrbi1bt"
   }
  },
  "added": [
@@ -374,7 +396,8 @@
  ],
  "removed": [
   "Catan",
-  "Viticulture"
+  "Viticulture",
+  "Strike"
  ],
  "quickAdd": "",
  "quickNotes": "",
