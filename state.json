@@ -38,7 +38,12 @@
      "shipping": "",
      "overhead": ""
     }
-   ]
+   ],
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/caesar-seize-rome-in-20-minutes-psc-games"
+    ]
+   }
   },
   "Ra": {
    "india": {
@@ -78,6 +83,9 @@
    "india": {
     "verify": [
      "https://boardgamesbazaar.com/products/intl-games-cascadia-retail-edition"
+    ],
+    "remove": [
+     "https://www.boardgamesindia.com/cascadia-landmarks-alderac-entertainment-group"
     ]
    },
    "bgoId": "12975B7EQh"
@@ -696,7 +704,30 @@
     "verify": [
      "https://www.boardgamesindia.com/collect"
     ]
+   },
+   "bgoId": "40AH8ardB7"
+  },
+  "Clank!: Catacombs": {
+   "india": {
+    "remove": [
+     "https://www.boardgamesindia.com/clank-catacombs-underworld"
+    ]
    }
+  },
+  "Burgle Bros 2: The Casino Capers": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/burgle-bros-2-the-casino-capers-fowers-games"
+    ]
+   }
+  },
+  "Bites": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/bites-board-game-tables-com"
+    ]
+   },
+   "bgoId": "pZP0fG-0lz"
   }
  },
  "added": [],
