@@ -200,7 +200,8 @@
      "https://boardgamesbazaar.com/products/iello-schotten-totten-2"
     ],
     "verify": [
-     "https://boardway.in/products/schotten-totten"
+     "https://boardway.in/products/schotten-totten",
+     "https://www.boardgamesindia.com/schotten-totten-iello"
     ]
    },
    "bgoId": "AqCS_RGHZK"
@@ -208,7 +209,8 @@
   "Santorini": {
    "india": {
     "verify": [
-     "https://boardway.in/products/santorini"
+     "https://boardway.in/products/santorini",
+     "https://www.boardgamesindia.com/santorini-second-edition"
     ]
    },
    "bgoId": "5_TQJXBwtr"
@@ -218,7 +220,8 @@
     "verify": [
      "https://boardway.in/products/sagrada",
      "https://boardgamesbazaar.com/products/intl-games-sagrada-english-hindi",
-     "https://www.tabletopuniverse.com/products/sagrada-english"
+     "https://www.tabletopuniverse.com/products/sagrada-english",
+     "https://www.boardgamesindia.com/sagrada-english-hindi-edition-yes-papa-games"
     ]
    },
    "bgoId": "ivLKpH2qMz"
@@ -390,6 +393,27 @@
    "india": {
     "verify": [
      "https://www.boardgamesindia.com/avant-carde"
+    ]
+   }
+  },
+  "Sky Team: Turbulence": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/sky-team-turbulence-en-gb-5957"
+    ]
+   }
+  },
+  "Skull King": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/skull-king-grandpa-beck-s-games"
+    ]
+   }
+  },
+  "Sea Salt & Paper": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/sea-salt-paper-bombyx"
     ]
    }
   }
