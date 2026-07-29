@@ -2,11 +2,11 @@
  "meta": {
   "updated": "2026-07-29",
   "fx": {
-   "USD": 95.88,
-   "GBP": 127.39,
-   "CAD": 67.93,
-   "AUD": 66.8,
-   "NZD": 55.34
+   "USD": 95.69,
+   "GBP": 127.06,
+   "CAD": 67.8,
+   "AUD": 66.4,
+   "NZD": 55.22
   }
  },
  "config": {
@@ -46,9 +46,17 @@
      "price": 2500,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 2500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/7-wonders-architects-medals",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Adulthood",
@@ -75,17 +83,17 @@
   },
   {
    "name": "Agent Avenue",
-   "type": "Boardgame",
-   "bgoId": "wBRRNgnGmH",
+   "type": "Expansion",
+   "bgoId": "aSZ_dqxVMB",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 18.39,
-    "UK": 15.2,
-    "Canada": 20.95,
-    "Australia": 31.99,
-    "NZ": 50
+    "USA": 19.19,
+    "UK": 14.99,
+    "Canada": 25.95,
+    "Australia": 18,
+    "NZ": 45.95
    },
    "stock": {
     "USA": "In stock",
@@ -101,9 +109,17 @@
      "price": 9999,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 9999,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/agent-avenue",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Akropolis",
@@ -173,9 +189,17 @@
      "price": 2000,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 2000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/avant-carde",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Backstories: Alone under the Ice",
@@ -244,23 +268,23 @@
      "price": 9999,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
    ]
   },
   {
    "name": "Between Two Castles Essential Edition",
    "type": "Boardgame",
-   "bgoId": "y7iGBdn-Ii",
+   "bgoId": "3a1vTFjOBP",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 40,
-    "UK": 31.32,
-    "Canada": 46.71,
-    "Australia": 64.95,
-    "NZ": 99.99
+    "USA": 14.44,
+    "UK": 20.14,
+    "Canada": 20.95,
+    "Australia": 26.95,
+    "NZ": 44.99
    },
    "stock": {
     "USA": "In stock",
@@ -276,9 +300,17 @@
      "price": 5000,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 5000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/between-two-castles-essential-edition",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Bites",
@@ -308,9 +340,17 @@
      "price": 4000,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 4000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/bites-board-game-tables-com",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Burgle Bros 2: The Casino Capers",
@@ -340,9 +380,17 @@
      "price": 5500,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 5500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/burgle-bros-2-the-casino-capers-fowers-games",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Caesar!: Seize Rome in 20 minutes",
@@ -372,9 +420,17 @@
      "price": 3000,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 3000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/caesar-seize-rome-in-20-minutes-psc-games",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Caper: Europe",
@@ -532,14 +588,6 @@
      "verified": true
     },
     {
-     "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/cascadia-landmarks-alderac-entertainment-group",
-     "price": 3500,
-     "stock": "Out of stock",
-     "discounted": false,
-     "verified": false
-    },
-    {
      "site": "Board Games Bazaar",
      "url": "https://boardgamesbazaar.com/products/intl-games-cascadia-retail-edition",
      "price": 3399,
@@ -609,14 +657,6 @@
      "stock": "Out of stock",
      "discounted": false,
      "verified": true
-    },
-    {
-     "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/clank-catacombs-underworld",
-     "price": 9999,
-     "stock": "Out of stock",
-     "discounted": false,
-     "verified": false
     }
    ]
   },
@@ -694,9 +734,17 @@
      "price": 4500,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 4500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/decorum-floodgate-games",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Decrypto: Expansion #01 – Laserdrive",
@@ -749,9 +797,17 @@
      "price": 9999,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 9999,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/detective-club",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Dorfromantik: The Board Game",
@@ -861,9 +917,17 @@
      "price": 9999,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 9999,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/dying-message",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Faraway: People From Below",
@@ -1003,16 +1067,7 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": [
-    {
-     "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/foundations-of-metropolis-en-gb-5969",
-     "price": 9999,
-     "stock": "Out of stock",
-     "discounted": false,
-     "verified": false
-    }
-   ]
+   "indiaSources": []
   },
   {
    "name": "Fugitive (Second Edition)",
@@ -1042,9 +1097,17 @@
      "price": 9999,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 9999,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/fugitive-second-edition",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Hamster roll",
@@ -1145,9 +1208,17 @@
      "price": 9999,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 9999,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/heat-heavy-rain",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Heat: Tunnel Vision",
@@ -1177,9 +1248,17 @@
      "price": 3300,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 3300,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/heat-tunnel-vision",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "High Society",
@@ -1257,9 +1336,17 @@
      "price": 9999,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 9999,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/hitster",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Hive",
@@ -1289,9 +1376,17 @@
      "price": 2500,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 2500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/hive",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Horrified",
@@ -1321,9 +1416,17 @@
      "price": 4500,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 4500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/horrified-greek-monsters-ravensburger",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "I C E: Second Edition",
@@ -1353,9 +1456,17 @@
      "price": 9999,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 9999,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/i-c-e-second-edition",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Insider Black",
@@ -1385,9 +1496,17 @@
      "price": 2100,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 2100,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/insider-black-oink-games",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Jamaica",
@@ -1417,7 +1536,7 @@
      "price": 4200,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     },
     {
      "site": "Boardway",
@@ -1488,9 +1607,17 @@
      "price": 4000,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 4000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/kabuto-sumo-board-game-tables-com",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Kariba",
@@ -1543,9 +1670,17 @@
      "price": 2400,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 2400,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/king-of-12-lucky-duck-games",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "L.L.A.M.A.",
@@ -1610,14 +1745,6 @@
    },
    "indiaSources": [
     {
-     "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/cascadia-landmarks-alderac-entertainment-group",
-     "price": 3500,
-     "stock": "Out of stock",
-     "discounted": false,
-     "verified": false
-    },
-    {
      "site": "Boardway",
      "url": "https://boardway.in/products/landmarks",
      "price": 2399,
@@ -1663,9 +1790,17 @@
      "price": 6000,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 6000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/lightning-train-en-gb-6065",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Lost Cities: The Board Game",
@@ -1718,9 +1853,17 @@
      "price": 3300,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 3300,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/machi-koro-2-pandasaurus-games",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "MicroMacro: Crime City – All In",
@@ -1750,9 +1893,17 @@
      "price": 2800,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 2800,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/micromacro-crime-city-all-in-pegasus-spiele",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "MicroMacro: Crime City – Bonus Box",
@@ -1782,9 +1933,17 @@
      "price": 9999,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 9999,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/micromacro-crime-city-bonus-box",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "MicroMacro: Crime City – Full House",
@@ -1814,9 +1973,17 @@
      "price": 3200,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 3200,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/micromacro-crime-city-full-house-pegasus-spiele",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "MicroMacro: Crime City – Showdown",
@@ -1846,9 +2013,17 @@
      "price": 2500,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 2500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/micromacro-crime-city-showdown",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Moon Colony Bloodbath",
@@ -1878,9 +2053,17 @@
      "price": 5500,
      "stock": "Pre-order",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 5500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/moon-colony-bloodbath",
+    "stock": "Pre-order",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Moonrollers",
@@ -1979,9 +2162,17 @@
      "price": 2000,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 2000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/nidavellir-thingvellir",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Parks (Second Edition)",
@@ -2011,9 +2202,17 @@
      "price": 5500,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 5500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/parks-second-edition",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Patchwork: Automa",
@@ -2066,9 +2265,17 @@
      "price": 9999,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 9999,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/pirates-of-maracaibo",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Planet Unknown",
@@ -2098,9 +2305,17 @@
      "price": 7000,
      "stock": "Out of stock",
      "discounted": true,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 7000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/planet-unknown-retail-edition-adam-s-apple-games",
+    "stock": "Out of stock",
+    "discount": 0,
+    "verified": true
+   }
   },
   {
    "name": "Point City",
@@ -2130,9 +2345,17 @@
      "price": 2500,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 2500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/point-city-retail-edition-flatout-games",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Project L: Ambassador Pack",
@@ -2226,14 +2449,6 @@
    },
    "indiaSources": [
     {
-     "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/quacks-co-quedlinburg-dash",
-     "price": 9999,
-     "stock": "Out of stock",
-     "discounted": false,
-     "verified": false
-    },
-    {
      "site": "Boardway",
      "url": "https://boardway.in/products/the-quacks-of-quedlinburg",
      "price": 4799,
@@ -2279,9 +2494,17 @@
      "price": 2000,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 2000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/quest",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Ra",
@@ -2334,9 +2557,17 @@
      "price": 1700,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 1700,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/railroad-ink-deep-blue-edition-horrible-guild",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Railroad Tiles",
@@ -2366,9 +2597,17 @@
      "price": 4000,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 4000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/railroad-tiles",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Red Carpet",
@@ -2398,9 +2637,17 @@
      "price": 3500,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 3500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/red-carpet",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Sagrada",
@@ -2430,7 +2677,7 @@
      "price": 3500,
      "stock": "In stock",
      "discounted": true,
-     "verified": false
+     "verified": true
     },
     {
      "site": "Boardway",
@@ -2458,10 +2705,10 @@
     }
    ],
    "india": {
-    "price": 3199,
-    "source": "Boardway",
-    "url": "https://boardway.in/products/sagrada",
-    "stock": "Out of stock",
+    "price": 3500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/sagrada-english-hindi-edition-yes-papa-games",
+    "stock": "In stock",
     "discount": 0,
     "verified": true
    }
@@ -2494,7 +2741,7 @@
      "price": 4999,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     },
     {
      "site": "Boardway",
@@ -2542,7 +2789,7 @@
      "price": 1300,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     },
     {
      "site": "Boardway",
@@ -2590,9 +2837,17 @@
      "price": 1600,
      "stock": "In stock",
      "discounted": true,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 1600,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/sea-salt-paper-bombyx",
+    "stock": "In stock",
+    "discount": 0,
+    "verified": true
+   }
   },
   {
    "name": "Sky Team: Turbulence",
@@ -2622,9 +2877,17 @@
      "price": 1500,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 1500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/sky-team-turbulence-en-gb-5957",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "So Clover!",
@@ -2654,7 +2917,7 @@
      "price": 2500,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     },
     {
      "site": "Boardway",
@@ -2710,9 +2973,17 @@
      "price": 3000,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 3000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/sobek-2-players-blackrock-games",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Spicy",
@@ -2782,9 +3053,17 @@
      "price": 5500,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 5500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/steampunk-rally-fusion-roxley-games",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Stockpile",
@@ -2814,41 +3093,17 @@
      "price": 5000,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
-  },
-  {
-   "name": "Strike",
-   "type": "Boardgame",
-   "bgoId": "KjDIQclVIn",
-   "indiaUrl": "",
-   "discount": null,
-   "status": "Not Started",
-   "prices": {
-    "USA": 19.99,
-    "UK": null,
-    "Canada": 24.99,
-    "Australia": 81.11,
-    "NZ": 80.23
-   },
-   "stock": {
-    "USA": "In stock",
-    "UK": "",
-    "Canada": "In stock",
-    "Australia": "In stock",
-    "NZ": "In stock"
-   },
-   "indiaSources": [
-    {
-     "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/strike-of-the-eagle-academy-games",
-     "price": 9999,
-     "stock": "Out of stock",
-     "discounted": false,
-     "verified": false
-    }
-   ]
+   ],
+   "india": {
+    "price": 5000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/stockpile",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Subjective",
@@ -2901,7 +3156,7 @@
      "price": 6500,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     },
     {
      "site": "Boardway",
@@ -2957,7 +3212,7 @@
      "price": 5000,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     },
     {
      "site": "Boardway",
@@ -3051,9 +3306,17 @@
      "price": 5000,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 5000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/terraforming-mars-ares-expedition-collectors-edition-stronghold-games",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "That's Not a Hat: Pop Culture",
@@ -3106,7 +3369,7 @@
      "price": 9999,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     },
     {
      "site": "Boardway",
@@ -3118,11 +3381,11 @@
     }
    ],
    "india": {
-    "price": 17500,
-    "source": "Boardway",
-    "url": "https://boardway.in/products/the-castles-of-burgundy-special-edition",
+    "price": 9999,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/the-castles-of-burgundy-ravensburger",
     "stock": "Out of stock",
-    "discount": 0,
+    "discount": 0.1,
     "verified": true
    }
   },
@@ -3476,9 +3739,17 @@
      "price": 9999,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 9999,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/unstoppable",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Western Legends",
@@ -3508,9 +3779,17 @@
      "price": 7000,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 7000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/western-legends-kolossal-games",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Wingspan",
@@ -3549,14 +3828,6 @@
      "stock": "In stock",
      "discounted": false,
      "verified": true
-    },
-    {
-     "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/wingspan-pocket",
-     "price": 2300,
-     "stock": "Pre-order",
-     "discounted": false,
-     "verified": false
     },
     {
      "site": "Boardway",
@@ -3612,7 +3883,7 @@
      "price": 5000,
      "stock": "In stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     },
     {
      "site": "Tabletop Universe",
@@ -3624,11 +3895,11 @@
     }
    ],
    "india": {
-    "price": 4799,
-    "source": "Tabletop Universe",
-    "url": "https://www.tabletopuniverse.com/products/wingspan-asia-expansion-english",
-    "stock": "Out of stock",
-    "discount": 0,
+    "price": 5000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/wingspan-asia-stonemaier-games",
+    "stock": "In stock",
+    "discount": 0.1,
     "verified": true
    }
   },
@@ -3706,9 +3977,17 @@
      "price": 6500,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 6500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/wroth",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Magical athlete",
@@ -3738,55 +4017,15 @@
      "price": 2999,
      "stock": "In stock",
      "discounted": false,
-     "verified": false
-    }
-   ]
-  },
-  {
-   "name": "Viticulture",
-   "type": "Boardgame",
-   "bgoId": "XZMHLFoIoR",
-   "indiaUrl": "",
-   "discount": null,
-   "status": "Not Started",
-   "prices": {
-    "USA": null,
-    "UK": null,
-    "Canada": null,
-    "Australia": null,
-    "NZ": 143.95
-   },
-   "stock": {
-    "USA": "",
-    "UK": "",
-    "Canada": "",
-    "Australia": "",
-    "NZ": "In stock"
-   },
-   "indiaSources": [
-    {
-     "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/viticulture-wine-crate-stonemaier-games",
-     "price": 6500,
-     "stock": "Out of stock",
-     "discounted": false,
-     "verified": false
-    },
-    {
-     "site": "Boardway",
-     "url": "https://boardway.in/products/viticulture-essential-edition-1",
-     "price": 4799,
-     "stock": "Out of stock",
-     "discounted": true,
      "verified": true
     }
    ],
    "india": {
-    "price": 4799,
-    "source": "Boardway",
-    "url": "https://boardway.in/products/viticulture-essential-edition-1",
-    "stock": "Out of stock",
-    "discount": 0,
+    "price": 2999,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/magical-athlete",
+    "stock": "In stock",
+    "discount": 0.1,
     "verified": true
    }
   },
@@ -3818,9 +4057,17 @@
      "price": 4500,
      "stock": "In stock",
      "discounted": true,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 4500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/hot-streak",
+    "stock": "In stock",
+    "discount": 0,
+    "verified": true
+   }
   },
   {
    "name": "Bang! The Dice Game",
@@ -3850,7 +4097,7 @@
      "price": 1800,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     },
     {
      "site": "Boardway",
@@ -3921,9 +4168,17 @@
      "price": 9999,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 9999,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/pinched--en-gb-6073",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Solstis",
@@ -3953,9 +4208,17 @@
      "price": 9999,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 9999,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/solstis",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Skull King",
@@ -3985,9 +4248,17 @@
      "price": 1600,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 1600,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/skull-king-grandpa-beck-s-games",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Fliptoons",
@@ -4017,9 +4288,17 @@
      "price": 2500,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 2500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/fliptoons-mini-expansion",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "A carnivore did it",
@@ -4049,9 +4328,17 @@
      "price": 2000,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 2000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/a-carnivore-did-it",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Ruins",
@@ -4074,16 +4361,7 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": [
-    {
-     "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/lost-ruins-of-arnak-czech-games-edition",
-     "price": 5500,
-     "stock": "Out of stock",
-     "discounted": false,
-     "verified": false
-    }
-   ]
+   "indiaSources": []
   },
   {
    "name": "Petiquette",
@@ -4113,9 +4391,17 @@
      "price": 2500,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 2500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/petiquette",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Popcorn",
@@ -4145,9 +4431,17 @@
      "price": 4000,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 4000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/popcorn",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Durian",
@@ -4177,9 +4471,17 @@
      "price": 2500,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 2500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/durian-oink-games",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Radlands",
@@ -4209,7 +4511,7 @@
      "price": 2500,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     },
     {
      "site": "Boardway",
@@ -4303,9 +4605,17 @@
      "price": 1400,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 1400,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/collect",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "K3",
@@ -4358,9 +4668,17 @@
      "price": 6000,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 6000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/legacy-of-yu-with-2022-ks-promo-pack-bundle-renegade-game-studios",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   }
  ]
 }
