@@ -63,7 +63,41 @@
     "verify": [
      "https://boardway.in/products/cartographers"
     ]
-   }
+   },
+   "name": "Bang! The Dice Game",
+   "bgoId": "R-pmk1K5GM"
+  },
+  "Cascadia": {
+   "india": {
+    "verify": [
+     "https://boardgamesbazaar.com/products/intl-games-cascadia-retail-edition"
+    ]
+   },
+   "bgoId": "12975B7EQh"
+  },
+  "Durian": {
+   "india": {
+    "remove": [
+     "https://boardgamesbazaar.com/products/durian-smuggler"
+    ]
+   },
+   "bgoId": "o2dheOH4DS"
+  },
+  "Forest Shuffle": {
+   "india": {
+    "verify": [
+     "https://boardway.in/products/forest-shuffle"
+    ]
+   },
+   "bgoId": "eJORAg6hls"
+  },
+  "High Society": {
+   "india": {
+    "verify": [
+     "https://boardgamesbazaar.com/products/intl-games-high-society"
+    ]
+   },
+   "bgoId": "q2p8_Jtk8p"
   }
  },
  "added": [],
