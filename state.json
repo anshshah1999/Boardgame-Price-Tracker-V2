@@ -55,7 +55,8 @@
   "Bang! The Dice Game": {
    "india": {
     "verify": [
-     "https://boardway.in/products/bang-the-dice-game"
+     "https://boardway.in/products/bang-the-dice-game",
+     "https://www.boardgamesindia.com/bang-the-dice-game-dv-giochi"
     ]
    }
   },
@@ -187,7 +188,8 @@
    "india": {
     "verify": [
      "https://boardway.in/products/so-clover",
-     "https://boardgamesbazaar.com/products/repos-so-clover"
+     "https://boardgamesbazaar.com/products/repos-so-clover",
+     "https://www.boardgamesindia.com/so-clover-repos-production"
     ]
    },
    "bgoId": "CwEdM88bNs"
@@ -372,6 +374,22 @@
    "india": {
     "verify": [
      "https://www.boardgamesindia.com/between-two-castles-essential-edition"
+    ]
+   },
+   "name": "Avant Carde",
+   "bgoId": "3a1vTFjOBP"
+  },
+  "Betrayal at House on the Hill: 3rd Edition": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/betrayal-at-house-on-the-hill-3rd-edition-avalon-hill"
+    ]
+   }
+  },
+  "Avant Carde": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/avant-carde"
     ]
    }
   }
