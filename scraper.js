@@ -9,18 +9,30 @@ const fs = require('fs');
 const PATH = process.env.DATA_PATH || './data.json';
 const LOCALE = { USA:'', UK:'/en-GB', Canada:'/en-CA', Australia:'/en-AU', NZ:'/en-NZ' };
 const CURCODE = { USA:'USD', UK:'GBP', Canada:'CAD', Australia:'AUD', NZ:'NZD' };
-const UA = { 'User-Agent':'Mozilla/5.0 (compatible; bgpt-scraper/2.0)' };
+const UA = { 'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', 'Accept-Language':'en-IN,en;q=0.9' };
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
+// Board Games India sits behind a Cloudflare JS cookie gate: the first hit returns a tiny script that
+// computes an "IoI" cookie (FNV-1a hash of a token) and reloads. We replicate the hash and resend the cookie.
+let ioiCookie = null;
+function solveIoI(html){ const m = html && html.match(/var\s+H=.([0-9a-f]+).,\s*h=2166136261/); if (!m) return null; let H=m[1], h=2166136261; for (let i=0;i<H.length;i++){ h^=H.charCodeAt(i); h=Math.imul(h,16777619)>>>0; } return (h>>>0).toString(16); }
 async function get(url, tries){
   tries = tries || 2;
   for (let i=0;i<tries;i++){
     try{
       const ctrl = new AbortController();
       const t = setTimeout(()=>ctrl.abort(), 20000);
-      const r = await fetch(url, { headers: UA, signal: ctrl.signal });
+      const hdr = Object.assign({}, UA); if (ioiCookie) hdr['Cookie'] = 'IoI='+ioiCookie;
+      const r = await fetch(url, { headers: hdr, signal: ctrl.signal });
       clearTimeout(t);
-      if (r.ok) return await r.text();
+      if (r.ok){
+        let body = await r.text();
+        if (/sessionStorage\.IoI/.test(body) && /var\s+H=/.test(body)){   // hit the JS cookie challenge -> solve and retry once
+          const c = solveIoI(body);
+          if (c){ ioiCookie = c; try{ const r2 = await fetch(url, { headers: Object.assign({}, UA, { Cookie:'IoI='+c }) }); if (r2.ok) body = await r2.text(); }catch(e){} }
+        }
+        return body;
+      }
       if (r.status===404) return null;
     }catch(e){}
     await sleep(1500);
@@ -208,13 +220,16 @@ async function searchShopify(base, name){
 // Board Games India (OpenCart) name search -> best-matching product URL. Fuzzy, so results are UNCONFIRMED suggestions.
 async function searchBGI(name){
   const html = await get('https://www.boardgamesindia.com/index.php?route=product/search&search='+encodeURIComponent(name));
-  if (!html) return null;
+  if (!html){ BGI.unreachable++; return null; }              // CI-side block / network fail
   const re = /<div class="name">\s*<a\s+href="([^"?#]+)[^"]*"\s+title="([^"]*)"/gi;
   const products = []; let m;
   while ((m = re.exec(html))){ products.push({ url:m[1], title:(m[2]||'').replace(/&amp;/g,'&') }); }
+  if (!products.length){ BGI.noResults++; return null; }      // page loaded but 0 products parsed
   const p = bestMatch(products, name);
+  if (p) BGI.matched++; else BGI.noMatch++;
   return p ? p.url : null;
 }
+const BGI = { unreachable:0, noResults:0, noMatch:0, matched:0 };
 // Friendly site name from a URL host.
 function siteName(url){ try{ const h=new URL(url).hostname.replace(/^www\./,''); if(/boardgamesindia/.test(h))return 'Board Games India'; if(/boardway/.test(h))return 'Boardway'; if(/boardgamesbazaar/.test(h))return 'Board Games Bazaar'; if(/tabletopuniverse/.test(h))return 'Tabletop Universe'; if(/gameistry/.test(h))return 'Gameistry'; if(/boredgamecompany/.test(h))return 'Bored Game Company'; return h; }catch(e){ return 'India'; } }
 // Every India source for a game: {site,url,price,stock,discounted,verified}.
@@ -314,6 +329,7 @@ async function fetchFX(existing){
   console.log('Done. Processed '+processed+' games.');
   console.log('  International prices found : '+intlPriced);
   console.log('  India prices found        : '+indiaPriced);
+  console.log('  BGI search  matched='+BGI.matched+'  no-match='+BGI.noMatch+'  0-results='+BGI.noResults+'  UNREACHABLE='+BGI.unreachable+(BGI.unreachable>BGI.matched?'  <-- BGI is blocking this runner':''));
   console.log('  BGO IDs auto-resolved      : '+idsResolved+' (strict slug match)');
   console.log('  Still missing a BGO ID     : '+stillNoId);
   if (intlPriced===0) console.log('  NOTE: 0 international - dumping one raw price page would let the parser be fixed exactly.');
