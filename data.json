@@ -1077,7 +1077,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 30.31,
+    "USA": 30,
     "UK": 27.9,
     "Canada": 32.26,
     "Australia": 44.75,
@@ -1113,7 +1113,7 @@
      "price": 3399,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
    ]
   },
@@ -1876,7 +1876,7 @@
      "site": "Board Games India",
      "url": "https://www.boardgamesindia.com/moon-colony-bloodbath",
      "price": 5500,
-     "stock": "In stock",
+     "stock": "Pre-order",
      "discounted": false,
      "verified": false
     }
@@ -3816,7 +3816,7 @@
      "site": "Board Games India",
      "url": "https://www.boardgamesindia.com/hot-streak",
      "price": 4500,
-     "stock": "Pre-order",
+     "stock": "In stock",
      "discounted": true,
      "verified": false
     }
