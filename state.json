@@ -260,6 +260,9 @@
    "india": {
     "verify": [
      "https://boardway.in/products/the-quacks-of-quedlinburg"
+    ],
+    "remove": [
+     "https://www.boardgamesindia.com/quacks-co-quedlinburg-dash"
     ]
    },
    "bgoId": "bD0EsHvlcZ"
@@ -442,6 +445,58 @@
      "https://www.boardgamesindia.com/railroad-ink-deep-blue-edition-horrible-guild"
     ]
    }
+  },
+  "Popcorn": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/popcorn"
+    ]
+   },
+   "bgoId": "JAZXxHb1mI"
+  },
+  "Point City": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/point-city-retail-edition-flatout-games"
+    ]
+   }
+  },
+  "Planet Unknown": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/planet-unknown-retail-edition-adam-s-apple-games"
+    ]
+   }
+  },
+  "Pirates of Maracaibo": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/pirates-of-maracaibo"
+    ]
+   },
+   "bgoId": "9Wp7HZmBw1"
+  },
+  "Pinched": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/pinched--en-gb-6073"
+    ]
+   }
+  },
+  "Petiquette": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/petiquette"
+    ]
+   }
+  },
+  "Parks (Second Edition)": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/parks-second-edition"
+    ]
+   },
+   "bgoId": "x6KKLTxyag"
   }
  },
  "added": [],
