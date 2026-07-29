@@ -271,6 +271,9 @@
    "india": {
     "verify": [
      "https://boardway.in/products/landmarks"
+    ],
+    "remove": [
+     "https://www.boardgamesindia.com/cascadia-landmarks-alderac-entertainment-group"
     ]
    }
   },
@@ -546,6 +549,42 @@
    "india": {
     "verify": [
      "https://www.boardgamesindia.com/magical-athlete"
+    ]
+   }
+  },
+  "Machi Koro 2": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/machi-koro-2-pandasaurus-games"
+    ]
+   }
+  },
+  "Lightning Train": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/lightning-train-en-gb-6065"
+    ]
+   }
+  },
+  "Legacy of Yu": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/legacy-of-yu-with-2022-ks-promo-pack-bundle-renegade-game-studios"
+    ]
+   }
+  },
+  "King of 12": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/king-of-12-lucky-duck-games"
+    ]
+   },
+   "bgoId": "S23hLcaYIy"
+  },
+  "Kabuto Sumo": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/kabuto-sumo-board-game-tables-com"
     ]
    }
   }
