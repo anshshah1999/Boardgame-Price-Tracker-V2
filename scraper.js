@@ -197,14 +197,18 @@ async function searchShopify(base, name){
   const purl = p.url ? base+String(p.url).split('?')[0] : (p.handle ? base+'/products/'+p.handle : '');
   return { price:price, inStock: p.available===true, discounted: discounted, url: purl };
 }
-// Every India source for a game: {site,url,price,stock,discounted,verified}. `verified` is preserved across runs by URL.
+// Friendly site name from a URL host.
+function siteName(url){ try{ const h=new URL(url).hostname.replace(/^www\./,''); if(/boardgamesindia/.test(h))return 'Board Games India'; if(/boardway/.test(h))return 'Boardway'; if(/boardgamesbazaar/.test(h))return 'Board Games Bazaar'; if(/tabletopuniverse/.test(h))return 'Tabletop Universe'; if(/gameistry/.test(h))return 'Gameistry'; if(/boredgamecompany/.test(h))return 'Bored Game Company'; return h; }catch(e){ return 'India'; } }
+// Every India source for a game: {site,url,price,stock,discounted,verified}.
+// User-supplied URLs (indiaUrl / indiaUrls) are CONFIRMED (verified:true). Fuzzy Shopify matches are UNCONFIRMED suggestions (verified:false) until the user approves them.
 async function scrapeIndiaSources(g, prev){
   const prevVer = {}; (prev||[]).forEach(function(s){ if (s.url) prevVer[s.url]=!!s.verified; });
-  const sources = [];
-  if (g.indiaUrl){ const b = await scrapeIndia(g.indiaUrl); if (b) sources.push({ site:'Board Games India', url:g.indiaUrl, price:b.price, stock:b.stock||'', discounted:b.discounted, verified: (g.indiaUrl in prevVer)?prevVer[g.indiaUrl]:true }); }
+  const sources = []; const seen = {};
+  const direct = []; if (g.indiaUrl) direct.push(g.indiaUrl); (g.indiaUrls||[]).forEach(function(u){ direct.push(u); });
+  for (const url of direct){ if (!url || seen[url]) continue; seen[url]=1; const r = await scrapeAnyIndia(url); if (r) sources.push({ site:siteName(url), url:url, price:r.price, stock:r.stock||'', discounted:r.discounted, verified:true }); await sleep(400); }
   for (const s of INDIA_SHOPIFY){
     const r = await searchShopify(s.base, g.name);
-    if (r){ sources.push({ site:s.name, url:r.url, price:r.price, stock:r.inStock?'In stock':'Out of stock', discounted:r.discounted, verified: (r.url in prevVer)?prevVer[r.url]:false }); }
+    if (r && r.url && !seen[r.url]){ seen[r.url]=1; sources.push({ site:s.name, url:r.url, price:r.price, stock:r.inStock?'In stock':'Out of stock', discounted:r.discounted, verified: (r.url in prevVer)?prevVer[r.url]:false }); }
     await sleep(400);
   }
   return sources;
@@ -216,14 +220,16 @@ async function scrapeAnyIndia(url){
   try { const p = JSON.parse(j); return { price:p.price/100, stock:p.available?'In stock':'Out of stock', discounted:(p.compare_at_price||0)>p.price }; } catch(e){}
   return null;
 }
-// The India price used in analysis: cheapest in-stock across all sources (else cheapest overall).
+// The India price used in analysis: cheapest in-stock among CONFIRMED sources only (else cheapest confirmed).
+// Unconfirmed fuzzy suggestions are never priced until the user approves them in the app.
 function chooseIndia(sources){
-  if (!sources || !sources.length) return null;
-  const inS = sources.filter(function(s){ return /in stock/i.test(s.stock); });
-  const pool = (inS.length ? inS : sources).slice().sort(function(a,b){ return a.price-b.price; });
+  const v = (sources||[]).filter(function(s){ return s.verified; });
+  if (!v.length) return null;
+  const inS = v.filter(function(s){ return /in stock/i.test(s.stock); });
+  const pool = (inS.length ? inS : v).slice().sort(function(a,b){ return a.price-b.price; });
   const win = pool[0];
   const discount = (/board games india/i.test(win.site) && !win.discounted) ? 0.10 : 0;
-  return { price: win.price, source: win.site, url: win.url||'', stock: inS.length ? 'In stock' : 'Out of stock', discount: discount, verified: !!win.verified };
+  return { price: win.price, source: win.site, url: win.url||'', stock: inS.length ? 'In stock' : 'Out of stock', discount: discount, verified: true };
 }
 
 // ---- FX to INR ----
@@ -243,9 +249,11 @@ async function fetchFX(existing){
   data.meta.updated = new Date().toISOString().slice(0,10);
 
   // Apply per-game overrides + deletions set in the app (state.json in the repo, if present)
-  let ovMap = {}, removedSet = new Set();
-  try { const st = JSON.parse(fs.readFileSync('./state.json','utf8')); ovMap = (st && st.overrides) || {}; (st.removed||[]).forEach(function(n){ removedSet.add(n); }); console.log('Loaded state.json overrides.'); } catch(e){}
+  let ovMap = {}, removedSet = new Set(), stAdded = [];
+  try { const st = JSON.parse(fs.readFileSync('./state.json','utf8')); ovMap = (st && st.overrides) || {}; (st.removed||[]).forEach(function(n){ removedSet.add(n); }); stAdded = st.added || []; console.log('Loaded state.json overrides.'); } catch(e){}
   if (removedSet.size){ data.games = data.games.filter(function(g){ return !removedSet.has(g.name); }); }
+  // Games the user added in the app (state.json) so they get priced too.
+  stAdded.forEach(function(a){ if (!a || !a.name || removedSet.has(a.name)) return; if (data.games.some(function(g){ return g.name===a.name; })) return; data.games.push({ name:a.name, type:a.type||'Boardgame', bgoId:a.bgoId||'', indiaUrls:a.indiaUrls||[], prices:{}, stock:{}, indiaSources:[] }); });
 
   let processed=0, intlPriced=0, indiaPriced=0, idsResolved=0, stillNoId=0;
   for (const g of data.games){
@@ -275,7 +283,7 @@ async function fetchFX(existing){
       g.indiaSources = sources;
       const chosen = chooseIndia(sources);
       if (chosen){ g.india = chosen; indiaPriced++; }
-      else if (g.india && g.india.price){ g.india.stock = 'Out of stock'; }        // tier 3: keep last-known India price, flag OOS
+      else { delete g.india; }        // no CONFIRMED India source -> no India price (unconfirmed suggestions are never used)
     }
     processed++;
     if (processed % 10 === 0) console.log('  ...'+processed+'/'+data.games.length);
