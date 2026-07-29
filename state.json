@@ -43,7 +43,8 @@
   "Ra": {
    "india": {
     "remove": [
-     "https://boardgamesbazaar.com/products/rain-mini-card-game"
+     "https://boardgamesbazaar.com/products/rain-mini-card-game",
+     "https://boardway.in/products/raids"
     ]
    },
    "bgoId": "ztzt3fy553"
@@ -189,6 +190,40 @@
     ]
    },
    "bgoId": "AqCS_RGHZK"
+  },
+  "Santorini": {
+   "india": {
+    "verify": [
+     "https://boardway.in/products/santorini"
+    ]
+   },
+   "bgoId": "5_TQJXBwtr"
+  },
+  "Sagrada": {
+   "india": {
+    "verify": [
+     "https://boardway.in/products/sagrada",
+     "https://boardgamesbazaar.com/products/intl-games-sagrada-english-hindi",
+     "https://www.tabletopuniverse.com/products/sagrada-english"
+    ]
+   },
+   "bgoId": "ivLKpH2qMz"
+  },
+  "Ruins": {
+   "india": {
+    "remove": [
+     "https://boardway.in/products/lost-ruins-of-arnak"
+    ]
+   },
+   "bgoId": "IFiJrANmW5"
+  },
+  "Radlands": {
+   "india": {
+    "verify": [
+     "https://boardway.in/products/radlands"
+    ]
+   },
+   "bgoId": "OKtz5PXOuM"
   }
  },
  "added": [],
