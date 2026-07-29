@@ -103,7 +103,8 @@
   "Wingspan Asia": {
    "india": {
     "verify": [
-     "https://www.tabletopuniverse.com/products/wingspan-asia-expansion-english"
+     "https://www.tabletopuniverse.com/products/wingspan-asia-expansion-english",
+     "https://www.boardgamesindia.com/wingspan-asia-stonemaier-games"
     ]
    },
    "bgoId": "ijObtUSyVq"
@@ -128,10 +129,12 @@
     ],
     "remove": [
      "https://boardgamesbazaar.com/products/intl-games-viticulture-tuscany-essential-edition",
-     "https://www.tabletopuniverse.com/products/viticulture-world-english"
+     "https://www.tabletopuniverse.com/products/viticulture-world-english",
+     "https://www.boardgamesindia.com/viticulture-wine-crate-stonemaier-games"
     ]
    },
-   "bgoId": "XZMHLFoIoR"
+   "bgoId": "7wWaP8A8TF",
+   "name": "Unstoppable"
   },
   "The Castles of Burgundy": {
    "india": {
@@ -298,6 +301,20 @@
    },
    "name": "7 Wonders: Architects – Medals",
    "bgoId": "aSZ_dqxVMB"
+  },
+  "Wroth": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/wroth"
+    ]
+   }
+  },
+  "Western Legends": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/western-legends-kolossal-games"
+    ]
+   }
   }
  },
  "added": [],
