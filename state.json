@@ -224,6 +224,46 @@
     ]
    },
    "bgoId": "OKtz5PXOuM"
+  },
+  "Quest": {
+   "india": {
+    "remove": [
+     "https://boardway.in/products/bargain-quest",
+     "https://www.tabletopuniverse.com/products/the-crew-quest-for-planet-nine"
+    ]
+   },
+   "bgoId": "_OrAkB0VOY"
+  },
+  "Quacks": {
+   "india": {
+    "verify": [
+     "https://boardway.in/products/the-quacks-of-quedlinburg"
+    ]
+   },
+   "bgoId": "bD0EsHvlcZ"
+  },
+  "Landmarks": {
+   "india": {
+    "verify": [
+     "https://boardway.in/products/landmarks"
+    ]
+   }
+  },
+  "L.L.A.M.A.": {
+   "india": {
+    "verify": [
+     "https://boardway.in/products/l-l-a-m-a"
+    ]
+   },
+   "bgoId": "Kk9gzvsyuV"
+  },
+  "Jamaica": {
+   "india": {
+    "verify": [
+     "https://boardway.in/products/jamaica"
+    ]
+   },
+   "bgoId": "bnvj13nU00"
   }
  },
  "added": [],
