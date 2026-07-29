@@ -114,6 +114,9 @@
      "https://boardway.in/products/wingspan-with-swift-start-pack",
      "https://boardgamesbazaar.com/products/intl-games-wingspan-with-swift-start-pack",
      "https://www.tabletopuniverse.com/products/wingspan-hindi"
+    ],
+    "remove": [
+     "https://www.boardgamesindia.com/wingspan-pocket"
     ]
    },
    "bgoId": "1cF2LLZC_o"
@@ -279,6 +282,22 @@
      "https://www.boardgamesindia.com/7-wonders-architects-medals"
     ]
    }
+  },
+  "A carnivore did it": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/a-carnivore-did-it"
+    ]
+   }
+  },
+  "Agent Avenue": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/agent-avenue"
+    ]
+   },
+   "name": "7 Wonders: Architects – Medals",
+   "bgoId": "aSZ_dqxVMB"
   }
  },
  "added": [],
