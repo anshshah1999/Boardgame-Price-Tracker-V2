@@ -169,7 +169,8 @@
    "india": {
     "verify": [
      "https://boardway.in/products/suburbia",
-     "https://www.tabletopuniverse.com/products/suburbia-inc"
+     "https://www.tabletopuniverse.com/products/suburbia-inc",
+     "https://www.boardgamesindia.com/suburbia-second-edition-bezier-games"
     ]
    },
    "bgoId": "3rID_z0BVG"
@@ -335,6 +336,15 @@
      "https://www.boardgamesindia.com/steampunk-rally-fusion-roxley-games"
     ]
    }
+  },
+  "Strike": {
+   "india": {
+    "remove": [
+     "https://www.boardgamesindia.com/strike-of-the-eagle-academy-games"
+    ]
+   },
+   "name": "Sobek: 2 Players",
+   "bgoId": "12vLrbi1bt"
   }
  },
  "added": [
