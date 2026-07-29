@@ -367,32 +367,16 @@
     ]
    },
    "bgoId": "12vLrbi1bt"
+  },
+  "Between Two Castles Essential Edition": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/between-two-castles-essential-edition"
+    ]
+   }
   }
  },
- "added": [
-  {
-   "name": "Viticulture",
-   "type": "Boardgame",
-   "bgoId": "GxBPgi0rT3",
-   "indiaUrls": [
-    "https://www.boardgamesindia.com/viticulture-essential-edition-stonemaier-games"
-   ],
-   "india": null,
-   "prices": {},
-   "stock": {},
-   "status": "Not Started"
-  },
-  {
-   "name": "Strike",
-   "type": "Boardgame",
-   "bgoId": "KjDIQclVIn",
-   "indiaUrls": [],
-   "india": null,
-   "prices": {},
-   "stock": {},
-   "status": "Not Started"
-  }
- ],
+ "added": [],
  "stores": [
   {
    "name": "",
