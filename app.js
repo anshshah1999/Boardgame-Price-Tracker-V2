@@ -16,7 +16,9 @@ function token(){return localStorage.getItem(LS_TOKEN)||'';}
 function setToken(t){if(t)localStorage.setItem(LS_TOKEN,t);else localStorage.removeItem(LS_TOKEN);}
 function cfg(k){return (STATE.config&&k in STATE.config)?STATE.config[k]:DATA.config[k];}
 function fxRate(c){if(c==='INR')return 1;return (STATE.config&&STATE.config.fx&&STATE.config.fx[c]!=null)?STATE.config.fx[c]:DATA.meta.fx[c];}
-function allGames(){var rem=STATE.removed||[];return DATA.games.concat(STATE.added||[]).filter(function(g){return rem.indexOf(g.name)<0;});}
+function allGames(){var rem=STATE.removed||[];var seen={};var out=[];DATA.games.concat(STATE.added||[]).forEach(function(g){if(rem.indexOf(g.name)>=0)return;if(seen[g.name])return;seen[g.name]=1;out.push(g);});return out;}
+// Once the scraper has merged an added game into data.json, drop the local STATE.added copy so it doesn't show twice.
+function reconcileAdded(){if(!DATA||!STATE)return;var names={};DATA.games.forEach(function(g){names[g.name]=1;});var a=STATE.added||[];var kept=a.filter(function(x){return !names[x.name];});if(kept.length!==a.length){STATE.added=kept;persistLocal();}}
 function gameByName(n){return allGames().filter(function(x){return x.name===n;})[0];}
 function ov(name){return STATE.overrides[name]||{};}
 function displayName(g){var o=STATE.overrides[g.name];return (o&&o.name)?o.name:g.name;}
@@ -234,7 +236,7 @@ function renderGames(){
   h+='</tbody></table></div>';
   app.innerHTML=h;
   document.getElementById('qnSave').onclick=function(){STATE.quickNotes=val('qn');changed();};
-  document.getElementById('ng_add').onclick=function(){var nm=val('ng_name');if(!nm){alert('Enter a game name.');return;}var raw=val('ng_bgo');var id='';if(raw){var m=raw.match(/\/boardgame\/price\/([A-Za-z0-9_-]{6,})/);id=m?m[1]:raw;}var iu=(val('ng_india')||'').split(/[\n,]+/).map(function(s){return s.trim();}).filter(function(s){return /^https?:\/\//.test(s);});STATE.added.push({name:nm,type:'Boardgame',bgoId:id,indiaUrls:iu,india:null,prices:{},stock:{},status:'Not Started'});changed();render();};
+  document.getElementById('ng_add').onclick=function(){var nm=val('ng_name');if(!nm){alert('Enter a game name.');return;}if(allGames().some(function(g){return g.name.toLowerCase()===nm.toLowerCase();})){alert('“'+nm+'” is already in your list.');return;}var raw=val('ng_bgo');var id='';if(raw){var m=raw.match(/\/boardgame\/price\/([A-Za-z0-9_-]{6,})/);id=m?m[1]:raw;}var iu=(val('ng_india')||'').split(/[\n,]+/).map(function(s){return s.trim();}).filter(function(s){return /^https?:\/\//.test(s);});STATE.added.push({name:nm,type:'Boardgame',bgoId:id,indiaUrls:iu,india:null,prices:{},stock:{},status:'Not Started'});changed();render();};
   var gr=app.querySelectorAll('tr.game');for(var i=0;i<gr.length;i++)gr[i].onclick=function(){gameDetail(this,this.getAttribute('data-n'));};
 }
 function renderSettings(){
@@ -264,13 +266,27 @@ function syncReady(){return STATE.sync&&STATE.sync.owner&&STATE.sync.repo&&token
 function ghH(){return {'Authorization':'token '+token(),'Accept':'application/vnd.github+json'};}
 function ghUrl(){var s=STATE.sync;return 'https://api.github.com/repos/'+s.owner+'/'+s.repo+'/contents/'+s.path;}
 function syncBody(){var c=JSON.parse(JSON.stringify(STATE));delete c.sync;return c;}
-function pushState(manual){if(!syncReady()){if(manual)setMsg('Fill owner, repo and token first.');return;}fetch(ghUrl()+'?ref='+STATE.sync.branch,{headers:ghH()}).then(function(r){return r.ok?r.json():null;}).then(function(j){var content=btoa(unescape(encodeURIComponent(JSON.stringify(syncBody(),null,1))));var body={message:'Update tracker settings',content:content,branch:STATE.sync.branch};if(j&&j.sha)body.sha=j.sha;return fetch(ghUrl(),{method:'PUT',headers:ghH(),body:JSON.stringify(body)});}).then(function(r){if(r&&r.ok){setSync('ok','synced');setMsg('Pushed');}else{setSync('err','sync error');setMsg('Push failed');}}).catch(function(){setSync('err','offline');setMsg('Push error');});}
-function pullState(manual){if(!syncReady()){if(manual)setMsg('Fill owner, repo and token first.');return;}fetch(ghUrl()+'?ref='+STATE.sync.branch,{headers:ghH()}).then(function(r){if(!r.ok)throw r.status;return r.json();}).then(function(j){var obj=JSON.parse(decodeURIComponent(escape(atob(j.content))));var sync=STATE.sync;STATE=Object.assign(blankState(),obj);STATE.sync=sync;persistLocal();setSync('ok','synced');setMsg('Pulled');render();}).catch(function(e){if(e!==404){setMsg('Sync check failed');setSync('err','sync error');}});}
+var pushing=false, pendingPush=false;
+// Single-flight push: never let two GitHub writes overlap (that causes sha conflicts and lost saves). Always flush the latest STATE last.
+function pushState(manual){
+  if(!syncReady()){if(manual)setMsg('Fill owner, repo and token first.');return;}
+  if(pushing){pendingPush=true;return;}
+  pushing=true;setSync('warn','saving…');
+  fetch(ghUrl()+'?ref='+STATE.sync.branch,{headers:ghH()}).then(function(r){return r.ok?r.json():null;}).then(function(j){
+    var content=btoa(unescape(encodeURIComponent(JSON.stringify(syncBody(),null,1))));
+    var body={message:'Update tracker settings',content:content,branch:STATE.sync.branch};
+    if(j&&j.sha)body.sha=j.sha;
+    return fetch(ghUrl(),{method:'PUT',headers:ghH(),body:JSON.stringify(body)});
+  }).then(function(r){if(r&&r.ok){setSync('ok','synced');setMsg('Pushed');}else{setSync('err','sync error');setMsg('Push failed');}})
+  .catch(function(){setSync('err','offline');setMsg('Push error');})
+  .then(function(){pushing=false;if(pendingPush){pendingPush=false;pushState(false);}});
+}
+function pullState(manual){if(!syncReady()){if(manual)setMsg('Fill owner, repo and token first.');return;}fetch(ghUrl()+'?ref='+STATE.sync.branch,{headers:ghH()}).then(function(r){if(!r.ok)throw r.status;return r.json();}).then(function(j){var obj=JSON.parse(decodeURIComponent(escape(atob(j.content))));var sync=STATE.sync;STATE=Object.assign(blankState(),obj);STATE.sync=sync;reconcileAdded();persistLocal();setSync('ok','synced');setMsg('Pulled');render();}).catch(function(e){if(e!==404){setMsg('Sync check failed');setSync('err','sync error');}});}
 function setSync(c,t){var d=document.getElementById('syncDot'),x=document.getElementById('syncTxt');if(d)d.className='dot '+(c||'');if(x)x.textContent=t;}
 function setMsg(m){var e=document.getElementById('syncMsg');if(e)e.textContent=m;}
 function updateBadge(){if(syncReady())setSync('ok','sync on');else setSync('','local only');}
 function exportState(){var b=new Blob([JSON.stringify(syncBody(),null,2)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='bgpt-settings.json';a.click();}
-function importState(e){var f=e.target.files[0];if(!f)return;var rd=new FileReader();rd.onload=function(){try{var o=JSON.parse(rd.result);var sync=STATE.sync;STATE=Object.assign(blankState(),o);STATE.sync=sync;persistLocal();render();}catch(err){alert('Bad file');}};rd.readAsText(f);}
+function importState(e){var f=e.target.files[0];if(!f)return;var rd=new FileReader();rd.onload=function(){try{var o=JSON.parse(rd.result);var sync=STATE.sync;STATE=Object.assign(blankState(),o);STATE.sync=sync;reconcileAdded();persistLocal();render();}catch(err){alert('Bad file');}};rd.readAsText(f);}
 function repoFromUrl(){try{var h=location.hostname;var owner=(h.indexOf('.github.io')>=0)?h.split('.')[0]:'';var seg=location.pathname.split('/').filter(Boolean);var repo=seg.length?seg[0]:'';return {owner:owner,repo:repo,branch:'main'};}catch(e){return {owner:'',repo:'',branch:'main'};}}
 function validateAccess(owner,repo,tok){if(!owner||!repo||!tok)return Promise.resolve(false);return fetch('https://api.github.com/repos/'+owner+'/'+repo,{headers:{'Authorization':'token '+tok,'Accept':'application/vnd.github+json'}}).then(function(r){return r.ok;}).catch(function(){return false;});}
 function enterApp(){document.getElementById('nav').style.visibility='visible';if(!VIEW)VIEW='india';render();}
@@ -301,6 +317,6 @@ function start(){
   var rb=document.getElementById('runBtn');if(rb)rb.onclick=runWorkflow;
   var navBtns=document.querySelectorAll('#nav button');for(var bb=0;bb<navBtns.length;bb++)navBtns[bb].onclick=function(){VIEW=this.getAttribute('data-v');render();};
   fetch('data.json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){DATA=d;boot();}).catch(function(){DATA={meta:{updated:'-',fx:{USD:85,GBP:117,CAD:59,AUD:55,NZD:50}},config:{buyWithin:.1,maybeWithin:.25,forexPct:.03,overheadPct:.1,delivery:0,bgiDefaultDiscount:.1},games:[]};boot();});
-  function boot(){var s=STATE.sync||{};if(s.owner&&s.repo&&token()){enterApp();pullState(false);}else showGate('');}
+  function boot(){reconcileAdded();var s=STATE.sync||{};if(s.owner&&s.repo&&token()){enterApp();pullState(false);}else showGate('');}
 }
 start();
