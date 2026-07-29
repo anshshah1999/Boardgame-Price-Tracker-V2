@@ -4,7 +4,7 @@
 name: Update board game prices
 on:
   schedule:
-    - cron: '0 3 1,15 * *'   # 03:00 UTC on the 1st and 15th
+    - cron: '0 3 * * *'   # 03:00 UTC every day
   workflow_dispatch: {}        # manual "Run workflow" button
 
 permissions:
