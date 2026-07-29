@@ -328,9 +328,29 @@
     ]
    },
    "bgoId": "7wWaP8A8TF"
+  },
+  "Steampunk Rally Fusion": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/steampunk-rally-fusion-roxley-games"
+    ]
+   }
   }
  },
- "added": [],
+ "added": [
+  {
+   "name": "Viticulture",
+   "type": "Boardgame",
+   "bgoId": "GxBPgi0rT3",
+   "indiaUrls": [
+    "https://www.boardgamesindia.com/viticulture-essential-edition-stonemaier-games"
+   ],
+   "india": null,
+   "prices": {},
+   "stock": {},
+   "status": "Not Started"
+  }
+ ],
  "stores": [
   {
    "name": "",
@@ -343,7 +363,8 @@
   }
  ],
  "removed": [
-  "Catan"
+  "Catan",
+  "Viticulture"
  ],
  "quickAdd": "",
  "quickNotes": "",
