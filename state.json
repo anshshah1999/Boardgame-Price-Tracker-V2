@@ -50,7 +50,12 @@
    "bgoId": "ztzt3fy553"
   },
   "Hot streak": {
-   "bgoId": "8QsoE29eTQ"
+   "bgoId": "8QsoE29eTQ",
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/hot-streak"
+    ]
+   }
   },
   "Bang! The Dice Game": {
    "india": {
@@ -288,7 +293,8 @@
   "Jamaica": {
    "india": {
     "verify": [
-     "https://boardway.in/products/jamaica"
+     "https://boardway.in/products/jamaica",
+     "https://www.boardgamesindia.com/jamaica-2nd-edition-space-cowboys"
     ]
    },
    "bgoId": "bnvj13nU00"
@@ -587,6 +593,57 @@
      "https://www.boardgamesindia.com/kabuto-sumo-board-game-tables-com"
     ]
    }
+  },
+  "Insider Black": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/insider-black-oink-games"
+    ]
+   },
+   "bgoId": "HDZs2wRXcD"
+  },
+  "I C E: Second Edition": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/i-c-e-second-edition"
+    ]
+   }
+  },
+  "Horrified": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/horrified-greek-monsters-ravensburger"
+    ]
+   }
+  },
+  "Hive": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/hive"
+    ]
+   }
+  },
+  "HITSTER": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/hitster"
+    ]
+   }
+  },
+  "Heat: Tunnel Vision": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/heat-tunnel-vision"
+    ]
+   }
+  },
+  "Heat: Heavy Rain": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/heat-heavy-rain"
+    ]
+   },
+   "bgoId": "8Dp1ru1HKU"
   }
  },
  "added": [],
