@@ -159,7 +159,36 @@
      "https://boardway.in/products/suburbia",
      "https://www.tabletopuniverse.com/products/suburbia-inc"
     ]
-   }
+   },
+   "bgoId": "3rID_z0BVG"
+  },
+  "Spicy": {
+   "india": {
+    "verify": [
+     "https://boardgamesbazaar.com/products/bored-game-company-spicy"
+    ]
+   },
+   "bgoId": "vCmcAk7DaT"
+  },
+  "So Clover!": {
+   "india": {
+    "verify": [
+     "https://boardway.in/products/so-clover",
+     "https://boardgamesbazaar.com/products/repos-so-clover"
+    ]
+   },
+   "bgoId": "CwEdM88bNs"
+  },
+  "Schotten Totten": {
+   "india": {
+    "remove": [
+     "https://boardgamesbazaar.com/products/iello-schotten-totten-2"
+    ],
+    "verify": [
+     "https://boardway.in/products/schotten-totten"
+    ]
+   },
+   "bgoId": "AqCS_RGHZK"
   }
  },
  "added": [],
