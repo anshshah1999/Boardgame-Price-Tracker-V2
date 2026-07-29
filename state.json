@@ -98,6 +98,36 @@
     ]
    },
    "bgoId": "q2p8_Jtk8p"
+  },
+  "Wingspan Asia": {
+   "india": {
+    "verify": [
+     "https://www.tabletopuniverse.com/products/wingspan-asia-expansion-english"
+    ]
+   },
+   "bgoId": "ijObtUSyVq"
+  },
+  "Wingspan": {
+   "india": {
+    "verify": [
+     "https://boardway.in/products/wingspan-with-swift-start-pack",
+     "https://boardgamesbazaar.com/products/intl-games-wingspan-with-swift-start-pack",
+     "https://www.tabletopuniverse.com/products/wingspan-hindi"
+    ]
+   },
+   "bgoId": "1cF2LLZC_o"
+  },
+  "Viticulture": {
+   "india": {
+    "verify": [
+     "https://boardway.in/products/viticulture-essential-edition-1"
+    ],
+    "remove": [
+     "https://boardgamesbazaar.com/products/intl-games-viticulture-tuscany-essential-edition",
+     "https://www.tabletopuniverse.com/products/viticulture-world-english"
+    ]
+   },
+   "bgoId": "XZMHLFoIoR"
   }
  },
  "added": [],
