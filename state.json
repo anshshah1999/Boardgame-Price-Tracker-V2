@@ -128,6 +128,38 @@
     ]
    },
    "bgoId": "XZMHLFoIoR"
+  },
+  "The Castles of Burgundy": {
+   "india": {
+    "verify": [
+     "https://boardway.in/products/the-castles-of-burgundy-special-edition"
+    ]
+   },
+   "bgoId": "X0x0v2_TzQ"
+  },
+  "Terraforming Mars: Ares Expedition": {
+   "india": {
+    "remove": [
+     "https://boardway.in/products/terraforming-mars-ares-expedition"
+    ]
+   },
+   "bgoId": "8u88FlblU7"
+  },
+  "Takenoko": {
+   "india": {
+    "verify": [
+     "https://boardway.in/products/takenoko"
+    ]
+   },
+   "bgoId": "UfustagRW2"
+  },
+  "Suburbia": {
+   "india": {
+    "verify": [
+     "https://boardway.in/products/suburbia",
+     "https://www.tabletopuniverse.com/products/suburbia-inc"
+    ]
+   }
   }
  },
  "added": [],
