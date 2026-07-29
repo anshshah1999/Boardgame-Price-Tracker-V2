@@ -133,13 +133,14 @@
      "https://www.boardgamesindia.com/viticulture-wine-crate-stonemaier-games"
     ]
    },
-   "bgoId": "7wWaP8A8TF",
-   "name": "Unstoppable"
+   "bgoId": "EhRJfXsJ-X",
+   "name": "Steampunk Rally Fusion"
   },
   "The Castles of Burgundy": {
    "india": {
     "verify": [
-     "https://boardway.in/products/the-castles-of-burgundy-special-edition"
+     "https://boardway.in/products/the-castles-of-burgundy-special-edition",
+     "https://www.boardgamesindia.com/the-castles-of-burgundy-ravensburger"
     ]
    },
    "bgoId": "X0x0v2_TzQ"
@@ -148,6 +149,9 @@
    "india": {
     "remove": [
      "https://boardway.in/products/terraforming-mars-ares-expedition"
+    ],
+    "verify": [
+     "https://www.boardgamesindia.com/terraforming-mars-ares-expedition-collectors-edition-stronghold-games"
     ]
    },
    "bgoId": "8u88FlblU7"
@@ -155,7 +159,8 @@
   "Takenoko": {
    "india": {
     "verify": [
-     "https://boardway.in/products/takenoko"
+     "https://boardway.in/products/takenoko",
+     "https://www.boardgamesindia.com/takenoko-matagot"
     ]
    },
    "bgoId": "UfustagRW2"
@@ -315,6 +320,14 @@
      "https://www.boardgamesindia.com/western-legends-kolossal-games"
     ]
    }
+  },
+  "Unstoppable": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/unstoppable"
+    ]
+   },
+   "bgoId": "7wWaP8A8TF"
   }
  },
  "added": [],
