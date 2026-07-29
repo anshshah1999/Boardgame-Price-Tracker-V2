@@ -20,7 +20,7 @@ function allGames(){var rem=STATE.removed||[];return DATA.games.concat(STATE.add
 function gameByName(n){return allGames().filter(function(x){return x.name===n;})[0];}
 function ov(name){return STATE.overrides[name]||{};}
 function displayName(g){var o=STATE.overrides[g.name];return (o&&o.name)?o.name:g.name;}
-function oos(stock){return /out of stock|unavail|sold out|see store|pre-order/i.test(stock||'')?' <span class="pill" style="color:var(--neg);border-color:var(--neg)">'+esc(stock)+'</span>':'';}
+function oos(stock){var s=stock||'';if(/pre-?order/i.test(s))return ' <span class="pill" style="color:var(--maybe);border-color:var(--maybe)">'+esc(s)+'</span>';return /out of stock|unavail|sold out|see store/i.test(s)?' <span class="pill" style="color:var(--neg);border-color:var(--neg)">'+esc(s)+'</span>':'';}
 function inr(n){if(n==null||n===''||!isFinite(n))return '';return '₹'+Math.round(n).toLocaleString('en-IN');}
 function loc(n){if(n==null||n===''||!isFinite(n))return '';return Number(n).toLocaleString('en-US',{maximumFractionDigits:2});}
 function pct(n){if(n==null||n===''||!isFinite(n))return '';return (n*100).toFixed(1)+'%';}
@@ -92,7 +92,7 @@ function renderIndia(){
   var h=filterBar('')+'<div class="small muted" style="margin-bottom:6px">'+rows.length+' games · tap a row to edit</div>';
   h+='<div class="tbl-wrap"><table><thead>'+hdr('india',cols)+'</thead><tbody>';
   rows.forEach(function(r){h+='<tr class="game" data-n="'+esc(r.name)+'"><td>'+esc(r.disp||r.name)+(r.iurl?' <a class="golink" href="'+esc(r.iurl)+'" target="_blank" rel="noopener" title="'+esc(r.isrc||'Open listing')+'" onclick="event.stopPropagation()">↗</a>':'')
-    +'</td><td class="num">'+inr(r.net)+(r.disc?'<div class="small muted">'+pct(r.disc)+' off</div>':'')+'</td><td class="opt">'+(r.bestC||'')+'</td><td class="num">'+inr(r.bestINR)+oos(r.bestStock)
+    +'</td><td class="num">'+inr(r.net)+oos(r.avail)+(r.disc?'<div class="small muted">'+pct(r.disc)+' off</div>':'')+'</td><td class="opt">'+(r.bestC||'')+'</td><td class="num">'+inr(r.bestINR)+oos(r.bestStock)
     +'</td><td class="num">'+sgn(r.importSave,r.net,true)+'</td><td class="num">'+(r.verdictLoss==null?'':sgn(r.verdictLoss*(r.net||0),r.net,false))+'</td><td><span class="verdict '+vclass(r.verdict)+'">'+r.verdict+'</span></td></tr>';});
   h+='</tbody></table></div>';
   app.innerHTML=h;wireFilters(renderIndia);wireHdr('india',renderIndia);

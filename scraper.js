@@ -151,13 +151,17 @@ async function scrapeIndia(url){
   const html = await get(url);
   if (!html) return null;
   let price = firstNum(meta(html,'product:sale_price:amount') || meta(html,'product:price:amount') || meta(html,'og:price:amount'));
-  // JSON-LD offers price
-  if (price==null){ const j = html.match(/"price"\s*:\s*"?([0-9][0-9.,]*)"?/); if (j) price = firstNum(j[1]); }
-  // og:title often contains ", Rs. 5,500.00,"
+  // og:title carries the current display price, e.g. "Blood Rage: Valhalla, ₹ 12,500.00, ..."
   if (price==null){ const t = meta(html,'og:title') || ''; const r = t.match(/₹\s*([0-9][0-9,]*(?:\.[0-9]+)?)/); if (r) price = firstNum(r[1]); }
+  if (price==null){ price = firstNum(meta(html,'product:original_price:amount')); }
+  if (price==null){ const j = html.match(/"price"\s*:\s*"?([0-9][0-9.,]*)"?/); if (j) price = firstNum(j[1]); }
   if (price==null || !isFinite(price) || price<=0) return null;
+  // Stock: BGI flags request-only items as og:availability "oos"; pre-orders still report "instock" but live in a pre-order breadcrumb category.
   const avail = (meta(html,'og:availability') || meta(html,'product:availability') || '').toLowerCase();
-  const stock = /instock|in stock/.test(avail) ? 'In stock' : (/out|oos|unavail|pre-?order|sold/.test(avail) ? 'Out of stock' : (avail || ''));
+  const bc = (html.match(/BreadcrumbList[\s\S]{0,1500}/i) || [''])[0];
+  const isOOS = /oos|out.?of.?stock|unavail|sold/.test(avail);
+  const isPre = !isOOS && /pre-?order/i.test(bc);
+  const stock = isOOS ? 'Out of stock' : (isPre ? 'Pre-order' : 'In stock');
   const orig = firstNum(meta(html,'product:original_price:amount'));
   const discounted = (orig!=null && price!=null && orig>price);   // the listed price is already below MRP
   return { price: price, source:'Board Games India', stock: stock, discounted: discounted };
@@ -172,12 +176,16 @@ const INDIA_SHOPIFY = [
 function nrm(s){ return (s||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim(); }
 // Pick the product whose title best matches the game name; avoid expansions/extras.
 function bestMatch(products, name){
-  const t = nrm(name); let best=null, bestScore=0.5;
+  const t = nrm(name); const tw = t.split(' ').filter(Boolean); let best=null, bestScore=1;
   for (const p of products){
     const ti = nrm(p.title||''); if (!ti) continue;
+    const tiw = ti.split(' ');
     let s;
-    if (ti===t) s=100; else if (ti.indexOf(t)===0) s=80; else if (ti.indexOf(t)>=0) s=60; else continue;
-    if (/expansion|promo|sleeve|upgrade|insert|organi[sz]er|playmat|neoprene|nesting|accessor/.test(ti) && !/expansion|promo|pack/.test(t)) s-=60;
+    if (ti===t) s=100;
+    else if (tw.length && tw.every(function(w){ return tiw.indexOf(w)>=0; })){   // every game-name word must appear as a whole word (kills "Ra" -> "railways")
+      s = ti.indexOf(t)===0 ? 80 : (ti.indexOf(t)>=0 ? 70 : 55);
+    } else continue;
+    if (/expansion|promo|sleeve|upgrade|insert|organi[sz]er|playmat|neoprene|nesting|accessor|miniature/.test(ti) && !/expansion|promo|pack|kit|miniature/.test(t)) s-=60;
     s -= Math.max(0, ti.length - t.length)*0.3;
     if (s>bestScore){ bestScore=s; best=p; }
   }
@@ -197,6 +205,16 @@ async function searchShopify(base, name){
   const purl = p.url ? base+String(p.url).split('?')[0] : (p.handle ? base+'/products/'+p.handle : '');
   return { price:price, inStock: p.available===true, discounted: discounted, url: purl };
 }
+// Board Games India (OpenCart) name search -> best-matching product URL. Fuzzy, so results are UNCONFIRMED suggestions.
+async function searchBGI(name){
+  const html = await get('https://www.boardgamesindia.com/index.php?route=product/search&search='+encodeURIComponent(name));
+  if (!html) return null;
+  const re = /<div class="name">\s*<a\s+href="([^"?#]+)[^"]*"\s+title="([^"]*)"/gi;
+  const products = []; let m;
+  while ((m = re.exec(html))){ products.push({ url:m[1], title:(m[2]||'').replace(/&amp;/g,'&') }); }
+  const p = bestMatch(products, name);
+  return p ? p.url : null;
+}
 // Friendly site name from a URL host.
 function siteName(url){ try{ const h=new URL(url).hostname.replace(/^www\./,''); if(/boardgamesindia/.test(h))return 'Board Games India'; if(/boardway/.test(h))return 'Boardway'; if(/boardgamesbazaar/.test(h))return 'Board Games Bazaar'; if(/tabletopuniverse/.test(h))return 'Tabletop Universe'; if(/gameistry/.test(h))return 'Gameistry'; if(/boredgamecompany/.test(h))return 'Bored Game Company'; return h; }catch(e){ return 'India'; } }
 // Every India source for a game: {site,url,price,stock,discounted,verified}.
@@ -206,6 +224,10 @@ async function scrapeIndiaSources(g, prev){
   const sources = []; const seen = {};
   const direct = []; if (g.indiaUrl) direct.push(g.indiaUrl); (g.indiaUrls||[]).forEach(function(u){ direct.push(u); });
   for (const url of direct){ if (!url || seen[url]) continue; seen[url]=1; const r = await scrapeAnyIndia(url); if (r) sources.push({ site:siteName(url), url:url, price:r.price, stock:r.stock||'', discounted:r.discounted, verified:true }); await sleep(400); }
+  // Discover a Board Games India match by name (covers pre-orders / in-store items). Unconfirmed until the user approves it.
+  const bgiUrl = await searchBGI(g.name);
+  if (bgiUrl && !seen[bgiUrl]){ seen[bgiUrl]=1; const b = await scrapeIndia(bgiUrl); if (b) sources.push({ site:'Board Games India', url:bgiUrl, price:b.price, stock:b.stock||'', discounted:b.discounted, verified:(bgiUrl in prevVer)?prevVer[bgiUrl]:false }); }
+  await sleep(400);
   for (const s of INDIA_SHOPIFY){
     const r = await searchShopify(s.base, g.name);
     if (r && r.url && !seen[r.url]){ seen[r.url]=1; sources.push({ site:s.name, url:r.url, price:r.price, stock:r.inStock?'In stock':'Out of stock', discounted:r.discounted, verified: (r.url in prevVer)?prevVer[r.url]:false }); }
@@ -225,11 +247,11 @@ async function scrapeAnyIndia(url){
 function chooseIndia(sources){
   const v = (sources||[]).filter(function(s){ return s.verified; });
   if (!v.length) return null;
-  const inS = v.filter(function(s){ return /in stock/i.test(s.stock); });
-  const pool = (inS.length ? inS : v).slice().sort(function(a,b){ return a.price-b.price; });
+  const avail = v.filter(function(s){ return /in stock|pre-?order/i.test(s.stock); });   // in-stock and pre-order count as obtainable
+  const pool = (avail.length ? avail : v).slice().sort(function(a,b){ return a.price-b.price; });
   const win = pool[0];
   const discount = (/board games india/i.test(win.site) && !win.discounted) ? 0.10 : 0;
-  return { price: win.price, source: win.site, url: win.url||'', stock: inS.length ? 'In stock' : 'Out of stock', discount: discount, verified: true };
+  return { price: win.price, source: win.site, url: win.url||'', stock: win.stock||'', discount: discount, verified: true };   // keep the real stock label (In stock / Pre-order / Out of stock)
 }
 
 // ---- FX to INR ----
