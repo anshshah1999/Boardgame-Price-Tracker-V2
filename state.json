@@ -86,6 +86,9 @@
    "india": {
     "remove": [
      "https://boardgamesbazaar.com/products/durian-smuggler"
+    ],
+    "verify": [
+     "https://www.boardgamesindia.com/durian-oink-games"
     ]
    },
    "bgoId": "o2dheOH4DS"
@@ -644,6 +647,56 @@
     ]
    },
    "bgoId": "8Dp1ru1HKU"
+  },
+  "Fugitive (Second Edition)": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/fugitive-second-edition"
+    ]
+   }
+  },
+  "Foundations of Metropolis": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/foundations-of-metropolis-en-gb-5969"
+    ]
+   }
+  },
+  "Fliptoons": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/fliptoons-mini-expansion"
+    ]
+   },
+   "bgoId": "rxRjQF8i3D"
+  },
+  "Décorum": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/decorum-floodgate-games"
+    ]
+   }
+  },
+  "Dying Message": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/dying-message"
+    ]
+   }
+  },
+  "Detective Club": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/detective-club"
+    ]
+   }
+  },
+  "Collect": {
+   "india": {
+    "verify": [
+     "https://www.boardgamesindia.com/collect"
+    ]
+   }
   }
  },
  "added": [],
