@@ -729,7 +729,12 @@
    "shipping": "",
    "shipMode": "local",
    "overhead": 10,
-   "items": []
+   "items": [
+    {
+     "game": "7 Wonders: Architects – Medals",
+     "price": 19.19
+    }
+   ]
   }
  ],
  "removed": [
