@@ -75,9 +75,7 @@
     "verify": [
      "https://boardway.in/products/cartographers"
     ]
-   },
-   "name": "Bang! The Dice Game",
-   "bgoId": "R-pmk1K5GM"
+   }
   },
   "Cascadia": {
    "india": {
@@ -149,9 +147,7 @@
      "https://www.tabletopuniverse.com/products/viticulture-world-english",
      "https://www.boardgamesindia.com/viticulture-wine-crate-stonemaier-games"
     ]
-   },
-   "bgoId": "EhRJfXsJ-X",
-   "name": "Steampunk Rally Fusion"
+   }
   },
   "The Castles of Burgundy": {
    "india": {
@@ -337,9 +333,7 @@
     "verify": [
      "https://www.boardgamesindia.com/agent-avenue"
     ]
-   },
-   "name": "7 Wonders: Architects – Medals",
-   "bgoId": "aSZ_dqxVMB"
+   }
   },
   "Wroth": {
    "india": {
@@ -375,9 +369,7 @@
     "remove": [
      "https://www.boardgamesindia.com/strike-of-the-eagle-academy-games"
     ]
-   },
-   "name": "Sobek: 2 Players",
-   "bgoId": "12vLrbi1bt"
+   }
   },
   "Stockpile": {
    "india": {
@@ -406,9 +398,7 @@
     "verify": [
      "https://www.boardgamesindia.com/between-two-castles-essential-edition"
     ]
-   },
-   "name": "Avant Carde",
-   "bgoId": "3a1vTFjOBP"
+   }
   },
   "Betrayal at House on the Hill: 3rd Edition": {
    "india": {
@@ -743,9 +733,7 @@
   }
  ],
  "removed": [
-  "Catan",
-  "Viticulture",
-  "Strike"
+  "Catan"
  ],
  "quickAdd": "",
  "quickNotes": "",

@@ -196,7 +196,9 @@ function indiaSourcesFor(g){
   return base.concat(extra);
 }
 function gameDetail(tr,name){
-  var nx=tr.nextElementSibling;if(nx&&nx.className.indexOf('gmx')>=0){nx.parentNode.removeChild(nx);return;}
+  var wasOpen=tr.nextElementSibling&&tr.nextElementSibling.className.indexOf('gmx')>=0;
+  var openRows=document.querySelectorAll('tr.gmx');for(var q=0;q<openRows.length;q++)openRows[q].parentNode.removeChild(openRows[q]);   // only one detail open at a time -> no duplicate element IDs
+  if(wasOpen)return;
   var g=gameByName(name);if(!g)return;var o=ov(name);var ai=STATE.added.indexOf(g);var added=ai>=0;
   var id=(o.bgoId||g.bgoId)||'';
   var LP={USA:'',UK:'/en-GB',Canada:'/en-CA',Australia:'/en-AU',NZ:'/en-NZ'};
@@ -219,12 +221,13 @@ function gameDetail(tr,name){
   h+='<div class="small muted" style="margin-top:6px">Verify / remove / add links and BGO ID / name edits take effect on the next price run.</div></div>';
   var row=document.createElement('tr');row.className='gmx';row.innerHTML='<td colspan="2" style="padding:0 4px">'+h+'</td>';
   if(tr.nextSibling)tr.parentNode.insertBefore(row,tr.nextSibling);else tr.parentNode.appendChild(row);
+  function rv(id){var el=row.querySelector('#'+id);return el?(el.value||'').trim():'';}   // read fields from THIS panel only, never a stray duplicate ID elsewhere
   function iset(fn){STATE.overrides[name]=STATE.overrides[name]||{};STATE.overrides[name].india=STATE.overrides[name].india||{};fn(STATE.overrides[name].india);}
   function refresh(){changed();row.parentNode.removeChild(row);gameDetail(tr,name);}
   var vb=row.querySelectorAll('[data-verify]');for(var i=0;i<vb.length;i++)vb[i].onclick=function(){var u=this.getAttribute('data-verify');iset(function(iv){iv.verify=iv.verify||[];if(iv.verify.indexOf(u)<0)iv.verify.push(u);});refresh();};
   var rb=row.querySelectorAll('[data-remove]');for(var k=0;k<rb.length;k++)rb[k].onclick=function(){var u=this.getAttribute('data-remove');iset(function(iv){iv.remove=iv.remove||[];if(iv.remove.indexOf(u)<0)iv.remove.push(u);});refresh();};
-  row.querySelector('#gd_add').onclick=function(){var u=val('gd_addurl');if(!u){alert('Paste a URL.');return;}iset(function(iv){iv.add=iv.add||[];iv.add.push({site:val('gd_addsite')||'Custom',url:u});});refresh();};
-  row.querySelector('#gd_save').onclick=function(){var nn=val('gd_name');if(added){if(nn)STATE.added[ai].name=nn;}else{STATE.overrides[name]=STATE.overrides[name]||{};if(nn&&nn!==name)STATE.overrides[name].name=nn;else delete STATE.overrides[name].name;}var braw=val('gd_bgo');var bid='';if(braw){var m=braw.match(/\/boardgame\/price\/([A-Za-z0-9_-]{6,})/);bid=m?m[1]:braw;}if(added){STATE.added[ai].bgoId=bid||'';}else{STATE.overrides[name]=STATE.overrides[name]||{};if(bid)STATE.overrides[name].bgoId=bid;else delete STATE.overrides[name].bgoId;}changed();render();};
+  row.querySelector('#gd_add').onclick=function(){var u=rv('gd_addurl');if(!u){alert('Paste a URL.');return;}iset(function(iv){iv.add=iv.add||[];iv.add.push({site:rv('gd_addsite')||'Custom',url:u});});refresh();};
+  row.querySelector('#gd_save').onclick=function(){var nn=rv('gd_name');if(added){if(nn)STATE.added[ai].name=nn;}else{STATE.overrides[name]=STATE.overrides[name]||{};if(nn&&nn!==name)STATE.overrides[name].name=nn;else delete STATE.overrides[name].name;}var braw=rv('gd_bgo');var bid='';if(braw){var m=braw.match(/\/boardgame\/price\/([A-Za-z0-9_-]{6,})/);bid=m?m[1]:braw;}if(added){STATE.added[ai].bgoId=bid||'';}else{STATE.overrides[name]=STATE.overrides[name]||{};if(bid)STATE.overrides[name].bgoId=bid;else delete STATE.overrides[name].bgoId;}changed();render();};
   row.querySelector('#gd_del').onclick=function(){if(!confirm('Delete "'+name+'"?'))return;if(added){STATE.added.splice(ai,1);}else{STATE.removed=STATE.removed||[];if(STATE.removed.indexOf(name)<0)STATE.removed.push(name);}changed();render();};
 }
 function renderGames(){

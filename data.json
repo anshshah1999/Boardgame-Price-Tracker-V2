@@ -84,42 +84,13 @@
   {
    "name": "Agent Avenue",
    "type": "Expansion",
-   "bgoId": "aSZ_dqxVMB",
+   "bgoId": "wBRRNgnGmH",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
-   "prices": {
-    "USA": 19.19,
-    "UK": 14.99,
-    "Canada": 25.95,
-    "Australia": 18,
-    "NZ": 45.95
-   },
-   "stock": {
-    "USA": "In stock",
-    "UK": "In stock",
-    "Canada": "In stock",
-    "Australia": "In stock",
-    "NZ": "In stock"
-   },
-   "indiaSources": [
-    {
-     "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/agent-avenue",
-     "price": 9999,
-     "stock": "Out of stock",
-     "discounted": false,
-     "verified": true
-    }
-   ],
-   "india": {
-    "price": 9999,
-    "source": "Board Games India",
-    "url": "https://www.boardgamesindia.com/agent-avenue",
-    "stock": "Out of stock",
-    "discount": 0.1,
-    "verified": true
-   }
+   "prices": {},
+   "stock": {},
+   "indiaSources": []
   },
   {
    "name": "Akropolis",
@@ -275,42 +246,13 @@
   {
    "name": "Between Two Castles Essential Edition",
    "type": "Boardgame",
-   "bgoId": "3a1vTFjOBP",
+   "bgoId": "y7iGBdn-Ii",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
-   "prices": {
-    "USA": 14.44,
-    "UK": 20.14,
-    "Canada": 20.95,
-    "Australia": 26.95,
-    "NZ": 44.99
-   },
-   "stock": {
-    "USA": "In stock",
-    "UK": "In stock",
-    "Canada": "In stock",
-    "Australia": "In stock",
-    "NZ": "In stock"
-   },
-   "indiaSources": [
-    {
-     "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/between-two-castles-essential-edition",
-     "price": 5000,
-     "stock": "Out of stock",
-     "discounted": false,
-     "verified": true
-    }
-   ],
-   "india": {
-    "price": 5000,
-    "source": "Board Games India",
-    "url": "https://www.boardgamesindia.com/between-two-castles-essential-edition",
-    "stock": "Out of stock",
-    "discount": 0.1,
-    "verified": true
-   }
+   "prices": {},
+   "stock": {},
+   "indiaSources": []
   },
   {
    "name": "Bites",
@@ -504,50 +446,13 @@
   {
    "name": "Cartographers",
    "type": "Boardgame",
-   "bgoId": "R-pmk1K5GM",
+   "bgoId": "cM4QCD3zYX",
    "indiaUrl": "https://www.boardgamesindia.com/cartographers-thunderworks-games",
    "discount": null,
    "status": "Not Started",
-   "prices": {
-    "USA": 14.39,
-    "UK": 17.5,
-    "Canada": 17.95,
-    "Australia": 19.95,
-    "NZ": 30.17320765
-   },
-   "stock": {
-    "USA": "In stock",
-    "UK": "In stock",
-    "Canada": "In stock",
-    "Australia": "In stock",
-    "NZ": "In stock"
-   },
-   "india": {
-    "price": 2099,
-    "source": "Boardway",
-    "url": "https://boardway.in/products/cartographers",
-    "stock": "Out of stock",
-    "discount": 0,
-    "verified": true
-   },
-   "indiaSources": [
-    {
-     "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/cartographers-thunderworks-games",
-     "price": 2800,
-     "stock": "Out of stock",
-     "discounted": false,
-     "verified": true
-    },
-    {
-     "site": "Boardway",
-     "url": "https://boardway.in/products/cartographers",
-     "price": 2099,
-     "stock": "Out of stock",
-     "discounted": true,
-     "verified": true
-    }
-   ]
+   "prices": {},
+   "stock": {},
+   "indiaSources": []
   },
   {
    "name": "Cascadia",
@@ -4697,6 +4602,22 @@
     "discount": 0.1,
     "verified": true
    }
+  },
+  {
+   "name": "Viticulture",
+   "type": "Boardgame",
+   "bgoId": "XZMHLFoIoR",
+   "prices": {},
+   "stock": {},
+   "indiaSources": []
+  },
+  {
+   "name": "Strike",
+   "type": "Boardgame",
+   "bgoId": "KjDIQclVIn",
+   "prices": {},
+   "stock": {},
+   "indiaSources": []
   }
  ]
 }
