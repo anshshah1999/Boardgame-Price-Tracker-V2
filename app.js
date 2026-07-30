@@ -22,7 +22,7 @@ function reconcileAdded(){if(!DATA||!STATE)return;var names={};DATA.games.forEac
 function gameByName(n){return allGames().filter(function(x){return x.name===n;})[0];}
 function ov(name){return STATE.overrides[name]||{};}
 function displayName(g){var o=STATE.overrides[g.name];return (o&&o.name)?o.name:g.name;}
-function oos(stock){var s=stock||'';if(/pre-?order/i.test(s))return ' <span class="pill" style="color:var(--maybe);border-color:var(--maybe)">'+esc(s)+'</span>';return /out of stock|unavail|sold out|see store/i.test(s)?' <span class="pill" style="color:var(--neg);border-color:var(--neg)">'+esc(s)+'</span>':'';}
+function oos(stock){var s=stock||'';var k=/pre-?order/i.test(s)?'pre':(/in stock/i.test(s)?'in':(/out of stock|unavail|sold|see store|oos/i.test(s)?'out':''));if(!k)return '';var lbl=k==='in'?'In stock':k==='pre'?'Pre-order':'Out of stock';return '<span class="av av-'+k+'"><i></i>'+lbl+'</span>';}
 function inr(n){if(n==null||n===''||!isFinite(n))return '';return '₹'+Math.round(n).toLocaleString('en-IN');}
 function loc(n){if(n==null||n===''||!isFinite(n))return '';return Number(n).toLocaleString('en-US',{maximumFractionDigits:2});}
 function pct(n){if(n==null||n===''||!isFinite(n))return '';return (n*100).toFixed(1)+'%';}
@@ -33,7 +33,7 @@ function num(v){var n=parseFloat(v);return isFinite(n)?n:null;}
 function verdictFromLoss(l){if(l==null)return 'No Data';if(l<=cfg('buyWithin'))return 'Buy';if(l<=cfg('maybeWithin'))return 'Maybe';return "Don't Buy";}
 function vclass(v){return v==='Buy'?'v-Buy':v==='Maybe'?'v-Maybe':v==="Don't Buy"?'v-Dont':'v-No';}
 function ordinal(r){if(r==null)return '';return r===1?'Cheapest':r===2?'2nd cheapest':r===3?'3rd cheapest':r+'th cheapest';}
-function sgn(amount,base,posGood){if(amount==null||!isFinite(amount))return '';var good=amount===0?null:(posGood?amount>0:amount<0);var col=good===null?'':(good?'pos':'neg');var p=(base&&base!=0)?(amount/base*100):null;return '<span class="'+col+'">'+(amount>0?'+':amount<0?'−':'')+inr(Math.abs(amount))+(p!=null?' <span class="small">('+Math.abs(p).toFixed(1)+'%)</span>':'')+'</span>';}
+function sgn(amount,base,posGood){if(amount==null||!isFinite(amount))return '';var good=amount===0?null:(posGood?amount>0:amount<0);var col=good===null?'':(good?'pos':'neg');var p=(base&&base!=0)?(amount/base*100):null;return '<span class="'+col+'">'+(amount>0?'+':amount<0?'−':'')+inr(Math.abs(amount))+'</span>'+(p!=null?'<span class="sub">'+Math.abs(p).toFixed(1)+'%</span>':'');}
 
 function indiaNet(g){var o=ov(g.name);var ind=(g.india&&g.india.verified)?g.india:null;var src=ind&&ind.source?ind.source:'';var disc=(o.discount!=null?o.discount:(ind&&ind.discount!=null?ind.discount:(g.discount!=null?g.discount:null)));if(disc==null)disc=/board games india/i.test(src)?cfg('bgiDefaultDiscount'):0;var ip=ind&&ind.price?ind.price:null;return {net:ip!=null?ip*(1-disc):null,disc:disc,listed:ip,src:src,stock:(ind&&ind.stock)||''};}
 function rawINR(g,c){var p=g.prices?g.prices[c]:null;return (p!=null&&p>0)?p*fxRate(CUR[c]):null;}
