@@ -1,6 +1,6 @@
 {
  "meta": {
-  "updated": "2026-07-29",
+  "updated": "2026-07-30",
   "fx": {
    "USD": 95.69,
    "GBP": 127.06,
@@ -235,7 +235,7 @@
     "USA": 46.97,
     "UK": 37.9,
     "Canada": 55.21,
-    "Australia": 65.76,
+    "Australia": 70,
     "NZ": 96.68729265
    },
    "stock": {
@@ -512,7 +512,7 @@
     "USA": 14.39,
     "UK": 17.5,
     "Canada": 17.95,
-    "Australia": 22.95,
+    "Australia": 19.95,
     "NZ": 30.17320765
    },
    "stock": {
@@ -1067,7 +1067,24 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": []
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/foundations-of-metropolis-en-gb-5969",
+     "price": 9999,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": true
+    }
+   ],
+   "india": {
+    "price": 9999,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/foundations-of-metropolis-en-gb-5969",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Fugitive (Second Edition)",
@@ -1143,7 +1160,7 @@
     "USA": 30,
     "UK": 27.9,
     "Canada": 32.26,
-    "Australia": 44.75,
+    "Australia": 49.95,
     "NZ": 56
    },
    "stock": {
@@ -1231,7 +1248,7 @@
     "USA": 30.39,
     "UK": 21.51,
     "Canada": 30.56,
-    "Australia": 39.93,
+    "Australia": 39.92,
     "NZ": 48.313412650000004
    },
    "stock": {
@@ -1400,7 +1417,7 @@
     "UK": 30,
     "Canada": 35.95,
     "Australia": 69,
-    "NZ": 88.48956909954543
+    "NZ": 88.30386017863634
    },
    "stock": {
     "USA": "In stock",
@@ -1577,7 +1594,16 @@
     "Australia": "",
     "NZ": ""
    },
-   "indiaSources": []
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/junk-art-revolution-en-gb-6080",
+     "price": 5800,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": false
+    }
+   ]
   },
   {
    "name": "Kabuto Sumo",
@@ -1630,7 +1656,7 @@
     "USA": 11.99,
     "UK": 6.64,
     "Canada": 14.95,
-    "Australia": 34.42,
+    "Australia": 34.45,
     "NZ": null
    },
    "stock": {
@@ -2289,7 +2315,7 @@
     "UK": 62.99,
     "Canada": 78.95,
     "Australia": 92.65,
-    "NZ": 162.6544229840909
+    "NZ": 162.31306775227273
    },
    "stock": {
     "USA": "In stock",
@@ -2392,7 +2418,7 @@
     "UK": 12.99,
     "Canada": 17.95,
     "Australia": 23.99,
-    "NZ": 31.470560018181814
+    "NZ": 31.478515665909082
    },
    "stock": {
     "USA": "In stock",
@@ -2997,7 +3023,7 @@
     "UK": 16.52,
     "Canada": 17.95,
     "Australia": 22,
-    "NZ": 27.814980999999996
+    "NZ": 27.756606999999992
    },
    "stock": {
     "USA": "In stock",
@@ -3140,7 +3166,7 @@
     "UK": 59.49,
     "Canada": 74.99,
     "Australia": 83,
-    "NZ": 140.68058799409087
+    "NZ": 140.38534822227268
    },
    "stock": {
     "USA": "In stock",
@@ -3562,7 +3588,7 @@
     "UK": 15.58,
     "Canada": 15.95,
     "Australia": 19.99,
-    "NZ": 32.78235891272727
+    "NZ": 32.79064617863636
    },
    "stock": {
     "USA": "In stock",
@@ -3585,7 +3611,7 @@
     "UK": 9.99,
     "Canada": 15.95,
     "Australia": 23.99,
-    "NZ": 31.607932954545447
+    "NZ": 31.541598863636363
    },
    "stock": {
     "USA": "In stock",
@@ -3631,7 +3657,7 @@
     "UK": 11.99,
     "Canada": 19.95,
     "Australia": 25.31,
-    "NZ": 36.437625109999985
+    "NZ": 36.361155169999996
    },
    "stock": {
     "USA": "In stock",
@@ -3763,7 +3789,7 @@
     "UK": null,
     "Canada": 56.95,
     "Australia": 86.99,
-    "NZ": 109.98296350863633
+    "NZ": 109.75214740590907
    },
    "stock": {
     "USA": "In stock",
@@ -4080,7 +4106,7 @@
     "USA": 14.39,
     "UK": 17.5,
     "Canada": 17.95,
-    "Australia": 22.95,
+    "Australia": 19.95,
     "NZ": 30.17320765
    },
    "stock": {
@@ -4164,21 +4190,13 @@
    "indiaSources": [
     {
      "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/pinched--en-gb-6073",
+     "url": "https://www.boardgamesindia.com/pinched",
      "price": 9999,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": true
+     "verified": false
     }
-   ],
-   "india": {
-    "price": 9999,
-    "source": "Board Games India",
-    "url": "https://www.boardgamesindia.com/pinched--en-gb-6073",
-    "stock": "Out of stock",
-    "discount": 0.1,
-    "verified": true
-   }
+   ]
   },
   {
    "name": "Solstis",
@@ -4232,7 +4250,7 @@
     "UK": 12.45,
     "Canada": 19.95,
     "Australia": 14.5,
-    "NZ": 31.544717088636354
+    "NZ": 31.478515665909082
    },
    "stock": {
     "USA": "In stock",
