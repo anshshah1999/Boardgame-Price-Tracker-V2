@@ -3,8 +3,8 @@
 /* ============ Design tokens (variable names kept stable — inline styles depend on them) ============ */
 :root{
   --bg:#0d1017; --panel:#141924; --panel2:#1b2130; --line:#262d3c; --line-soft:#1f2532;
-  --text:#e7eaf1; --muted:#8a93a6; --faint:#5f6779;
-  --accent:#7c8cf8; --accent-weak:rgba(124,140,248,.14); --blue:#5b74f0;
+  --text:#e7eaf1; --muted:#949db0; --faint:#7a8296;
+  --accent:#7c8cf8; --accent-weak:rgba(124,140,248,.16); --blue:#7c8cf8;
   --buy:#2f9e6b; --maybe:#c99a2e; --dont:#c8503f;
   --pos:#54d497; --neg:#ef8a80;
   --radius:12px; --radius-sm:8px;
@@ -39,11 +39,13 @@ h1{font-size:15px;margin:0;font-weight:600;letter-spacing:.2px}
 nav{display:flex;flex-direction:column;gap:8px;margin:12px auto 0;max-width:1200px;width:max-content}
 .nav-top{display:flex;gap:4px;padding:4px;background:var(--panel);border:1px solid var(--line);border-radius:10px;width:max-content}
 .nav-sub{display:flex;gap:2px;width:max-content}
-.nav-top button,.nav-sub button{background:transparent;color:var(--muted);border:none;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:500;cursor:pointer;transition:background .15s,color .15s;white-space:nowrap}
-.nav-top button:hover,.nav-sub button:hover{color:var(--text);background:var(--panel2)}
-.nav-top button.active{background:var(--accent-weak);color:#aeb8ff;font-weight:600}
-.nav-sub button{padding:5px 12px;font-size:12.5px;border-radius:6px}
-.nav-sub button.active{color:var(--accent);background:var(--accent-weak);font-weight:600}
+.nav-top button{background:transparent;color:var(--muted);border:none;border-radius:7px;padding:8px 16px;font-size:14px;font-weight:600;cursor:pointer;transition:background .15s,color .15s;white-space:nowrap}
+.nav-top button:hover{color:var(--text);background:var(--panel2)}
+.nav-top button.active{background:var(--accent);color:#fff}
+/* sub-tabs are visually lighter than sections — underline, not filled */
+.nav-sub button{background:transparent;color:var(--muted);border:none;border-bottom:2px solid transparent;border-radius:0;padding:8px 12px;margin:0 2px;font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap;transition:color .15s,border-color .15s}
+.nav-sub button:hover{color:var(--text)}
+.nav-sub button.active{color:var(--text);border-bottom-color:var(--accent);font-weight:600}
 
 /* stat cards + summary grid */
 .two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
@@ -58,9 +60,12 @@ main{padding:20px 20px 72px;max-width:1200px;margin:0 auto}
 /* ============ Form controls ============ */
 input,select,textarea{
   background:var(--panel2);color:var(--text);border:1px solid var(--line);
-  border-radius:var(--radius-sm);padding:9px 11px;font-size:13px;font-family:inherit;
+  border-radius:var(--radius-sm);padding:9px 11px;font-size:14px;font-family:inherit;
   transition:border-color .15s,box-shadow .15s;
 }
+/* visible keyboard focus everywhere */
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible,tr.game:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+.tbl-wrap tr.game:focus-visible td:first-child{outline:2px solid var(--accent);outline-offset:-2px}
 input::placeholder,textarea::placeholder{color:var(--faint)}
 input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-weak)}
 input[type=search]{min-width:150px}.cap{width:120px}
@@ -77,7 +82,15 @@ button.danger{background:transparent;color:var(--neg);border:1px solid rgba(239,
 button.danger:hover{background:rgba(239,138,128,.12);border-color:var(--neg)}
 
 /* ============ Tables — contained cards ============ */
-.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);box-shadow:var(--shadow)}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
+  background:
+    linear-gradient(to right, var(--panel) 30%, rgba(20,25,36,0)) 0 0/32px 100% no-repeat,
+    linear-gradient(to left, var(--panel) 30%, rgba(20,25,36,0)) 100% 0/32px 100% no-repeat,
+    linear-gradient(to right, rgba(0,0,0,.35), rgba(0,0,0,0)) 0 0/16px 100% no-repeat,
+    linear-gradient(to left, rgba(0,0,0,.35), rgba(0,0,0,0)) 100% 0/16px 100% no-repeat,
+    var(--panel);
+  background-attachment:local,local,scroll,scroll,scroll;
+}
 table{width:100%;border-collapse:collapse;font-size:13px}
 thead th{
   background:var(--panel2);
@@ -122,7 +135,7 @@ tr.tot td{border-top:1px solid var(--line);border-bottom:none;font-weight:600;ba
 .pill{font-size:10.5px;padding:2px 8px;border-radius:20px;background:var(--panel2);color:var(--muted);border:1px solid var(--line);white-space:nowrap;font-weight:500;line-height:1.6}
 
 /* jump-to-listing arrow */
-a.golink{color:var(--faint);text-decoration:none;font-weight:600;margin-left:5px;transition:color .15s}
+a.golink{color:var(--faint);text-decoration:none;font-weight:600;margin-left:2px;transition:color .15s;display:inline-block;padding:3px 6px;line-height:1}
 a.golink:hover{color:var(--accent)}
 .expand a,.card a{color:var(--accent);text-decoration:none}
 .expand a:hover,.card a:hover{text-decoration:underline}
@@ -133,7 +146,7 @@ a.golink:hover{color:var(--accent)}
 .expand{background:var(--panel2)}.expand td{white-space:normal;padding:12px}
 .expand .card{margin:8px 4px;background:var(--panel)}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
-.fld label{display:block;color:var(--muted);font-size:11.5px;font-weight:500;margin-bottom:5px;letter-spacing:.02em}
+.fld label{display:block;color:var(--muted);font-size:12px;font-weight:500;margin-bottom:5px;letter-spacing:.02em}
 .fld input,.fld select,.fld textarea{width:100%}
 .muted{color:var(--muted)}.small{font-size:11.5px}
 .hide{display:none}
@@ -167,14 +180,34 @@ main > .small.muted,.tbl-wrap + .small{color:var(--muted)}
   th.opt,td.opt{display:none}
   thead th,tbody td{padding:10px 11px}
   .tbl-wrap{-webkit-overflow-scrolling:touch}
-  .tbl-wrap table td:first-child,.tbl-wrap table th:first-child{min-width:42vw;max-width:56vw;white-space:normal;word-break:break-word}
-  .tbl-wrap table td:first-child input{max-width:38vw;min-width:0 !important}
-  /* the expanded game-detail is a full-width card on mobile */
+  /* non-cardified tables: tighter frozen name column so more data shows */
+  .tbl-wrap:not(.cardify) table td:first-child,.tbl-wrap:not(.cardify) table th:first-child{min-width:34vw;max-width:50vw;white-space:normal;word-break:break-word}
+  .tbl-wrap:not(.cardify) table td:first-child input{max-width:44vw;min-width:0 !important}
   .expand td{padding:8px 4px}
   .card{padding:14px}
   .grid{grid-template-columns:1fr 1fr}
   .modal-ov{padding:40px 12px}.modal{padding:18px}
-  .tbl-wrap table td:first-child,.tbl-wrap table th:first-child{max-width:56vw}
+
+  /* ---- card-per-row layout for wide read tables (India, Country, Owned, Sold, Plan) ---- */
+  .cardify{border:none;background:none;box-shadow:none;overflow:visible}
+  .cardify thead{display:none}
+  .cardify table,.cardify tbody,.cardify tr,.cardify td{display:block;width:auto}
+  .cardify tbody tr{border:1px solid var(--line);border-radius:12px;margin:0 0 10px;padding:10px 14px;background:var(--panel);box-shadow:var(--shadow)}
+  .cardify tbody tr.tot{background:var(--panel2)}
+  .cardify td{border:none;padding:5px 0;display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:baseline;gap:6px 10px;text-align:right;white-space:normal;position:static;max-width:none;box-shadow:none}
+  .cardify td::before{content:attr(data-label);color:var(--muted);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;text-align:left;white-space:nowrap;margin-right:auto}
+  .cardify td:first-child{font-size:15px;font-weight:600;justify-content:flex-start;padding:0 0 8px;margin-bottom:6px;border-bottom:1px solid var(--line-soft)}
+  .cardify td:first-child::before{display:none}
+  .cardify td.num .v,.cardify td.num .sub{display:inline}
+  .cardify td.num .sub{margin-left:5px}
+  .cardify td .av{margin:0;display:inline-flex}
+  .cardify td:empty{display:none}
+  .cardify td.opt{display:none}
+  .cardify tbody tr.game:active{background:var(--panel2)}
+  /* expanded editor rows keep their normal block form, not card-flattened */
+  .cardify tbody tr.expand,.cardify tbody tr.gmx{display:block;padding:0;margin:-4px 0 10px;border:none;background:none;box-shadow:none}
+  .cardify tr.expand>td,.cardify tr.gmx>td{display:block;padding:0}
+  .cardify tr.expand>td::before,.cardify tr.gmx>td::before{display:none}
 }
 @media(max-width:400px){
   .grid{grid-template-columns:1fr}
