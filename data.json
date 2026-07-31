@@ -1,12 +1,12 @@
 {
  "meta": {
-  "updated": "2026-07-30",
+  "updated": "2026-07-31",
   "fx": {
    "USD": 95.69,
-   "GBP": 127.06,
-   "CAD": 67.8,
-   "AUD": 66.4,
-   "NZD": 55.22
+   "GBP": 128.04,
+   "CAD": 68.12,
+   "AUD": 66.8,
+   "NZD": 55.9
   }
  },
  "config": {
@@ -83,14 +83,43 @@
   },
   {
    "name": "Agent Avenue",
-   "type": "Expansion",
+   "type": "Boardgame",
    "bgoId": "wBRRNgnGmH",
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
-   "prices": {},
-   "stock": {},
-   "indiaSources": []
+   "prices": {
+    "USA": 18.39,
+    "UK": 15.2,
+    "Canada": 20.95,
+    "Australia": 31.99,
+    "NZ": 50
+   },
+   "stock": {
+    "USA": "In stock",
+    "UK": "In stock",
+    "Canada": "In stock",
+    "Australia": "In stock",
+    "NZ": "In stock"
+   },
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/agent-avenue",
+     "price": 9999,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": true
+    }
+   ],
+   "india": {
+    "price": 9999,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/agent-avenue",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Akropolis",
@@ -204,10 +233,10 @@
    "status": "Not Started",
    "prices": {
     "USA": 46.97,
-    "UK": 37.9,
+    "UK": 37.57,
     "Canada": 55.21,
     "Australia": 70,
-    "NZ": 96.68729265
+    "NZ": 95.9665434
    },
    "stock": {
     "USA": "In stock",
@@ -250,9 +279,38 @@
    "indiaUrl": "",
    "discount": null,
    "status": "Not Started",
-   "prices": {},
-   "stock": {},
-   "indiaSources": []
+   "prices": {
+    "USA": 40,
+    "UK": 31.32,
+    "Canada": 46.71,
+    "Australia": 64.95,
+    "NZ": 99.99
+   },
+   "stock": {
+    "USA": "In stock",
+    "UK": "In stock",
+    "Canada": "In stock",
+    "Australia": "In stock",
+    "NZ": "In stock"
+   },
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/between-two-castles-essential-edition",
+     "price": 5000,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": true
+    }
+   ],
+   "india": {
+    "price": 5000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/between-two-castles-essential-edition",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Bites",
@@ -306,7 +364,7 @@
     "UK": null,
     "Canada": 75.99,
     "Australia": 67.95,
-    "NZ": 82.17512865
+    "NZ": 81.5625594
    },
    "stock": {
     "USA": "",
@@ -346,7 +404,7 @@
     "UK": null,
     "Canada": 30.56,
     "Australia": 42.95,
-    "NZ": 51.94145365
+    "NZ": 51.5542594
    },
    "stock": {
     "USA": "In stock",
@@ -450,9 +508,46 @@
    "indiaUrl": "https://www.boardgamesindia.com/cartographers-thunderworks-games",
    "discount": null,
    "status": "Not Started",
-   "prices": {},
-   "stock": {},
-   "indiaSources": []
+   "prices": {
+    "USA": 19.99,
+    "UK": 20.49,
+    "Canada": 27.95,
+    "Australia": 39.95,
+    "NZ": 47.953263400000004
+   },
+   "stock": {
+    "USA": "In stock",
+    "UK": "In stock",
+    "Canada": "In stock",
+    "Australia": "In stock",
+    "NZ": "In stock"
+   },
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/cartographers-thunderworks-games",
+     "price": 2800,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": true
+    },
+    {
+     "site": "Boardway",
+     "url": "https://boardway.in/products/cartographers",
+     "price": 2099,
+     "stock": "Out of stock",
+     "discounted": true,
+     "verified": true
+    }
+   ],
+   "india": {
+    "price": 2099,
+    "source": "Boardway",
+    "url": "https://boardway.in/products/cartographers",
+    "stock": "Out of stock",
+    "discount": 0,
+    "verified": true
+   }
   },
   {
    "name": "Cascadia",
@@ -466,7 +561,7 @@
     "UK": 29.09,
     "Canada": 33.96,
     "Australia": 48.45,
-    "NZ": 79.75643465
+    "NZ": 79.1618954
    },
    "stock": {
     "USA": "In stock",
@@ -537,7 +632,7 @@
     "UK": 45.8,
     "Canada": 63.74,
     "Australia": 88.95,
-    "NZ": 107.57141565
+    "NZ": 106.7695314
    },
    "stock": {
     "USA": "In stock",
@@ -623,7 +718,7 @@
     "UK": 34.99,
     "Canada": 55.95,
     "Australia": 77.95,
-    "NZ": 94.26859865
+    "NZ": 93.5658794
    },
    "stock": {
     "USA": "In stock",
@@ -726,7 +821,7 @@
     "UK": 27.19,
     "Canada": 35.66,
     "Australia": 42.54,
-    "NZ": 76.12839365
+    "NZ": 75.5608994
    },
    "stock": {
     "USA": "In stock",
@@ -846,7 +941,7 @@
     "UK": 4.39,
     "Canada": 8.49,
     "Australia": 10.45,
-    "NZ": 14.451696649999999
+    "NZ": 14.343967399999999
    },
    "stock": {
     "USA": "In stock",
@@ -869,7 +964,7 @@
     "UK": 15.39,
     "Canada": 23.95,
     "Australia": 28.99,
-    "NZ": 38.638636649999995
+    "NZ": 38.3506074
    },
    "stock": {
     "USA": "In stock",
@@ -915,7 +1010,7 @@
     "UK": 19.16,
     "Canada": 26.94,
     "Australia": 36.95,
-    "NZ": 53.15080065
+    "NZ": 52.7545914
    },
    "stock": {
     "USA": "In stock",
@@ -1003,7 +1098,7 @@
     "UK": null,
     "Canada": 34.99,
     "Australia": 35.95,
-    "NZ": 43.47602465
+    "NZ": 43.1519354
    },
    "stock": {
     "USA": "In stock",
@@ -1062,7 +1157,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 30,
+    "USA": 31.41,
     "UK": 27.9,
     "Canada": 32.26,
     "Australia": 49.95,
@@ -1154,7 +1249,7 @@
     "UK": 21.51,
     "Canada": 30.56,
     "Australia": 39.92,
-    "NZ": 48.313412650000004
+    "NZ": 47.953263400000004
    },
    "stock": {
     "USA": "In stock",
@@ -1282,7 +1377,7 @@
     "UK": 21.95,
     "Canada": 42.95,
     "Australia": 29,
-    "NZ": 42.26667765
+    "NZ": 41.9516034
    },
    "stock": {
     "USA": "In stock",
@@ -1322,7 +1417,7 @@
     "UK": 30,
     "Canada": 35.95,
     "Australia": 69,
-    "NZ": 88.30386017863634
+    "NZ": 87.82992925636363
    },
    "stock": {
     "USA": "In stock",
@@ -1442,7 +1537,7 @@
     "UK": 27.07,
     "Canada": 46.95,
     "Australia": 63.97,
-    "NZ": 79.75643465
+    "NZ": 79.1618954
    },
    "stock": {
     "USA": "In stock",
@@ -1506,9 +1601,17 @@
      "price": 5800,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 5800,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/junk-art-revolution-en-gb-6080",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Kabuto Sumo",
@@ -1705,7 +1808,7 @@
     "UK": 38.99,
     "Canada": 63.71,
     "Australia": 66.95,
-    "NZ": 81.57045515
+    "NZ": 80.9623934
    },
    "stock": {
     "USA": "In stock",
@@ -1764,11 +1867,11 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 21.65,
+    "USA": 22.46,
     "UK": 16.61,
     "Canada": 32.99,
     "Australia": 43.99,
-    "NZ": 54.36014765
+    "NZ": 53.9549234
    },
    "stock": {
     "USA": "In stock",
@@ -1807,7 +1910,7 @@
     "USA": 23.49,
     "UK": 18.53,
     "Canada": 32.95,
-    "Australia": 49.87,
+    "Australia": 50.5,
     "NZ": 59.99
    },
    "stock": {
@@ -1888,7 +1991,7 @@
     "UK": 17.1,
     "Canada": 32.95,
     "Australia": 40,
-    "NZ": 59.99
+    "NZ": 59.9565834
    },
    "stock": {
     "USA": "In stock",
@@ -1928,7 +2031,7 @@
     "UK": 9.99,
     "Canada": 32.95,
     "Australia": 42.5,
-    "NZ": 51.94145365
+    "NZ": 51.5542594
    },
    "stock": {
     "USA": "In stock",
@@ -1968,7 +2071,7 @@
     "UK": 39.9,
     "Canada": 42.46,
     "Australia": 79.95,
-    "NZ": 105.15272165
+    "NZ": 104.3688674
    },
    "stock": {
     "USA": "In stock",
@@ -2117,7 +2220,7 @@
     "UK": 34.99,
     "Canada": 54.99,
     "Australia": 68.5,
-    "NZ": 91.84990465
+    "NZ": 91.1652154
    },
    "stock": {
     "USA": "In stock",
@@ -2180,7 +2283,7 @@
     "UK": 35.95,
     "Canada": 46.95,
     "Australia": 81.95,
-    "NZ": 99.10598665
+    "NZ": 98.3672074
    },
    "stock": {
     "USA": "In stock",
@@ -2217,10 +2320,10 @@
    "status": "Not Started",
    "prices": {
     "USA": 50.12,
-    "UK": 62.99,
-    "Canada": 78.95,
+    "UK": 55.23,
+    "Canada": 79.95,
     "Australia": 92.65,
-    "NZ": 162.31306775227273
+    "NZ": 161.44192597272726
    },
    "stock": {
     "USA": "In stock",
@@ -2323,7 +2426,7 @@
     "UK": 12.99,
     "Canada": 17.95,
     "Australia": 23.99,
-    "NZ": 31.478515665909082
+    "NZ": 31.309569009090904
    },
    "stock": {
     "USA": "In stock",
@@ -2369,7 +2472,7 @@
     "UK": 28.99,
     "Canada": 45.94,
     "Australia": 50,
-    "NZ": 84.59382265
+    "NZ": 83.9632234
    },
    "stock": {
     "USA": "In stock",
@@ -2449,7 +2552,7 @@
     "UK": 99,
     "Canada": 47.95,
     "Australia": 76.95,
-    "NZ": 93.05925165
+    "NZ": 92.3655474
    },
    "stock": {
     "USA": "In stock",
@@ -2471,7 +2574,7 @@
     "USA": 15.96,
     "UK": null,
     "Canada": 19.99,
-    "Australia": 29,
+    "Australia": 32.99,
     "NZ": 45.95
    },
    "stock": {
@@ -2512,7 +2615,7 @@
     "UK": 27.19,
     "Canada": 45.99,
     "Australia": 56.95,
-    "NZ": 69.47698515
+    "NZ": 68.9590734
    },
    "stock": {
     "USA": "In stock",
@@ -2592,7 +2695,7 @@
     "UK": 31.99,
     "Canada": 29.95,
     "Australia": 54.95,
-    "NZ": 66.45361765
+    "NZ": 65.9582434
    },
    "stock": {
     "USA": "In stock",
@@ -2704,7 +2807,7 @@
     "UK": 10.38,
     "Canada": 15.95,
     "Australia": 22.5,
-    "NZ": 28.95
+    "NZ": 28.747951399999998
    },
    "stock": {
     "USA": "In stock",
@@ -2752,7 +2855,7 @@
     "UK": 9.2,
     "Canada": 14.95,
     "Australia": 17.01,
-    "NZ": 28.963860649999997
+    "NZ": 28.747951399999998
    },
    "stock": {
     "USA": "In stock",
@@ -2792,7 +2895,7 @@
     "UK": 8.01,
     "Canada": 11.99,
     "Australia": 15.49,
-    "NZ": 22.31245215
+    "NZ": 22.1461254
    },
    "stock": {
     "USA": "In stock",
@@ -2832,7 +2935,7 @@
     "UK": 16.99,
     "Canada": 26.95,
     "Australia": 36.99,
-    "NZ": 48.313412650000004
+    "NZ": 47.953263400000004
    },
    "stock": {
     "USA": "In stock",
@@ -2925,10 +3028,10 @@
    "status": "Not Started",
    "prices": {
     "USA": 15.95,
-    "UK": 16.52,
+    "UK": 16.54,
     "Canada": 17.95,
     "Australia": 22,
-    "NZ": 27.756606999999992
+    "NZ": 27.607635999999996
    },
    "stock": {
     "USA": "In stock",
@@ -3257,7 +3360,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 9.97,
+    "USA": 9.99,
     "UK": 5.56,
     "Canada": 12.95,
     "Australia": 19.95,
@@ -3401,7 +3504,7 @@
     "UK": 18.09,
     "Canada": 25.95,
     "Australia": 38,
-    "NZ": 56.778841650000004
+    "NZ": 56.355587400000005
    },
    "stock": {
     "USA": "In stock",
@@ -3424,7 +3527,7 @@
     "UK": 49.5,
     "Canada": 55.21,
     "Australia": 94.97,
-    "NZ": 126.92096765
+    "NZ": 125.9748434
    },
    "stock": {
     "USA": "In stock",
@@ -3493,7 +3596,7 @@
     "UK": 15.58,
     "Canada": 15.95,
     "Australia": 19.99,
-    "NZ": 32.79064617863636
+    "NZ": 32.61465725636363
    },
    "stock": {
     "USA": "In stock",
@@ -3516,7 +3619,7 @@
     "UK": 9.99,
     "Canada": 15.95,
     "Australia": 23.99,
-    "NZ": 31.541598863636363
+    "NZ": 31.37231363636363
    },
    "stock": {
     "USA": "In stock",
@@ -3631,7 +3734,7 @@
     "UK": 14.99,
     "Canada": 18.95,
     "Australia": 25.45,
-    "NZ": 30.77788115
+    "NZ": 30.5484494
    },
    "stock": {
     "USA": "In stock",
@@ -3654,7 +3757,7 @@
     "UK": 47,
     "Canada": 69.95,
     "Australia": 80,
-    "NZ": 113.61815065
+    "NZ": 112.77119139999999
    },
    "stock": {
     "USA": "In stock",
@@ -3694,7 +3797,7 @@
     "UK": null,
     "Canada": 56.95,
     "Australia": 86.99,
-    "NZ": 109.75214740590907
+    "NZ": 109.16310252909088
    },
    "stock": {
     "USA": "In stock",
@@ -3798,7 +3901,7 @@
     "UK": 26.9,
     "Canada": 36.51,
     "Australia": 49,
-    "NZ": 66.45361765
+    "NZ": 65.9582434
    },
    "stock": {
     "USA": "In stock",
@@ -3891,14 +3994,14 @@
     "USA": 64.95,
     "UK": 47.99,
     "Canada": 60.99,
-    "Australia": null,
+    "Australia": 99.95,
     "NZ": null
    },
    "stock": {
     "USA": "In stock",
     "UK": "In stock",
     "Canada": "In stock",
-    "Australia": "",
+    "Australia": "In stock",
     "NZ": ""
    },
    "indiaSources": [
@@ -3972,7 +4075,7 @@
     "UK": 35.1,
     "Canada": 49.94,
     "Australia": 69,
-    "NZ": 93.05925165
+    "NZ": 92.3655474
    },
    "stock": {
     "USA": "In stock",
@@ -4012,7 +4115,7 @@
     "UK": 17.5,
     "Canada": 17.95,
     "Australia": 19.95,
-    "NZ": 30.17320765
+    "NZ": 29.948283399999998
    },
    "stock": {
     "USA": "In stock",
@@ -4099,9 +4202,17 @@
      "price": 9999,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": false
+     "verified": true
     }
-   ]
+   ],
+   "india": {
+    "price": 9999,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/pinched",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Solstis",
@@ -4271,11 +4382,11 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 15.99,
+    "USA": 15.97,
     "UK": 14.99,
     "Canada": 18.95,
     "Australia": 25.95,
-    "NZ": 36.21994265
+    "NZ": 35.949943399999995
    },
    "stock": {
     "USA": "In stock",
@@ -4374,7 +4485,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 16.97,
+    "USA": 16.99,
     "UK": 19.99,
     "Canada": 24.99,
     "Australia": 35.99,
@@ -4607,16 +4718,57 @@
    "name": "Viticulture",
    "type": "Boardgame",
    "bgoId": "XZMHLFoIoR",
-   "prices": {},
-   "stock": {},
-   "indiaSources": []
+   "prices": {
+    "USA": null,
+    "UK": null,
+    "Canada": null,
+    "Australia": null,
+    "NZ": 143.95
+   },
+   "stock": {
+    "USA": "",
+    "UK": "",
+    "Canada": "",
+    "Australia": "",
+    "NZ": "In stock"
+   },
+   "indiaSources": [
+    {
+     "site": "Boardway",
+     "url": "https://boardway.in/products/viticulture-essential-edition-1",
+     "price": 4799,
+     "stock": "Out of stock",
+     "discounted": true,
+     "verified": true
+    }
+   ],
+   "india": {
+    "price": 4799,
+    "source": "Boardway",
+    "url": "https://boardway.in/products/viticulture-essential-edition-1",
+    "stock": "Out of stock",
+    "discount": 0,
+    "verified": true
+   }
   },
   {
    "name": "Strike",
    "type": "Boardgame",
    "bgoId": "KjDIQclVIn",
-   "prices": {},
-   "stock": {},
+   "prices": {
+    "USA": 19.99,
+    "UK": null,
+    "Canada": 24.99,
+    "Australia": 81.11,
+    "NZ": 80.23
+   },
+   "stock": {
+    "USA": "In stock",
+    "UK": "",
+    "Canada": "In stock",
+    "Australia": "In stock",
+    "NZ": "In stock"
+   },
    "indiaSources": []
   }
  ]
