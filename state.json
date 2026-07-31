@@ -492,7 +492,8 @@
      "https://www.boardgamesindia.com/pinched--en-gb-6073",
      "https://www.boardgamesindia.com/pinched"
     ]
-   }
+   },
+   "bgoId": "cWqQCJmOjh"
   },
   "Petiquette": {
    "india": {
@@ -737,18 +738,13 @@
    "shipping": "",
    "shipMode": "local",
    "overhead": 10,
-   "items": [
-    {
-     "game": "7 Wonders: Architects – Medals",
-     "price": 19.19
-    }
-   ]
+   "items": []
   }
  ],
  "removed": [
   "Catan"
  ],
  "quickAdd": "",
- "quickNotes": "Catan on the road",
+ "quickNotes": "",
  "config": {}
 }
