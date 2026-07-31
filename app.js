@@ -5,20 +5,23 @@ var LOCALEP={USA:'',UK:'/en-GB',Canada:'/en-CA',Australia:'/en-AU',NZ:'/en-NZ'};
 var CUR={USA:'USD',UK:'GBP',Canada:'CAD',Australia:'AUD',NZ:'NZD'};
 var DATA=null, STATE=null, VIEW='india', saveTimer=null;
 var flt={search:'',priceCap:'',lossCap:'',type:'All'};
+var ofl={search:'',type:'All',location:'All',playable:'All'};
+var plan={players:'',maxTime:'',location:'All',playable:true};
 var country='USA';
 var sortState={india:{k:'verdictLoss',d:1},country:{k:'loss',d:1}};
 var lastFocus=null;
 
-function blankState(){return {overrides:{}, added:[], stores:[], removed:[], quickAdd:'', quickNotes:'', sync:{owner:'',repo:'',branch:'main',path:'state.json'}};}
+function blankState(){return {overrides:{}, added:[], stores:[], removed:[], quickAdd:'', quickNotes:'', ownedEdits:{}, ownedAdded:[], ownedRemoved:[], sync:{owner:'',repo:'',branch:'main',path:'state.json'}};}
 function loadState(){try{return Object.assign(blankState(),JSON.parse(localStorage.getItem(LS_STATE)||'{}'));}catch(e){return blankState();}}
 function persistLocal(){localStorage.setItem(LS_STATE,JSON.stringify(STATE));}
 function token(){return localStorage.getItem(LS_TOKEN)||'';}
 function setToken(t){if(t)localStorage.setItem(LS_TOKEN,t);else localStorage.removeItem(LS_TOKEN);}
 function cfg(k){return (STATE.config&&k in STATE.config)?STATE.config[k]:DATA.config[k];}
 function fxRate(c){if(c==='INR')return 1;return (STATE.config&&STATE.config.fx&&STATE.config.fx[c]!=null)?STATE.config.fx[c]:DATA.meta.fx[c];}
-function allGames(){var rem=STATE.removed||[];var seen={};var out=[];DATA.games.concat(STATE.added||[]).forEach(function(g){if(rem.indexOf(g.name)>=0)return;if(seen[g.name])return;seen[g.name]=1;out.push(g);});return out;}
-// Once the scraper has merged an added game into data.json, drop the local STATE.added copy so it doesn't show twice.
-function reconcileAdded(){if(!DATA||!STATE)return;var names={};DATA.games.forEach(function(g){names[g.name]=1;});var a=STATE.added||[];var kept=a.filter(function(x){return !names[x.name];});if(kept.length!==a.length){STATE.added=kept;persistLocal();}}
+function nkey(s){return (s||'').toLowerCase().trim();}
+function allGames(){var rem=(STATE.removed||[]).map(nkey);var seen={};var out=[];DATA.games.concat(STATE.added||[]).forEach(function(g){var k=nkey(g.name);if(rem.indexOf(k)>=0)return;if(seen[k])return;seen[k]=1;out.push(g);});return out;}
+// Once the scraper has merged an added game into data.json, drop the local STATE.added copy so it doesn't show twice (case-insensitive).
+function reconcileAdded(){if(!DATA||!STATE)return;var names={};DATA.games.forEach(function(g){names[nkey(g.name)]=1;});var a=STATE.added||[];var kept=a.filter(function(x){return !names[nkey(x.name)];});if(kept.length!==a.length){STATE.added=kept;persistLocal();}}
 function gameByName(n){return allGames().filter(function(x){return x.name===n;})[0];}
 function ov(name){return STATE.overrides[name]||{};}
 function displayName(g){var o=STATE.overrides[g.name];return (o&&o.name)?o.name:g.name;}
@@ -57,10 +60,26 @@ function computeCountry(g,c){
 }
 
 var app;
+var SECTIONS=[
+  {id:'buy',label:'Buy',views:[['india','India'],['country','Country'],['analysis','Analysis'],['games','Games']]},
+  {id:'collection',label:'Collection',views:[['owned','Games I own'],['plan','Plan & select'],['spend','Spend & stats']]},
+  {id:'settings',label:'Settings',views:[['settings','Settings']]}
+];
+function sectionOf(v){for(var i=0;i<SECTIONS.length;i++)for(var j=0;j<SECTIONS[i].views.length;j++)if(SECTIONS[i].views[j][0]===v)return SECTIONS[i];return SECTIONS[0];}
+function renderNav(){
+  var nav=document.getElementById('nav');if(!nav)return;var sec=sectionOf(VIEW);
+  var h='<div class="nav-top">'+SECTIONS.map(function(s){return '<button data-sec="'+s.id+'" class="'+(s.id===sec.id?'active':'')+'">'+s.label+'</button>';}).join('')+'</div>';
+  if(sec.views.length>1){h+='<div class="nav-sub">'+sec.views.map(function(v){return '<button data-v="'+v[0]+'" class="'+(v[0]===VIEW?'active':'')+'">'+v[1]+'</button>';}).join('')+'</div>';}
+  nav.innerHTML=h;
+  var tb=nav.querySelectorAll('[data-sec]');for(var i=0;i<tb.length;i++)tb[i].onclick=function(){var id=this.getAttribute('data-sec');var s=SECTIONS.filter(function(x){return x.id===id;})[0];VIEW=s.views[0][0];render();};
+  var sb=nav.querySelectorAll('[data-v]');for(var k=0;k<sb.length;k++)sb[k].onclick=function(){VIEW=this.getAttribute('data-v');render();};
+}
 function render(){
   document.getElementById('updated').textContent=DATA?('data updated '+DATA.meta.updated):'';
-  var b=document.querySelectorAll('#nav button');for(var i=0;i<b.length;i++)b[i].className=(b[i].getAttribute('data-v')===VIEW?'active':'');
-  if(VIEW==='india')renderIndia();else if(VIEW==='country')renderCountry();else if(VIEW==='analysis')renderAnalysis();else if(VIEW==='games')renderGames();else renderSettings();
+  renderNav();
+  if(VIEW==='india')renderIndia();else if(VIEW==='country')renderCountry();else if(VIEW==='analysis')renderAnalysis();else if(VIEW==='games')renderGames();
+  else if(VIEW==='owned')renderOwned();else if(VIEW==='plan')renderPlan();else if(VIEW==='spend')renderSpend();
+  else renderSettings();
   updateBadge();
 }
 function filterBar(extra){
@@ -230,17 +249,174 @@ function gameDetail(tr,name){
   row.querySelector('#gd_save').onclick=function(){var nn=rv('gd_name');if(added){if(nn)STATE.added[ai].name=nn;}else{STATE.overrides[name]=STATE.overrides[name]||{};if(nn&&nn!==name)STATE.overrides[name].name=nn;else delete STATE.overrides[name].name;}var braw=rv('gd_bgo');var bid='';if(braw){var m=braw.match(/\/boardgame\/price\/([A-Za-z0-9_-]{6,})/);bid=m?m[1]:braw;}if(added){STATE.added[ai].bgoId=bid||'';}else{STATE.overrides[name]=STATE.overrides[name]||{};if(bid)STATE.overrides[name].bgoId=bid;else delete STATE.overrides[name].bgoId;}changed();render();};
   row.querySelector('#gd_del').onclick=function(){if(!confirm('Delete "'+name+'"?'))return;if(added){STATE.added.splice(ai,1);}else{STATE.removed=STATE.removed||[];if(STATE.removed.indexOf(name)<0)STATE.removed.push(name);}changed();render();};
 }
+function openAddModal(){
+  closeModal();
+  var ovl=document.createElement('div');ovl.className='modal-ov';ovl.id='addModal';
+  ovl.innerHTML='<div class="modal"><h3>Add a game</h3>'
+    +'<div class="fld"><label>Game name</label><input id="ng_name" placeholder="Ark Nova"/></div>'
+    +'<div class="fld" style="margin-top:12px"><label>Board Game Oracle link or ID</label><input id="ng_bgo" placeholder="paste the .../boardgame/price/... link, or the ID"/></div>'
+    +'<div class="fld" style="margin-top:12px"><label>India links (one per line, optional)</label><textarea id="ng_india" rows="3" placeholder="paste one or more India product page URLs"></textarea></div>'
+    +'<div class="small muted" style="margin-top:10px">Links you paste here are treated as confirmed. Prices fill in on the next run.</div>'
+    +'<div class="modal-actions"><button class="ghost" id="ng_cancel">Cancel</button><button class="act" id="ng_add">Add game</button></div></div>';
+  document.body.appendChild(ovl);
+  ovl.onclick=function(e){if(e.target===ovl)closeModal();};
+  document.onkeydown=function(e){if(e.key==='Escape')closeModal();};
+  var ni=document.getElementById('ng_name');if(ni)ni.focus();
+  document.getElementById('ng_cancel').onclick=closeModal;
+  document.getElementById('ng_add').onclick=function(){
+    var nm=val('ng_name');if(!nm){alert('Enter a game name.');return;}
+    if(allGames().some(function(g){return nkey(g.name)===nkey(nm);})){alert('“'+nm+'” is already in your list.');return;}
+    var raw=val('ng_bgo');var id='';if(raw){var m=raw.match(/\/boardgame\/price\/([A-Za-z0-9_-]{6,})/);id=m?m[1]:raw;}
+    var iu=(val('ng_india')||'').split(/[\n,]+/).map(function(s){return s.trim();}).filter(function(s){return /^https?:\/\//.test(s);});
+    STATE.added.push({name:nm,type:'Boardgame',bgoId:id,indiaUrls:iu,india:null,prices:{},stock:{},status:'Not Started'});
+    closeModal();changed();render();
+  };
+}
+function closeModal(){var m=document.getElementById('addModal');if(m)m.parentNode.removeChild(m);document.onkeydown=null;}
 function renderGames(){
-  var h='<div class="card"><h3>Quick notes <span class="small muted">— jot anything; does not touch the list</span></h3><textarea id="qn" rows="4" style="width:100%" placeholder="that cat trick-taking game… / check BGG hotness / ask friend about Ark Nova">'+esc(STATE.quickNotes||'')+'</textarea><div style="margin-top:8px"><button class="act" id="qnSave">Save notes</button></div></div>';
-  h+='<div class="card"><h3>Add a game</h3><div class="grid"><div class="fld"><label>Game name</label><input id="ng_name" placeholder="Ark Nova"/></div><div class="fld" style="grid-column:1/-1"><label>Board Game Oracle link or ID</label><input id="ng_bgo" placeholder="paste the .../boardgame/price/... link, or the ID"/></div><div class="fld" style="grid-column:1/-1"><label>India links (one per line, optional)</label><textarea id="ng_india" rows="2" placeholder="paste one or more India product page URLs, one per line"></textarea></div></div><div style="margin-top:8px"><button class="act" id="ng_add">Add game</button></div><div class="small muted" style="margin-top:6px">Links you paste here are treated as confirmed. Prices fill in on the next run.</div></div>';
+  var h='<div class="card"><h3>Quick notes <span class="small muted">— jot anything; does not touch the list</span></h3><textarea id="qn" rows="4" style="width:100%" placeholder="that cat trick-taking game… / check BGG hotness / ask friend about Ark Nova">'+esc(STATE.quickNotes||'')+'</textarea><div class="small muted" style="margin-top:6px" id="qnStatus">Autosaves &amp; syncs across your devices.</div></div>';
+  h+='<div class="controls"><button class="act" id="ng_open">+ Add game</button><span class="pill">game name · BGO link · India links</span></div>';
   var rows=allGames().slice().sort(function(a,b){var x=displayName(a).toLowerCase(),y=displayName(b).toLowerCase();return x<y?-1:x>y?1:0;});
   h+='<div class="small muted" style="margin:4px 2px">'+rows.length+' games · sorted A→Z · tap a row to open its links &amp; prices</div><div class="tbl-wrap"><table><thead><tr><th>Game</th><th>Type</th></tr></thead><tbody>';
   rows.forEach(function(g){var renamed=(ov(g.name).name&&ov(g.name).name!==g.name);var pend=indiaSourcesFor(g).some(function(s){return !s.verified;});h+='<tr class="game" data-n="'+esc(g.name)+'"><td>'+esc(displayName(g))+(pend?' <span class="pill" style="color:var(--maybe);border-color:var(--maybe)">⚠ confirm India</span>':'')+(renamed?'<div class="small muted">was: '+esc(g.name)+'</div>':'')+'</td><td class="small muted">'+(g.type||'')+'</td></tr>';});
   h+='</tbody></table></div>';
   app.innerHTML=h;
-  document.getElementById('qnSave').onclick=function(){STATE.quickNotes=val('qn');changed();};
-  document.getElementById('ng_add').onclick=function(){var nm=val('ng_name');if(!nm){alert('Enter a game name.');return;}if(allGames().some(function(g){return g.name.toLowerCase()===nm.toLowerCase();})){alert('“'+nm+'” is already in your list.');return;}var raw=val('ng_bgo');var id='';if(raw){var m=raw.match(/\/boardgame\/price\/([A-Za-z0-9_-]{6,})/);id=m?m[1]:raw;}var iu=(val('ng_india')||'').split(/[\n,]+/).map(function(s){return s.trim();}).filter(function(s){return /^https?:\/\//.test(s);});STATE.added.push({name:nm,type:'Boardgame',bgoId:id,indiaUrls:iu,india:null,prices:{},stock:{},status:'Not Started'});changed();render();};
+  var qn=document.getElementById('qn');if(qn)qn.oninput=function(){STATE.quickNotes=this.value;changed();};
+  document.getElementById('ng_open').onclick=openAddModal;
   var gr=app.querySelectorAll('tr.game');for(var i=0;i<gr.length;i++)gr[i].onclick=function(){gameDetail(this,this.getAttribute('data-n'));};
+}
+/* ================= Collection (post-purchase) ================= */
+function pint(n){return n==null||n===''||!isFinite(n)?'':(''+Math.round(n));}
+function fmtINR(n){return inr(n)||'—';}
+function distinct(arr,key){var s={};arr.forEach(function(o){var v=(o[key]==null?'':(''+o[key])).trim();if(v)s[v]=1;});return Object.keys(s).sort();}
+function oedit(name){return (STATE.ownedEdits||{})[name]||{};}
+function setOEdit(name,obj){STATE.ownedEdits=STATE.ownedEdits||{};STATE.ownedEdits[name]=Object.assign({},STATE.ownedEdits[name]||{},obj);changed();}
+function ownedList(){
+  var rem=(STATE.ownedRemoved||[]).map(nkey);var ed=STATE.ownedEdits||{};var seen={},out=[];
+  (DATA.owned||[]).concat(STATE.ownedAdded||[]).forEach(function(o){
+    var k=nkey(o.name);if(rem.indexOf(k)>=0)return;if(seen[k])return;seen[k]=1;
+    var m=Object.assign({},o,ed[o.name]||{});
+    if(m.sold&&m.sold.amount!=null)return;   // moved to sold
+    out.push(m);
+  });
+  return out;
+}
+function soldList(){
+  var ed=STATE.ownedEdits||{};var out=(DATA.sold||[]).slice();
+  (DATA.owned||[]).concat(STATE.ownedAdded||[]).forEach(function(o){var e=ed[o.name];if(e&&e.sold&&e.sold.amount!=null)out.push(Object.assign({},o,e,{saleAmount:e.sold.amount,saleDate:e.sold.date,buyer:e.sold.buyer}));});
+  return out;
+}
+function playTag(p){if(/yes/i.test(p||''))return '<span class="av av-in" style="display:inline-flex;margin:0"><i></i>Playable</span>';if(/no/i.test(p||''))return '<span class="av av-out" style="display:inline-flex;margin:0"><i></i>Not yet</span>';return '';}
+
+function renderOwned(){
+  var all=(DATA.owned||[]).concat(STATE.ownedAdded||[]);
+  var types=['All'].concat(distinct(all,'type'));var locs=['All'].concat(distinct(all,'location'));
+  var rows=ownedList().filter(function(o){
+    if(ofl.search&&norm(o.name).indexOf(norm(ofl.search))<0)return false;
+    if(ofl.type!=='All'&&(o.type||'')!==ofl.type)return false;
+    if(ofl.location!=='All'&&(o.location||'')!==ofl.location)return false;
+    if(ofl.playable!=='All'&&(/yes/i.test(o.playable||'')?'Yes':'No')!==ofl.playable)return false;
+    return true;
+  }).sort(function(a,b){return nkey(a.name)<nkey(b.name)?-1:1;});
+  var h='<div class="controls"><input type="search" id="oq" placeholder="Search…" value="'+esc(ofl.search)+'"/>'
+    +'<select id="oty">'+types.map(function(t){return '<option '+(ofl.type===t?'selected':'')+'>'+esc(t)+'</option>';}).join('')+'</select>'
+    +'<select id="oloc">'+locs.map(function(t){return '<option '+(ofl.location===t?'selected':'')+'>'+esc(t)+'</option>';}).join('')+'</select>'
+    +'<select id="opl"><option value="All"'+(ofl.playable==='All'?' selected':'')+'>Playable: all</option><option value="Yes"'+(ofl.playable==='Yes'?' selected':'')+'>Playable</option><option value="No"'+(ofl.playable==='No'?' selected':'')+'>Not yet</option></select>'
+    +'<button class="act" id="oadd" style="margin-left:auto">+ Add owned</button></div>';
+  h+='<div class="small muted" style="margin:4px 2px">'+rows.length+' games · tap a row to edit</div>';
+  h+='<div class="tbl-wrap"><table><thead><tr><th>Game</th><th>Players</th><th class="opt">Type</th><th class="opt">Wt</th><th class="num opt">Time</th><th class="opt">Location</th><th>Playable</th><th class="num">Paid</th><th class="opt">Store</th></tr></thead><tbody>';
+  rows.forEach(function(o){h+='<tr class="game" data-n="'+esc(o.name)+'"><td>'+esc(o.name)+'</td><td>'+pint(o.minP)+'–'+pint(o.maxP)+'</td><td class="opt small muted">'+esc(o.type||'')+'</td><td class="opt small muted">'+esc(o.weightClass||'')+'</td><td class="num opt">'+(o.playTime?pint(o.playTime)+'m':'')+'</td><td class="opt small muted">'+esc(o.location||'')+'</td><td>'+playTag(o.playable)+'</td><td class="num">'+fmtINR(o.amount)+'</td><td class="opt small muted">'+esc(o.store||'')+'</td></tr>';});
+  h+='</tbody></table></div>';
+  app.innerHTML=h;
+  var oq=document.getElementById('oq');oq.oninput=function(){ofl.search=this.value;renderOwned();var e=document.getElementById('oq');if(e){e.focus();e.setSelectionRange(e.value.length,e.value.length);}};
+  document.getElementById('oty').onchange=function(){ofl.type=this.value;renderOwned();};
+  document.getElementById('oloc').onchange=function(){ofl.location=this.value;renderOwned();};
+  document.getElementById('opl').onchange=function(){ofl.playable=this.value;renderOwned();};
+  document.getElementById('oadd').onclick=openOwnedModal;
+  var gr=app.querySelectorAll('tr.game');for(var i=0;i<gr.length;i++)gr[i].onclick=function(){ownedDetail(this,this.getAttribute('data-n'));};
+}
+function ownedDetail(tr,name){
+  var wasOpen=tr.nextElementSibling&&tr.nextElementSibling.className.indexOf('gmx')>=0;
+  var openRows=document.querySelectorAll('tr.gmx');for(var q=0;q<openRows.length;q++)openRows[q].parentNode.removeChild(openRows[q]);
+  if(wasOpen)return;
+  var o=ownedList().filter(function(x){return x.name===name;})[0];if(!o)return;
+  var h='<div class="card" style="margin:6px 0"><div class="grid">'
+    +fld('Paid (₹)','od_amt',o.amount!=null?o.amount:'','number','')
+    +fld('Store','od_store',o.store||'')+fld('Country','od_country',o.country||'')+fld('Date','od_date',o.date||'','','YYYY-MM-DD')+fld('Location','od_loc',o.location||'')
+    +'<div class="fld"><label>Playable</label><select id="od_play"><option '+(/yes/i.test(o.playable||'')?'selected':'')+'>Yes</option><option '+(!/yes/i.test(o.playable||'')?'selected':'')+'>No</option></select></div></div>'
+    +'<div class="small muted" style="margin-top:8px">'+esc(o.type||'')+' · '+pint(o.minP)+'–'+pint(o.maxP)+' players · '+(o.playTime?pint(o.playTime)+' min':'')+' · '+esc(o.weightClass||'')+(o.bestAt?' · best at '+esc(o.bestAt):'')+(o.mech1?' · '+esc(o.mech1):'')+'</div>'
+    +'<div style="margin-top:12px"><button class="act" id="od_save">Save</button> <button class="ghost" id="od_sold">Mark sold…</button> <button class="danger" id="od_del" style="margin-left:6px">Remove</button></div>'
+    +'<div id="od_soldbox" class="hide" style="margin-top:10px;border-top:1px solid var(--line);padding-top:10px"><div class="grid">'+fld('Sale amount (₹)','od_samt','','number','')+fld('Sale date','od_sdate','','','YYYY-MM-DD')+fld('Buyer','od_buyer','')+'</div><div style="margin-top:8px"><button class="act" id="od_soldsave">Confirm sold</button></div></div></div>';
+  var row=document.createElement('tr');row.className='gmx';row.innerHTML='<td colspan="9" style="padding:0 4px">'+h+'</td>';
+  if(tr.nextSibling)tr.parentNode.insertBefore(row,tr.nextSibling);else tr.parentNode.appendChild(row);
+  row.querySelector('#od_save').onclick=function(){setOEdit(name,{amount:num(val('od_amt')),store:val('od_store'),country:val('od_country'),date:val('od_date'),location:val('od_loc'),playable:val('od_play')});render();};
+  row.querySelector('#od_sold').onclick=function(){var b=row.querySelector('#od_soldbox');b.className=b.className.indexOf('hide')>=0?'':'hide';};
+  row.querySelector('#od_soldsave').onclick=function(){var a=num(val('od_samt'));if(a==null){alert('Enter the sale amount.');return;}setOEdit(name,{sold:{amount:a,date:val('od_sdate'),buyer:val('od_buyer')}});render();};
+  row.querySelector('#od_del').onclick=function(){if(!confirm('Remove "'+name+'" from your collection?'))return;STATE.ownedRemoved=STATE.ownedRemoved||[];if(STATE.ownedRemoved.indexOf(name)<0)STATE.ownedRemoved.push(name);changed();render();};
+}
+function openOwnedModal(){
+  closeModal();var ovl=document.createElement('div');ovl.className='modal-ov';ovl.id='addModal';
+  ovl.innerHTML='<div class="modal"><h3>Add owned game</h3><div class="fld"><label>Game name</label><input id="ow_name"/></div>'
+    +'<div class="grid" style="margin-top:10px">'+fld('Paid (₹)','ow_amt','','number','')+fld('Store','ow_store','')+fld('Country','ow_country','')+fld('Date','ow_date','','','YYYY-MM-DD')+'</div>'
+    +'<div class="grid" style="margin-top:10px"><div class="fld"><label>Type</label><input id="ow_type" placeholder="Family / Strategy…"/></div>'+fld('Min players','ow_min','','number','')+fld('Max players','ow_max','','number','')+fld('Play time (min)','ow_time','','number','')+fld('Location','ow_loc','')
+    +'<div class="fld"><label>Playable</label><select id="ow_play"><option>No</option><option>Yes</option></select></div></div>'
+    +'<div class="modal-actions"><button class="ghost" id="ow_cancel">Cancel</button><button class="act" id="ow_add">Add</button></div></div>';
+  document.body.appendChild(ovl);ovl.onclick=function(e){if(e.target===ovl)closeModal();};document.onkeydown=function(e){if(e.key==='Escape')closeModal();};
+  var ni=document.getElementById('ow_name');if(ni)ni.focus();
+  document.getElementById('ow_cancel').onclick=closeModal;
+  document.getElementById('ow_add').onclick=function(){var nm=val('ow_name');if(!nm){alert('Enter a game name.');return;}if(ownedList().some(function(o){return nkey(o.name)===nkey(nm);})){alert('“'+nm+'” is already in your collection.');return;}STATE.ownedAdded=STATE.ownedAdded||[];STATE.ownedAdded.push({name:nm,amount:num(val('ow_amt')),store:val('ow_store'),country:val('ow_country'),date:val('ow_date'),type:val('ow_type'),minP:num(val('ow_min')),maxP:num(val('ow_max')),playTime:num(val('ow_time')),location:val('ow_loc'),playable:val('ow_play'),weightClass:'',bestAt:''});closeModal();changed();render();};
+}
+function renderPlan(){
+  var list=ownedList();var locs=['All'].concat(distinct(list,'location'));
+  var res=list.filter(function(o){
+    var pl=num(plan.players);if(pl!=null){if(o.minP!=null&&pl<o.minP)return false;if(o.maxP!=null&&pl>o.maxP)return false;}
+    var mt=num(plan.maxTime);if(mt!=null&&o.playTime!=null&&o.playTime>mt)return false;
+    if(plan.location!=='All'&&(o.location||'')!==plan.location)return false;
+    if(plan.playable&&!/yes/i.test(o.playable||''))return false;
+    return true;
+  }).sort(function(a,b){return nkey(a.name)<nkey(b.name)?-1:1;});
+  var h='<div class="card"><h3>Plan &amp; select <span class="small muted">— find owned games that fit the table</span></h3><div class="grid">'
+    +fld('Players','pl_players',plan.players,'number','e.g. 4')+fld('Max play time (min)','pl_time',plan.maxTime,'number','any')
+    +'<div class="fld"><label>Location</label><select id="pl_loc">'+locs.map(function(t){return '<option value="'+esc(t)+'"'+(plan.location===t?' selected':'')+'>'+esc(t)+'</option>';}).join('')+'</select></div>'
+    +'<label class="chk" style="align-self:end"><input type="checkbox" id="pl_play"'+(plan.playable?' checked':'')+'/> Playable only</label></div></div>';
+  h+='<div class="small muted" style="margin:4px 2px">'+res.length+' of '+list.length+' owned games match</div>';
+  h+='<div class="tbl-wrap"><table><thead><tr><th>Game</th><th>Players</th><th class="opt">Type</th><th class="num">Time</th><th class="opt">Best at</th><th class="opt">Location</th></tr></thead><tbody>';
+  res.forEach(function(o){h+='<tr><td>'+esc(o.name)+'</td><td>'+pint(o.minP)+'–'+pint(o.maxP)+'</td><td class="opt small muted">'+esc(o.type||'')+'</td><td class="num">'+(o.playTime?pint(o.playTime)+'m':'')+'</td><td class="opt small muted">'+esc(o.bestAt||'')+'</td><td class="opt small muted">'+esc(o.location||'')+'</td></tr>';});
+  if(!res.length)h+='<tr><td colspan="6" class="small muted">No owned games match these filters.</td></tr>';
+  h+='</tbody></table></div>';
+  app.innerHTML=h;
+  document.getElementById('pl_players').oninput=function(){plan.players=this.value;renderPlan();var e=document.getElementById('pl_players');e.focus();e.setSelectionRange(e.value.length,e.value.length);};
+  document.getElementById('pl_time').oninput=function(){plan.maxTime=this.value;renderPlan();var e=document.getElementById('pl_time');e.focus();e.setSelectionRange(e.value.length,e.value.length);};
+  document.getElementById('pl_loc').onchange=function(){plan.location=this.value;renderPlan();};
+  document.getElementById('pl_play').onchange=function(){plan.playable=this.checked;renderPlan();};
+}
+function statCard(label,val){return '<div class="card stat"><div class="stat-v">'+val+'</div><div class="stat-l">'+esc(label)+'</div></div>';}
+function groupSum(arr,key,vk){var m={};arr.forEach(function(o){var k=((o[key]==null?'':(''+o[key])).trim())||'?';m[k]=(m[k]||0)+(o[vk]||0);});return Object.keys(m).map(function(k){return [k,m[k]];}).sort(function(a,b){return b[1]-a[1];});}
+function groupCount(arr,key){var m={};arr.forEach(function(o){var k=((o[key]==null?'':(''+o[key])).trim())||'?';m[k]=(m[k]||0)+1;});return Object.keys(m).map(function(k){return [k,m[k]];}).sort(function(a,b){return b[1]-a[1];});}
+function tableCard(title,rows,money){var h='<div class="card"><h3>'+esc(title)+'</h3><div class="tbl-wrap" style="border:none;box-shadow:none;background:none"><table><tbody>';rows.forEach(function(r){h+='<tr><td>'+esc(r[0])+'</td><td class="num">'+(money?inr(r[1]):r[1])+'</td></tr>';});if(!rows.length)h+='<tr><td class="small muted">No data</td></tr>';h+='</tbody></table></div></div>';return h;}
+function renderSpend(){
+  var owned=ownedList();var sold=soldList();
+  var spentOwned=owned.reduce(function(s,o){return s+(o.amount||0);},0);
+  var soldCost=sold.reduce(function(s,o){return s+(o.amount||0);},0);
+  var proceeds=sold.reduce(function(s,o){return s+(o.saleAmount||0);},0);
+  var net=proceeds-soldCost;
+  var h='<div class="grid" style="margin-bottom:16px">'
+    +statCard('Total spent (owned)',inr(spentOwned))
+    +statCard('Games owned',owned.length)
+    +statCard('Avg / game',inr(owned.length?spentOwned/owned.length:0))
+    +statCard('Games sold',sold.length)
+    +statCard('Sale proceeds',inr(proceeds))
+    +statCard('Resale net',(net>=0?'+':'−')+inr(Math.abs(net)))
+    +'</div>';
+  h+='<div class="two-col">'
+    +tableCard('Spend by country',groupSum(owned,'country','amount'),true)
+    +tableCard('Spend by store',groupSum(owned,'store','amount'),true)
+    +tableCard('Spend by year',groupSum(owned.map(function(o){return {y:((o.date||'').slice(0,4)||'?'),amount:o.amount};}),'y','amount'),true)
+    +tableCard('Owned by type',groupCount(owned,'type'),false)
+    +tableCard('Owned by weight',groupCount(owned,'weightClass'),false)
+    +tableCard('Owned by location',groupCount(owned,'location'),false)
+    +'</div>';
+  app.innerHTML=h;
 }
 function renderSettings(){
   var s=STATE.sync||{};
@@ -318,7 +494,7 @@ function start(){
   STATE=loadState();
   var sb=document.getElementById('saveBtn');if(sb)sb.onclick=function(){pushState(true);};
   var rb=document.getElementById('runBtn');if(rb)rb.onclick=runWorkflow;
-  var navBtns=document.querySelectorAll('#nav button');for(var bb=0;bb<navBtns.length;bb++)navBtns[bb].onclick=function(){VIEW=this.getAttribute('data-v');render();};
+  /* nav is built dynamically by renderNav() */
   fetch('data.json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){DATA=d;boot();}).catch(function(){DATA={meta:{updated:'-',fx:{USD:85,GBP:117,CAD:59,AUD:55,NZD:50}},config:{buyWithin:.1,maybeWithin:.25,forexPct:.03,overheadPct:.1,delivery:0,bgiDefaultDiscount:.1},games:[]};boot();});
   function boot(){reconcileAdded();var s=STATE.sync||{};if(s.owner&&s.repo&&token()){enterApp();pullState(false);}else showGate('');}
 }

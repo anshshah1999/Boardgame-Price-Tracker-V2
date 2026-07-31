@@ -35,11 +35,21 @@ h1{font-size:15px;margin:0;font-weight:600;letter-spacing:.2px}
 .dot.ok{background:var(--pos)}.dot.warn{background:var(--maybe)}.dot.err{background:var(--neg)}
 .right{margin-left:auto;display:flex;align-items:center;gap:8px}
 
-/* ============ Nav — segmented control ============ */
-nav{display:flex;gap:4px;margin:12px auto 0;max-width:1200px;padding:4px;background:var(--panel);border:1px solid var(--line);border-radius:10px;width:max-content;transform:translateY(1px)}
-nav button{background:transparent;color:var(--muted);border:none;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:500;cursor:pointer;transition:background .15s,color .15s}
-nav button:hover{color:var(--text);background:var(--panel2)}
-nav button.active{background:var(--accent-weak);color:#aeb8ff;font-weight:600}
+/* ============ Nav — two-level segmented control ============ */
+nav{display:flex;flex-direction:column;gap:8px;margin:12px auto 0;max-width:1200px;width:max-content}
+.nav-top{display:flex;gap:4px;padding:4px;background:var(--panel);border:1px solid var(--line);border-radius:10px;width:max-content}
+.nav-sub{display:flex;gap:2px;width:max-content}
+.nav-top button,.nav-sub button{background:transparent;color:var(--muted);border:none;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:500;cursor:pointer;transition:background .15s,color .15s;white-space:nowrap}
+.nav-top button:hover,.nav-sub button:hover{color:var(--text);background:var(--panel2)}
+.nav-top button.active{background:var(--accent-weak);color:#aeb8ff;font-weight:600}
+.nav-sub button{padding:5px 12px;font-size:12.5px;border-radius:6px}
+.nav-sub button.active{color:var(--accent);background:var(--accent-weak);font-weight:600}
+
+/* stat cards + summary grid */
+.two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.card.stat{padding:16px 18px}
+.stat-v{font-size:22px;font-weight:600;letter-spacing:.2px}
+.stat-l{color:var(--muted);font-size:12px;margin-top:4px}
 
 /* ============ Layout ============ */
 main{padding:20px 20px 72px;max-width:1200px;margin:0 auto}
@@ -93,8 +103,9 @@ tbody td:first-child,thead th:first-child{font-weight:500}
 tr.tot td{border-top:1px solid var(--line);border-bottom:none;font-weight:600;background:var(--panel2);color:var(--text)}
 .muted-cell,td .small.muted{color:var(--muted)}
 
-/* frozen first column */
-.tbl-wrap table td:first-child,.tbl-wrap table th:first-child{position:sticky;left:0;z-index:2;background:var(--panel);box-shadow:1px 0 0 var(--line-soft)}
+/* frozen first column — capped width so long game names wrap to ~2 lines instead of eating horizontal space */
+.tbl-wrap table td:first-child,.tbl-wrap table th:first-child{position:sticky;left:0;z-index:2;background:var(--panel);box-shadow:1px 0 0 var(--line-soft);max-width:230px;white-space:normal;word-break:break-word;overflow-wrap:anywhere}
+.tbl-wrap table td:first-child .golink{white-space:nowrap}
 .tbl-wrap table thead th:first-child{z-index:3;background:var(--panel2)}
 .tbl-wrap table tbody tr.game:hover td:first-child{background:#1a2030}
 .tbl-wrap table tr.tot td:first-child{background:var(--panel2)}
@@ -131,6 +142,12 @@ a.golink:hover{color:var(--accent)}
 /* count / helper line above tables */
 main > .small.muted,.tbl-wrap + .small{color:var(--muted)}
 
+/* ============ Modal (Add game) ============ */
+.modal-ov{position:fixed;inset:0;background:rgba(6,8,14,.62);backdrop-filter:blur(3px);z-index:60;display:flex;align-items:flex-start;justify-content:center;padding:64px 16px;overflow:auto}
+.modal{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;width:100%;max-width:440px}
+.modal h3{margin:0 0 14px;font-size:15px;font-weight:600}
+.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
+
 /* ============ Mobile ============ */
 @media(max-width:640px){
   body{font-size:14px}
@@ -140,9 +157,10 @@ main > .small.muted,.tbl-wrap + .small{color:var(--muted)}
   .hrow .meta#updated{font-size:11px}
   .right button.ghost{padding:7px 10px;font-size:12px}
   /* nav: full-width horizontally scrollable segmented bar, no visible scrollbar */
-  nav{width:100%;overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-  nav::-webkit-scrollbar{display:none}
-  nav button{flex:0 0 auto;padding:7px 12px}
+  nav{width:100%}
+  .nav-top,.nav-sub{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .nav-top::-webkit-scrollbar,.nav-sub::-webkit-scrollbar{display:none}
+  .nav-top button,.nav-sub button{flex:0 0 auto}
   /* 16px form fields stop iOS from auto-zooming on focus */
   input,select,textarea{font-size:16px}
   .controls input,.controls select{flex:1 1 auto;min-width:0}
@@ -155,6 +173,8 @@ main > .small.muted,.tbl-wrap + .small{color:var(--muted)}
   .expand td{padding:8px 4px}
   .card{padding:14px}
   .grid{grid-template-columns:1fr 1fr}
+  .modal-ov{padding:40px 12px}.modal{padding:18px}
+  .tbl-wrap table td:first-child,.tbl-wrap table th:first-child{max-width:56vw}
 }
 @media(max-width:400px){
   .grid{grid-template-columns:1fr}
