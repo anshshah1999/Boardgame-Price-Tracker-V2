@@ -5,13 +5,14 @@ var LOCALEP={USA:'',UK:'/en-GB',Canada:'/en-CA',Australia:'/en-AU',NZ:'/en-NZ'};
 var CUR={USA:'USD',UK:'GBP',Canada:'CAD',Australia:'AUD',NZ:'NZD'};
 var DATA=null, STATE=null, VIEW='india', saveTimer=null;
 var flt={search:'',priceCap:'',lossCap:'',type:'All'};
-var ofl={search:'',type:'All',location:'All',playable:'All'};
-var plan={players:'',maxTime:'',location:'All',playable:true};
+var ofl={search:'',type:'All',location:'All',mech:'All'};
+var plan={players:'',maxTime:'',location:'All',type:'All',sort:'name'};
+var spendBreak='country';
 var country='USA';
 var sortState={india:{k:'verdictLoss',d:1},country:{k:'loss',d:1}};
 var lastFocus=null;
 
-function blankState(){return {overrides:{}, added:[], stores:[], removed:[], quickAdd:'', quickNotes:'', ownedEdits:{}, ownedAdded:[], ownedRemoved:[], soldAdded:[], sync:{owner:'',repo:'',branch:'main',path:'state.json'}};}
+function blankState(){return {overrides:{}, added:[], stores:[], removed:[], quickAdd:'', quickNotes:'', ownedEdits:{}, ownedAdded:[], ownedRemoved:[], soldAdded:[], session:[], sync:{owner:'',repo:'',branch:'main',path:'state.json'}};}
 function loadState(){try{return Object.assign(blankState(),JSON.parse(localStorage.getItem(LS_STATE)||'{}'));}catch(e){return blankState();}}
 function persistLocal(){localStorage.setItem(LS_STATE,JSON.stringify(STATE));}
 function token(){return localStorage.getItem(LS_TOKEN)||'';}
@@ -127,12 +128,23 @@ function editRow(tr,name){
   var o=ov(name);var r=computeIndia(gameByName(name));var row=document.createElement('tr');row.className='expand';
   row.innerHTML='<td colspan="7"><div class="grid">'
     +fld('India discount % (blank=auto)','ed_disc',o.discount!=null?o.discount*100:'','number','auto')
-    +'<div class="fld" style="grid-column:1/-1"><label>Notes</label><textarea id="ed_notes" rows="2">'+esc(o.notes||'')+'</textarea></div></div>'
-    +'<div class="small muted" style="margin-top:8px">India listed '+inr(r.listed)+' '+(r.avail?'· '+esc(r.avail):'')+' · net '+inr(r.net)+' | Best '+inr(r.bestINR)+' '+(r.bestC||'')+'</div>'
-    +'<div style="margin-top:8px"><button class="act" id="ed_save">Save</button> <button class="ghost" id="ed_clear">Clear</button></div></td>';
+    +'</div><div class="small muted" style="margin-top:8px">India listed '+inr(r.listed)+' '+(r.avail?'· '+esc(r.avail):'')+' · net '+inr(r.net)+' | Best '+inr(r.bestINR)+' '+(r.bestC||'')+'</div>'
+    +'<div style="margin-top:10px"><button class="act" id="ed_save">Save</button> <button class="ghost" id="ed_own">Bought — add to owned →</button> <button class="ghost" id="ed_clear" style="margin-left:6px">Clear</button></div></td>';
   if(tr.nextSibling)tr.parentNode.insertBefore(row,tr.nextSibling);else tr.parentNode.appendChild(row);
-  document.getElementById('ed_save').onclick=function(){var no=Object.assign({},o);var d=num(val('ed_disc'));no.discount=(d!=null?d/100:undefined);var nt=val('ed_notes');no.notes=nt||undefined;STATE.overrides[name]=clean(no);changed();render();};
+  document.getElementById('ed_save').onclick=function(){var no=Object.assign({},o);delete no.notes;var d=num(val('ed_disc'));no.discount=(d!=null?d/100:undefined);STATE.overrides[name]=clean(no);changed();render();};
+  document.getElementById('ed_own').onclick=function(){ownFromBuy(name);};
   document.getElementById('ed_clear').onclick=function(){delete STATE.overrides[name];changed();render();};
+}
+function ownFromBuy(name){var g=gameByName(name);if(!g)return;openOwnedModal({name:displayName(g),type:g.type||'',bgg:'',fromBuy:true,buyName:name});}
+function countryDetail(tr,name){
+  var wasOpen=tr.nextElementSibling&&tr.nextElementSibling.className.indexOf('expand')>=0;
+  var open=document.querySelectorAll('tr.expand');for(var q=0;q<open.length;q++)open[q].parentNode.removeChild(open[q]);
+  if(wasOpen)return;
+  var g=gameByName(name);if(!g)return;var cc=cheapestCountry(g);
+  var row=document.createElement('tr');row.className='expand';
+  row.innerHTML='<td colspan="10"><div class="small muted">'+esc(displayName(g))+' · cheapest '+inr(cc.inr)+' '+(cc.c||'')+'</div><div style="margin-top:8px"><button class="act" id="cd_own">Bought — add to owned →</button></div></td>';
+  if(tr.nextSibling)tr.parentNode.insertBefore(row,tr.nextSibling);else tr.parentNode.appendChild(row);
+  row.querySelector('#cd_own').onclick=function(){ownFromBuy(name);};
 }
 function clean(o){var r={};for(var k in o)if(o[k]!==undefined&&o[k]!=='')r[k]=o[k];return r;}
 function fld(label,id,value,type,ph){return '<div class="fld"><label>'+label+'</label><input type="'+(type||'text')+'" id="'+id+'" value="'+esc(value)+'" placeholder="'+esc(ph||'')+'"/></div>';}
@@ -144,12 +156,13 @@ function renderCountry(){
   var extra='<label class="chk">Country <select id="cc">'+COUNTRIES.map(function(c){return '<option '+(c===country?'selected':'')+'>'+c+'</option>';}).join('')+'</select></label>';
   var h=filterBar(extra)+'<div class="small muted" style="margin-bottom:6px">'+rows.length+' games available in '+country+'</div>';
   h+='<div class="tbl-wrap cardify"><table><thead>'+hdr('country',cols)+'</thead><tbody>';
-  rows.forEach(function(r){h+='<tr><td>'+esc(r.disp||r.name)+(r.bgoLink?' <a class="golink" href="'+esc(r.bgoLink)+'" target="_blank" rel="noopener" title="Open on Board Game Oracle">↗</a>':'')+'</td><td class="num" data-label="Price ('+CUR[country]+')">'+loc(r.local)+'</td><td class="num" data-label="Price (INR)">'+inr(r.priceINR)+oos(r.avail)+'</td><td data-label="Rank here">'+ordinal(r.rank)+'</td><td class="num opt" data-label="India (net)">'+inr(r.india)
+  rows.forEach(function(r){h+='<tr class="game" data-n="'+esc(r.name)+'"><td>'+esc(r.disp||r.name)+(r.bgoLink?' <a class="golink" href="'+esc(r.bgoLink)+'" target="_blank" rel="noopener" title="Open on Board Game Oracle" onclick="event.stopPropagation()">↗</a>':'')+'</td><td class="num" data-label="Price ('+CUR[country]+')">'+loc(r.local)+'</td><td class="num" data-label="Price (INR)">'+inr(r.priceINR)+oos(r.avail)+'</td><td data-label="Rank here">'+ordinal(r.rank)+'</td><td class="num opt" data-label="India (net)">'+inr(r.india)
     +'</td><td class="opt" data-label="Best">'+(r.bestC||'')+'</td><td class="num opt" data-label="Best (INR)">'+inr(r.bestINR)+'</td><td class="num" data-label="vs India">'+sgn(r.vsIndia,r.india,true)+'</td><td class="num" data-label="vs cheapest">'+sgn(r.loss!=null?r.loss*(r.bestINR||0):null,r.bestINR,false)+'</td><td data-label="Verdict"><span class="verdict '+vclass(r.verdict)+'">'+r.verdict+'</span></td></tr>';});
   h+='</tbody></table></div>';
   app.innerHTML=h;
   document.getElementById('cc').onchange=function(e){country=e.target.value;renderCountry();};
   wireFilters(renderCountry);wireHdr('country',renderCountry);
+  var gr=app.querySelectorAll('tr.game');for(var i=0;i<gr.length;i++){gr[i].tabIndex=0;gr[i].setAttribute('role','button');gr[i].onclick=function(){countryDetail(this,this.getAttribute('data-n'));};gr[i].onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();countryDetail(this,this.getAttribute('data-n'));}};}
 }
 
 function storeCalc(store){
@@ -296,6 +309,9 @@ function distinct(arr,key){var s={};arr.forEach(function(o){var v=(o[key]==null?
 function wcut(k,d){var v=(STATE.config&&k in STATE.config)?STATE.config[k]:(DATA.config?DATA.config[k]:undefined);return (v==null||!isFinite(v))?d:v;}
 function weightClass(w){if(w==null||!isFinite(w))return '';var a=wcut('wLight',1.5),b=wcut('wLightMed',2.0),c=wcut('wMed',2.75),e=wcut('wMedHeavy',3.5);return w<a?'Light':w<b?'Light - Medium':w<c?'Medium':w<e?'Medium - Heavy':'Heavy';}
 function mechStr(o){return (o.mechs||[]).join(', ');}
+function distinctMechs(arr){var s={};arr.forEach(function(o){(o.mechs||[]).forEach(function(m){if(m)s[m]=1;});});return Object.keys(s).sort();}
+function chipHue(s){var h=0;s=(s||'').toLowerCase();for(var i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))%360;return h;}
+function mechChips(o){return (o.mechs||[]).map(function(x){return '<span class="chip" style="--h:'+chipHue(x)+'">'+esc(x)+'</span>';}).join('');}
 function ownedBase(){return (COLLECTION.owned||[]).concat(STATE.ownedAdded||[]);}
 function oedit(id){return (STATE.ownedEdits||{})[id]||{};}
 function setOEdit(id,obj){STATE.ownedEdits=STATE.ownedEdits||{};STATE.ownedEdits[id]=Object.assign({},STATE.ownedEdits[id]||{},obj);changed();}
@@ -315,25 +331,28 @@ function soldList(){
 function renderOwned(){
   if(needCollection())return;
   var all=ownedBase();
-  var types=['All'].concat(distinct(all,'type'));var locs=['All'].concat(distinct(all,'location'));
+  var types=['All'].concat(distinct(all,'type'));var locs=['All'].concat(distinct(all,'location'));var mechs=['All'].concat(distinctMechs(all));
   var rows=ownedList().filter(function(o){
     if(ofl.search&&norm(o.name).indexOf(norm(ofl.search))<0)return false;
     if(ofl.type!=='All'&&(o.type||'')!==ofl.type)return false;
     if(ofl.location!=='All'&&(o.location||'')!==ofl.location)return false;
+    if(ofl.mech!=='All'&&(o.mechs||[]).indexOf(ofl.mech)<0)return false;
     return true;
   }).sort(function(a,b){return nkey(a.name)<nkey(b.name)?-1:1;});
   var h='<div class="controls"><input type="search" id="oq" placeholder="Search…" value="'+esc(ofl.search)+'"/>'
-    +'<select id="oty">'+types.map(function(t){return '<option '+(ofl.type===t?'selected':'')+'>'+esc(t)+'</option>';}).join('')+'</select>'
-    +'<select id="oloc">'+locs.map(function(t){return '<option '+(ofl.location===t?'selected':'')+'>'+esc(t)+'</option>';}).join('')+'</select>'
+    +'<select id="oty">'+types.map(function(t){return '<option '+(ofl.type===t?'selected':'')+'>'+(t==='All'?'Type: all':esc(t))+'</option>';}).join('')+'</select>'
+    +'<select id="oloc">'+locs.map(function(t){return '<option '+(ofl.location===t?'selected':'')+'>'+(t==='All'?'Location: all':esc(t))+'</option>';}).join('')+'</select>'
+    +'<select id="omech">'+mechs.map(function(t){return '<option '+(ofl.mech===t?'selected':'')+'>'+(t==='All'?'Mechanism: all':esc(t))+'</option>';}).join('')+'</select>'
     +'<button class="act" id="oadd" style="margin-left:auto">+ Add owned</button></div>';
   h+='<div class="small muted" style="margin:4px 2px">'+rows.length+' games · tap a row to edit</div>';
-  h+='<div class="tbl-wrap cardify"><table><thead><tr><th>Game</th><th>Players</th><th>Best at</th><th class="opt">Type</th><th class="opt">Mechanisms</th><th class="opt">Wt</th><th class="num opt">Time</th><th class="opt">Location</th><th class="num">Paid</th><th class="opt">Store</th></tr></thead><tbody>';
-  rows.forEach(function(o){h+='<tr class="game" data-id="'+esc(o.id)+'"><td>'+esc(o.name)+'</td><td data-label="Players">'+pint(o.minP)+'–'+pint(o.maxP)+'</td><td class="small muted" data-label="Best at">'+esc(o.bestAt||'')+'</td><td class="opt small muted" data-label="Type">'+esc(o.type||'')+'</td><td class="opt small muted" data-label="Mechanisms">'+esc(mechStr(o))+'</td><td class="opt small muted" data-label="Weight">'+esc(weightClass(o.weight))+'</td><td class="num opt" data-label="Time">'+(o.playTime?pint(o.playTime)+'m':'')+'</td><td class="opt small muted" data-label="Location">'+esc(o.location||'')+'</td><td class="num" data-label="Paid">'+fmtINR(o.amount)+'</td><td class="opt small muted" data-label="Store">'+esc(o.store||'')+'</td></tr>';});
+  h+='<div class="tbl-wrap cardify"><table><thead><tr><th>Game</th><th>Players</th><th>Best at</th><th class="opt">Type</th><th>Mechanisms</th><th class="opt">Wt</th><th class="num opt">Time</th><th class="opt">Location</th><th class="num">Paid</th><th class="opt">Store</th></tr></thead><tbody>';
+  rows.forEach(function(o){h+='<tr class="game" data-id="'+esc(o.id)+'"><td>'+esc(o.name)+'</td><td data-label="Players">'+pint(o.minP)+'–'+pint(o.maxP)+'</td><td class="small muted" data-label="Best at">'+esc(o.bestAt||'')+'</td><td class="opt small muted" data-label="Type">'+esc(o.type||'')+'</td><td class="chips" data-label="Mechanisms">'+mechChips(o)+'</td><td class="opt small muted" data-label="Weight">'+esc(weightClass(o.weight))+'</td><td class="num opt" data-label="Time">'+(o.playTime?pint(o.playTime)+'m':'')+'</td><td class="opt small muted" data-label="Location">'+esc(o.location||'')+'</td><td class="num" data-label="Paid">'+fmtINR(o.amount)+'</td><td class="opt small muted" data-label="Store">'+esc(o.store||'')+'</td></tr>';});
   h+='</tbody></table></div>';
   app.innerHTML=h;
   var oq=document.getElementById('oq');oq.oninput=function(){ofl.search=this.value;renderOwned();var e=document.getElementById('oq');if(e){e.focus();e.setSelectionRange(e.value.length,e.value.length);}};
   document.getElementById('oty').onchange=function(){ofl.type=this.value;renderOwned();};
   document.getElementById('oloc').onchange=function(){ofl.location=this.value;renderOwned();};
+  document.getElementById('omech').onchange=function(){ofl.mech=this.value;renderOwned();};
   document.getElementById('oadd').onclick=openOwnedModal;
   var gr=app.querySelectorAll('tr.game');for(var i=0;i<gr.length;i++){gr[i].tabIndex=0;gr[i].setAttribute('role','button');gr[i].onclick=function(){ownedDetail(this,this.getAttribute('data-id'));};gr[i].onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();ownedDetail(this,this.getAttribute('data-id'));}};}
 }
@@ -406,31 +425,60 @@ function parseCounts(s){var out=[];(s==null?'':(''+s)).replace(/\d+/g,function(m
 function isBestAt(o,n){return parseCounts(o.bestAt).indexOf(n)>=0;}
 function isPlayableAt(o,n){return o.minP!=null&&o.maxP!=null&&n>=o.minP&&n<=o.maxP;}
 function byName(a,b){return nkey(a.name)<nkey(b.name)?-1:1;}
-function planTable(title,rows,star){
+function selField(id,label,opts,cur){return '<div class="fld"><label>'+label+'</label><select id="'+id+'">'+opts.map(function(t){return '<option value="'+esc(t)+'"'+(cur===t?' selected':'')+'>'+(t==='All'?label+': all':esc(t))+'</option>';}).join('')+'</select></div>';}
+function sessionGames(){return (STATE.session||[]).map(function(id){return ownedById(id);}).filter(Boolean);}
+function addToSession(id){STATE.session=STATE.session||[];if(STATE.session.indexOf(id)<0){STATE.session.push(id);changed();}renderPlan();}
+function rmSession(id){STATE.session=(STATE.session||[]).filter(function(x){return x!==id;});changed();renderPlan();}
+function planSort(a){a.sort(function(x,y){if(plan.sort==='timeA')return (x.playTime||0)-(y.playTime||0);if(plan.sort==='timeD')return (y.playTime||0)-(x.playTime||0);return nkey(x.name)<nkey(y.name)?-1:1;});return a;}
+function planTable(title,rows){
+  var inS=(STATE.session||[]);
   var h='<div class="small muted" style="margin:14px 2px 4px;font-weight:600;color:var(--text)">'+title+' <span class="muted" style="font-weight:400">· '+rows.length+'</span></div>';
-  h+='<div class="tbl-wrap cardify"><table><thead><tr><th>Game</th><th>Players</th><th>Best at</th><th class="opt">Type</th><th class="num">Time</th><th class="opt">Location</th></tr></thead><tbody>';
-  rows.forEach(function(o){h+='<tr><td>'+esc(o.name)+'</td><td data-label="Players">'+pint(o.minP)+'–'+pint(o.maxP)+'</td><td class="small muted" data-label="Best at">'+esc(o.bestAt||'')+'</td><td class="opt small muted" data-label="Type">'+esc(o.type||'')+'</td><td class="num" data-label="Time">'+(o.playTime?pint(o.playTime)+'m':'')+'</td><td class="opt small muted" data-label="Location">'+esc(o.location||'')+'</td></tr>';});
-  if(!rows.length)h+='<tr><td colspan="6" class="small muted">None.</td></tr>';
+  h+='<div class="tbl-wrap cardify"><table><thead><tr><th>Game</th><th>Players</th><th>Best at</th><th class="opt">Type</th><th class="num">Time</th><th class="opt">Location</th><th></th></tr></thead><tbody>';
+  rows.forEach(function(o){var added=inS.indexOf(o.id)>=0;h+='<tr><td>'+esc(o.name)+'</td><td data-label="Players">'+pint(o.minP)+'–'+pint(o.maxP)+'</td><td class="small muted" data-label="Best at">'+esc(o.bestAt||'')+'</td><td class="opt small muted" data-label="Type">'+esc(o.type||'')+'</td><td class="num" data-label="Time">'+(o.playTime?pint(o.playTime)+'m':'')+'</td><td class="opt small muted" data-label="Location">'+esc(o.location||'')+'</td><td data-label=""><button class="ghost mini" data-add="'+esc(o.id)+'"'+(added?' disabled':'')+'>'+(added?'✓ in session':'+ session')+'</button></td></tr>';});
+  if(!rows.length)h+='<tr><td colspan="7" class="small muted">None.</td></tr>';
   h+='</tbody></table></div>';return h;
 }
 function wirePlan(){
-  var p=document.getElementById('pl_players');if(p)p.oninput=function(){plan.players=this.value;renderPlan();var e=document.getElementById('pl_players');e.focus();e.setSelectionRange(e.value.length,e.value.length);};
-  var t=document.getElementById('pl_time');if(t)t.oninput=function(){plan.maxTime=this.value;renderPlan();var e=document.getElementById('pl_time');e.focus();e.setSelectionRange(e.value.length,e.value.length);};
-  var l=document.getElementById('pl_loc');if(l)l.onchange=function(){plan.location=this.value;renderPlan();};
+  function bind(id,ev,fn){var e=document.getElementById(id);if(e)e[ev]=fn;}
+  var pi=document.getElementById('pl_players');if(pi)pi.oninput=function(){plan.players=this.value;renderPlan();var e=document.getElementById('pl_players');e.focus();e.setSelectionRange(e.value.length,e.value.length);};
+  var ti=document.getElementById('pl_time');if(ti)ti.oninput=function(){plan.maxTime=this.value;renderPlan();var e=document.getElementById('pl_time');e.focus();e.setSelectionRange(e.value.length,e.value.length);};
+  bind('pl_loc','onchange',function(){plan.location=this.value;renderPlan();});
+  bind('pl_type','onchange',function(){plan.type=this.value;renderPlan();});
+  bind('pl_sort','onchange',function(){plan.sort=this.value;renderPlan();});
+  bind('pl_clear','onclick',function(){if(confirm('Clear the session?')){STATE.session=[];changed();renderPlan();}});
+  var ab=app.querySelectorAll('[data-add]');for(var i=0;i<ab.length;i++)ab[i].onclick=function(){addToSession(this.getAttribute('data-add'));};
+  var rb=app.querySelectorAll('[data-rm]');for(var k=0;k<rb.length;k++)rb[k].onclick=function(){rmSession(this.getAttribute('data-rm'));};
 }
 function renderPlan(){
   if(needCollection())return;
-  var list=ownedList();var locs=['All'].concat(distinct(list,'location'));
-  var h='<div class="card"><h3>Plan &amp; select <span class="small muted">— what to play for a group</span></h3><div class="grid">'
+  var list=ownedList();var locs=['All'].concat(distinct(list,'location'));var types=['All'].concat(distinct(list,'type'));
+  var h='<div class="card"><h3>Plan &amp; select <span class="small muted">— build a game-night shortlist</span></h3><div class="grid">'
     +fld('Players','pl_players',plan.players,'number','e.g. 4')+fld('Max play time (min)','pl_time',plan.maxTime,'number','any')
-    +'<div class="fld"><label>Location</label><select id="pl_loc">'+locs.map(function(t){return '<option value="'+esc(t)+'"'+(plan.location===t?' selected':'')+'>'+esc(t)+'</option>';}).join('')+'</select></div></div></div>';
+    +selField('pl_loc','Location',locs,plan.location)+selField('pl_type','Type',types,plan.type)
+    +'<div class="fld"><label>Sort</label><select id="pl_sort"><option value="name"'+(plan.sort==='name'?' selected':'')+'>Name</option><option value="timeA"'+(plan.sort==='timeA'?' selected':'')+'>Time ↑</option><option value="timeD"'+(plan.sort==='timeD'?' selected':'')+'>Time ↓</option></select></div>'
+    +'</div></div>';
+  var sg=sessionGames();
+  if(sg.length){
+    var tt=sg.reduce(function(a,o){return a+(o.playTime||0);},0);
+    var lo=Math.max.apply(null,sg.map(function(o){return o.minP||1;}));var hi=Math.min.apply(null,sg.map(function(o){return o.maxP||99;}));
+    h+='<div class="card"><h3 style="display:flex;align-items:center;gap:10px">Session <span class="small muted" style="font-weight:400">'+sg.length+' games'+(tt?' · ~'+tt+' min':'')+(lo<=hi?' · fits '+lo+'–'+hi+' players':'')+'</span><button class="ghost" id="pl_clear" style="margin-left:auto">Clear</button></h3>'
+      +'<div class="chips-wrap">'+sg.map(function(o){return '<span class="chip sess" style="--h:'+chipHue(o.type||o.name)+'">'+esc(o.name)+(o.playTime?' · '+pint(o.playTime)+'m':'')+'<button data-rm="'+esc(o.id)+'" class="x" title="remove">×</button></span>';}).join('')+'</div></div>';
+  }
+  function pass(o){
+    var mt=num(plan.maxTime);if(mt!=null&&o.playTime!=null&&o.playTime>mt)return false;
+    if(plan.location!=='All'&&(o.location||'')!==plan.location)return false;
+    if(plan.type!=='All'&&(o.type||'')!==plan.type)return false;
+    return true;
+  }
   var n=num(plan.players);
-  if(n==null){h+='<div class="small muted" style="margin:8px 2px">Enter a player count to see the best games and everything else playable at that count.</div>';app.innerHTML=h;wirePlan();return;}
-  function extra(o){var mt=num(plan.maxTime);if(mt!=null&&o.playTime!=null&&o.playTime>mt)return false;if(plan.location!=='All'&&(o.location||'')!==plan.location)return false;return true;}
-  var best=list.filter(function(o){return isBestAt(o,n)&&extra(o);}).sort(byName);
-  var play=list.filter(function(o){return isPlayableAt(o,n)&&!isBestAt(o,n)&&extra(o);}).sort(byName);
-  h+=planTable('★ Best at '+n+' players',best);
-  h+=planTable('Also playable at '+n+' players',play);
+  if(n==null){
+    h+=planTable('All owned games',planSort(list.filter(pass)));
+  } else {
+    var best=planSort(list.filter(function(o){return isBestAt(o,n)&&pass(o);}));
+    var play=planSort(list.filter(function(o){return isPlayableAt(o,n)&&!isBestAt(o,n)&&pass(o);}));
+    h+=planTable('★ Best at '+n+' players',best);
+    h+=planTable('Also playable at '+n+' players',play);
+  }
   app.innerHTML=h;wirePlan();
 }
 function renderSold(){
@@ -463,15 +511,21 @@ function renderSpend(){
     +statCard('Sale proceeds',inr(proceeds))
     +statCard('Resale net',(net>=0?'+':'−')+inr(Math.abs(net)))
     +'</div>';
-  h+='<div class="two-col">'
-    +tableCard('Spend by country',groupSum(owned,'country','amount'),true)
-    +tableCard('Spend by store',groupSum(owned,'store','amount'),true)
-    +tableCard('Spend by year',groupSum(owned.map(function(o){return {y:((o.date||'').slice(0,4)||'?'),amount:o.amount};}),'y','amount'),true)
-    +tableCard('Owned by type',groupCount(owned,'type'),false)
-    +tableCard('Owned by weight',groupCount(owned.map(function(o){return {wc:weightClass(o.weight)||'?'};}),'wc'),false)
-    +tableCard('Owned by location',groupCount(owned,'location'),false)
-    +'</div>';
+  var breaks={
+    country:['₹ Spend by country',groupSum(owned,'country','amount'),true],
+    store:['₹ Spend by store',groupSum(owned,'store','amount'),true],
+    year:['₹ Spend by year',groupSum(owned.map(function(o){return {y:((o.date||'').slice(0,4)||'?'),amount:o.amount};}),'y','amount'),true],
+    type:['# Owned by type',groupCount(owned,'type'),false],
+    weight:['# Owned by weight',groupCount(owned.map(function(o){return {wc:weightClass(o.weight)||'?'};}),'wc'),false],
+    location:['# Owned by location',groupCount(owned,'location'),false]
+  };
+  if(!breaks[spendBreak])spendBreak='country';
+  var opts=[['country','Spend by country'],['store','Spend by store'],['year','Spend by year'],['type','Owned by type'],['weight','Owned by weight'],['location','Owned by location']];
+  var b=breaks[spendBreak];
+  h+='<div class="card"><h3 style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">Breakdown <select id="sp_break" style="margin-left:auto;width:auto">'+opts.map(function(o){return '<option value="'+o[0]+'"'+(spendBreak===o[0]?' selected':'')+'>'+o[1]+'</option>';}).join('')+'</select></h3>';
+  h+='<div class="tbl-wrap" style="border:none;box-shadow:none;background:none"><table><tbody>'+b[1].map(function(r){return '<tr><td>'+esc(r[0])+'</td><td class="num">'+(b[2]?inr(r[1]):r[1])+'</td></tr>';}).join('')+'</tbody></table></div></div>';
   app.innerHTML=h;
+  document.getElementById('sp_break').onchange=function(){spendBreak=this.value;renderSpend();};
 }
 function renderSettings(){
   var s=STATE.sync||{};
