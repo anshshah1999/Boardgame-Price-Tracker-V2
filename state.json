@@ -772,9 +772,6 @@
  "ownedAdded": [],
  "ownedRemoved": [],
  "soldAdded": [],
- "session": [
-  "o2",
-  "o56"
- ],
+ "session": [],
  "config": {}
 }
