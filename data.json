@@ -1,12 +1,12 @@
 {
  "meta": {
-  "updated": "2026-08-04",
+  "updated": "2026-08-05",
   "fx": {
-   "USD": 95.33,
-   "GBP": 128.37,
-   "CAD": 67.98,
-   "AUD": 66.8,
-   "NZD": 55.99
+   "USD": 95.42,
+   "GBP": 128.21,
+   "CAD": 67.84,
+   "AUD": 67.07,
+   "NZD": 56.12
   }
  },
  "config": {
@@ -181,7 +181,7 @@
    },
    "stock": {
     "USA": "In stock",
-    "UK": "In stock",
+    "UK": "Out of stock",
     "Canada": "In stock",
     "Australia": "In stock",
     "NZ": "In stock"
@@ -240,7 +240,7 @@
     "UK": 37.55,
     "Canada": 55.21,
     "Australia": 70,
-    "NZ": 95.51426624999999
+    "NZ": 95.37731190000001
    },
    "stock": {
     "USA": "In stock",
@@ -408,7 +408,7 @@
     "UK": null,
     "Canada": 30.56,
     "Australia": 42.95,
-    "NZ": 51.311291250000004
+    "NZ": 47.67
    },
    "stock": {
     "USA": "In stock",
@@ -517,7 +517,7 @@
     "UK": 20.49,
     "Canada": 27.95,
     "Australia": 39.95,
-    "NZ": 47.72726625
+    "NZ": 47.65883190000001
    },
    "stock": {
     "USA": "In stock",
@@ -636,7 +636,7 @@
     "UK": 51.99,
     "Canada": 69.94,
     "Australia": 88.95,
-    "NZ": 106.26634125
+    "NZ": 98.73
    },
    "stock": {
     "USA": "In stock",
@@ -722,7 +722,7 @@
     "UK": 34.99,
     "Canada": 55.95,
     "Australia": 77.95,
-    "NZ": 93.12491625
+    "NZ": 92.9913879
    },
    "stock": {
     "USA": "In stock",
@@ -825,7 +825,7 @@
     "UK": 27.19,
     "Canada": 35.66,
     "Australia": 42.54,
-    "NZ": 75.20479125
+    "NZ": 75.0969579
    },
    "stock": {
     "USA": "In stock",
@@ -942,10 +942,10 @@
    "status": "Not Started",
    "prices": {
     "USA": 6.99,
-    "UK": 4.39,
+    "UK": 4.49,
     "Canada": 8.49,
     "Australia": 10.45,
-    "NZ": 14.276366249999999
+    "NZ": 14.2558959
    },
    "stock": {
     "USA": "In stock",
@@ -968,7 +968,7 @@
     "UK": 15.39,
     "Canada": 23.95,
     "Australia": 28.99,
-    "NZ": 38.16986625
+    "NZ": 38.1151359
    },
    "stock": {
     "USA": "In stock",
@@ -1014,7 +1014,7 @@
     "UK": 19.16,
     "Canada": 26.94,
     "Australia": 36.95,
-    "NZ": 57.88200375
+    "NZ": 57.799008900000004
    },
    "stock": {
     "USA": "In stock",
@@ -1059,7 +1059,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 32.33,
-    "UK": 36.09,
+    "UK": 39.99,
     "Canada": 42.46,
     "Australia": 62.95,
     "NZ": 89.95
@@ -1102,7 +1102,7 @@
     "UK": null,
     "Canada": 34.99,
     "Australia": 35.95,
-    "NZ": 42.94856625
+    "NZ": 42.886983900000004
    },
    "stock": {
     "USA": "In stock",
@@ -1161,7 +1161,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 31.1,
+    "USA": 31.99,
     "UK": 27.9,
     "Canada": 32.26,
     "Australia": 49.95,
@@ -1210,7 +1210,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 26.89,
-    "UK": 23.13,
+    "UK": 24.99,
     "Canada": 32.26,
     "Australia": 32.5,
     "NZ": 49.95
@@ -1250,7 +1250,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 30.39,
-    "UK": 21.51,
+    "UK": 22.86,
     "Canada": 30.56,
     "Australia": 39.92,
     "NZ": 39.93
@@ -1538,7 +1538,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 29.96,
-    "UK": 27.07,
+    "UK": 29.99,
     "Canada": 46.95,
     "Australia": 63.97,
     "NZ": 78.78881625
@@ -1875,7 +1875,7 @@
     "UK": 15.52,
     "Canada": 32.99,
     "Australia": 43.99,
-    "NZ": 53.70064125
+    "NZ": 53.62364190000001
    },
    "stock": {
     "USA": "In stock",
@@ -2035,7 +2035,7 @@
     "UK": 9.99,
     "Canada": 32.95,
     "Australia": 42.5,
-    "NZ": 51.311291250000004
+    "NZ": 51.23771790000001
    },
    "stock": {
     "USA": "In stock",
@@ -2075,7 +2075,7 @@
     "UK": 39.9,
     "Canada": 42.46,
     "Australia": 79.95,
-    "NZ": 103.87699125
+    "NZ": 103.72804590000001
    },
    "stock": {
     "USA": "In stock",
@@ -2084,24 +2084,7 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": [
-    {
-     "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/moon-colony-bloodbath",
-     "price": 5500,
-     "stock": "Pre-order",
-     "discounted": false,
-     "verified": true
-    }
-   ],
-   "india": {
-    "price": 5500,
-    "source": "Board Games India",
-    "url": "https://www.boardgamesindia.com/moon-colony-bloodbath",
-    "stock": "Pre-order",
-    "discount": 0.1,
-    "verified": true
-   }
+   "indiaSources": []
   },
   {
    "name": "Moonrollers",
@@ -2224,7 +2207,7 @@
     "UK": 34.99,
     "Canada": 54.99,
     "Australia": 68.5,
-    "NZ": 90.73556625
+    "NZ": 90.6054639
    },
    "stock": {
     "USA": "In stock",
@@ -2287,7 +2270,7 @@
     "UK": 35.95,
     "Canada": 46.95,
     "Australia": 81.95,
-    "NZ": 97.90361625
+    "NZ": 97.76323590000001
    },
    "stock": {
     "USA": "In stock",
@@ -2430,7 +2413,7 @@
     "UK": 12.99,
     "Canada": 17.95,
     "Australia": 23.99,
-    "NZ": 31.180870104545445
+    "NZ": 24.95
    },
    "stock": {
     "USA": "In stock",
@@ -2476,7 +2459,7 @@
     "UK": 28.99,
     "Canada": 45.94,
     "Australia": 50,
-    "NZ": 83.56751625
+    "NZ": 83.44769190000001
    },
    "stock": {
     "USA": "In stock",
@@ -2556,7 +2539,7 @@
     "UK": 99,
     "Canada": 47.95,
     "Australia": 76.95,
-    "NZ": 91.93024125
+    "NZ": 91.79842590000001
    },
    "stock": {
     "USA": "In stock",
@@ -2699,7 +2682,7 @@
     "UK": 31.99,
     "Canada": 29.95,
     "Australia": 54.95,
-    "NZ": 65.64739125
+    "NZ": 65.55326190000001
    },
    "stock": {
     "USA": "In stock",
@@ -2859,7 +2842,7 @@
     "UK": 9.2,
     "Canada": 14.95,
     "Australia": 17.01,
-    "NZ": 28.612466249999997
+    "NZ": 28.5714399
    },
    "stock": {
     "USA": "In stock",
@@ -2899,7 +2882,7 @@
     "UK": 8.01,
     "Canada": 11.99,
     "Australia": 15.49,
-    "NZ": 22.041753749999998
+    "NZ": 22.0101489
    },
    "stock": {
     "USA": "In stock",
@@ -3178,7 +3161,7 @@
     "UK": 59.49,
     "Canada": 74.99,
     "Australia": 83,
-    "NZ": 142.33357949999998
+    "NZ": 142.12949267999997
    },
    "stock": {
     "USA": "In stock",
@@ -3301,14 +3284,14 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 16.99,
+    "USA": 52.99,
     "UK": null,
     "Canada": 28.95,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": "Out of stock",
+    "USA": "In stock",
     "UK": "",
     "Canada": "In stock",
     "Australia": "",
@@ -3505,7 +3488,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 27.95,
-    "UK": 18.09,
+    "UK": 20.1,
     "Canada": 19.95,
     "Australia": 38,
     "NZ": 56.08999125
@@ -3623,7 +3606,7 @@
     "UK": 9.99,
     "Canada": 15.95,
     "Australia": 23.99,
-    "NZ": 31.224460227272722
+    "NZ": 25
    },
    "stock": {
     "USA": "In stock",
@@ -3692,7 +3675,7 @@
     "UK": 14.99,
     "Canada": 25.95,
     "Australia": 33.95,
-    "NZ": 42.42052808636364
+    "NZ": 33.95
    },
    "stock": {
     "USA": "In stock",
@@ -3761,7 +3744,7 @@
     "UK": 47,
     "Canada": 69.95,
     "Australia": 80,
-    "NZ": 112.23971625
+    "NZ": 112.07877990000001
    },
    "stock": {
     "USA": "In stock",
@@ -3905,7 +3888,7 @@
     "UK": 26.9,
     "Canada": 36.51,
     "Australia": 49,
-    "NZ": 65.64739125
+    "NZ": 65.55326190000001
    },
    "stock": {
     "USA": "In stock",
@@ -4076,7 +4059,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 44.99,
-    "UK": 35.1,
+    "UK": 39,
     "Canada": 49.94,
     "Australia": 69,
     "NZ": 76.95
@@ -4270,7 +4253,7 @@
     "UK": 12.45,
     "Canada": 19.95,
     "Australia": 14.5,
-    "NZ": 31.162011306818176
+    "NZ": 31.11732925909091
    },
    "stock": {
     "USA": "In stock",
@@ -4390,7 +4373,7 @@
     "UK": 14.99,
     "Canada": 18.95,
     "Australia": 25.95,
-    "NZ": 35.78051625
+    "NZ": 35.7292119
    },
    "stock": {
     "USA": "In stock",
@@ -4491,7 +4474,7 @@
    "prices": {
     "USA": 16.97,
     "UK": 19.99,
-    "Canada": 24.99,
+    "Canada": 29.99,
     "Australia": 35.99,
     "NZ": 49.62
    },
