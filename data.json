@@ -1,12 +1,12 @@
 {
  "meta": {
-  "updated": "2026-08-07",
+  "updated": "2026-08-08",
   "fx": {
    "USD": 95.24,
-   "GBP": 128.21,
-   "CAD": 68.03,
-   "AUD": 67.07,
-   "NZD": 56.02
+   "GBP": 128.04,
+   "CAD": 67.98,
+   "AUD": 67.02,
+   "NZD": 55.9
   }
  },
  "config": {
@@ -174,14 +174,14 @@
    "status": "Not Started",
    "prices": {
     "USA": 14.44,
-    "UK": 19.34,
+    "UK": 19.37,
     "Canada": 20.95,
     "Australia": 26.95,
     "NZ": 44.99
    },
    "stock": {
     "USA": "In stock",
-    "UK": "Out of stock",
+    "UK": "In stock",
     "Canada": "In stock",
     "Australia": "In stock",
     "NZ": "In stock"
@@ -237,7 +237,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 46.97,
-    "UK": 37.98,
+    "UK": 36.4,
     "Canada": 55.21,
     "Australia": 70,
     "NZ": 79.95
@@ -565,7 +565,7 @@
     "UK": 29.09,
     "Canada": 33.96,
     "Australia": 48.45,
-    "NZ": 65.76
+    "NZ": 69.95
    },
    "stock": {
     "USA": "In stock",
@@ -696,7 +696,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 31.97,
-    "UK": 35,
+    "UK": 29.99,
     "Canada": 45.95,
     "Australia": 76.13,
     "NZ": null
@@ -1024,11 +1024,11 @@
     "NZ": "In stock"
    },
    "india": {
-    "price": 3000,
-    "source": "Board Games India",
-    "url": "https://www.boardgamesindia.com/forest-shuffle",
-    "stock": "In stock",
-    "discount": 0.1,
+    "price": 2899,
+    "source": "Boardway",
+    "url": "https://boardway.in/products/forest-shuffle",
+    "stock": "Out of stock",
+    "discount": 0,
     "verified": true
    },
    "indiaSources": [
@@ -1036,7 +1036,7 @@
      "site": "Board Games India",
      "url": "https://www.boardgamesindia.com/forest-shuffle",
      "price": 3000,
-     "stock": "In stock",
+     "stock": "Out of stock",
      "discounted": false,
      "verified": true
     },
@@ -1162,9 +1162,9 @@
    "status": "Not Started",
    "prices": {
     "USA": 31.41,
-    "UK": 27.9,
+    "UK": 27.3,
     "Canada": 32.26,
-    "Australia": 49.95,
+    "Australia": 44.75,
     "NZ": 56
    },
    "stock": {
@@ -1292,7 +1292,7 @@
     "USA": 19.47,
     "UK": 13.99,
     "Canada": 32.95,
-    "Australia": 24.97,
+    "Australia": 29.99,
     "NZ": null
    },
    "stock": {
@@ -1872,7 +1872,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 22.47,
-    "UK": 15.52,
+    "UK": 15.56,
     "Canada": 32.99,
     "Australia": 43.99,
     "NZ": 53.799081750000006
@@ -2324,7 +2324,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 57.98,
-    "UK": 55.23,
+    "UK": 55.22,
     "Canada": 79.95,
     "Australia": 92.65,
     "NZ": 128.65
@@ -2937,7 +2937,7 @@
    "prices": {
     "USA": 22.39,
     "UK": 16.99,
-    "Canada": 26.95,
+    "Canada": 26.39,
     "Australia": 36.99,
     "NZ": 38.99
    },
@@ -3153,7 +3153,7 @@
    "prices": {
     "USA": 19.99,
     "UK": null,
-    "Canada": 25.56,
+    "Canada": 25.47,
     "Australia": null,
     "NZ": null
    },
@@ -3301,14 +3301,14 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 52.99,
+    "USA": 16.99,
     "UK": null,
     "Canada": 28.95,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": "In stock",
+    "USA": "Out of stock",
     "UK": "",
     "Canada": "In stock",
     "Australia": "",
@@ -3531,7 +3531,7 @@
     "UK": 49.5,
     "Canada": 59.95,
     "Australia": 94.97,
-    "NZ": 104.95
+    "NZ": 80.22
    },
    "stock": {
     "USA": "In stock",
@@ -3668,7 +3668,7 @@
     "USA": 12.63,
     "UK": 11.99,
     "Canada": 19.95,
-    "Australia": 27.84,
+    "Australia": 28.82,
     "NZ": 28.82
    },
    "stock": {
@@ -3905,7 +3905,7 @@
     "UK": 26.9,
     "Canada": 36.51,
     "Australia": 49,
-    "NZ": 65.76773175000001
+    "NZ": 54.95
    },
    "stock": {
     "USA": "In stock",
@@ -4005,7 +4005,7 @@
     "USA": "In stock",
     "UK": "In stock",
     "Canada": "In stock",
-    "Australia": "Out of stock",
+    "Australia": "In stock",
     "NZ": ""
    },
    "indiaSources": [
