@@ -1,12 +1,12 @@
 {
  "meta": {
-  "updated": "2026-08-11",
+  "updated": "2026-08-12",
   "fx": {
-   "USD": 95.33,
-   "GBP": 128.7,
-   "CAD": 68.35,
-   "AUD": 67.29,
-   "NZD": 56.15
+   "USD": 95.42,
+   "GBP": 128.87,
+   "CAD": 68.49,
+   "AUD": 67.43,
+   "NZD": 56.12
   }
  },
  "config": {
@@ -368,7 +368,7 @@
     "UK": null,
     "Canada": 75.99,
     "Australia": 67.95,
-    "NZ": 81.51016995
+    "NZ": 81.4819707
    },
    "stock": {
     "USA": "",
@@ -517,7 +517,7 @@
     "UK": 20.49,
     "Canada": 27.95,
     "Australia": 39.95,
-    "NZ": 59
+    "NZ": 47.90588270000001
    },
    "stock": {
     "USA": "In stock",
@@ -588,14 +588,6 @@
      "url": "https://www.boardgamesindia.com/cascadia-retail-edition-flatout-games",
      "price": 3300,
      "stock": "In stock",
-     "discounted": true,
-     "verified": true
-    },
-    {
-     "site": "Board Games Bazaar",
-     "url": "https://boardgamesbazaar.com/products/intl-games-cascadia-retail-edition",
-     "price": 3399,
-     "stock": "Out of stock",
      "discounted": true,
      "verified": true
     }
@@ -825,7 +817,7 @@
     "UK": 27.19,
     "Canada": 35.66,
     "Australia": 42.54,
-    "NZ": 75.51236495
+    "NZ": 75.48624070000001
    },
    "stock": {
     "USA": "In stock",
@@ -945,7 +937,7 @@
     "UK": 4.49,
     "Canada": 8.49,
     "Australia": 10.45,
-    "NZ": 14.33475395
+    "NZ": 14.329794699999999
    },
    "stock": {
     "USA": "In stock",
@@ -1014,7 +1006,7 @@
     "UK": 19.16,
     "Canada": 26.94,
     "Australia": 36.95,
-    "NZ": 58.11873045000001
+    "NZ": 58.098623700000005
    },
    "stock": {
     "USA": "In stock",
@@ -1102,7 +1094,7 @@
     "UK": null,
     "Canada": 34.99,
     "Australia": 35.95,
-    "NZ": 43.12421795000001
+    "NZ": 43.109298700000004
    },
    "stock": {
     "USA": "In stock",
@@ -1303,11 +1295,11 @@
     "NZ": ""
    },
    "india": {
-    "price": 2100,
-    "source": "Board Games Bazaar",
-    "url": "https://boardgamesbazaar.com/products/intl-games-high-society",
+    "price": 2199,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/high-society",
     "stock": "Out of stock",
-    "discount": 0,
+    "discount": 0.1,
     "verified": true
    },
    "indiaSources": [
@@ -1315,14 +1307,6 @@
      "site": "Board Games India",
      "url": "https://www.boardgamesindia.com/high-society",
      "price": 2199,
-     "stock": "Out of stock",
-     "discounted": false,
-     "verified": true
-    },
-    {
-     "site": "Board Games Bazaar",
-     "url": "https://boardgamesbazaar.com/products/intl-games-high-society",
-     "price": 2100,
      "stock": "Out of stock",
      "discounted": false,
      "verified": true
@@ -1541,7 +1525,7 @@
     "UK": 29.99,
     "Canada": 47.99,
     "Australia": 63.97,
-    "NZ": 79.11104795000001
+    "NZ": 79.08367870000001
    },
    "stock": {
     "USA": "In stock",
@@ -1812,7 +1796,7 @@
     "UK": 38.99,
     "Canada": 49.95,
     "Australia": 66.95,
-    "NZ": 80.91038945000001
+    "NZ": 80.88239770000001
    },
    "stock": {
     "USA": "In stock",
@@ -1875,7 +1859,7 @@
     "UK": 15.56,
     "Canada": 32.95,
     "Australia": 43.99,
-    "NZ": 53.920266950000006
+    "NZ": 53.90161270000001
    },
    "stock": {
     "USA": "In stock",
@@ -1915,7 +1899,7 @@
     "UK": 18.53,
     "Canada": 32.95,
     "Australia": 50.5,
-    "NZ": 59.99
+    "NZ": 54.45
    },
    "stock": {
     "USA": "In stock",
@@ -2075,7 +2059,7 @@
     "UK": 39.9,
     "Canada": 42.46,
     "Australia": 79.95,
-    "NZ": 104.30182895000002
+    "NZ": 86.95
    },
    "stock": {
     "USA": "In stock",
@@ -2224,7 +2208,7 @@
     "UK": 34.99,
     "Canada": 54.99,
     "Australia": 68.5,
-    "NZ": 91.10665795000001
+    "NZ": 91.07513870000001
    },
    "stock": {
     "USA": "In stock",
@@ -2287,7 +2271,7 @@
     "UK": 34.99,
     "Canada": 46.95,
     "Australia": 81.95,
-    "NZ": 98.30402395000002
+    "NZ": 98.2700147
    },
    "stock": {
     "USA": "In stock",
@@ -2476,7 +2460,7 @@
     "UK": 28.99,
     "Canada": 45.94,
     "Australia": 50,
-    "NZ": 83.90929195000001
+    "NZ": 83.8802627
    },
    "stock": {
     "USA": "In stock",
@@ -2556,7 +2540,7 @@
     "UK": 99,
     "Canada": 47.95,
     "Australia": 76.95,
-    "NZ": 92.30621895000002
+    "NZ": 92.27428470000001
    },
    "stock": {
     "USA": "In stock",
@@ -2619,7 +2603,7 @@
     "UK": 27.19,
     "Canada": 45.99,
     "Australia": 56.95,
-    "NZ": 68.91477945000001
+    "NZ": 68.89093770000001
    },
    "stock": {
     "USA": "In stock",
@@ -2699,7 +2683,7 @@
     "UK": 31.99,
     "Canada": 29.95,
     "Australia": 54.95,
-    "NZ": 65.91587695000001
+    "NZ": 54.95
    },
    "stock": {
     "USA": "In stock",
@@ -2721,14 +2705,6 @@
      "site": "Boardway",
      "url": "https://boardway.in/products/sagrada",
      "price": 3199,
-     "stock": "Out of stock",
-     "discounted": true,
-     "verified": true
-    },
-    {
-     "site": "Board Games Bazaar",
-     "url": "https://boardgamesbazaar.com/products/intl-games-sagrada-english-hindi",
-     "price": 3899,
      "stock": "Out of stock",
      "discounted": true,
      "verified": true
@@ -2859,7 +2835,7 @@
     "UK": 9.2,
     "Canada": 14.95,
     "Australia": 17.01,
-    "NZ": 28.72948595
+    "NZ": 28.7195467
    },
    "stock": {
     "USA": "In stock",
@@ -2899,7 +2875,7 @@
     "UK": 8.48,
     "Canada": 11.99,
     "Australia": 15.49,
-    "NZ": 22.13190045
+    "NZ": 22.1242437
    },
    "stock": {
     "USA": "In stock",
@@ -2964,14 +2940,6 @@
      "stock": "Out of stock",
      "discounted": true,
      "verified": true
-    },
-    {
-     "site": "Board Games Bazaar",
-     "url": "https://boardgamesbazaar.com/products/repos-so-clover",
-     "price": 2500,
-     "stock": "Out of stock",
-     "discounted": false,
-     "verified": true
     }
    ],
    "india": {
@@ -2991,7 +2959,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 16.99,
+    "USA": 29.95,
     "UK": null,
     "Canada": 32.95,
     "Australia": 31.99,
@@ -3044,24 +3012,7 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": [
-    {
-     "site": "Board Games Bazaar",
-     "url": "https://boardgamesbazaar.com/products/bored-game-company-spicy",
-     "price": 630,
-     "stock": "Out of stock",
-     "discounted": true,
-     "verified": true
-    }
-   ],
-   "india": {
-    "price": 630,
-    "source": "Board Games Bazaar",
-    "url": "https://boardgamesbazaar.com/products/bored-game-company-spicy",
-    "stock": "Out of stock",
-    "discount": 0,
-    "verified": true
-   }
+   "indiaSources": []
   },
   {
    "name": "Steampunk Rally Fusion",
@@ -3072,7 +3023,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 39.97,
-    "UK": 31.81,
+    "UK": 28.63,
     "Canada": 51.95,
     "Australia": 79.99,
     "NZ": null
@@ -3505,10 +3456,10 @@
    "status": "Not Started",
    "prices": {
     "USA": 27.95,
-    "UK": 20.1,
+    "UK": 20.49,
     "Canada": 25.95,
     "Australia": 38,
-    "NZ": 56.31938895000001
+    "NZ": 56.299904700000006
    },
    "stock": {
     "USA": "In stock",
@@ -3688,7 +3639,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 23.95,
+    "USA": 22.95,
     "UK": 14.99,
     "Canada": 25.95,
     "Australia": 33.95,
@@ -3738,7 +3689,7 @@
     "UK": 14.99,
     "Canada": 18.95,
     "Australia": 25.45,
-    "NZ": 30.52882745
+    "NZ": 30.5182657
    },
    "stock": {
     "USA": "In stock",
@@ -3761,7 +3712,7 @@
     "UK": 47,
     "Canada": 69.95,
     "Australia": 80,
-    "NZ": 112.69875595
+    "NZ": 112.6597667
    },
    "stock": {
     "USA": "In stock",
@@ -3871,14 +3822,6 @@
      "site": "Boardway",
      "url": "https://boardway.in/products/wingspan-with-swift-start-pack",
      "price": 5199,
-     "stock": "Out of stock",
-     "discounted": true,
-     "verified": true
-    },
-    {
-     "site": "Board Games Bazaar",
-     "url": "https://boardgamesbazaar.com/products/intl-games-wingspan-with-swift-start-pack",
-     "price": 5800,
      "stock": "Out of stock",
      "discounted": true,
      "verified": true
@@ -4119,7 +4062,7 @@
     "UK": 17.5,
     "Canada": 17.95,
     "Australia": 19.95,
-    "NZ": 29.92904695
+    "NZ": 29.9186927
    },
    "stock": {
     "USA": "In stock",
@@ -4322,21 +4265,13 @@
    "indiaSources": [
     {
      "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/fliptoons-mini-expansion",
-     "price": 2500,
+     "url": "https://www.boardgamesindia.com/fliptoons-season-2",
+     "price": 2200,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": true
+     "verified": false
     }
-   ],
-   "india": {
-    "price": 2500,
-    "source": "Board Games India",
-    "url": "https://www.boardgamesindia.com/fliptoons-mini-expansion",
-    "stock": "Out of stock",
-    "discount": 0.1,
-    "verified": true
-   }
+   ]
   },
   {
    "name": "A carnivore did it",
@@ -4390,7 +4325,7 @@
     "UK": 14.99,
     "Canada": 18.95,
     "Australia": 25.95,
-    "NZ": 35.92685195
+    "NZ": 35.9144227
    },
    "stock": {
     "USA": "In stock",
@@ -4489,11 +4424,11 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 16.99,
+    "USA": 17.49,
     "UK": 19.99,
     "Canada": 29.99,
     "Australia": 35.99,
-    "NZ": 49.62
+    "NZ": 49.99
    },
    "stock": {
     "USA": "In stock",
@@ -4664,7 +4599,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 19.97,
-    "UK": 25.84,
+    "UK": 25.79,
     "Canada": null,
     "Australia": null,
     "NZ": null
