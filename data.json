@@ -1,12 +1,12 @@
 {
  "meta": {
-  "updated": "2026-08-18",
+  "updated": "2026-08-19",
   "fx": {
-   "USD": 95.6,
-   "GBP": 129.7,
+   "USD": 95.69,
+   "GBP": 129.37,
    "CAD": 68.97,
-   "AUD": 68.12,
-   "NZD": 56.56
+   "AUD": 68.03,
+   "NZD": 56.31
   }
  },
  "config": {
@@ -96,7 +96,7 @@
     "USA": 18.39,
     "UK": 15.2,
     "Canada": 20.99,
-    "Australia": 31.99,
+    "Australia": 32,
     "NZ": 63.29
    },
    "stock": {
@@ -133,7 +133,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 28.99,
+    "USA": 25.49,
     "UK": 18,
     "Canada": 35.95,
     "Australia": 24.95,
@@ -236,8 +236,8 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 46.99,
-    "UK": 40.3,
+    "USA": 46.82,
+    "UK": 40.9,
     "Canada": 59.99,
     "Australia": 70,
     "NZ": 79.5
@@ -564,7 +564,7 @@
     "USA": 31.99,
     "UK": 29.09,
     "Canada": 42.95,
-    "Australia": 48.45,
+    "Australia": 52.65,
     "NZ": 66.01
    },
    "stock": {
@@ -1005,7 +1005,7 @@
     "USA": 23.99,
     "UK": 19.16,
     "Canada": 26.94,
-    "Australia": 36.95,
+    "Australia": 40,
     "NZ": 58.280795700000006
    },
    "stock": {
@@ -1167,20 +1167,20 @@
     "NZ": "In stock"
    },
    "india": {
-    "price": 3999,
+    "price": 3600,
     "source": "Board Games India",
     "url": "https://www.boardgamesindia.com/harmonies",
     "stock": "In stock",
-    "discount": 0.1,
+    "discount": 0,
     "verified": true
    },
    "indiaSources": [
     {
      "site": "Board Games India",
      "url": "https://www.boardgamesindia.com/harmonies",
-     "price": 3999,
+     "price": 3600,
      "stock": "In stock",
-     "discounted": false,
+     "discounted": true,
      "verified": true
     },
     {
@@ -1856,7 +1856,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 22.47,
-    "UK": 15.51,
+    "UK": 15.52,
     "Canada": 32.95,
     "Australia": 43.99,
     "NZ": 54.06087055
@@ -2351,7 +2351,7 @@
     "UK": 16.99,
     "Canada": 25.95,
     "Australia": 28,
-    "NZ": 42.79
+    "NZ": 40.46
    },
    "stock": {
     "USA": "In stock",
@@ -2696,9 +2696,9 @@
     {
      "site": "Board Games India",
      "url": "https://www.boardgamesindia.com/sagrada-english-hindi-edition-yes-papa-games",
-     "price": 3999,
+     "price": 3500,
      "stock": "In stock",
-     "discounted": false,
+     "discounted": true,
      "verified": true
     },
     {
@@ -2719,11 +2719,11 @@
     }
    ],
    "india": {
-    "price": 3999,
+    "price": 3500,
     "source": "Board Games India",
     "url": "https://www.boardgamesindia.com/sagrada-english-hindi-edition-yes-papa-games",
     "stock": "In stock",
-    "discount": 0.1,
+    "discount": 0,
     "verified": true
    }
   },
@@ -2914,7 +2914,7 @@
     "USA": 22.39,
     "UK": 16.99,
     "Canada": 26.95,
-    "Australia": 36.99,
+    "Australia": 36.8,
     "NZ": 38.99
    },
    "stock": {
@@ -2962,7 +2962,7 @@
     "USA": 29.95,
     "UK": null,
     "Canada": 32.95,
-    "Australia": 31.99,
+    "Australia": 28,
     "NZ": 30
    },
    "stock": {
@@ -3455,9 +3455,9 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 27.95,
+    "USA": 28,
     "UK": 20.49,
-    "Canada": 25.95,
+    "Canada": 26.99,
     "Australia": 38,
     "NZ": 56.466248549999996
    },
@@ -3619,7 +3619,7 @@
     "USA": 12.63,
     "UK": 11.99,
     "Canada": 19.95,
-    "Australia": 27.84,
+    "Australia": 25.31,
     "NZ": 28.82
    },
    "stock": {
@@ -3639,7 +3639,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 22.95,
+    "USA": 23.95,
     "UK": 14.99,
     "Canada": 25.95,
     "Australia": 33.95,
@@ -3665,7 +3665,7 @@
     "USA": 14.99,
     "UK": 11.99,
     "Canada": 24.99,
-    "Australia": 26.5,
+    "Australia": 27.99,
     "NZ": 28
    },
    "stock": {
@@ -3791,7 +3791,7 @@
     "USA": 55,
     "UK": 43.99,
     "Canada": 59.94,
-    "Australia": 69.45,
+    "Australia": 74.99,
     "NZ": 76.95
    },
    "stock": {
@@ -4251,7 +4251,7 @@
    "prices": {
     "USA": 14.94,
     "UK": 13.96,
-    "Canada": 19.95,
+    "Canada": 21.99,
     "Australia": 32.95,
     "NZ": 54.99
    },
@@ -4345,7 +4345,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 16.79,
-    "UK": 12.99,
+    "UK": 15.6,
     "Canada": 23.95,
     "Australia": 39.99,
     "NZ": 64.99
@@ -4621,7 +4621,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 59.99,
+    "USA": 47.97,
     "UK": 45.94,
     "Canada": 69.95,
     "Australia": 109.95,
