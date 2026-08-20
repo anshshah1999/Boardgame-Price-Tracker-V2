@@ -1,11 +1,11 @@
 {
  "meta": {
-  "updated": "2026-08-19",
+  "updated": "2026-08-20",
   "fx": {
-   "USD": 95.69,
-   "GBP": 129.37,
-   "CAD": 68.97,
-   "AUD": 68.03,
+   "USD": 95.79,
+   "GBP": 129.87,
+   "CAD": 69.01,
+   "AUD": 67.75,
    "NZD": 56.31
   }
  },
@@ -174,7 +174,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 14.44,
-    "UK": 19.38,
+    "UK": 19.37,
     "Canada": 20.95,
     "Australia": 26.95,
     "NZ": 44.99
@@ -236,8 +236,8 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 46.82,
-    "UK": 40.9,
+    "USA": 44.02,
+    "UK": 44.99,
     "Canada": 59.99,
     "Australia": 70,
     "NZ": 79.5
@@ -368,7 +368,7 @@
     "UK": null,
     "Canada": 75.99,
     "Australia": 67.95,
-    "NZ": 81.72271755
+    "NZ": 81.98554815000001
    },
    "stock": {
     "USA": "",
@@ -517,7 +517,7 @@
     "UK": 20.49,
     "Canada": 27.95,
     "Australia": 39.95,
-    "NZ": 48.2097424
+    "NZ": 48.20195215000001
    },
    "stock": {
     "USA": "In stock",
@@ -565,7 +565,7 @@
     "UK": 29.09,
     "Canada": 42.95,
     "Australia": 52.65,
-    "NZ": 66.01
+    "NZ": 65.55
    },
    "stock": {
     "USA": "In stock",
@@ -817,7 +817,7 @@
     "UK": 27.19,
     "Canada": 41.94,
     "Australia": 42.54,
-    "NZ": 75.70927255
+    "NZ": 75.95276315000001
    },
    "stock": {
     "USA": "In stock",
@@ -937,7 +937,7 @@
     "UK": 4.49,
     "Canada": 8.49,
     "Australia": 10.45,
-    "NZ": 14.3764953
+    "NZ": 14.418356150000001
    },
    "stock": {
     "USA": "In stock",
@@ -1006,7 +1006,7 @@
     "UK": 19.16,
     "Canada": 26.94,
     "Australia": 40,
-    "NZ": 58.280795700000006
+    "NZ": 58.45768665000001
    },
    "stock": {
     "USA": "In stock",
@@ -1094,7 +1094,7 @@
     "UK": null,
     "Canada": 34.99,
     "Australia": 35.95,
-    "NZ": 43.23666955
+    "NZ": 43.37572415000001
    },
    "stock": {
     "USA": "In stock",
@@ -1156,7 +1156,7 @@
     "USA": 31.99,
     "UK": 27.3,
     "Canada": 37.95,
-    "Australia": 44.75,
+    "Australia": 45.47,
     "NZ": 56
    },
    "stock": {
@@ -1205,7 +1205,7 @@
     "UK": 24.99,
     "Canada": 34,
     "Australia": 32.5,
-    "NZ": 47.59
+    "NZ": 49.95
    },
    "stock": {
     "USA": "In stock",
@@ -1242,7 +1242,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 30.39,
-    "UK": 22.8,
+    "UK": 22.85,
     "Canada": 35.95,
     "Australia": 39.92,
     "NZ": 39.93
@@ -1405,7 +1405,7 @@
     "UK": 30,
     "Canada": 35.95,
     "Australia": 69,
-    "NZ": 58.4
+    "NZ": 64.5
    },
    "stock": {
     "USA": "In stock",
@@ -1525,7 +1525,7 @@
     "UK": 29.99,
     "Canada": 47.99,
     "Australia": 63.97,
-    "NZ": 79.31733955
+    "NZ": 79.57243415
    },
    "stock": {
     "USA": "In stock",
@@ -1652,7 +1652,7 @@
     "USA": 11.99,
     "UK": 6.64,
     "Canada": 14.95,
-    "Australia": 34.3,
+    "Australia": 34.38,
     "NZ": null
    },
    "stock": {
@@ -1796,7 +1796,7 @@
     "UK": 38.99,
     "Canada": 49.95,
     "Australia": 66.95,
-    "NZ": 81.1459923
+    "NZ": 81.38226965000001
    },
    "stock": {
     "USA": "In stock",
@@ -1857,9 +1857,9 @@
    "prices": {
     "USA": 22.47,
     "UK": 15.52,
-    "Canada": 32.95,
+    "Canada": 32.99,
     "Australia": 43.99,
-    "NZ": 54.06087055
+    "NZ": 54.23473715000001
    },
    "stock": {
     "USA": "In stock",
@@ -1975,7 +1975,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 34.99,
+    "USA": 28.73,
     "UK": 18.99,
     "Canada": 32.95,
     "Australia": 40,
@@ -2208,7 +2208,7 @@
     "UK": 34.99,
     "Canada": 49.95,
     "Australia": 68.5,
-    "NZ": 86.8258064
+    "NZ": 86.81177615000001
    },
    "stock": {
     "USA": "In stock",
@@ -2271,7 +2271,7 @@
     "UK": 34.99,
     "Canada": 46.95,
     "Australia": 81.95,
-    "NZ": 98.56036354999999
+    "NZ": 98.87734615000001
    },
    "stock": {
     "USA": "In stock",
@@ -2460,7 +2460,7 @@
     "UK": 28.99,
     "Canada": 45.94,
     "Australia": 50,
-    "NZ": 84.15362730000001
+    "NZ": 84.39866215
    },
    "stock": {
     "USA": "In stock",
@@ -2540,7 +2540,7 @@
     "UK": 99,
     "Canada": 47.95,
     "Australia": 76.95,
-    "NZ": 92.54691855
+    "NZ": 92.84456115000002
    },
    "stock": {
     "USA": "In stock",
@@ -2603,7 +2603,7 @@
     "UK": 27.19,
     "Canada": 45.99,
     "Australia": 56.95,
-    "NZ": 69.09448305
+    "NZ": 69.31669965
    },
    "stock": {
     "USA": "In stock",
@@ -2834,8 +2834,8 @@
     "USA": 14.39,
     "UK": 9.2,
     "Canada": 14.95,
-    "Australia": 17.01,
-    "NZ": 28.8131433
+    "Australia": 18.99,
+    "NZ": 28.897040150000002
    },
    "stock": {
     "USA": "In stock",
@@ -2875,7 +2875,7 @@
     "UK": 8.48,
     "Canada": 11.99,
     "Australia": 15.49,
-    "NZ": 22.189612049999997
+    "NZ": 22.26097665
    },
    "stock": {
     "USA": "In stock",
@@ -3071,7 +3071,7 @@
    "stock": {
     "USA": "Out of stock",
     "UK": "In stock",
-    "Canada": "Out of stock",
+    "Canada": "In stock",
     "Australia": "",
     "NZ": "In stock"
    },
@@ -3104,7 +3104,7 @@
    "prices": {
     "USA": 19.99,
     "UK": null,
-    "Canada": 25.75,
+    "Canada": 26.63,
     "Australia": null,
     "NZ": null
    },
@@ -3459,7 +3459,7 @@
     "UK": 20.49,
     "Canada": 26.99,
     "Australia": 38,
-    "NZ": 56.466248549999996
+    "NZ": 56.64785115000001
    },
    "stock": {
     "USA": "In stock",
@@ -3620,7 +3620,7 @@
     "UK": 11.99,
     "Canada": 19.95,
     "Australia": 25.31,
-    "NZ": 28.82
+    "NZ": 30.36
    },
    "stock": {
     "USA": "In stock",
@@ -3689,7 +3689,7 @@
     "UK": 14.99,
     "Canada": 18.95,
     "Australia": 25.45,
-    "NZ": 30.608435049999997
+    "NZ": 30.70687565
    },
    "stock": {
     "USA": "In stock",
@@ -3712,7 +3712,7 @@
     "UK": 47,
     "Canada": 69.95,
     "Australia": 80,
-    "NZ": 113.0130187
+    "NZ": 113.35603015000001
    },
    "stock": {
     "USA": "In stock",
@@ -3905,7 +3905,16 @@
     "Australia": null,
     "NZ": null
    },
-   "indiaSources": []
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/staccs",
+     "price": 9999,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": false
+    }
+   ]
   },
   {
    "name": "This bed is mine",
@@ -4062,7 +4071,7 @@
     "UK": 17.94,
     "Canada": 17.95,
     "Australia": 19.95,
-    "NZ": 30.007090549999997
+    "NZ": 30.103597150000002
    },
    "stock": {
     "USA": "In stock",
@@ -4325,7 +4334,7 @@
     "UK": 14.99,
     "Canada": 18.95,
     "Australia": 25.95,
-    "NZ": 36.1422224
+    "NZ": 36.13638215
    },
    "stock": {
     "USA": "In stock",
@@ -4426,7 +4435,7 @@
    "prices": {
     "USA": 17.49,
     "UK": 19.99,
-    "Canada": 29.99,
+    "Canada": 24.95,
     "Australia": 35.99,
     "NZ": 49.99
    },
@@ -4606,7 +4615,7 @@
    },
    "stock": {
     "USA": "Out of stock",
-    "UK": "In stock",
+    "UK": "Out of stock",
     "Canada": "",
     "Australia": "",
     "NZ": ""
