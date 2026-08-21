@@ -1,12 +1,12 @@
 {
  "meta": {
-  "updated": "2026-08-20",
+  "updated": "2026-08-21",
   "fx": {
-   "USD": 95.79,
-   "GBP": 129.87,
-   "CAD": 69.01,
-   "AUD": 67.75,
-   "NZD": 56.31
+   "USD": 95.69,
+   "GBP": 130.38,
+   "CAD": 69.49,
+   "AUD": 68.03,
+   "NZD": 56.88
   }
  },
  "config": {
@@ -95,7 +95,7 @@
    "prices": {
     "USA": 18.39,
     "UK": 15.2,
-    "Canada": 20.99,
+    "Canada": 21.99,
     "Australia": 32,
     "NZ": 63.29
    },
@@ -237,7 +237,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 44.02,
-    "UK": 44.99,
+    "UK": 37.96,
     "Canada": 59.99,
     "Australia": 70,
     "NZ": 79.5
@@ -368,7 +368,7 @@
     "UK": null,
     "Canada": 75.99,
     "Australia": 67.95,
-    "NZ": 81.98554815000001
+    "NZ": 81.60754229999999
    },
    "stock": {
     "USA": "",
@@ -565,7 +565,7 @@
     "UK": 29.09,
     "Canada": 42.95,
     "Australia": 52.65,
-    "NZ": 65.55
+    "NZ": 69.64
    },
    "stock": {
     "USA": "In stock",
@@ -937,7 +937,7 @@
     "UK": 4.49,
     "Canada": 8.49,
     "Australia": 10.45,
-    "NZ": 14.418356150000001
+    "NZ": 14.351878299999997
    },
    "stock": {
     "USA": "In stock",
@@ -1242,7 +1242,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 30.39,
-    "UK": 22.85,
+    "UK": 22.79,
     "Canada": 35.95,
     "Australia": 39.92,
     "NZ": 39.93
@@ -2351,7 +2351,7 @@
     "UK": 16.99,
     "Canada": 25.95,
     "Australia": 28,
-    "NZ": 40.46
+    "NZ": 48.44
    },
    "stock": {
     "USA": "In stock",
@@ -2540,7 +2540,7 @@
     "UK": 99,
     "Canada": 47.95,
     "Australia": 76.95,
-    "NZ": 92.84456115000002
+    "NZ": 92.4164883
    },
    "stock": {
     "USA": "In stock",
@@ -2603,7 +2603,7 @@
     "UK": 27.19,
     "Canada": 45.99,
     "Australia": 56.95,
-    "NZ": 69.31669965
+    "NZ": 68.9971053
    },
    "stock": {
     "USA": "In stock",
@@ -2835,7 +2835,7 @@
     "UK": 9.2,
     "Canada": 14.95,
     "Australia": 18.99,
-    "NZ": 28.897040150000002
+    "NZ": 28.763806299999995
    },
    "stock": {
     "USA": "In stock",
@@ -2875,7 +2875,7 @@
     "UK": 8.48,
     "Canada": 11.99,
     "Australia": 15.49,
-    "NZ": 22.26097665
+    "NZ": 22.158339299999998
    },
    "stock": {
     "USA": "In stock",
@@ -3029,7 +3029,7 @@
     "NZ": null
    },
    "stock": {
-    "USA": "In stock",
+    "USA": "Out of stock",
     "UK": "In stock",
     "Canada": "Out of stock",
     "Australia": "In stock",
@@ -3102,7 +3102,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 19.99,
+    "USA": 11.23,
     "UK": null,
     "Canada": 26.63,
     "Australia": null,
@@ -3277,7 +3277,7 @@
    "prices": {
     "USA": 28.99,
     "UK": 40.99,
-    "Canada": 47.95,
+    "Canada": 44.95,
     "Australia": 56.45,
     "NZ": 70
    },
@@ -3547,7 +3547,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 11.47,
+    "USA": 11.99,
     "UK": 15.58,
     "Canada": 15.95,
     "Australia": 19.99,
@@ -3639,7 +3639,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 23.95,
+    "USA": 22.95,
     "UK": 14.99,
     "Canada": 25.95,
     "Australia": 33.95,
@@ -3905,16 +3905,7 @@
     "Australia": null,
     "NZ": null
    },
-   "indiaSources": [
-    {
-     "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/staccs",
-     "price": 9999,
-     "stock": "Out of stock",
-     "discounted": false,
-     "verified": false
-    }
-   ]
+   "indiaSources": []
   },
   {
    "name": "This bed is mine",
@@ -3947,7 +3938,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 64.95,
+    "USA": 64.99,
     "UK": 47.99,
     "Canada": 60.99,
     "Australia": 99.95,
@@ -4222,7 +4213,7 @@
     "UK": 12.45,
     "Canada": 19.95,
     "Australia": 14.5,
-    "NZ": 24.95
+    "NZ": 30.45
    },
    "stock": {
     "USA": "In stock",
@@ -4334,7 +4325,7 @@
     "UK": 14.99,
     "Canada": 18.95,
     "Australia": 25.95,
-    "NZ": 36.13638215
+    "NZ": 35.96977029999999
    },
    "stock": {
     "USA": "In stock",
@@ -4484,7 +4475,7 @@
     "UK": "In stock",
     "Canada": "In stock",
     "Australia": "In stock",
-    "NZ": "In stock"
+    "NZ": "Out of stock"
    },
    "indiaSources": [
     {
