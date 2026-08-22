@@ -769,7 +769,28 @@
    ]
   }
  },
- "ownedAdded": [],
+ "ownedAdded": [
+  {
+   "id": "oa1787408945404818",
+   "name": "Clank!: Catacombs",
+   "amount": 2890,
+   "store": "ShopBefikr",
+   "country": "India",
+   "date": "2026-08-08",
+   "type": "Strategy",
+   "minP": 2,
+   "maxP": 4,
+   "playTime": 90,
+   "location": "Bangalore",
+   "weight": 2.49,
+   "bestAt": "3",
+   "mechs": [
+    "Deck Building",
+    "Push Your Luck"
+   ],
+   "bgg": "https://boardgamegeek.com/boardgame/365717/clank-catacombs"
+  }
+ ],
  "ownedRemoved": [],
  "soldAdded": [],
  "session": [],
