@@ -771,8 +771,8 @@
  },
  "ownedAdded": [
   {
-   "id": "oa1787409061827928",
-   "name": "Clank! Catacombs",
+   "id": "oa1787408945404818",
+   "name": "Clank!: Catacombs",
    "amount": 2890,
    "store": "ShopBefikr",
    "country": "India",
@@ -787,6 +787,25 @@
    "mechs": [
     "Deck Building",
     "Push Your Luck"
+   ],
+   "bgg": "https://boardgamegeek.com/boardgame/365717/clank-catacombs"
+  },
+  {
+   "id": "oa1787409231133913",
+   "name": "Dixit Odyssey",
+   "amount": 899,
+   "store": "ShopBefikr",
+   "country": "India",
+   "date": "2026-08-08",
+   "type": "Party",
+   "minP": 3,
+   "maxP": 12,
+   "playTime": 30,
+   "location": "Bangalore",
+   "weight": 1.16,
+   "bestAt": "6,7",
+   "mechs": [
+    "Voting"
    ],
    "bgg": ""
   }
