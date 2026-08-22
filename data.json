@@ -1,12 +1,12 @@
 {
  "meta": {
-  "updated": "2026-08-21",
+  "updated": "2026-08-22",
   "fx": {
    "USD": 95.69,
-   "GBP": 130.38,
-   "CAD": 69.49,
-   "AUD": 68.03,
-   "NZD": 56.88
+   "GBP": 130.72,
+   "CAD": 69.64,
+   "AUD": 68.59,
+   "NZD": 57.31
   }
  },
  "config": {
@@ -236,8 +236,8 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 44.02,
-    "UK": 37.96,
+    "USA": 46.99,
+    "UK": 42.14,
     "Canada": 59.99,
     "Australia": 70,
     "NZ": 79.5
@@ -490,14 +490,14 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 19.96,
+    "USA": 29.99,
     "UK": 21.9,
     "Canada": 29.95,
     "Australia": 39,
     "NZ": 39.99
    },
    "stock": {
-    "USA": "Out of stock",
+    "USA": "In stock",
     "UK": "In stock",
     "Canada": "In stock",
     "Australia": "In stock",
@@ -628,7 +628,7 @@
     "UK": 51.99,
     "Canada": 73.99,
     "Australia": 88.95,
-    "NZ": 89.77
+    "NZ": 77.78
    },
    "stock": {
     "USA": "In stock",
@@ -1156,7 +1156,7 @@
     "USA": 31.99,
     "UK": 27.3,
     "Canada": 37.95,
-    "Australia": 45.47,
+    "Australia": 51.95,
     "NZ": 56
    },
    "stock": {
@@ -1242,10 +1242,10 @@
    "status": "Not Started",
    "prices": {
     "USA": 30.39,
-    "UK": 22.79,
+    "UK": 22.8,
     "Canada": 35.95,
     "Australia": 39.92,
-    "NZ": 39.93
+    "NZ": 39.95
    },
    "stock": {
     "USA": "In stock",
@@ -1856,7 +1856,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 22.47,
-    "UK": 15.52,
+    "UK": 15.54,
     "Canada": 32.99,
     "Australia": 43.99,
     "NZ": 54.23473715000001
@@ -2752,9 +2752,9 @@
     {
      "site": "Board Games India",
      "url": "https://www.boardgamesindia.com/santorini-second-edition",
-     "price": 4999,
-     "stock": "Out of stock",
-     "discounted": false,
+     "price": 4500,
+     "stock": "In stock",
+     "discounted": true,
      "verified": true
     },
     {
@@ -2767,10 +2767,10 @@
     }
    ],
    "india": {
-    "price": 2499,
-    "source": "Boardway",
-    "url": "https://boardway.in/products/santorini",
-    "stock": "Out of stock",
+    "price": 4500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/santorini-second-edition",
+    "stock": "In stock",
     "discount": 0,
     "verified": true
    }
@@ -3480,7 +3480,7 @@
    "prices": {
     "USA": 44.97,
     "UK": 49.5,
-    "Canada": 59.95,
+    "Canada": 62.99,
     "Australia": 94.97,
     "NZ": 80.22
    },
@@ -3662,7 +3662,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 14.99,
+    "USA": 13.11,
     "UK": 11.99,
     "Canada": 24.99,
     "Australia": 27.99,
@@ -3789,9 +3789,9 @@
    "status": "Not Started",
    "prices": {
     "USA": 55,
-    "UK": 43.99,
+    "UK": 41.49,
     "Canada": 59.94,
-    "Australia": 74.99,
+    "Australia": 74.05,
     "NZ": 76.95
    },
    "stock": {
@@ -4062,7 +4062,7 @@
     "UK": 17.94,
     "Canada": 17.95,
     "Australia": 19.95,
-    "NZ": 30.103597150000002
+    "NZ": 29.964800299999997
    },
    "stock": {
     "USA": "In stock",
@@ -4251,7 +4251,7 @@
    "prices": {
     "USA": 14.94,
     "UK": 13.96,
-    "Canada": 21.99,
+    "Canada": 17.95,
     "Australia": 32.95,
     "NZ": 54.99
    },
@@ -4428,7 +4428,7 @@
     "UK": 19.99,
     "Canada": 24.95,
     "Australia": 35.99,
-    "NZ": 49.99
+    "NZ": 48.81
    },
    "stock": {
     "USA": "In stock",
