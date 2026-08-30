@@ -1,6 +1,6 @@
 {
  "meta": {
-  "updated": "2026-08-29",
+  "updated": "2026-08-30",
   "fx": {
    "USD": 95.42,
    "GBP": 129.53,
@@ -106,7 +106,24 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": []
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/agent-avenue",
+     "price": 9999,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": true
+    }
+   ],
+   "india": {
+    "price": 9999,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/agent-avenue",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Akropolis",
@@ -220,7 +237,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 46.99,
-    "UK": 44.99,
+    "UK": 42.07,
     "Canada": 51.9,
     "Australia": 70,
     "NZ": 79
@@ -235,12 +252,20 @@
    "india": {
     "price": 9999,
     "source": "Board Games India",
-    "url": "https://www.boardgamesindia.com/betrayal-at-house-on-the-hill-3rd-edition-avalon-hill",
+    "url": "https://www.boardgamesindia.com/on-demand/betrayal-at-house-on-the-hill-3rd-edition-avalon-hill",
     "stock": "Out of stock",
     "discount": 0.1,
     "verified": true
    },
    "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/on-demand/betrayal-at-house-on-the-hill-3rd-edition-avalon-hill",
+     "price": 9999,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": true
+    },
     {
      "site": "Board Games India",
      "url": "https://www.boardgamesindia.com/betrayal-at-house-on-the-hill-3rd-edition-avalon-hill",
@@ -343,7 +368,7 @@
     "UK": null,
     "Canada": 75.99,
     "Australia": 67.95,
-    "NZ": 82.01626155000001
+    "NZ": 82.28778975000002
    },
    "stock": {
     "USA": "",
@@ -492,7 +517,7 @@
     "UK": 20.49,
     "Canada": 27.95,
     "Australia": 39.95,
-    "NZ": 48.22000955
+    "NZ": 48.379649750000006
    },
    "stock": {
     "USA": "In stock",
@@ -792,7 +817,7 @@
     "UK": 27.19,
     "Canada": 41.94,
     "Australia": 42.54,
-    "NZ": 76.0702908
+    "NZ": 76.23276475000002
    },
    "stock": {
     "USA": "In stock",
@@ -912,7 +937,7 @@
     "UK": 4.49,
     "Canada": 8.49,
     "Australia": 10.45,
-    "NZ": 14.440666799999999
+    "NZ": 14.471509750000001
    },
    "stock": {
     "USA": "In stock",
@@ -981,7 +1006,7 @@
     "UK": 19.16,
     "Canada": 26.94,
     "Australia": 40,
-    "NZ": 58.5481428
+    "NZ": 58.67319225000001
    },
    "stock": {
     "USA": "In stock",
@@ -1069,7 +1094,7 @@
     "UK": null,
     "Canada": 34.99,
     "Australia": 35.95,
-    "NZ": 43.4428428
+    "NZ": 43.535629750000005
    },
    "stock": {
     "USA": "In stock",
@@ -1180,7 +1205,7 @@
     "UK": 24.99,
     "Canada": 34,
     "Australia": 32.5,
-    "NZ": 47.59
+    "NZ": 49.32
    },
    "stock": {
     "USA": "In stock",
@@ -1220,7 +1245,7 @@
     "UK": 22.7,
     "Canada": 34.95,
     "Australia": 39.92,
-    "NZ": 39.95
+    "NZ": 36.91
    },
    "stock": {
     "USA": "In stock",
@@ -1256,7 +1281,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 19.47,
+    "USA": 20.95,
     "UK": 13.99,
     "Canada": 26.99,
     "Australia": 29.99,
@@ -1376,7 +1401,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 35.69,
+    "USA": 39.99,
     "UK": 30,
     "Canada": 35.95,
     "Australia": 69,
@@ -1500,7 +1525,7 @@
     "UK": 29.99,
     "Canada": 46.95,
     "Australia": 63.97,
-    "NZ": 79.60224355
+    "NZ": 79.86577975000002
    },
    "stock": {
     "USA": "In stock",
@@ -1771,7 +1796,7 @@
     "UK": 38.99,
     "Canada": 49.95,
     "Australia": 66.95,
-    "NZ": 81.5081988
+    "NZ": 81.68228725000002
    },
    "stock": {
     "USA": "In stock",
@@ -1834,7 +1859,7 @@
     "UK": 16,
     "Canada": 32.99,
     "Australia": 43.99,
-    "NZ": 54.3186588
+    "NZ": 54.434674750000006
    },
    "stock": {
     "USA": "In stock",
@@ -1874,7 +1899,7 @@
     "UK": 19.99,
     "Canada": 32.95,
     "Australia": 49.5,
-    "NZ": 52.4
+    "NZ": 53.65
    },
    "stock": {
     "USA": "In stock",
@@ -2183,7 +2208,7 @@
     "UK": 34.99,
     "Canada": 49.95,
     "Australia": 68.5,
-    "NZ": 86.9461068
+    "NZ": 87.13180975000002
    },
    "stock": {
     "USA": "In stock",
@@ -2246,7 +2271,7 @@
     "UK": 34.99,
     "Canada": 46.95,
     "Australia": 81.95,
-    "NZ": 99.0303468
+    "NZ": 99.24185975000002
    },
    "stock": {
     "USA": "In stock",
@@ -2435,7 +2460,7 @@
     "UK": 28.99,
     "Canada": 45.94,
     "Australia": 50,
-    "NZ": 84.43027955000001
+    "NZ": 84.70979975000002
    },
    "stock": {
     "USA": "In stock",
@@ -2513,7 +2538,7 @@
    "prices": {
     "USA": 109.97,
     "UK": 99,
-    "Canada": 47.95,
+    "Canada": 49.99,
     "Australia": 76.95,
     "NZ": 119.99
    },
@@ -2578,7 +2603,7 @@
     "UK": 27.19,
     "Canada": 45.99,
     "Australia": 56.95,
-    "NZ": 69.4239588
+    "NZ": 69.57223725000001
    },
    "stock": {
     "USA": "In stock",
@@ -2810,7 +2835,7 @@
     "UK": 9.2,
     "Canada": 14.95,
     "Australia": 18.99,
-    "NZ": 28.9417548
+    "NZ": 29.00356975
    },
    "stock": {
     "USA": "In stock",
@@ -2850,7 +2875,7 @@
     "UK": 8.48,
     "Canada": 11.99,
     "Australia": 15.49,
-    "NZ": 22.295422799999997
+    "NZ": 22.34304225
    },
    "stock": {
     "USA": "In stock",
@@ -2978,11 +3003,11 @@
     "UK": 17.97,
     "Canada": 17.95,
     "Australia": 22,
-    "NZ": 24.95
+    "NZ": 34.49
    },
    "stock": {
     "USA": "In stock",
-    "UK": "In stock",
+    "UK": "Out of stock",
     "Canada": "In stock",
     "Australia": "In stock",
     "NZ": "In stock"
@@ -3104,7 +3129,7 @@
     "UK": 59.49,
     "Canada": 74.99,
     "Australia": 108.75,
-    "NZ": 125.01
+    "NZ": 109.84
    },
    "stock": {
     "USA": "In stock",
@@ -3434,7 +3459,7 @@
     "UK": 20.49,
     "Canada": 26.99,
     "Australia": 38,
-    "NZ": 56.66907255
+    "NZ": 56.85668475000001
    },
    "stock": {
     "USA": "In stock",
@@ -3617,7 +3642,7 @@
     "USA": 23.95,
     "UK": 14.99,
     "Canada": 25.95,
-    "Australia": 33.95,
+    "Australia": 33,
     "NZ": 33.95
    },
    "stock": {
@@ -3670,8 +3695,8 @@
     "USA": "In stock",
     "UK": "In stock",
     "Canada": "In stock",
-    "Australia": "In stock",
-    "NZ": "In stock"
+    "Australia": "Out of stock",
+    "NZ": "Out of stock"
    },
    "indiaSources": []
   },
@@ -3687,13 +3712,13 @@
     "UK": 47,
     "Canada": 69.95,
     "Australia": 80,
-    "NZ": 113.5314348
+    "NZ": 113.77391975000002
    },
    "stock": {
-    "USA": "In stock",
-    "UK": "In stock",
-    "Canada": "In stock",
-    "Australia": "In stock",
+    "USA": "Out of stock",
+    "UK": "Out of stock",
+    "Canada": "Out of stock",
+    "Australia": "Out of stock",
     "NZ": "In stock"
    },
    "indiaSources": [
@@ -3730,10 +3755,10 @@
     "NZ": 81.99
    },
    "stock": {
-    "USA": "In stock",
+    "USA": "Out of stock",
     "UK": "",
-    "Canada": "In stock",
-    "Australia": "In stock",
+    "Canada": "Out of stock",
+    "Australia": "Out of stock",
     "NZ": "In stock"
    },
    "indiaSources": [
@@ -3773,7 +3798,7 @@
     "USA": "In stock",
     "UK": "In stock",
     "Canada": "In stock",
-    "Australia": "In stock",
+    "Australia": "Out of stock",
     "NZ": "In stock"
    },
    "india": {
@@ -3827,7 +3852,7 @@
    },
    "stock": {
     "USA": "In stock",
-    "UK": "In stock",
+    "UK": "Out of stock",
     "Canada": "In stock",
     "Australia": "In stock",
     "NZ": "In stock"
@@ -3917,7 +3942,7 @@
     "UK": 47.99,
     "Canada": 72.95,
     "Australia": 99.95,
-    "NZ": 129.8451588
+    "NZ": 130.12248725
    },
    "stock": {
     "USA": "In stock",
@@ -4011,7 +4036,7 @@
      "site": "Board Games India",
      "url": "https://www.boardgamesindia.com/hot-streak",
      "price": 4999,
-     "stock": "Pre-order",
+     "stock": "In stock",
      "discounted": false,
      "verified": true
     }
@@ -4020,7 +4045,7 @@
     "price": 4999,
     "source": "Board Games India",
     "url": "https://www.boardgamesindia.com/hot-streak",
-    "stock": "Pre-order",
+    "stock": "In stock",
     "discount": 0.1,
     "verified": true
    }
@@ -4037,7 +4062,7 @@
     "UK": 17.94,
     "Canada": 17.95,
     "Australia": 19.95,
-    "NZ": 30.11487455
+    "NZ": 30.21457475
    },
    "stock": {
     "USA": "In stock",
@@ -4226,7 +4251,7 @@
    "prices": {
     "USA": 14.94,
     "UK": 13.96,
-    "Canada": 17.95,
+    "Canada": 21.99,
     "Australia": 32.95,
     "NZ": 54.99
    },
@@ -4300,7 +4325,7 @@
     "UK": 14.99,
     "Canada": 18.95,
     "Australia": 25.95,
-    "NZ": 36.192298799999996
+    "NZ": 36.269599750000005
    },
    "stock": {
     "USA": "In stock",
@@ -4403,7 +4428,7 @@
     "UK": 19.99,
     "Canada": 24.95,
     "Australia": 35.99,
-    "NZ": 48.75
+    "NZ": 48.12
    },
    "stock": {
     "USA": "In stock",
