@@ -1,12 +1,12 @@
 {
  "meta": {
-  "updated": "2026-09-08",
+  "updated": "2026-09-09",
   "fx": {
-   "USD": 94.52,
-   "GBP": 127.88,
-   "CAD": 68.35,
-   "AUD": 68.17,
-   "NZD": 55.52
+   "USD": 94.79,
+   "GBP": 128.37,
+   "CAD": 68.68,
+   "AUD": 68.4,
+   "NZD": 55.4
   }
  },
  "config": {
@@ -237,10 +237,10 @@
    "status": "Not Started",
    "prices": {
     "USA": 46.99,
-    "UK": 35.16,
+    "UK": 44.99,
     "Canada": 59.99,
     "Australia": 65.22,
-    "NZ": 63.98
+    "NZ": 74.72
    },
    "stock": {
     "USA": "In stock",
@@ -517,7 +517,7 @@
     "UK": 20.49,
     "Canada": 29.99,
     "Australia": 39.95,
-    "NZ": 48.9263655
+    "NZ": 48.9425053
    },
    "stock": {
     "USA": "In stock",
@@ -574,7 +574,24 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": []
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/cascadia-retail-edition-flatout-games",
+     "price": 3499,
+     "stock": "In stock",
+     "discounted": false,
+     "verified": true
+    }
+   ],
+   "india": {
+    "price": 3499,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/cascadia-retail-edition-flatout-games",
+    "stock": "In stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Chit Chat",
@@ -756,14 +773,14 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 79.99,
+    "USA": 28.97,
     "UK": null,
     "Canada": null,
     "Australia": null,
     "NZ": null
    },
    "stock": {
-    "USA": "In stock",
+    "USA": "Out of stock",
     "UK": "",
     "Canada": "",
     "Australia": "",
@@ -1140,7 +1157,7 @@
     "UK": 27.3,
     "Canada": 37.95,
     "Australia": 51.95,
-    "NZ": 56
+    "NZ": 49.95
    },
    "stock": {
     "USA": "In stock",
@@ -1264,7 +1281,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 20.95,
+    "USA": 19.95,
     "UK": 13.99,
     "Canada": 26.99,
     "Australia": 29.99,
@@ -1508,7 +1525,7 @@
     "UK": 29.99,
     "Canada": 46.95,
     "Australia": 63.97,
-    "NZ": 80.76830550000001
+    "NZ": 80.7949493
    },
    "stock": {
     "USA": "In stock",
@@ -1842,7 +1859,7 @@
     "UK": 14.89,
     "Canada": 32.99,
     "Australia": 43.99,
-    "NZ": 55.04981550000001
+    "NZ": 55.0679753
    },
    "stock": {
     "USA": "In stock",
@@ -2291,7 +2308,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 50.12,
-    "UK": 55.34,
+    "UK": 55.24,
     "Canada": 82.95,
     "Australia": 92.65,
     "NZ": 92.65
@@ -2555,24 +2572,7 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": [
-    {
-     "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/railroad-ink-deep-blue-edition-horrible-guild",
-     "price": 1700,
-     "stock": "Out of stock",
-     "discounted": false,
-     "verified": true
-    }
-   ],
-   "india": {
-    "price": 1700,
-    "source": "Board Games India",
-    "url": "https://www.boardgamesindia.com/railroad-ink-deep-blue-edition-horrible-guild",
-    "stock": "Out of stock",
-    "discount": 0.1,
-    "verified": true
-   }
+   "indiaSources": []
   },
   {
    "name": "Railroad Tiles",
@@ -3271,24 +3271,7 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": [
-    {
-     "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/terraforming-mars-ares-expedition-collectors-edition-stronghold-games",
-     "price": 5000,
-     "stock": "Out of stock",
-     "discounted": false,
-     "verified": true
-    }
-   ],
-   "india": {
-    "price": 5000,
-    "source": "Board Games India",
-    "url": "https://www.boardgamesindia.com/terraforming-mars-ares-expedition-collectors-edition-stronghold-games",
-    "stock": "Out of stock",
-    "discount": 0.1,
-    "verified": true
-   }
+   "indiaSources": []
   },
   {
    "name": "That's Not a Hat: Pop Culture",
@@ -3442,7 +3425,7 @@
     "UK": 20.49,
     "Canada": 26.99,
     "Australia": 38,
-    "NZ": 57.47172975
+    "NZ": 57.5181633
    },
    "stock": {
     "USA": "In stock",
@@ -3461,7 +3444,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 45.99,
+    "USA": 37.99,
     "UK": 49.5,
     "Canada": 59.95,
     "Australia": 94.97,
@@ -3622,7 +3605,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 23.95,
+    "USA": 22.95,
     "UK": 14.99,
     "Canada": 25.95,
     "Australia": 33,
