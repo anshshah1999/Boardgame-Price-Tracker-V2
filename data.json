@@ -1,12 +1,12 @@
 {
  "meta": {
-  "updated": "2026-09-10",
+  "updated": "2026-09-11",
   "fx": {
-   "USD": 95.15,
+   "USD": 95.42,
    "GBP": 129.03,
    "CAD": 69.06,
-   "AUD": 68.73,
-   "NZD": 55.68
+   "AUD": 68.59,
+   "NZD": 55.59
   }
  },
  "config": {
@@ -96,7 +96,7 @@
     "USA": 18.39,
     "UK": 15.2,
     "Canada": 21.99,
-    "Australia": 32,
+    "Australia": 31.99,
     "NZ": 63.29
    },
    "stock": {
@@ -237,7 +237,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 46.99,
-    "UK": 44.3,
+    "UK": 44.26,
     "Canada": 59.99,
     "Australia": 65.22,
     "NZ": 74.72
@@ -368,7 +368,7 @@
     "UK": null,
     "Canada": 75.99,
     "Australia": 67.95,
-    "NZ": 83.17793475
+    "NZ": 83.79811440000002
    },
    "stock": {
     "USA": "",
@@ -516,8 +516,8 @@
     "USA": 19.99,
     "UK": 20.49,
     "Canada": 27.95,
-    "Australia": 39.95,
-    "NZ": 48.9425053
+    "Australia": 39.99,
+    "NZ": 49.26761840000001
    },
    "stock": {
     "USA": "In stock",
@@ -817,7 +817,7 @@
     "UK": 27.19,
     "Canada": 42.95,
     "Australia": 62.95,
-    "NZ": 77.2776718
+    "NZ": 77.63195440000001
    },
    "stock": {
     "USA": "In stock",
@@ -1242,7 +1242,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 30.39,
-    "UK": 22.7,
+    "UK": 22.86,
     "Canada": 34.95,
     "Australia": 39.92,
     "NZ": 39.95
@@ -1525,7 +1525,7 @@
     "UK": 29.99,
     "Canada": 46.95,
     "Australia": 63.97,
-    "NZ": 80.96048379999999
+    "NZ": 81.33165040000002
    },
    "stock": {
     "USA": "In stock",
@@ -1859,7 +1859,7 @@
     "UK": 14.87,
     "Canada": 32.99,
     "Australia": 43.99,
-    "NZ": 55.0679753
+    "NZ": 55.43377840000001
    },
    "stock": {
     "USA": "In stock",
@@ -1868,7 +1868,24 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": []
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/machi-koro-2-pandasaurus-games",
+     "price": 3300,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": true
+    }
+   ],
+   "india": {
+    "price": 3300,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/machi-koro-2-pandasaurus-games",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "MicroMacro: Crime City – All In",
@@ -2291,7 +2308,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 50.12,
-    "UK": 55.35,
+    "UK": 62.99,
     "Canada": 78.95,
     "Australia": 99.95,
     "NZ": 92.65
@@ -2443,7 +2460,7 @@
     "UK": 28.99,
     "Canada": 45.94,
     "Australia": 50,
-    "NZ": 85.62614475000001
+    "NZ": 86.2645784
    },
    "stock": {
     "USA": "In stock",
@@ -2519,14 +2536,14 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 109.97,
+    "USA": 32.96,
     "UK": 99,
     "Canada": 47.95,
     "Australia": 76.95,
     "NZ": 119.99
    },
    "stock": {
-    "USA": "In stock",
+    "USA": "Out of stock",
     "UK": "In stock",
     "Canada": "In stock",
     "Australia": "In stock",
@@ -2814,7 +2831,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 14.95,
+    "USA": 14.36,
     "UK": 9.2,
     "Canada": 14.95,
     "Australia": 18.99,
@@ -2823,7 +2840,7 @@
    "stock": {
     "USA": "In stock",
     "UK": "In stock",
-    "Canada": "Out of stock",
+    "Canada": "In stock",
     "Australia": "In stock",
     "NZ": "In stock"
    },
@@ -3442,7 +3459,7 @@
     "UK": 20.49,
     "Canada": 26.99,
     "Australia": 38,
-    "NZ": 57.6360078
+    "NZ": 57.90024240000001
    },
    "stock": {
     "USA": "In stock",
@@ -3602,7 +3619,7 @@
     "USA": 12.63,
     "UK": 11.99,
     "Canada": 17.95,
-    "Australia": 27.84,
+    "Australia": 27.99,
     "NZ": 30.36
    },
    "stock": {
@@ -3672,7 +3689,7 @@
     "UK": 14.99,
     "Canada": 18.95,
     "Australia": 25.45,
-    "NZ": 31.15347225
+    "NZ": 31.385754400000003
    },
    "stock": {
     "USA": "In stock",
@@ -3691,7 +3708,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 54.12,
+    "USA": 54.15,
     "UK": 47,
     "Canada": 55.95,
     "Australia": 80,
@@ -3775,7 +3792,7 @@
     "UK": 43.99,
     "Canada": 64.95,
     "Australia": 74.99,
-    "NZ": 67.2
+    "NZ": 76.95
    },
    "stock": {
     "USA": "In stock",
@@ -3921,7 +3938,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 64.99,
+    "USA": 64.95,
     "UK": 47.99,
     "Canada": 72.95,
     "Australia": 99.95,
@@ -4045,7 +4062,7 @@
     "UK": 17.94,
     "Canada": 17.95,
     "Australia": 19.95,
-    "NZ": 30.54141975
+    "NZ": 30.769138400000003
    },
    "stock": {
     "USA": "In stock",
@@ -4411,7 +4428,7 @@
     "UK": 19.99,
     "Canada": 29.99,
     "Australia": 35.99,
-    "NZ": 48.19
+    "NZ": 48.76
    },
    "stock": {
     "USA": "In stock",
