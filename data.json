@@ -1,12 +1,12 @@
 {
  "meta": {
-  "updated": "2026-09-14",
+  "updated": "2026-09-15",
   "fx": {
    "USD": 95.6,
    "GBP": 129.03,
-   "CAD": 68.97,
-   "AUD": 68.54,
-   "NZD": 55.62
+   "CAD": 68.82,
+   "AUD": 68.12,
+   "NZD": 55.16
   }
  },
  "config": {
@@ -237,7 +237,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 46.99,
-    "UK": 37.78,
+    "UK": 38.22,
     "Canada": 59.99,
     "Australia": 65.22,
     "NZ": 74.72
@@ -368,7 +368,7 @@
     "UK": null,
     "Canada": 75.99,
     "Australia": 67.95,
-    "NZ": 83.79838620000001
+    "NZ": 83.66479650000001
    },
    "stock": {
     "USA": "",
@@ -408,7 +408,7 @@
     "UK": null,
     "Canada": 35.95,
     "Australia": 42.95,
-    "NZ": 27.99
+    "NZ": 47.67
    },
    "stock": {
     "USA": "In stock",
@@ -446,7 +446,7 @@
    "prices": {
     "USA": 34.99,
     "UK": 27.15,
-    "Canada": 42.95,
+    "Canada": 45.99,
     "Australia": null,
     "NZ": 89.99
    },
@@ -534,22 +534,14 @@
      "stock": "Out of stock",
      "discounted": false,
      "verified": true
-    },
-    {
-     "site": "Boardway",
-     "url": "https://boardway.in/products/cartographers",
-     "price": 2099,
-     "stock": "Out of stock",
-     "discounted": true,
-     "verified": true
     }
    ],
    "india": {
-    "price": 2099,
-    "source": "Boardway",
-    "url": "https://boardway.in/products/cartographers",
+    "price": 2800,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/cartographers-thunderworks-games",
     "stock": "Out of stock",
-    "discount": 0,
+    "discount": 0.1,
     "verified": true
    }
   },
@@ -565,7 +557,7 @@
     "UK": 29.09,
     "Canada": 39.95,
     "Australia": 52.65,
-    "NZ": 64.77
+    "NZ": 65.5
    },
    "stock": {
     "USA": "In stock",
@@ -817,7 +809,7 @@
     "UK": 27.19,
     "Canada": 42.95,
     "Australia": 62.95,
-    "NZ": 77.6322062
+    "NZ": 77.5084465
    },
    "stock": {
     "USA": "In stock",
@@ -937,7 +929,7 @@
     "UK": 4.49,
     "Canada": 8.49,
     "Australia": 10.45,
-    "NZ": 14.7371702
+    "NZ": 14.7136765
    },
    "stock": {
     "USA": "In stock",
@@ -1006,7 +998,7 @@
     "UK": 19.16,
     "Canada": 26.94,
     "Australia": 40,
-    "NZ": 59.7502842
+    "NZ": 59.65503150000001
    },
    "stock": {
     "USA": "In stock",
@@ -1016,11 +1008,11 @@
     "NZ": "In stock"
    },
    "india": {
-    "price": 2899,
-    "source": "Boardway",
-    "url": "https://boardway.in/products/forest-shuffle",
+    "price": 3000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/forest-shuffle",
     "stock": "Out of stock",
-    "discount": 0,
+    "discount": 0.1,
     "verified": true
    },
    "indiaSources": [
@@ -1030,14 +1022,6 @@
      "price": 3000,
      "stock": "Out of stock",
      "discounted": false,
-     "verified": true
-    },
-    {
-     "site": "Boardway",
-     "url": "https://boardway.in/products/forest-shuffle",
-     "price": 2899,
-     "stock": "Out of stock",
-     "discounted": true,
      "verified": true
     }
    ]
@@ -1094,7 +1078,7 @@
     "UK": null,
     "Canada": 34.99,
     "Australia": 35.95,
-    "NZ": 44.3348342
+    "NZ": 44.264156500000006
    },
    "stock": {
     "USA": "In stock",
@@ -1157,7 +1141,7 @@
     "UK": 27.3,
     "Canada": 37.95,
     "Australia": 51.95,
-    "NZ": 49.95
+    "NZ": 56
    },
    "stock": {
     "USA": "In stock",
@@ -1181,14 +1165,6 @@
      "price": 3600,
      "stock": "In stock",
      "discounted": true,
-     "verified": true
-    },
-    {
-     "site": "Boardway",
-     "url": "https://boardway.in/products/harmonies",
-     "price": 3399,
-     "stock": "Out of stock",
-     "discounted": false,
      "verified": true
     }
    ]
@@ -1244,7 +1220,7 @@
     "USA": 30.39,
     "UK": 22.7,
     "Canada": 34.95,
-    "Australia": 39.92,
+    "Australia": 39,
     "NZ": 39.95
    },
    "stock": {
@@ -1281,10 +1257,10 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 20.95,
+    "USA": 21.95,
     "UK": 13.99,
     "Canada": 25.99,
-    "Australia": 29.99,
+    "Australia": 27.99,
     "NZ": null
    },
    "stock": {
@@ -1365,7 +1341,7 @@
     "UK": 21.95,
     "Canada": 42.95,
     "Australia": 29,
-    "NZ": 29.95
+    "NZ": 31.96
    },
    "stock": {
     "USA": "In stock",
@@ -1525,7 +1501,7 @@
     "UK": 29.99,
     "Canada": 46.95,
     "Australia": 63.97,
-    "NZ": 81.3319142
+    "NZ": 81.2022565
    },
    "stock": {
     "USA": "In stock",
@@ -1536,20 +1512,20 @@
    },
    "indiaSources": [
     {
-     "site": "Boardway",
-     "url": "https://boardway.in/products/jamaica",
-     "price": 4099,
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/jamaica-2nd-edition-space-cowboys",
+     "price": 4200,
      "stock": "Out of stock",
-     "discounted": true,
+     "discounted": false,
      "verified": true
     }
    ],
    "india": {
-    "price": 4099,
-    "source": "Boardway",
-    "url": "https://boardway.in/products/jamaica",
+    "price": 4200,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/jamaica-2nd-edition-space-cowboys",
     "stock": "Out of stock",
-    "discount": 0,
+    "discount": 0.1,
     "verified": true
    }
   },
@@ -1717,24 +1693,7 @@
     "Australia": "In stock",
     "NZ": ""
    },
-   "indiaSources": [
-    {
-     "site": "Boardway",
-     "url": "https://boardway.in/products/l-l-a-m-a",
-     "price": 899,
-     "stock": "Out of stock",
-     "discounted": true,
-     "verified": true
-    }
-   ],
-   "india": {
-    "price": 899,
-    "source": "Boardway",
-    "url": "https://boardway.in/products/l-l-a-m-a",
-    "stock": "Out of stock",
-    "discount": 0,
-    "verified": true
-   }
+   "indiaSources": []
   },
   {
    "name": "Landmarks",
@@ -1757,24 +1716,7 @@
     "Australia": "",
     "NZ": ""
    },
-   "indiaSources": [
-    {
-     "site": "Boardway",
-     "url": "https://boardway.in/products/landmarks",
-     "price": 2399,
-     "stock": "Out of stock",
-     "discounted": false,
-     "verified": true
-    }
-   ],
-   "india": {
-    "price": 2399,
-    "source": "Boardway",
-    "url": "https://boardway.in/products/landmarks",
-    "stock": "Out of stock",
-    "discount": 0,
-    "verified": true
-   }
+   "indiaSources": []
   },
   {
    "name": "Lightning Train",
@@ -1788,7 +1730,7 @@
     "UK": 38.99,
     "Canada": 49.95,
     "Australia": 66.95,
-    "NZ": 83.18176820000001
+    "NZ": 83.04916150000001
    },
    "stock": {
     "USA": "In stock",
@@ -1851,7 +1793,7 @@
     "UK": 14.88,
     "Canada": 32.99,
     "Australia": 43.99,
-    "NZ": 55.433958200000006
+    "NZ": 55.34558650000001
    },
    "stock": {
     "USA": "In stock",
@@ -2010,7 +1952,7 @@
     "USA": 25.99,
     "UK": 9.99,
     "Canada": 32.95,
-    "Australia": 42.5,
+    "Australia": 37.99,
     "NZ": 42.95
    },
    "stock": {
@@ -2200,7 +2142,7 @@
     "UK": 34.99,
     "Canada": 54.99,
     "Australia": 68.5,
-    "NZ": 88.7313302
+    "NZ": 88.58987650000002
    },
    "stock": {
     "USA": "In stock",
@@ -2263,7 +2205,7 @@
     "UK": 34.99,
     "Canada": 46.95,
     "Australia": 81.95,
-    "NZ": 101.0636902
+    "NZ": 100.90257650000001
    },
    "stock": {
     "USA": "In stock",
@@ -2452,7 +2394,7 @@
     "UK": 28.99,
     "Canada": 45.94,
     "Australia": 50,
-    "NZ": 86.2648582
+    "NZ": 86.12733650000001
    },
    "stock": {
     "USA": "In stock",
@@ -2461,24 +2403,7 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": [
-    {
-     "site": "Boardway",
-     "url": "https://boardway.in/products/the-quacks-of-quedlinburg",
-     "price": 4799,
-     "stock": "Out of stock",
-     "discounted": true,
-     "verified": true
-    }
-   ],
-   "india": {
-    "price": 4799,
-    "source": "Boardway",
-    "url": "https://boardway.in/products/the-quacks-of-quedlinburg",
-    "stock": "Out of stock",
-    "discount": 0,
-    "verified": true
-   }
+   "indiaSources": []
   },
   {
    "name": "Quest",
@@ -2595,7 +2520,7 @@
     "UK": 27.19,
     "Canada": 46.99,
     "Australia": 56.95,
-    "NZ": 70.8494082
+    "NZ": 70.7364615
    },
    "stock": {
     "USA": "In stock",
@@ -2694,14 +2619,6 @@
      "verified": true
     },
     {
-     "site": "Boardway",
-     "url": "https://boardway.in/products/sagrada",
-     "price": 3199,
-     "stock": "Out of stock",
-     "discounted": true,
-     "verified": true
-    },
-    {
      "site": "Tabletop Universe",
      "url": "https://www.tabletopuniverse.com/products/sagrada-english",
      "price": 4299,
@@ -2744,26 +2661,18 @@
     {
      "site": "Board Games India",
      "url": "https://www.boardgamesindia.com/santorini-second-edition",
-     "price": 4500,
+     "price": 4999,
      "stock": "In stock",
-     "discounted": true,
-     "verified": true
-    },
-    {
-     "site": "Boardway",
-     "url": "https://boardway.in/products/santorini",
-     "price": 2499,
-     "stock": "Out of stock",
-     "discounted": true,
+     "discounted": false,
      "verified": true
     }
    ],
    "india": {
-    "price": 4500,
+    "price": 4999,
     "source": "Board Games India",
     "url": "https://www.boardgamesindia.com/santorini-second-edition",
     "stock": "In stock",
-    "discount": 0,
+    "discount": 0.1,
     "verified": true
    }
   },
@@ -2796,22 +2705,14 @@
      "stock": "Out of stock",
      "discounted": false,
      "verified": true
-    },
-    {
-     "site": "Boardway",
-     "url": "https://boardway.in/products/schotten-totten",
-     "price": 1299,
-     "stock": "Out of stock",
-     "discounted": true,
-     "verified": true
     }
    ],
    "india": {
-    "price": 1299,
-    "source": "Boardway",
-    "url": "https://boardway.in/products/schotten-totten",
+    "price": 1300,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/schotten-totten-iello",
     "stock": "Out of stock",
-    "discount": 0,
+    "discount": 0.1,
     "verified": true
    }
   },
@@ -2827,7 +2728,7 @@
     "UK": 9.2,
     "Canada": 14.95,
     "Australia": 18.99,
-    "NZ": 29.5360022
+    "NZ": 29.488916500000002
    },
    "stock": {
     "USA": "In stock",
@@ -2867,7 +2768,7 @@
     "UK": 8.48,
     "Canada": 11.99,
     "Australia": 15.49,
-    "NZ": 22.7532042
+    "NZ": 22.7169315
    },
    "stock": {
     "USA": "In stock",
@@ -2924,22 +2825,14 @@
      "stock": "Out of stock",
      "discounted": false,
      "verified": true
-    },
-    {
-     "site": "Boardway",
-     "url": "https://boardway.in/products/so-clover",
-     "price": 1999,
-     "stock": "Out of stock",
-     "discounted": true,
-     "verified": true
     }
    ],
    "india": {
-    "price": 1999,
-    "source": "Boardway",
-    "url": "https://boardway.in/products/so-clover",
+    "price": 2500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/so-clover-repos-production",
     "stock": "Out of stock",
-    "discount": 0,
+    "discount": 0.1,
     "verified": true
    }
   },
@@ -3140,14 +3033,6 @@
      "verified": true
     },
     {
-     "site": "Boardway",
-     "url": "https://boardway.in/products/suburbia",
-     "price": 5199,
-     "stock": "Out of stock",
-     "discounted": true,
-     "verified": true
-    },
-    {
      "site": "Tabletop Universe",
      "url": "https://www.tabletopuniverse.com/products/suburbia-inc",
      "price": 5299,
@@ -3194,22 +3079,14 @@
      "stock": "Out of stock",
      "discounted": false,
      "verified": true
-    },
-    {
-     "site": "Boardway",
-     "url": "https://boardway.in/products/takenoko",
-     "price": 4699,
-     "stock": "Out of stock",
-     "discounted": true,
-     "verified": true
     }
    ],
    "india": {
-    "price": 4699,
-    "source": "Boardway",
-    "url": "https://boardway.in/products/takenoko",
+    "price": 5000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/takenoko-matagot",
     "stock": "Out of stock",
-    "discount": 0,
+    "discount": 0.1,
     "verified": true
    }
   },
@@ -3351,14 +3228,6 @@
      "stock": "Out of stock",
      "discounted": false,
      "verified": true
-    },
-    {
-     "site": "Boardway",
-     "url": "https://boardway.in/products/the-castles-of-burgundy-special-edition",
-     "price": 17500,
-     "stock": "Out of stock",
-     "discounted": false,
-     "verified": true
     }
    ],
    "india": {
@@ -3451,7 +3320,7 @@
     "UK": 20.49,
     "Canada": 26.99,
     "Australia": 38,
-    "NZ": 57.9004302
+    "NZ": 57.80812650000001
    },
    "stock": {
     "USA": "In stock",
@@ -3471,7 +3340,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 48.39,
-    "UK": 49.5,
+    "UK": 47.99,
     "Canada": 59.95,
     "Australia": 94.97,
     "NZ": 80.22
@@ -3681,7 +3550,7 @@
     "UK": 14.99,
     "Canada": 18.95,
     "Australia": 25.45,
-    "NZ": 31.3858562
+    "NZ": 31.3358215
    },
    "stock": {
     "USA": "In stock",
@@ -3704,7 +3573,7 @@
     "UK": 47,
     "Canada": 54.95,
     "Australia": 80,
-    "NZ": 115.8625222
+    "NZ": 115.6778165
    },
    "stock": {
     "USA": "In stock",
@@ -3808,14 +3677,6 @@
      "price": 6000,
      "stock": "In stock",
      "discounted": false,
-     "verified": true
-    },
-    {
-     "site": "Boardway",
-     "url": "https://boardway.in/products/wingspan-with-swift-start-pack",
-     "price": 5199,
-     "stock": "Out of stock",
-     "discounted": true,
      "verified": true
     },
     {
@@ -3934,7 +3795,7 @@
     "UK": 47.99,
     "Canada": 72.95,
     "Australia": 99.95,
-    "NZ": 132.5112082
+    "NZ": 132.29996150000002
    },
    "stock": {
     "USA": "In stock",
@@ -4054,7 +3915,7 @@
     "UK": 17.94,
     "Canada": 17.95,
     "Australia": 19.95,
-    "NZ": 30.7692382
+    "NZ": 30.7201865
    },
    "stock": {
     "USA": "In stock",
@@ -4071,22 +3932,14 @@
      "stock": "Out of stock",
      "discounted": false,
      "verified": true
-    },
-    {
-     "site": "Boardway",
-     "url": "https://boardway.in/products/bang-the-dice-game",
-     "price": 1799,
-     "stock": "Out of stock",
-     "discounted": true,
-     "verified": true
     }
    ],
    "india": {
-    "price": 1799,
-    "source": "Boardway",
-    "url": "https://boardway.in/products/bang-the-dice-game",
+    "price": 1800,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/bang-the-dice-game-dv-giochi",
     "stock": "Out of stock",
-    "discount": 0,
+    "discount": 0.1,
     "verified": true
    }
   },
@@ -4317,7 +4170,7 @@
     "UK": 14.99,
     "Canada": 18.95,
     "Australia": 25.95,
-    "NZ": 36.9354182
+    "NZ": 36.8765365
    },
    "stock": {
     "USA": "In stock",
@@ -4394,7 +4247,7 @@
      "site": "Board Games India",
      "url": "https://www.boardgamesindia.com/popcorn",
      "price": 3600,
-     "stock": "Pre-order",
+     "stock": "Out of stock",
      "discounted": true,
      "verified": true
     }
@@ -4403,7 +4256,7 @@
     "price": 3600,
     "source": "Board Games India",
     "url": "https://www.boardgamesindia.com/popcorn",
-    "stock": "Pre-order",
+    "stock": "Out of stock",
     "discount": 0,
     "verified": true
    }
@@ -4477,22 +4330,14 @@
      "stock": "Out of stock",
      "discounted": false,
      "verified": true
-    },
-    {
-     "site": "Boardway",
-     "url": "https://boardway.in/products/radlands",
-     "price": 2299,
-     "stock": "Out of stock",
-     "discounted": true,
-     "verified": true
     }
    ],
    "india": {
-    "price": 2299,
-    "source": "Boardway",
-    "url": "https://boardway.in/products/radlands",
+    "price": 2500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/radlands-retail-edition-roxley-games",
     "stock": "Out of stock",
-    "discount": 0,
+    "discount": 0.1,
     "verified": true
    }
   },
@@ -4663,24 +4508,7 @@
     "Australia": "",
     "NZ": "In stock"
    },
-   "indiaSources": [
-    {
-     "site": "Boardway",
-     "url": "https://boardway.in/products/viticulture-essential-edition-1",
-     "price": 4799,
-     "stock": "Out of stock",
-     "discounted": true,
-     "verified": true
-    }
-   ],
-   "india": {
-    "price": 4799,
-    "source": "Boardway",
-    "url": "https://boardway.in/products/viticulture-essential-edition-1",
-    "stock": "Out of stock",
-    "discount": 0,
-    "verified": true
-   }
+   "indiaSources": []
   },
   {
    "name": "Strike",
