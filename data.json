@@ -1,12 +1,12 @@
 {
  "meta": {
-  "updated": "2026-09-16",
+  "updated": "2026-09-17",
   "fx": {
    "USD": 95.97,
-   "GBP": 129.37,
-   "CAD": 68.92,
-   "AUD": 68.4,
-   "NZD": 55.25
+   "GBP": 129.2,
+   "CAD": 68.82,
+   "AUD": 68.45,
+   "NZD": 55.31
   }
  },
  "config": {
@@ -174,7 +174,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 14.44,
-    "UK": 19.37,
+    "UK": 19.31,
     "Canada": 20.95,
     "Australia": 26.95,
     "NZ": 44.99
@@ -237,7 +237,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 46.99,
-    "UK": 38.22,
+    "UK": 36.82,
     "Canada": 59.99,
     "Australia": 65.22,
     "NZ": 74.72
@@ -368,7 +368,7 @@
     "UK": null,
     "Canada": 75.99,
     "Australia": 67.95,
-    "NZ": 83.93163615000002
+    "NZ": 84.13385535
    },
    "stock": {
     "USA": "",
@@ -809,7 +809,7 @@
     "UK": 27.19,
     "Canada": 42.95,
     "Australia": 62.95,
-    "NZ": 77.75565115
+    "NZ": 77.94299035
    },
    "stock": {
     "USA": "In stock",
@@ -929,7 +929,7 @@
     "UK": 4.49,
     "Canada": 8.49,
     "Australia": 10.45,
-    "NZ": 14.76060415
+    "NZ": 14.79616735
    },
    "stock": {
     "USA": "In stock",
@@ -998,7 +998,7 @@
     "UK": 19.16,
     "Canada": 26.94,
     "Australia": 40,
-    "NZ": 59.84529465000001
+    "NZ": 59.989481850000004
    },
    "stock": {
     "USA": "In stock",
@@ -1078,7 +1078,7 @@
     "UK": null,
     "Canada": 34.99,
     "Australia": 35.95,
-    "NZ": 44.40533215000001
+    "NZ": 44.512319350000006
    },
    "stock": {
     "USA": "In stock",
@@ -1218,7 +1218,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 30.39,
-    "UK": 22.7,
+    "UK": 21.56,
     "Canada": 34.95,
     "Australia": 39,
     "NZ": 39.95
@@ -1501,7 +1501,7 @@
     "UK": 29.99,
     "Canada": 46.95,
     "Australia": 63.97,
-    "NZ": 81.46124215
+    "NZ": 81.65750935
    },
    "stock": {
     "USA": "In stock",
@@ -1554,18 +1554,18 @@
     {
      "site": "Board Games India",
      "url": "https://www.boardgamesindia.com/junk-art-revolution-en-gb-6080",
-     "price": 5800,
-     "stock": "Out of stock",
-     "discounted": false,
+     "price": 5220,
+     "stock": "Pre-order",
+     "discounted": true,
      "verified": true
     }
    ],
    "india": {
-    "price": 5800,
+    "price": 5220,
     "source": "Board Games India",
     "url": "https://www.boardgamesindia.com/junk-art-revolution-en-gb-6080",
-    "stock": "Out of stock",
-    "discount": 0.1,
+    "stock": "Pre-order",
+    "discount": 0,
     "verified": true
    }
   },
@@ -1595,7 +1595,7 @@
      "site": "Board Games India",
      "url": "https://www.boardgamesindia.com/kabuto-sumo-board-game-tables-com",
      "price": 4200,
-     "stock": "Out of stock",
+     "stock": "Pre-order",
      "discounted": false,
      "verified": true
     }
@@ -1604,7 +1604,7 @@
     "price": 4200,
     "source": "Board Games India",
     "url": "https://www.boardgamesindia.com/kabuto-sumo-board-game-tables-com",
-    "stock": "Out of stock",
+    "stock": "Pre-order",
     "discount": 0.1,
     "verified": true
    }
@@ -1620,7 +1620,7 @@
     "USA": 11.99,
     "UK": 6.64,
     "Canada": 14.95,
-    "Australia": 34.14,
+    "Australia": 34.07,
     "NZ": null
    },
    "stock": {
@@ -1730,7 +1730,7 @@
     "UK": 38.99,
     "Canada": 49.95,
     "Australia": 66.95,
-    "NZ": 83.31403765000002
+    "NZ": 83.51476885
    },
    "stock": {
     "USA": "In stock",
@@ -1793,7 +1793,7 @@
     "UK": 14.88,
     "Canada": 32.99,
     "Australia": 43.99,
-    "NZ": 55.52210515000001
+    "NZ": 55.65587635
    },
    "stock": {
     "USA": "In stock",
@@ -1993,7 +1993,7 @@
     "UK": 39.9,
     "Canada": 46.99,
     "Australia": 72,
-    "NZ": 86.76
+    "NZ": 86.95
    },
    "stock": {
     "USA": "In stock",
@@ -2142,7 +2142,7 @@
     "UK": 34.99,
     "Canada": 54.99,
     "Australia": 68.5,
-    "NZ": 88.87242415000001
+    "NZ": 89.08654735
    },
    "stock": {
     "USA": "In stock",
@@ -2205,7 +2205,7 @@
     "UK": 34.99,
     "Canada": 46.95,
     "Australia": 81.95,
-    "NZ": 101.22439415000001
+    "NZ": 101.46827735
    },
    "stock": {
     "USA": "In stock",
@@ -2391,10 +2391,10 @@
    "status": "Not Started",
    "prices": {
     "USA": 35.99,
-    "UK": 28.99,
+    "UK": 28.95,
     "Canada": 45.94,
     "Australia": 50,
-    "NZ": 86.40203015000002
+    "NZ": 86.61020135
    },
    "stock": {
     "USA": "In stock",
@@ -2520,7 +2520,7 @@
     "UK": 27.19,
     "Canada": 46.99,
     "Australia": 56.95,
-    "NZ": 70.96206765000001
+    "NZ": 71.13303885
    },
    "stock": {
     "USA": "In stock",
@@ -2728,7 +2728,7 @@
     "UK": 9.2,
     "Canada": 14.95,
     "Australia": 18.99,
-    "NZ": 29.582968150000003
+    "NZ": 29.654243349999998
    },
    "stock": {
     "USA": "In stock",
@@ -2768,7 +2768,7 @@
     "UK": 8.48,
     "Canada": 11.99,
     "Australia": 15.49,
-    "NZ": 22.789384650000002
+    "NZ": 22.844291849999998
    },
    "stock": {
     "USA": "In stock",
@@ -3146,7 +3146,7 @@
    "prices": {
     "USA": 28.99,
     "UK": 40.99,
-    "Canada": 39.71,
+    "Canada": 44.95,
     "Australia": 56.45,
     "NZ": 71.38
    },
@@ -3320,7 +3320,7 @@
     "UK": 20.49,
     "Canada": 26.99,
     "Australia": 38,
-    "NZ": 57.99249915000001
+    "NZ": 58.13222235
    },
    "stock": {
     "USA": "In stock",
@@ -3550,7 +3550,7 @@
     "UK": 14.99,
     "Canada": 18.95,
     "Australia": 27,
-    "NZ": 31.435763650000002
+    "NZ": 31.51150285
    },
    "stock": {
     "USA": "In stock",
@@ -3573,7 +3573,7 @@
     "UK": 47,
     "Canada": 54.95,
     "Australia": 80,
-    "NZ": 116.04675815000002
+    "NZ": 116.32635335
    },
    "stock": {
     "USA": "In stock",
@@ -3651,7 +3651,7 @@
    "prices": {
     "USA": 55,
     "UK": 43.99,
-    "Canada": 64.95,
+    "Canada": 63.99,
     "Australia": 74.99,
     "NZ": 76.95
    },
@@ -3795,7 +3795,7 @@
     "UK": 47.99,
     "Canada": 72.95,
     "Australia": 99.95,
-    "NZ": 132.72191765000002
+    "NZ": 133.04168885
    },
    "stock": {
     "USA": "In stock",
@@ -3915,7 +3915,7 @@
     "UK": 17.94,
     "Canada": 17.95,
     "Australia": 19.95,
-    "NZ": 30.818165150000002
+    "NZ": 30.892416349999998
    },
    "stock": {
     "USA": "In stock",
@@ -4170,7 +4170,7 @@
     "UK": 14.99,
     "Canada": 18.95,
     "Australia": 25.95,
-    "NZ": 36.99415015
+    "NZ": 37.08328135
    },
    "stock": {
     "USA": "In stock",
@@ -4436,7 +4436,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 19.97,
-    "UK": 17.48,
+    "UK": 25.2,
     "Canada": null,
     "Australia": null,
     "NZ": null
