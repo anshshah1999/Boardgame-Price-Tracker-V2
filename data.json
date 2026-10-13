@@ -1,12 +1,12 @@
 {
  "meta": {
-  "updated": "2026-10-12",
+  "updated": "2026-10-13",
   "fx": {
-   "USD": 96.71,
-   "GBP": 127.88,
-   "CAD": 67.98,
-   "AUD": 67.52,
-   "NZD": 54.32
+   "USD": 95.79,
+   "GBP": 126.74,
+   "CAD": 67.16,
+   "AUD": 66.8,
+   "NZD": 53.62
   }
  },
  "config": {
@@ -137,7 +137,7 @@
     "UK": 18,
     "Canada": 34.99,
     "Australia": 24.95,
-    "NZ": 39
+    "NZ": 38.2
    },
    "stock": {
     "USA": "In stock",
@@ -237,7 +237,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 46.99,
-    "UK": 43.91,
+    "UK": 40.21,
     "Canada": 59.99,
     "Australia": 65.17,
     "NZ": 74.67
@@ -494,7 +494,7 @@
     "UK": 21.9,
     "Canada": 29.95,
     "Australia": 39,
-    "NZ": 37.85
+    "NZ": 34
    },
    "stock": {
     "USA": "In stock",
@@ -1054,7 +1054,7 @@
     "UK": 38.99,
     "Canada": 50.95,
     "Australia": 72,
-    "NZ": 84.72
+    "NZ": 72.49
    },
    "stock": {
     "USA": "In stock",
@@ -1205,7 +1205,7 @@
     "UK": 24.99,
     "Canada": 34,
     "Australia": 25,
-    "NZ": 34.5
+    "NZ": 47.94
    },
    "stock": {
     "USA": "In stock",
@@ -1281,7 +1281,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 21.95,
+    "USA": 20.95,
     "UK": 13.99,
     "Canada": 20.99,
     "Australia": 27.99,
@@ -1899,7 +1899,7 @@
     "UK": 19.99,
     "Canada": 32.95,
     "Australia": 50.5,
-    "NZ": 53.96
+    "NZ": 51.97
    },
    "stock": {
     "USA": "In stock",
@@ -2059,7 +2059,7 @@
     "UK": 39.9,
     "Canada": 46.99,
     "Australia": 79.95,
-    "NZ": 76.04
+    "NZ": 86.95
    },
    "stock": {
     "USA": "In stock",
@@ -2207,7 +2207,7 @@
     "USA": 49.99,
     "UK": 34.99,
     "Canada": 54.99,
-    "Australia": 68.5,
+    "Australia": 69.17,
     "NZ": 89.4990367
    },
    "stock": {
@@ -2308,7 +2308,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 50.12,
-    "UK": 56.19,
+    "UK": 56,
     "Canada": 82.95,
     "Australia": 99.95,
     "NZ": 92.65
@@ -2835,7 +2835,7 @@
     "UK": 9.2,
     "Canada": 14.95,
     "Australia": 18.99,
-    "NZ": 30.413501699999998
+    "NZ": 30.4251399
    },
    "stock": {
     "USA": "In stock",
@@ -2915,7 +2915,7 @@
     "UK": 16.99,
     "Canada": 26.95,
     "Australia": 34.18,
-    "NZ": 35.76
+    "NZ": 34.82
    },
    "stock": {
     "USA": "In stock",
@@ -3480,7 +3480,7 @@
    "prices": {
     "USA": 44.99,
     "UK": 47.99,
-    "Canada": 59.95,
+    "Canada": 62.99,
     "Australia": 94.97,
     "NZ": 80.17
    },
@@ -3739,7 +3739,7 @@
     "UK": 47,
     "Canada": 54.95,
     "Australia": 80,
-    "NZ": 116.8649687
+    "NZ": 116.9096889
    },
    "stock": {
     "USA": "In stock",
@@ -3969,7 +3969,7 @@
     "UK": 47.99,
     "Canada": 74.95,
     "Australia": 99.95,
-    "NZ": 133.6576997
+    "NZ": 133.7088459
    },
    "stock": {
     "USA": "In stock",
