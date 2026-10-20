@@ -1,12 +1,12 @@
 {
  "meta": {
-  "updated": "2026-10-19",
+  "updated": "2026-10-20",
   "fx": {
    "USD": 94.97,
    "GBP": 126.58,
-   "CAD": 67.07,
-   "AUD": 66.09,
-   "NZD": 53.79
+   "CAD": 67.43,
+   "AUD": 66.31,
+   "NZD": 53.85
   }
  },
  "config": {
@@ -137,7 +137,7 @@
     "UK": 18,
     "Canada": 34.99,
     "Australia": 24.95,
-    "NZ": 37.97
+    "NZ": 38.48
    },
    "stock": {
     "USA": "In stock",
@@ -239,8 +239,8 @@
     "USA": 46.97,
     "UK": 44.99,
     "Canada": 59.99,
-    "Australia": 68.16,
-    "NZ": 76.14
+    "Australia": 68.15,
+    "NZ": 74.56
    },
    "stock": {
     "USA": "In stock",
@@ -368,7 +368,7 @@
     "UK": null,
     "Canada": 75.99,
     "Australia": 67.95,
-    "NZ": 83.50898715
+    "NZ": 83.7190206
    },
    "stock": {
     "USA": "",
@@ -408,7 +408,7 @@
     "UK": null,
     "Canada": 35.95,
     "Australia": 42.95,
-    "NZ": 52.784562150000006
+    "NZ": 52.917320600000004
    },
    "stock": {
     "USA": "In stock",
@@ -491,7 +491,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 29.99,
-    "UK": 21.9,
+    "UK": 20.9,
     "Canada": 29.95,
     "Australia": 39,
     "NZ": 37.85
@@ -517,7 +517,7 @@
     "UK": 20.49,
     "Canada": 27.95,
     "Australia": 39.95,
-    "NZ": 49.097631150000005
+    "NZ": 49.2211166
    },
    "stock": {
     "USA": "In stock",
@@ -564,7 +564,7 @@
     "USA": 31.99,
     "UK": 24.45,
     "Canada": 39.95,
-    "Australia": 57.02,
+    "Australia": 61.95,
     "NZ": 67.53
    },
    "stock": {
@@ -666,7 +666,7 @@
    "prices": {
     "USA": 31.99,
     "UK": 22.18,
-    "Canada": 67.47,
+    "Canada": 67.46,
     "Australia": null,
     "NZ": null
    },
@@ -817,7 +817,7 @@
     "UK": 27.19,
     "Canada": 42.95,
     "Australia": 62.95,
-    "NZ": 77.36410215000001
+    "NZ": 77.5586806
    },
    "stock": {
     "USA": "In stock",
@@ -1006,7 +1006,7 @@
     "UK": 19.16,
     "Canada": 26.94,
     "Australia": 40,
-    "NZ": 59.54393565
+    "NZ": 59.6936946
    },
    "stock": {
     "USA": "In stock",
@@ -1094,7 +1094,7 @@
     "UK": null,
     "Canada": 35.99,
     "Australia": 35.95,
-    "NZ": 44.18172315
+    "NZ": 44.2928446
    },
    "stock": {
     "USA": "In stock",
@@ -1156,8 +1156,8 @@
     "USA": 31.99,
     "UK": 26.9,
     "Canada": 37.95,
-    "Australia": 47.32,
-    "NZ": 53.43
+    "Australia": 51.95,
+    "NZ": 52.23
    },
    "stock": {
     "USA": "In stock",
@@ -1244,7 +1244,7 @@
     "USA": 30.39,
     "UK": 22.09,
     "Canada": 34.94,
-    "Australia": 35,
+    "Australia": 37.59,
     "NZ": 37.59
    },
    "stock": {
@@ -1281,7 +1281,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 21.95,
+    "USA": 20.95,
     "UK": 13.99,
     "Canada": 25.99,
     "Australia": 27.99,
@@ -1525,7 +1525,7 @@
     "UK": 29.99,
     "Canada": 48.95,
     "Australia": 63.97,
-    "NZ": 61.38740115
+    "NZ": 61.5417966
    },
    "stock": {
     "USA": "In stock",
@@ -1795,8 +1795,8 @@
     "USA": 54.99,
     "UK": 38.99,
     "Canada": 59.95,
-    "Australia": 66.84,
-    "NZ": 82.89449865
+    "Australia": 66.95,
+    "NZ": 83.1029866
    },
    "stock": {
     "USA": "In stock",
@@ -1858,8 +1858,8 @@
     "USA": 22.47,
     "UK": 24.99,
     "Canada": 32.99,
-    "Australia": 44.95,
-    "NZ": 55.24251615
+    "Australia": 42.95,
+    "NZ": 55.3814566
    },
    "stock": {
     "USA": "In stock",
@@ -1898,8 +1898,8 @@
     "USA": 26.59,
     "UK": 19.99,
     "Canada": 32.95,
-    "Australia": 47,
-    "NZ": 50.78
+    "Australia": 50.41,
+    "NZ": 48.61
    },
    "stock": {
     "USA": "In stock",
@@ -1976,7 +1976,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 29.99,
-    "UK": 18.99,
+    "UK": 19.99,
     "Canada": 33.95,
     "Australia": 40,
     "NZ": 56.95
@@ -2207,8 +2207,8 @@
     "USA": 49.99,
     "UK": 34.99,
     "Canada": 54.99,
-    "Australia": 62,
-    "NZ": 88.42489515
+    "Australia": 71.95,
+    "NZ": 88.6472926
    },
    "stock": {
     "USA": "In stock",
@@ -2271,7 +2271,7 @@
     "UK": 34.46,
     "Canada": 46.95,
     "Australia": 81.95,
-    "NZ": 100.71466515
+    "NZ": 100.9679726
    },
    "stock": {
     "USA": "In stock",
@@ -2460,7 +2460,7 @@
     "UK": 27.9,
     "Canada": 40.8,
     "Australia": 50,
-    "NZ": 85.96694115
+    "NZ": 86.1831566
    },
    "stock": {
     "USA": "In stock",
@@ -2603,7 +2603,7 @@
     "UK": 27.19,
     "Canada": 46.99,
     "Australia": 56.95,
-    "NZ": 70.60472865
+    "NZ": 70.7823066
    },
    "stock": {
     "USA": "In stock",
@@ -2835,7 +2835,7 @@
     "UK": 9.2,
     "Canada": 14.95,
     "Australia": 18.99,
-    "NZ": 30.04848765
+    "NZ": 30.1240626
    },
    "stock": {
     "USA": "In stock",
@@ -2914,8 +2914,8 @@
     "USA": 22.39,
     "UK": 16.99,
     "Canada": 26.95,
-    "Australia": 34.15,
-    "NZ": 34.15
+    "Australia": 32.02,
+    "NZ": 34.61
    },
    "stock": {
     "USA": "In stock",
@@ -3102,7 +3102,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 11.99,
+    "USA": 11.19,
     "UK": null,
     "Canada": 27.51,
     "Australia": null,
@@ -3279,7 +3279,7 @@
     "UK": 40.99,
     "Canada": 44.95,
     "Australia": 74.99,
-    "NZ": 75.56
+    "NZ": 75.67
    },
    "stock": {
     "USA": "In stock",
@@ -3459,7 +3459,7 @@
     "UK": 20.49,
     "Canada": 26.95,
     "Australia": 38,
-    "NZ": 31.89195315
+    "NZ": 31.9721646
    },
    "stock": {
     "USA": "Out of stock",
@@ -3651,7 +3651,7 @@
     "USA": 24.96,
     "UK": 14.99,
     "Canada": 25.95,
-    "Australia": 30.76,
+    "Australia": 33.95,
     "NZ": 33.95
    },
    "stock": {
@@ -3707,7 +3707,7 @@
     "UK": 14.99,
     "Canada": 19.95,
     "Australia": 27,
-    "NZ": 31.27746465
+    "NZ": 31.356130599999997
    },
    "stock": {
     "USA": "In stock",
@@ -3739,7 +3739,7 @@
     "UK": 47,
     "Canada": 56.95,
     "Australia": 80,
-    "NZ": 115.46238915
+    "NZ": 115.7527886
    },
    "stock": {
     "USA": "In stock",
@@ -3969,7 +3969,7 @@
     "UK": 47.99,
     "Canada": 74.99,
     "Australia": 99.95,
-    "NZ": 132.05357865
+    "NZ": 132.3857066
    },
    "stock": {
     "USA": "In stock",
@@ -4018,7 +4018,24 @@
     "Australia": "In stock",
     "NZ": ""
    },
-   "indiaSources": []
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/magical-athlete",
+     "price": 2999,
+     "stock": "In stock",
+     "discounted": false,
+     "verified": true
+    }
+   ],
+   "india": {
+    "price": 2999,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/magical-athlete",
+    "stock": "In stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Hot streak",
@@ -4041,7 +4058,24 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": []
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/hot-streak",
+     "price": 4999,
+     "stock": "In stock",
+     "discounted": false,
+     "verified": true
+    }
+   ],
+   "india": {
+    "price": 4999,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/hot-streak",
+    "stock": "In stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Bang! The Dice Game",
@@ -4055,7 +4089,7 @@
     "UK": 17.94,
     "Canada": 17.95,
     "Australia": 19.95,
-    "NZ": 30.66297615
+    "NZ": 30.740096599999998
    },
    "stock": {
     "USA": "In stock",
@@ -4065,6 +4099,14 @@
     "NZ": "In stock"
    },
    "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/bang-the-dice-game-dv-giochi",
+     "price": 1800,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": true
+    },
     {
      "site": "Boardway",
      "url": "https://boardway.in/products/bang-the-dice-game",
@@ -4127,7 +4169,24 @@
     "Australia": "In stock",
     "NZ": ""
    },
-   "indiaSources": []
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/pinched",
+     "price": 9999,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": true
+    }
+   ],
+   "india": {
+    "price": 9999,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/pinched",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Solstis",
@@ -4150,7 +4209,24 @@
     "Australia": "",
     "NZ": ""
    },
-   "indiaSources": []
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/solstis",
+     "price": 9999,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": true
+    }
+   ],
+   "india": {
+    "price": 9999,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/solstis",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Skull King",
@@ -4173,7 +4249,24 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": []
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/skull-king-grandpa-beck-s-games",
+     "price": 1600,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": true
+    }
+   ],
+   "india": {
+    "price": 1600,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/skull-king-grandpa-beck-s-games",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Fliptoons",
@@ -4196,7 +4289,16 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": []
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/fliptoons-season-2",
+     "price": 2200,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": false
+    }
+   ]
   },
   {
    "name": "A carnivore did it",
@@ -4219,7 +4321,24 @@
     "Australia": "In stock",
     "NZ": ""
    },
-   "indiaSources": []
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/a-carnivore-did-it",
+     "price": 2000,
+     "stock": "Pre-order",
+     "discounted": false,
+     "verified": true
+    }
+   ],
+   "india": {
+    "price": 2000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/a-carnivore-did-it",
+    "stock": "Pre-order",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Ruins",
@@ -4233,7 +4352,7 @@
     "UK": 14.99,
     "Canada": 18.95,
     "Australia": 25.95,
-    "NZ": 36.80786115
+    "NZ": 36.9004366
    },
    "stock": {
     "USA": "In stock",
@@ -4265,7 +4384,24 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": []
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/petiquette",
+     "price": 2500,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": true
+    }
+   ],
+   "india": {
+    "price": 2500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/petiquette",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Popcorn",
@@ -4288,7 +4424,24 @@
     "Australia": "",
     "NZ": ""
    },
-   "indiaSources": []
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/popcorn",
+     "price": 4000,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": true
+    }
+   ],
+   "india": {
+    "price": 4000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/popcorn",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Durian",
@@ -4302,7 +4455,7 @@
     "UK": 19.99,
     "Canada": 24.95,
     "Australia": 35.99,
-    "NZ": 45.83
+    "NZ": 45.55
    },
    "stock": {
     "USA": "In stock",
@@ -4311,7 +4464,24 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": []
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/durian-oink-games",
+     "price": 2500,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": true
+    }
+   ],
+   "india": {
+    "price": 2500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/durian-oink-games",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Radlands",
@@ -4335,6 +4505,14 @@
     "NZ": "Out of stock"
    },
    "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/radlands-retail-edition-roxley-games",
+     "price": 2500,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": true
+    },
     {
      "site": "Boardway",
      "url": "https://boardway.in/products/radlands",
@@ -4420,7 +4598,24 @@
     "Australia": "",
     "NZ": ""
    },
-   "indiaSources": []
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/collect",
+     "price": 1400,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": true
+    }
+   ],
+   "india": {
+    "price": 1400,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/collect",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "K3",
@@ -4466,7 +4661,24 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": []
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/legacy-of-yu-with-2022-ks-promo-pack-bundle-renegade-game-studios",
+     "price": 6000,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": true
+    }
+   ],
+   "india": {
+    "price": 6000,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/legacy-of-yu-with-2022-ks-promo-pack-bundle-renegade-game-studios",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Viticulture",
