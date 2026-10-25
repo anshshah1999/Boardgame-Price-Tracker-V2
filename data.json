@@ -1,6 +1,6 @@
 {
  "meta": {
-  "updated": "2026-10-24",
+  "updated": "2026-10-25",
   "fx": {
    "USD": 94.97,
    "GBP": 126.9,
@@ -494,7 +494,7 @@
     "UK": 20.9,
     "Canada": 29.95,
     "Australia": 39,
-    "NZ": 37.85
+    "NZ": 35.73
    },
    "stock": {
     "USA": "In stock",
@@ -666,7 +666,7 @@
    "prices": {
     "USA": 31.99,
     "UK": 22.18,
-    "Canada": 67.46,
+    "Canada": 66.63,
     "Australia": null,
     "NZ": null
    },
@@ -1157,7 +1157,7 @@
     "UK": 26.9,
     "Canada": 37.95,
     "Australia": 51.95,
-    "NZ": 52.38
+    "NZ": 54.26
    },
    "stock": {
     "USA": "In stock",
@@ -1281,7 +1281,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 20.95,
+    "USA": 21.95,
     "UK": 13.99,
     "Canada": 20.99,
     "Australia": 27.99,
@@ -1856,7 +1856,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 22.47,
-    "UK": 15.16,
+    "UK": 14.73,
     "Canada": 32.99,
     "Australia": 42.95,
     "NZ": 55.50583325
@@ -1899,7 +1899,7 @@
     "UK": 19.99,
     "Canada": 32.95,
     "Australia": 44.6,
-    "NZ": 48.61
+    "NZ": 52.09
    },
    "stock": {
     "USA": "In stock",
@@ -2284,14 +2284,14 @@
     {
      "site": "Board Games India",
      "url": "https://www.boardgamesindia.com/pirates-of-maracaibo",
-     "price": 9999,
+     "price": 5500,
      "stock": "Out of stock",
      "discounted": false,
      "verified": true
     }
    ],
    "india": {
-    "price": 9999,
+    "price": 5500,
     "source": "Board Games India",
     "url": "https://www.boardgamesindia.com/pirates-of-maracaibo",
     "stock": "Out of stock",
@@ -2458,7 +2458,7 @@
    "prices": {
     "USA": 35.99,
     "UK": 27.9,
-    "Canada": 40.8,
+    "Canada": 45.94,
     "Australia": 50,
     "NZ": 86.37670825
    },
@@ -2924,7 +2924,7 @@
     "UK": 16.99,
     "Canada": 26.95,
     "Australia": 34.61,
-    "NZ": 34.2
+    "NZ": 35.99
    },
    "stock": {
     "USA": "In stock",
@@ -3788,7 +3788,7 @@
     "UK": null,
     "Canada": 74.94,
     "Australia": 86.99,
-    "NZ": 86.99
+    "NZ": 107
    },
    "stock": {
     "USA": "In stock",
@@ -4464,7 +4464,7 @@
     "UK": 19.99,
     "Canada": 24.95,
     "Australia": 35.99,
-    "NZ": 45.55
+    "NZ": 43.24
    },
    "stock": {
     "USA": "In stock",
