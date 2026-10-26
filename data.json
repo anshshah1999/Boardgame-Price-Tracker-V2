@@ -1,12 +1,12 @@
 {
  "meta": {
-  "updated": "2026-10-25",
+  "updated": "2026-10-26",
   "fx": {
-   "USD": 94.97,
-   "GBP": 126.9,
+   "USD": 94.94,
+   "GBP": 126.92,
    "CAD": 67.84,
    "AUD": 66.67,
-   "NZD": 54
+   "NZD": 53.99
   }
  },
  "config": {
@@ -368,7 +368,7 @@
     "UK": null,
     "Canada": 75.99,
     "Australia": 67.95,
-    "NZ": 83.90703825
+    "NZ": 83.85471675
    },
    "stock": {
     "USA": "",
@@ -408,7 +408,7 @@
     "UK": null,
     "Canada": 35.95,
     "Australia": 42.95,
-    "NZ": 53.03616325
+    "NZ": 53.00309175
    },
    "stock": {
     "USA": "In stock",
@@ -444,7 +444,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 34.99,
+    "USA": 34.92,
     "UK": 27.15,
     "Canada": 44.99,
     "Australia": null,
@@ -494,7 +494,7 @@
     "UK": 20.9,
     "Canada": 29.95,
     "Australia": 39,
-    "NZ": 35.73
+    "NZ": 37.85
    },
    "stock": {
     "USA": "In stock",
@@ -513,11 +513,11 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 20.99,
+    "USA": 21.59,
     "UK": 20.49,
     "Canada": 27.95,
     "Australia": 39.95,
-    "NZ": 49.33165825
+    "NZ": 49.30089675
    },
    "stock": {
     "USA": "In stock",
@@ -562,7 +562,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 31.99,
-    "UK": 28.46,
+    "UK": 24.45,
     "Canada": 39.95,
     "Australia": 57.5,
     "NZ": 62.52
@@ -664,7 +664,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 31.99,
+    "USA": 25.83,
     "UK": 22.18,
     "Canada": 66.63,
     "Australia": null,
@@ -817,7 +817,7 @@
     "UK": 27.19,
     "Canada": 42.95,
     "Australia": 62.95,
-    "NZ": 77.73286325
+    "NZ": 77.68439175
    },
    "stock": {
     "USA": "In stock",
@@ -1006,7 +1006,7 @@
     "UK": 19.16,
     "Canada": 26.94,
     "Australia": 40,
-    "NZ": 59.82775575
+    "NZ": 59.79044925
    },
    "stock": {
     "USA": "In stock",
@@ -1067,18 +1067,18 @@
     {
      "site": "Board Games India",
      "url": "https://www.boardgamesindia.com/foundations-of-metropolis-en-gb-5969",
-     "price": 5500,
-     "stock": "Out of stock",
-     "discounted": false,
+     "price": 5000,
+     "stock": "Pre-order",
+     "discounted": true,
      "verified": true
     }
    ],
    "india": {
-    "price": 5500,
+    "price": 5000,
     "source": "Board Games India",
     "url": "https://www.boardgamesindia.com/foundations-of-metropolis-en-gb-5969",
-    "stock": "Out of stock",
-    "discount": 0.1,
+    "stock": "Pre-order",
+    "discount": 0,
     "verified": true
    }
   },
@@ -1094,7 +1094,7 @@
     "UK": null,
     "Canada": 35.99,
     "Australia": 35.95,
-    "NZ": 44.39231825
+    "NZ": 44.36463675
    },
    "stock": {
     "USA": "In stock",
@@ -1242,7 +1242,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 30.39,
-    "UK": 22.09,
+    "UK": 22.05,
     "Canada": 34.94,
     "Australia": 37.59,
     "NZ": 37.59
@@ -1525,7 +1525,7 @@
     "UK": 29.99,
     "Canada": 46.95,
     "Australia": 63.97,
-    "NZ": 61.68000825
+    "NZ": 61.64154675
    },
    "stock": {
     "USA": "In stock",
@@ -1796,7 +1796,7 @@
     "UK": 38.99,
     "Canada": 59.95,
     "Australia": 66.95,
-    "NZ": 83.28962075
+    "NZ": 83.23768425
    },
    "stock": {
     "USA": "In stock",
@@ -1809,18 +1809,18 @@
     {
      "site": "Board Games India",
      "url": "https://www.boardgamesindia.com/lightning-train-en-gb-6065",
-     "price": 6000,
+     "price": 5500,
      "stock": "Out of stock",
-     "discounted": false,
+     "discounted": true,
      "verified": true
     }
    ],
    "india": {
-    "price": 6000,
+    "price": 5500,
     "source": "Board Games India",
     "url": "https://www.boardgamesindia.com/lightning-train-en-gb-6065",
     "stock": "Out of stock",
-    "discount": 0.1,
+    "discount": 0,
     "verified": true
    }
   },
@@ -1859,7 +1859,7 @@
     "UK": 14.73,
     "Canada": 32.99,
     "Australia": 42.95,
-    "NZ": 55.50583325
+    "NZ": 55.471221750000005
    },
    "stock": {
     "USA": "In stock",
@@ -2208,7 +2208,7 @@
     "UK": 34.99,
     "Canada": 54.99,
     "Australia": 58.28,
-    "NZ": 88.84637825
+    "NZ": 88.79097675
    },
    "stock": {
     "USA": "In stock",
@@ -2268,10 +2268,10 @@
    "status": "Not Started",
    "prices": {
     "USA": 39.97,
-    "UK": 33.94,
+    "UK": 33.98,
     "Canada": 46.95,
     "Australia": 81.95,
-    "NZ": 101.19472825
+    "NZ": 101.13162675
    },
    "stock": {
     "USA": "In stock",
@@ -2280,24 +2280,7 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": [
-    {
-     "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/pirates-of-maracaibo",
-     "price": 5500,
-     "stock": "Out of stock",
-     "discounted": false,
-     "verified": true
-    }
-   ],
-   "india": {
-    "price": 5500,
-    "source": "Board Games India",
-    "url": "https://www.boardgamesindia.com/pirates-of-maracaibo",
-    "stock": "Out of stock",
-    "discount": 0.1,
-    "verified": true
-   }
+   "indiaSources": []
   },
   {
    "name": "Planet Unknown",
@@ -2410,7 +2393,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 13.59,
+    "USA": 12.46,
     "UK": 12.99,
     "Canada": 17.95,
     "Australia": 23.95,
@@ -2460,7 +2443,7 @@
     "UK": 27.9,
     "Canada": 45.94,
     "Australia": 50,
-    "NZ": 86.37670825
+    "NZ": 86.32284675
    },
    "stock": {
     "USA": "In stock",
@@ -2509,24 +2492,7 @@
     "Australia": "",
     "NZ": ""
    },
-   "indiaSources": [
-    {
-     "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/quest",
-     "price": 2000,
-     "stock": "Out of stock",
-     "discounted": false,
-     "verified": true
-    }
-   ],
-   "india": {
-    "price": 2000,
-    "source": "Board Games India",
-    "url": "https://www.boardgamesindia.com/quest",
-    "stock": "Out of stock",
-    "discount": 0.1,
-    "verified": true
-   }
+   "indiaSources": []
   },
   {
    "name": "Ra",
@@ -2536,7 +2502,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 36.99,
+    "USA": 32.96,
     "UK": 99,
     "Canada": 47.95,
     "Australia": 76.95,
@@ -2549,16 +2515,7 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": [
-    {
-     "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/ra-standard-edition",
-     "price": 5000,
-     "stock": "In stock",
-     "discounted": true,
-     "verified": false
-    }
-   ]
+   "indiaSources": []
   },
   {
    "name": "Railroad Ink: Deep Blue Edition",
@@ -2612,7 +2569,7 @@
     "UK": 27.19,
     "Canada": 46.99,
     "Australia": 56.95,
-    "NZ": 70.94127075
+    "NZ": 70.89703425
    },
    "stock": {
     "USA": "In stock",
@@ -2688,7 +2645,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 35.96,
+    "USA": 37.99,
     "UK": 31.99,
     "Canada": 29.95,
     "Australia": 54.95,
@@ -2880,7 +2837,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 12.75,
+    "USA": 14.99,
     "UK": 8.48,
     "Canada": 11.99,
     "Australia": 15.49,
@@ -2924,7 +2881,7 @@
     "UK": 16.99,
     "Canada": 26.95,
     "Australia": 34.61,
-    "NZ": 35.99
+    "NZ": 35.79
    },
    "stock": {
     "USA": "In stock",
@@ -3012,7 +2969,7 @@
     "UK": 21.22,
     "Canada": 17.99,
     "Australia": 22,
-    "NZ": 35.05
+    "NZ": 24
    },
    "stock": {
     "USA": "In stock",
@@ -3031,7 +2988,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 45.95,
+    "USA": 48.95,
     "UK": 32.79,
     "Canada": 51.95,
     "Australia": 79.99,
@@ -3138,7 +3095,7 @@
     "UK": 59.49,
     "Canada": 74.99,
     "Australia": 111.27,
-    "NZ": 124.25
+    "NZ": 124.3
    },
    "stock": {
     "USA": "In stock",
@@ -3468,7 +3425,7 @@
     "UK": 20.49,
     "Canada": 26.95,
     "Australia": 38,
-    "NZ": 32.04396825
+    "NZ": 32.02398675
    },
    "stock": {
     "USA": "Out of stock",
@@ -3693,16 +3650,7 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": [
-    {
-     "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/unstable-unicorns-rainbow-apocalypse-expansion-pack",
-     "price": 1600,
-     "stock": "Out of stock",
-     "discounted": false,
-     "verified": false
-    }
-   ]
+   "indiaSources": []
   },
   {
    "name": "Unstable Unicorns: Unicorns of Legend Expansion Pack",
@@ -3716,7 +3664,7 @@
     "UK": 14.99,
     "Canada": 19.95,
     "Australia": 27,
-    "NZ": 31.426550749999997
+    "NZ": 31.40695425
    },
    "stock": {
     "USA": "In stock",
@@ -3748,7 +3696,7 @@
     "UK": 47,
     "Canada": 56.95,
     "Australia": 80,
-    "NZ": 116.01274825
+    "NZ": 115.94040675
    },
    "stock": {
     "USA": "In stock",
@@ -3978,7 +3926,7 @@
     "UK": 47.99,
     "Canada": 74.99,
     "Australia": 99.95,
-    "NZ": 132.68302075
+    "NZ": 132.60028425
    },
    "stock": {
     "USA": "In stock",
@@ -3987,24 +3935,7 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": [
-    {
-     "site": "Board Games India",
-     "url": "https://www.boardgamesindia.com/wroth",
-     "price": 6500,
-     "stock": "Out of stock",
-     "discounted": false,
-     "verified": true
-    }
-   ],
-   "india": {
-    "price": 6500,
-    "source": "Board Games India",
-    "url": "https://www.boardgamesindia.com/wroth",
-    "stock": "Out of stock",
-    "discount": 0.1,
-    "verified": true
-   }
+   "indiaSources": []
   },
   {
    "name": "Magical athlete",
@@ -4098,7 +4029,7 @@
     "UK": 17.94,
     "Canada": 17.95,
     "Australia": 19.95,
-    "NZ": 30.809133249999995
+    "NZ": 30.789921749999998
    },
    "stock": {
     "USA": "In stock",
@@ -4361,7 +4292,7 @@
     "UK": 14.99,
     "Canada": 18.95,
     "Australia": 25.95,
-    "NZ": 36.98330824999999
+    "NZ": 36.960246749999996
    },
    "stock": {
     "USA": "In stock",
