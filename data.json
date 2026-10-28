@@ -1,12 +1,12 @@
 {
  "meta": {
-  "updated": "2026-10-27",
+  "updated": "2026-10-28",
   "fx": {
-   "USD": 95.18,
-   "GBP": 127.05,
-   "CAD": 67.85,
-   "AUD": 66.86,
-   "NZD": 54.07
+   "USD": 95.12,
+   "GBP": 126.78,
+   "CAD": 67.83,
+   "AUD": 66.89,
+   "NZD": 54.24
   }
  },
  "config": {
@@ -137,7 +137,7 @@
     "UK": 18,
     "Canada": 34.99,
     "Australia": 24.95,
-    "NZ": 39
+    "NZ": 38.98
    },
    "stock": {
     "USA": "In stock",
@@ -217,7 +217,7 @@
     "UK": 11.7,
     "Canada": 16.95,
     "Australia": 15.5,
-    "NZ": 19
+    "NZ": 33.95
    },
    "stock": {
     "USA": "In stock",
@@ -237,7 +237,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 46.97,
-    "UK": 44.99,
+    "UK": 36.16,
     "Canada": 59.99,
     "Australia": 68.11,
     "NZ": 71.95
@@ -334,10 +334,27 @@
     "USA": "In stock",
     "UK": "In stock",
     "Canada": "In stock",
-    "Australia": "In stock",
+    "Australia": "Out of stock",
     "NZ": ""
    },
-   "indiaSources": []
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/bites-board-game-tables-com",
+     "price": 4300,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": true
+    }
+   ],
+   "india": {
+    "price": 4300,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/bites-board-game-tables-com",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Burgle Bros 2: The Casino Capers",
@@ -387,7 +404,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 24.99,
+    "USA": 29.71,
     "UK": null,
     "Canada": 35.95,
     "Australia": 42.95,
@@ -548,7 +565,7 @@
     "UK": 24.45,
     "Canada": 39.95,
     "Australia": 57.5,
-    "NZ": 62.52
+    "NZ": 63.1
    },
    "stock": {
     "USA": "In stock",
@@ -608,7 +625,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 52.98,
-    "UK": 51.99,
+    "UK": 50.88,
     "Canada": 74.99,
     "Australia": 88.95,
     "NZ": 62.22
@@ -656,7 +673,7 @@
    "stock": {
     "USA": "In stock",
     "UK": "In stock",
-    "Canada": "In stock",
+    "Canada": "Out of stock",
     "Australia": "",
     "NZ": ""
    },
@@ -1264,7 +1281,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 20.95,
+    "USA": 21.95,
     "UK": 13.99,
     "Canada": 20.99,
     "Australia": 27.99,
@@ -1998,7 +2015,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 25.99,
+    "USA": 26.47,
     "UK": 9.99,
     "Canada": 32.95,
     "Australia": 42.5,
@@ -2776,7 +2793,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 11.99,
-    "UK": 10.38,
+    "UK": 10.99,
     "Canada": 19.99,
     "Australia": 22.5,
     "NZ": 21
@@ -2907,7 +2924,7 @@
     "UK": 16.99,
     "Canada": 26.95,
     "Australia": 34.61,
-    "NZ": 34.2
+    "NZ": 34.66
    },
    "stock": {
     "USA": "In stock",
@@ -3121,7 +3138,7 @@
     "UK": 59.49,
     "Canada": 74.99,
     "Australia": 111.27,
-    "NZ": 124.3
+    "NZ": 123.09
    },
    "stock": {
     "USA": "In stock",
@@ -3271,7 +3288,7 @@
     "UK": 40.99,
     "Canada": 44.95,
     "Australia": 74.99,
-    "NZ": 75.67
+    "NZ": 76.34
    },
    "stock": {
     "USA": "In stock",
@@ -3451,7 +3468,7 @@
     "UK": 20.49,
     "Canada": 26.95,
     "Australia": 38,
-    "NZ": 32.0245317
+    "NZ": 57.96658275
    },
    "stock": {
     "USA": "Out of stock",
@@ -3611,7 +3628,7 @@
     "USA": 12.63,
     "UK": 11.99,
     "Canada": 17.95,
-    "Australia": 28.82,
+    "Australia": 27.99,
     "NZ": 30.36
    },
    "stock": {
@@ -3698,7 +3715,7 @@
     "USA": 12.63,
     "UK": 14.99,
     "Canada": 19.95,
-    "Australia": 27,
+    "Australia": 28.25,
     "NZ": 31.389928199999996
    },
    "stock": {
@@ -3808,7 +3825,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 55,
-    "UK": 43.69,
+    "UK": 42.51,
     "Canada": 62.94,
     "Australia": 74.99,
     "NZ": 76.99
@@ -3832,9 +3849,9 @@
     {
      "site": "Board Games India",
      "url": "https://www.boardgamesindia.com/wingspan-with-swift-start-pack",
-     "price": 5500,
+     "price": 6000,
      "stock": "In stock",
-     "discounted": true,
+     "discounted": false,
      "verified": true
     },
     {
@@ -3970,7 +3987,24 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": []
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/wroth",
+     "price": 6500,
+     "stock": "Out of stock",
+     "discounted": true,
+     "verified": true
+    }
+   ],
+   "india": {
+    "price": 6500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/wroth",
+    "stock": "Out of stock",
+    "discount": 0,
+    "verified": true
+   }
   },
   {
    "name": "Magical athlete",
@@ -4134,7 +4168,7 @@
     "USA": 28,
     "UK": null,
     "Canada": null,
-    "Australia": 56.95,
+    "Australia": 69.99,
     "NZ": null
    },
    "stock": {
@@ -4430,7 +4464,7 @@
     "UK": 19.99,
     "Canada": 24.95,
     "Australia": 35.99,
-    "NZ": 43.24
+    "NZ": 40.41
    },
    "stock": {
     "USA": "In stock",
