@@ -1,12 +1,12 @@
 {
  "meta": {
-  "updated": "2026-10-30",
+  "updated": "2026-10-31",
   "fx": {
-   "USD": 95.27,
-   "GBP": 126.86,
-   "CAD": 68.07,
-   "AUD": 66.93,
-   "NZD": 53.5
+   "USD": 94.95,
+   "GBP": 127.22,
+   "CAD": 67.97,
+   "AUD": 66.7,
+   "NZD": 53.51
   }
  },
  "config": {
@@ -368,7 +368,7 @@
     "UK": null,
     "Canada": 75.99,
     "Australia": 67.95,
-    "NZ": 85.1493681
+    "NZ": 84.8933325
    },
    "stock": {
     "USA": "",
@@ -408,7 +408,7 @@
     "UK": null,
     "Canada": 35.95,
     "Australia": 42.95,
-    "NZ": 53.8214181
+    "NZ": 53.6595825
    },
    "stock": {
     "USA": "In stock",
@@ -517,7 +517,7 @@
     "UK": 20.49,
     "Canada": 27.95,
     "Australia": 39.95,
-    "NZ": 50.0620641
+    "NZ": 49.9115325
    },
    "stock": {
     "USA": "In stock",
@@ -562,10 +562,10 @@
    "status": "Not Started",
    "prices": {
     "USA": 31.99,
-    "UK": 27.86,
+    "UK": 24.45,
     "Canada": 39.95,
     "Australia": 61.95,
-    "NZ": 63.01
+    "NZ": 59.19
    },
    "stock": {
     "USA": "In stock",
@@ -690,7 +690,7 @@
     "USA": 31.97,
     "UK": 29.99,
     "Canada": 40,
-    "Australia": 75.29,
+    "Australia": 75.26,
     "NZ": null
    },
    "stock": {
@@ -1067,18 +1067,18 @@
     {
      "site": "Board Games India",
      "url": "https://www.boardgamesindia.com/foundations-of-metropolis-en-gb-5969",
-     "price": 5000,
+     "price": 5500,
      "stock": "Pre-order",
-     "discounted": true,
+     "discounted": false,
      "verified": true
     }
    ],
    "india": {
-    "price": 5000,
+    "price": 5500,
     "source": "Board Games India",
     "url": "https://www.boardgamesindia.com/foundations-of-metropolis-en-gb-5969",
     "stock": "Pre-order",
-    "discount": 0,
+    "discount": 0.1,
     "verified": true
    }
   },
@@ -1094,7 +1094,7 @@
     "UK": null,
     "Canada": 35.99,
     "Australia": 35.95,
-    "NZ": 45.049592100000005
+    "NZ": 44.9141325
    },
    "stock": {
     "USA": "In stock",
@@ -1157,7 +1157,7 @@
     "UK": 26.9,
     "Canada": 37.95,
     "Australia": 51.95,
-    "NZ": 53
+    "NZ": 49.95
    },
    "stock": {
     "USA": "In stock",
@@ -1525,7 +1525,7 @@
     "UK": 29.99,
     "Canada": 46.95,
     "Australia": 63.97,
-    "NZ": 62.5932441
+    "NZ": 62.405032500000004
    },
    "stock": {
     "USA": "In stock",
@@ -1859,7 +1859,7 @@
     "UK": 14.81,
     "Canada": 32.99,
     "Australia": 42.95,
-    "NZ": 56.327654100000004
+    "NZ": 56.1582825
    },
    "stock": {
     "USA": "In stock",
@@ -2208,7 +2208,7 @@
     "UK": 34.99,
     "Canada": 54.99,
     "Australia": 58.28,
-    "NZ": 90.1618401
+    "NZ": 89.8907325
    },
    "stock": {
     "USA": "In stock",
@@ -2271,7 +2271,7 @@
     "UK": 33.92,
     "Canada": 46.95,
     "Australia": 81.95,
-    "NZ": 102.6930201
+    "NZ": 102.3842325
    },
    "stock": {
     "USA": "In stock",
@@ -2460,7 +2460,7 @@
     "UK": 27.9,
     "Canada": 45.94,
     "Australia": 50,
-    "NZ": 87.6556041
+    "NZ": 87.3920325
    },
    "stock": {
     "USA": "In stock",
@@ -2612,7 +2612,7 @@
     "UK": 27.19,
     "Canada": 46.99,
     "Australia": 56.95,
-    "NZ": 71.9916291
+    "NZ": 71.7751575
    },
    "stock": {
     "USA": "In stock",
@@ -3467,8 +3467,8 @@
     "USA": 19.96,
     "UK": 20.49,
     "Canada": 26.95,
-    "Australia": 38,
-    "NZ": 58.8338901
+    "Australia": 36.95,
+    "NZ": 58.656982500000005
    },
    "stock": {
     "USA": "Out of stock",
@@ -3716,7 +3716,7 @@
     "UK": 14.99,
     "Canada": 19.95,
     "Australia": 27,
-    "NZ": 31.8918531
+    "NZ": 31.795957499999997
    },
    "stock": {
     "USA": "In stock",
@@ -3748,7 +3748,7 @@
     "UK": 47,
     "Canada": 56.95,
     "Australia": 80,
-    "NZ": 117.7304361
+    "NZ": 117.37643249999999
    },
    "stock": {
     "USA": "In stock",
@@ -3825,7 +3825,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 55,
-    "UK": 40.12,
+    "UK": 42.1,
     "Canada": 62.94,
     "Australia": 74.99,
     "NZ": 76.99
@@ -3884,7 +3884,7 @@
     "UK": 26.9,
     "Canada": 44.94,
     "Australia": 49,
-    "NZ": 51.4
+    "NZ": 52.01
    },
    "stock": {
     "USA": "In stock",
@@ -3978,7 +3978,7 @@
     "UK": 47.99,
     "Canada": 74.99,
     "Australia": 99.95,
-    "NZ": 134.64752909999999
+    "NZ": 134.2426575
    },
    "stock": {
     "USA": "In stock",
@@ -3991,18 +3991,18 @@
     {
      "site": "Board Games India",
      "url": "https://www.boardgamesindia.com/wroth",
-     "price": 6500,
+     "price": 7000,
      "stock": "Out of stock",
-     "discounted": true,
+     "discounted": false,
      "verified": true
     }
    ],
    "india": {
-    "price": 6500,
+    "price": 7000,
     "source": "Board Games India",
     "url": "https://www.boardgamesindia.com/wroth",
     "stock": "Out of stock",
-    "discount": 0,
+    "discount": 0.1,
     "verified": true
    }
   },
@@ -4098,7 +4098,7 @@
     "UK": 17.94,
     "Canada": 17.95,
     "Australia": 19.95,
-    "NZ": 31.2652941
+    "NZ": 31.171282499999997
    },
    "stock": {
     "USA": "In stock",
@@ -4361,7 +4361,7 @@
     "UK": 14.99,
     "Canada": 18.95,
     "Australia": 25.95,
-    "NZ": 37.530884099999994
+    "NZ": 37.418032499999995
    },
    "stock": {
     "USA": "In stock",
