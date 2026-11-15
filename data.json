@@ -1,6 +1,6 @@
 {
  "meta": {
-  "updated": "2026-11-14",
+  "updated": "2026-11-15",
   "fx": {
    "USD": 94.24,
    "GBP": 124.65,
@@ -31,7 +31,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 13.95,
-    "UK": 12.24,
+    "UK": 12.23,
     "Canada": 25.95,
     "Australia": 18,
     "NZ": 38.47
@@ -106,7 +106,24 @@
     "Australia": "In stock",
     "NZ": "In stock"
    },
-   "indiaSources": []
+   "indiaSources": [
+    {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/agent-avenue",
+     "price": 2500,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": true
+    }
+   ],
+   "india": {
+    "price": 2500,
+    "source": "Board Games India",
+    "url": "https://www.boardgamesindia.com/agent-avenue",
+    "stock": "Out of stock",
+    "discount": 0.1,
+    "verified": true
+   }
   },
   {
    "name": "Akropolis",
@@ -545,7 +562,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 28.99,
-    "UK": 27.77,
+    "UK": 27.71,
     "Canada": 39.95,
     "Australia": 61.95,
     "NZ": 61.88
@@ -693,7 +710,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 28.97,
+    "USA": 39.95,
     "UK": 34.99,
     "Canada": 57.95,
     "Australia": 77.95,
@@ -846,8 +863,8 @@
     "USA": "Out of stock",
     "UK": "",
     "Canada": "In stock",
-    "Australia": "Out of stock",
-    "NZ": "Out of stock"
+    "Australia": "In stock",
+    "NZ": "In stock"
    },
    "indiaSources": [
     {
@@ -885,7 +902,7 @@
    "stock": {
     "USA": "In stock",
     "UK": "In stock",
-    "Canada": "Out of stock",
+    "Canada": "In stock",
     "Australia": "In stock",
     "NZ": "In stock"
    },
@@ -1140,7 +1157,7 @@
     "UK": 24.5,
     "Canada": 37.95,
     "Australia": 51.95,
-    "NZ": 49.95
+    "NZ": 38.99
    },
    "stock": {
     "USA": "In stock",
@@ -1264,7 +1281,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 21.95,
+    "USA": 20.95,
     "UK": 13.99,
     "Canada": 20.99,
     "Australia": 27.99,
@@ -1592,7 +1609,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 30.49,
+    "USA": 31.99,
     "UK": 24.99,
     "Canada": 44.95,
     "Australia": 65.95,
@@ -2522,7 +2539,7 @@
     "USA": 36.99,
     "UK": 99,
     "Canada": 47.95,
-    "Australia": 76.95,
+    "Australia": 90,
     "NZ": 119.99
    },
    "stock": {
@@ -2727,7 +2744,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 50,
+    "USA": 49.99,
     "UK": null,
     "Canada": 59.99,
     "Australia": 94.99,
@@ -2907,7 +2924,7 @@
     "UK": 16.99,
     "Canada": 26.95,
     "Australia": 34.61,
-    "NZ": 34.45
+    "NZ": 35.25
    },
    "stock": {
     "USA": "In stock",
@@ -3014,7 +3031,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 60.95,
+    "USA": 57.95,
     "UK": 32.79,
     "Canada": 51.95,
     "Australia": 85,
@@ -3063,7 +3080,7 @@
    "stock": {
     "USA": "Out of stock",
     "UK": "In stock",
-    "Canada": "In stock",
+    "Canada": "Out of stock",
     "Australia": "",
     "NZ": "In stock"
    },
@@ -3447,7 +3464,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 20,
+    "USA": 19.99,
     "UK": 20.49,
     "Canada": 26.95,
     "Australia": 36.95,
@@ -3474,7 +3491,7 @@
     "UK": 47.99,
     "Canada": 57.95,
     "Australia": 83.96,
-    "NZ": 90.3
+    "NZ": 89.54
    },
    "stock": {
     "USA": "In stock",
