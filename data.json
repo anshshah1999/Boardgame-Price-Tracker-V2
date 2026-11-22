@@ -1,6 +1,6 @@
 {
  "meta": {
-  "updated": "2026-11-21",
+  "updated": "2026-11-22",
   "fx": {
    "USD": 92.68,
    "GBP": 121.63,
@@ -102,7 +102,7 @@
    "stock": {
     "USA": "In stock",
     "UK": "In stock",
-    "Canada": "Out of stock",
+    "Canada": "In stock",
     "Australia": "In stock",
     "NZ": "In stock"
    },
@@ -237,7 +237,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 46.97,
-    "UK": 43.69,
+    "UK": 42.08,
     "Canada": 47.24,
     "Australia": 68.11,
     "NZ": 58.43
@@ -490,7 +490,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 29.99,
+    "USA": 21.97,
     "UK": 20.9,
     "Canada": 29.95,
     "Australia": 39,
@@ -562,7 +562,7 @@
    "status": "Not Started",
    "prices": {
     "USA": 31.99,
-    "UK": 26.51,
+    "UK": 26.63,
     "Canada": 39.95,
     "Australia": 61.95,
     "NZ": 50.55
@@ -933,7 +933,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 7.97,
+    "USA": 7.96,
     "UK": 4.49,
     "Canada": 8.49,
     "Australia": 10.45,
@@ -1162,7 +1162,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 31.99,
+    "USA": 23.49,
     "UK": 24.5,
     "Canada": 37.95,
     "Australia": 51.95,
@@ -1410,7 +1410,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 27.99,
+    "USA": 33.99,
     "UK": 30,
     "Canada": 30.56,
     "Australia": 69,
@@ -1596,7 +1596,7 @@
      "site": "Board Games India",
      "url": "https://www.boardgamesindia.com/junk-art-revolution-en-gb-6080",
      "price": 5800,
-     "stock": "In stock",
+     "stock": "Out of stock",
      "discounted": false,
      "verified": true
     }
@@ -1605,7 +1605,7 @@
     "price": 5800,
     "source": "Board Games India",
     "url": "https://www.boardgamesindia.com/junk-art-revolution-en-gb-6080",
-    "stock": "In stock",
+    "stock": "Out of stock",
     "discount": 0.1,
     "verified": true
    }
@@ -1864,7 +1864,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 22.47,
+    "USA": 19.95,
     "UK": 19.87,
     "Canada": 31.94,
     "Australia": 42.7,
@@ -1908,7 +1908,7 @@
     "UK": 19.99,
     "Canada": 32.95,
     "Australia": 44.6,
-    "NZ": 54.37
+    "NZ": 53.31
    },
    "stock": {
     "USA": "In stock",
@@ -2068,7 +2068,7 @@
     "UK": 34.35,
     "Canada": 46.99,
     "Australia": 79.95,
-    "NZ": 84.95
+    "NZ": 72.13
    },
    "stock": {
     "USA": "In stock",
@@ -2279,7 +2279,7 @@
     "USA": 36.39,
     "UK": 34.99,
     "Canada": 46.95,
-    "Australia": 59.99,
+    "Australia": 74.36,
     "NZ": 99.4868083
    },
    "stock": {
@@ -2360,7 +2360,7 @@
     "UK": 16.99,
     "Canada": 26.95,
     "Australia": 27.16,
-    "NZ": 44.04
+    "NZ": 46.42
    },
    "stock": {
     "USA": "In stock",
@@ -2929,11 +2929,11 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 22.39,
+    "USA": 19.09,
     "UK": 16.99,
     "Canada": 25.56,
     "Australia": 34.61,
-    "NZ": 35.36
+    "NZ": 35.33
    },
    "stock": {
     "USA": "In stock",
@@ -3040,14 +3040,14 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 61.95,
+    "USA": 39.97,
     "UK": 32.79,
     "Canada": 51.95,
     "Australia": 85,
     "NZ": null
    },
    "stock": {
-    "USA": "In stock",
+    "USA": "Out of stock",
     "UK": "In stock",
     "Canada": "In stock",
     "Australia": "In stock",
@@ -3199,7 +3199,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 43.99,
+    "USA": 39.99,
     "UK": 26.99,
     "Canada": 48.94,
     "Australia": 54.97,
@@ -4110,6 +4110,14 @@
    },
    "indiaSources": [
     {
+     "site": "Board Games India",
+     "url": "https://www.boardgamesindia.com/bang-the-dice-game-dv-giochi",
+     "price": 1800,
+     "stock": "Out of stock",
+     "discounted": false,
+     "verified": true
+    },
+    {
      "site": "Boardway",
      "url": "https://boardway.in/products/bang-the-dice-game",
      "price": 1799,
@@ -4158,7 +4166,7 @@
    "discount": null,
    "status": "Not Started",
    "prices": {
-    "USA": 28,
+    "USA": 25.99,
     "UK": null,
     "Canada": null,
     "Australia": 52.65,
@@ -4457,7 +4465,7 @@
     "UK": 19.99,
     "Canada": 24.95,
     "Australia": 35.99,
-    "NZ": 38.15
+    "NZ": 38.64
    },
    "stock": {
     "USA": "In stock",
@@ -4653,7 +4661,7 @@
     "USA": 59.99,
     "UK": 45.94,
     "Canada": 69.95,
-    "Australia": 109.99,
+    "Australia": 109.95,
     "NZ": 89.99
    },
    "stock": {
